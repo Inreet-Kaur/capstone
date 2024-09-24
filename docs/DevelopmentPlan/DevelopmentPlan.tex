@@ -46,7 +46,7 @@
 
 \newpage{}
 
-This document will provide details about various essential aspects of our development plan. It covers information about critical areas such as confidential information, IPs, and copyright considerations ensuring compliance with ethical standards and regulatory requirements. In addition to this, we will outline team meetings communication plans, and team member roles. We will include a workflow plan that describes how we plan to use Git and GitHub projects for workflow plans and project decompositions and scheduling. Moreover, we have incuded a proof-of-concept demonstration plan along with the technology stack and coding standards we wish for the development of our project. Finally, we will reflect on our learning from this exercise and include a team charter that defines our goals, expectations, and decision-making strategy. 
+This document will provide details about various essential aspects of our development plan. It covers information about critical areas such as confidential information, IPs, and copyright considerations ensuring compliance with ethical standards and regulatory requirements. In addition to this, we will outline team meetings communication plans, and team member roles. We will include a workflow plan that describes how we plan to use Git and GitHub projects and project decompositions and scheduling. Moreover, we have incuded a proof-of-concept demonstration plan along with the technology stack and coding standards we wish to use for the development of our project. Finally, we will reflect on our learning from this exercise and include a team charter that defines our goals, expectations, and decision-making strategy. 
 
 \wss{Additional information on the development plan can be found in the
 \href{https://gitlab.cas.mcmaster.ca/courses/capstone/-/blob/main/Lectures/L02b_POCAndDevPlan/POCAndDevPlan.pdf?ref_type=heads}
@@ -85,29 +85,29 @@ in-person.}
 
 \section{Team Member Roles}
  
-The team would have the following distribution of administrative roles.
+The team will assign specific roles for the project after the preliminary elicitation and design thinking process is complete. Currently, the team would have the following distribution of administrative roles.
 
 \begin{itemize}
-\item Project Leader: Pranav Kalsi
+\item \textbf{Project Leader} -- Pranav Kalsi
 \begin{itemize}
 \item Prepare agenda for team meetings, ensuring all relevant topics are covered and goals are clear
 \item Assign issues on the Kanban board, tracking the progress of each task and redistributing work if needed
 \item Act as a liaison between the group and instructional team
 \end{itemize}
 
-\item Notetaker: Gurleen Kaur
+\item \textbf{Notetaker} -- Gurleen Rahi
 \begin{itemize}
 \item Record meeting minutes and attendance during team meetings
 \item Assist in updating the Kanban board based on meeting outcomes
 \end{itemize}
 
-\item Communication Laison: Moamen Ahmed
+\item \textbf{Communication Laison} -- Moamen Ahmed
 \begin{itemize}
 \item Organize team meetings and send reminders to all team members
 \item Schedule meetings with external stakeholders
 \end{itemize}
 
-\item Administrator: Inreet Kaur
+\item \textbf{Administrator} -- Inreet Kaur
 \begin{itemize}
 \item Submit Deliverables on the avenue and ensure they meet the requirements
 \item Maintain project documentation and files
@@ -115,14 +115,12 @@ The team would have the following distribution of administrative roles.
 \end{itemize} 
 
 The team will remain flexible for the following roles, with responsibilities subject to change based on the needs of each deliverable and the final project:
-
-Meeting Chair: This role will rotate between team members. The chair will organize and lead meetings, ensuring that the agenda is followed, and discussions stay focused.
-
-Reviewer: The team plans to distribute each milestone evenly among the team members. Each team member’s work will be reviewed by at least two other team members. The reviewer will update issues on GitHub with appropriate comments.
-
-Subject researcher: During a deliverable team members may be assigned to gather information about the industry, their processes, and information about the technology used in development. This role will shift based on individual expertise.
-
-By adopting a flexible approach to the following roles, we want to ensure that everyone has the opportunity to lead and adapt their role according to the project’s needs. Regular check-ins during the team meetings will allow the team to reassess the roles and redistribute tasks as needed. 
+\begin{itemize}
+\item \textbf{Meeting Chair} -- This role will rotate between team members. The chair will organize and lead meetings, ensuring that the agenda is followed, and discussions stay focused.
+\item \textbf{Reviewer} -- The team plans to distribute each milestone evenly among the team members. Each team member’s work will be reviewed by at least two other team members. The reviewer will update issues on GitHub with appropriate comments.
+\item \textbf{Subject researcher} -- During a deliverable team members may be assigned to gather information about the industry, their processes, and information about the technology used in development. This role will shift based on individual expertise.
+\end{itemize}
+By adopting a flexible approach to the following roles, we want to ensure that everyone has the opportunity to lead. Regular check-ins during the team meetings will allow the team to reassess the roles and redistribute tasks as needed. 
 
 
 \section{Workflow Plan}
@@ -130,24 +128,24 @@ By adopting a flexible approach to the following roles, we want to ensure that e
 We will utilize Git as our version control throughout this project. Here is a detailed breakdown of how we collaborate using different features on GitHub. 
 
 \begin{itemize}
-\item Branches: We will create different branches related to each task or issue. 
+\item \textbf{Branches} -- We will create different branches related to each task or issue. 
 \begin{itemize}
-\item Main branch: The main branch will have a stable production-ready code. 
-\item Feature branches: All features will be assigned their own branch. Once tested it will be merged into the main branch.
-\item Documentation branches: Each team member will create their branch when working on a particular documentation task. 
+\item Main branch -- The main branch will have a stable production-ready code. 
+\item Feature branches -- All features will be assigned their own branch. Once tested it will be merged into the main branch.
+\item Documentation branches -- Each team member will create their branch when working on a particular documentation task. 
 \end{itemize}
 
-\item Pull requests: Once a feature is ready for production or some documentation is ready, team members will create a pull request to merge them into the main branch. Each commit should include a brief description of the changes and related issue numbers of the Kanban board.
+\item \textbf{Pull requests} -- Once a feature is ready for production or some documentation is ready, team members will create a pull request to merge them into the main branch. Each commit should include a brief description of the changes and related issue numbers of the Kanban board.
 
-\item Issue tracking: The team will utilize the Kanban board under projects for issue tracking. The team will use the provided templates for the appropriate issues and create its own where needed. 
+\item \textbf{Issue tracking} -- The team will utilize the Kanban board under projects for issue tracking. The team will use the provided templates for the appropriate issues and create its own where needed. 
 \end{itemize}
 
 The team will be using the following projects:
 
 \begin{itemize}
-\item Metrics: This project will be used to record metrics such as attended lectures and team meetings. It has two types of Issues lecture meetings and team meetings and uses the appropriate templates provided. Each team member adds their own attendance and updates team meeting notes as per their assigned roles.
-\item Documentation: This project is used to create issues for each assigned task related to project documentation. Each issue will be reviewed by at least two other team members. Each issue uses a customized documentation template and is classified based on different milestones of project documentation. 
-\item Development workflow: This project will be used to record issues for different features, feature enhancement, bug fixes, and other needs of the project. The issues will be divided into the above-listed categories and will use customized templates for each. 
+\item \textbf{Metrics} -- This project will be used to record metrics such as attended lectures and team meetings. It has two types of issues, lecture meetings and team meetings and uses the appropriate templates provided. Each team member adds their own attendance and updates team meeting notes as per their assigned roles.
+\item \textbf{Documentation} -- This project is used to create issues for each assigned task related to project documentation. Each issue will be reviewed by at least two other team members. Each issue uses a customized documentation template and is classified based on different milestones of project documentation. 
+\item \textbf{Development workflow} -- This project will be used to record issues for different features, feature enhancements, bug fixes, and other needs of the project. The issues will be divided into the above listed categories and will use customized templates for each. 
 \end{itemize}
 
 CI/CD will be critical for project development. We will be using \textbf{Jenkins} which is an open-source CI/CD development tool that will act as an automated DevOps tool.
@@ -162,7 +160,7 @@ By implemening a CI/CD tool (Jenkins) we can ensure that code isn't riddled with
 
 \section{Project Decomposition and Scheduling}
 
-The team will utilize Kanban Board Projects for Issue tracking with four different stages of an issue: ‘To Do’, ‘In Progress’, ‘Review’, and ‘Done’. The team will create different issues for features, bugs, documentation, team meetings, lecture meetings and other things as needed using appropriate templates. The team will create templates for features, bugs and documentation. Issues under different projects will be classified into different milestones with appropriate deadlines. This will help us to track our progress for major milestones in the project. 
+The team will utilize Kanban Board Projects for issue tracking with four different stages of an issue: ‘To Do’, ‘In Progress’, ‘Review’, and ‘Done’. The team will create different issues for features, bugs, documentation, team meetings, lecture meetings and other things as needed using appropriate templates. The team will create templates for features, bugs and documentation. Issues under different projects will be classified into different milestones with appropriate deadlines. This will help us to track our progress for major milestones in the project. 
 Futhermore, we will divide the Kanban board issues into sprints, therefore we can reduce the risk of the overall project. Sprints will ensure that the risk of the project is lowered as we will be working in an agile fashion.
 
 Project Links:
@@ -175,9 +173,9 @@ Project Links:
 \href{https://github.com/users/Inreet-Kaur/projects/6}{Development workflow}
 \end{itemize}
 
-Here is a general process that our team will follow to work on each issue. The team leader will create different issues under the ‘To do’ section and assign them to different team members as discussed during team meetings. Once the changes have been made the team members can now move the issue under the ‘Review’ tab and assign it to other members. The reviewers will provide appropriate comments and suggested changes and move the issue to the ‘In progress’ section if needed. Each issue will be reviewed by at least two other team members. Once the final changes are approved, the issue will now be moved to the ‘Done’ section. 
+Here is a general process that our team will follow to work on each issue. The team leader will create different issues under the ‘To do’ section and assign them to different team members as discussed during team meetings. Each team member create their own branch to and will pull the latest changes from the main branch. Once the team member have made their changes they can be pushed to github and the related issue can be moved under the ‘Review’ tab. The reviewers will provide appropriate comments and suggested changes and move the issue to the ‘In progress’ section if needed. Each issue will be reviewed by at least two other team members. Once the final changes are approved, a PR request will be raised to merge the changes into main branch and issue will now be moved to the ‘Done’ section. 
 
-Each project will be scheduled according to the deadlines outlined in the course outline. The documentation project will have a separate milestone for each deliverable mentioned in the course outline along with the appropriate deadline. The metrics project will track all the team meetings, lecture attendance, and other metrics required throughout the course. We will create an issue for each lecture and each team meeting with the required details in the template. The development project will be classified into different milestones throughout this course. Some stages include initial feature planning, Phase 1 which includes developing core functionalities, including voice recording and chart filling, and Phase 2 which includes developing additional features like the analytical dashboard, triage integration etc. Each phase will have separate issues for feature development, bug fixes, enhancement, and final reviews. 
+Each task within the three projects will be scheduled according to the deadlines outlined in the course outline. The documentation project will have a separate milestone for each deliverable mentioned in the course outline along with the appropriate deadlines. The metrics project will track all the team meetings, lecture attendance, and other metrics required throughout the course. We will create an issue for each lecture and each team meeting with the required details in the template. The development project will be classified into different milestones throughout this course. Some stages include initial feature planning, Phase 1 which includes developing core functionalities, including voice recording and chart filling, and Phase 2 which includes developing additional features like the analytical dashboard, triage integration etc. Each phase will have separate issues for feature development, bug fixes, enhancement, and final reviews. 
 
 \section{Proof of Concept Demonstration Plan}
 
