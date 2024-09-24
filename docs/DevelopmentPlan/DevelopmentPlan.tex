@@ -150,11 +150,20 @@ The team will be using the following projects:
 \item Development workflow: This project will be used to record issues for different features, feature enhancement, bug fixes, and other needs of the project. The issues will be divided into the above-listed categories and will use customized templates for each. 
 \end{itemize}
 
-CI/CD: Pranav
+CI/CD will be critical for project development. We will be using \textbf{Jenkins} which is an open-source CI/CD development tool that will act as an automated DevOps tool.
+
+Jenkins will allow us to achieve Continuous Integration and Continuous Delivery through the following:
+\begin{itemize}
+  \item \textbf{Continuous Integration} -- On the continuous integration time Jenkins offers automated build and testing. This will save a lot of overhead on testing and test feedback as Jenkins will be responsible for it as not only will it build and test the code it will offer instant feedback to the developer.
+  \item \textbf{Continuous Deployment} -- Jenkins offer automated deployment functionalities meaning that once the build passes all test it can be deoployed into a production or pre-production environment. This will ensure the deployment is consistent, reliable, and efficient. This also will make sure that all features pass a minimum functionality standard ensuring that they are ready for production. Jenkins offers intragrations with git as well so deployments will be version controlled meain they may be reverted as needed.
+\end{itemize}
+
+By implemening a CI/CD tool (Jenkins) we can ensure that code isn't riddled with errors and automate a lot of task which will increase productivity. Having Jenkins also will reduce the risk of human error in the project and will automate many areas of DevOps. 
 
 \section{Project Decomposition and Scheduling}
 
 The team will utilize Kanban Board Projects for Issue tracking with four different stages of an issue: ‘To Do’, ‘In Progress’, ‘Review’, and ‘Done’. The team will create different issues for features, bugs, documentation, team meetings, lecture meetings and other things as needed using appropriate templates. The team will create templates for features, bugs and documentation. Issues under different projects will be classified into different milestones with appropriate deadlines. This will help us to track our progress for major milestones in the project. 
+Futhermore, we will divide the Kanban board issues into sprints, therefore we can reduce the risk of the overall project. Sprints will ensure that the resik of the project is lowered as we will be working in an agile fashion.
 
 Project Links:
 \begin{itemize}
@@ -174,7 +183,21 @@ Each project will be scheduled according to the deadlines outlined in the course
 
 What is the main risk, or risks, for the success of your project?  What will you
 demonstrate during your proof of concept demonstration to convince yourself that
-you will be able to overcome this risk?
+you will be able to overcome this risk?\\
+
+The main risk of the project is related to the reduction of documentation overhead. This means the biggest risk is really if this project can make a significant reduction to overhead time and trulty reduce patient wait times. Again, through ellicitation and our domain experts we will create an effective set of requirments to reduce the risk of the project and build something that is needed.\\
+
+Through our development plan, the coding standards, and agile approach the development risk is made to be lower than an herculean approach. Therefore due to our development approach and using an agile workflow the projects risk will be reduced as features will be created overtime.\\
+
+Looking at implementation details there are a few risks that come up, if these risks can be addressed or have a clearer roadmap that will make us more confident in the project. 
+
+\begin{itemize}
+  \item \textbf{Speech Input} -- A hospital or a clinic can be a loud place, in the event audio input is taken we need to ensure that it is clean and clear. This would be mean essentially blocking outside noise. 
+  \item \textbf{Visual Inputs} -- If any old charts are needing to be inputted into the patient journey having the ability to scan and transfer the information into the required format will be another risk. The document needs to be rid of noisy data.
+  \item \textbf{Pre-Trained Models} -- To manipulate and use both inputs above we need to create a model to be accurate and provide accuracy when filling in charts. 
+  \item \textbf{Data privacy} -- This application will hold a lot of patient data so create a store that is secure and making sure standard data security practice is applied is a must.
+  \item \textbf{User Acceptance} -- This will require further ellicitation outside supervisors. We need to gather data on what critical needs are on healthcare professionals such that critical features are present. 
+\end{itemize}
 
 \section{Expected Technology}
 
@@ -194,19 +217,39 @@ members will need to augment their training.}
 
 Topics to discuss include the following:
 
+
+In terms of expected technologies we need expect will again change will implementation details and architectures. Below is a starting point for a microservices based architecture.
+
+
 \begin{itemize}
-\item Specific programming language
-\item Specific libraries
-\item Pre-trained models
-\item Specific linter tool (if appropriate)
-\item Specific unit testing framework
-\item Investigation of code coverage measuring tools
-\item Specific plans for Continuous Integration (CI), or an explanation that CI
-  is not being done
-\item Specific performance measuring tools (like Valgrind), if
-  appropriate
-\item Tools you will likely be using?
+  \item Programming languages/Frameworks and Data managment:
+    \begin{itemize}
+      \item ReactJS -- This will be used for the frontend of the application.
+      \item Python (Flask) -- This will be used to write backend services.
+      \item Java (SpringBoot) -- This will also provide an alternative option for backend services, it could be specifically be useful for MongoDB intergration.
+      \item MongoDB -- All data will be managed through a MongoDB database as it offers built in caching and performs well under load.
+      \item Distributed Cache (Redis) -- Items that make be frequent calls can be cached through redis. This will overall increase the performance of the application.
+    \end{itemize}
+    
+
+  \item Libraries
+    Key frameworks have be
+    \begin{itemize}
+      \item LangChain -- This will be used for and LLM intergrations as it offers integrations will all of big LLMs.
+      \item NLTK -- NLTK will be used for any natural language processing needs. 
+      \item Redux -- Redux will be critical in managing frontend states.
+      \item OAuth -- OAuth will be critical in microservices communication to validate the services. This will especially come in handy in a specific middleware layer is implemented.
+    \end{itemize}
+
+  \item Specific linter tool -- Linters are useful for catching errors early in the development process. This also ensure the code that is written adhere to the standard which will mitigate code smells and enforce a specific style. Linters we can use include PyLint (Python), PMD for error catching, and/or Checkstyle to ensure the required coding standard is upheld.
+  \item Specific unit testing framework -- For frontend testing we can use selenium to interact with the front and leverage frameworks like JUnit for backend unit testing. 
+    
+  \item Investigation of code coverage measuring tools -- language specific code coverage tools will be used such as Coverage.py for python to assess coverage metrics and which cases are tested for.
+  \item Continuous integration -- As stated above Jenkins will be used to automate a lot of CI tasks. Please refer to the CI/CD section above.
+
+  \item Tools we will be using include Git, GitHub, and GitHub projects for development. This will mean using version control as be thwe workflow plan above, and planning features and sprints based on GitHub projects. 
 \end{itemize}
+
 
 \wss{git, GitHub and GitHub projects should be part of your technology.}
 
