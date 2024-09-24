@@ -46,11 +46,7 @@
 
 \newpage{}
 
-This document will provide details about various essential aspects of our development plan. It covers information about critical areas such as confidential information, IPs, and copyright considerations ensuring compliance with ethical standards and regulatory requirements. In addition to this, we will outline team meetings communication plans, and team member roles. We will include a workflow plan that describes how we plan to use Git and GitHub projects and project decompositions and scheduling. Moreover, we have incuded a proof-of-concept demonstration plan along with the technology stack and coding standards we wish to use for the development of our project. Finally, we will reflect on our learning from this exercise and include a team charter that defines our goals, expectations, and decision-making strategy. 
-
-\wss{Additional information on the development plan can be found in the
-\href{https://gitlab.cas.mcmaster.ca/courses/capstone/-/blob/main/Lectures/L02b_POCAndDevPlan/POCAndDevPlan.pdf?ref_type=heads}
-{lecture slides}.}
+This document will provide details about various essential aspects of our development plan. It covers information about critical areas such as confidential information, IPs, and copyright considerations ensuring compliance with ethical standards and regulatory requirements. In addition to this, we will outline the team meeting plan and team communication plan, and team member roles. We will include a workflow plan that describes how we plan to use Git and GitHub projects and project decompositions and scheduling. Moreover, we have included a proof-of-concept demonstration plan along with the technology stack and coding standards we wish to use for the development of our project. Finally, we will reflect on our learning from this exercise and include a team charter that defines our goals, expectations, and decision-making strategy.
 
 \section{Confidential Information?}
 
@@ -117,7 +113,7 @@ The team will assign specific roles for the project after the preliminary elicit
 The team will remain flexible for the following roles, with responsibilities subject to change based on the needs of each deliverable and the final project:
 \begin{itemize}
 \item \textbf{Meeting Chair} -- This role will rotate between team members. The chair will organize and lead meetings, ensuring that the agenda is followed, and discussions stay focused.
-\item \textbf{Reviewer} -- The team plans to distribute each milestone evenly among the team members. Each team member’s work will be reviewed by at least two other team members. The reviewer will update issues on GitHub with appropriate comments.
+\item \textbf{Reviewer} -- The team plans to distribute each milestone evenly among the team members. At least two other team members will review each team member’s work. The reviewer will update issues on GitHub with appropriate comments.
 \item \textbf{Subject researcher} -- During a deliverable team members may be assigned to gather information about the industry, their processes, and information about the technology used in development. This role will shift based on individual expertise.
 \end{itemize}
 By adopting a flexible approach to the following roles, we want to ensure that everyone has the opportunity to lead. Regular check-ins during the team meetings will allow the team to reassess the roles and redistribute tasks as needed. 
@@ -152,16 +148,15 @@ CI/CD will be critical for project development. We will be using \textbf{Jenkins
 
 Jenkins will allow us to achieve Continuous Integration and Continuous Delivery through the following:
 \begin{itemize}
-  \item \textbf{Continuous Integration} -- On the continuous integration time Jenkins offers automated build and testing. This will save a lot of overhead on testing and test feedback as Jenkins will be responsible for it as not only will it build and test the code it will offer instant feedback to the developer.
-  \item \textbf{Continuous Deployment} -- Jenkins offer automated deployment functionalities meaning that once the build passes all test it can be deployed into a production or pre-production environment. This will ensure the deployment is consistent, reliable, and efficient. This also will make sure that all features pass a minimum functionality standard ensuring that they are ready for production. Jenkins offers intragrations with git as well so deployments will be version controlled meain they may be reverted as needed.
+  \item \textbf{Continuous Integration} -- On the continuous integration time Jenkins offers automated build and testing. This will save a lot of overhead on testing and test feedback as Jenkins will be responsible for it not only will it build and test the code it will also offer instant feedback to the developer.
+  \item \textbf{Continuous Deployment} -- Jenkins offers automated deployment functionalities meaning that once the build passes all tests it can be deployed into a production or pre-production environment. This will ensure the deployment is consistent, reliable, and efficient. This also will make sure that all features pass a minimum functionality standard ensuring that they are ready for production. Jenkins offers integrations with git as well so deployments will be version-controlled meaning they may be reverted as needed.
 \end{itemize}
 
-By implemening a CI/CD tool (Jenkins) we can ensure that code isn't riddled with errors and automate a lot of task which will increase productivity. Having Jenkins also will reduce the risk of human error in the project and will automate many areas of DevOps. 
+By implementing a CI/CD tool (Jenkins) we can ensure that code isn't riddled with errors and automate a lot of tasks which will increase productivity. Having Jenkins also will reduce the risk of human error in the project and will automate many areas of DevOps.
 
 \section{Project Decomposition and Scheduling}
 
-The team will utilize Kanban Board Projects for issue tracking with four different stages of an issue: ‘To Do’, ‘In Progress’, ‘Review’, and ‘Done’. The team will create different issues for features, bugs, documentation, team meetings, lecture meetings and other things as needed using appropriate templates. The team will create templates for features, bugs and documentation. Issues under different projects will be classified into different milestones with appropriate deadlines. This will help us to track our progress for major milestones in the project. 
-Futhermore, we will divide the Kanban board issues into sprints, therefore we can reduce the risk of the overall project. Sprints will ensure that the risk of the project is lowered as we will be working in an agile fashion.
+The team will utilize Kanban Board Projects for issue tracking with four different stages of an issue: ‘To Do’, ‘In Progress’, ‘Review’, and ‘Done’. The team will create different issues for features, bugs, documentation, team meetings, lecture meetings and other things as needed using appropriate templates. The team will create templates for features, bugs and documentation. Issues under different projects will be classified into different milestones with appropriate deadlines. This will help us to track our progress for major milestones in the project. Furthermore, we will divide the Kanban board issues into sprints. Therefore, we can reduce the risk of the overall project. Sprints will ensure that the risk of the project is lowered as we will be working in an agile fashion.
 
 Project Links:
 \begin{itemize}
@@ -173,38 +168,36 @@ Project Links:
 \href{https://github.com/users/Inreet-Kaur/projects/6}{Development workflow}
 \end{itemize}
 
-Here is a general process that our team will follow to work on each issue. The team leader will create different issues under the ‘To do’ section and assign them to different team members as discussed during team meetings. Each team member create their own branch to and will pull the latest changes from the main branch. Once the team member have made their changes they can be pushed to github and the related issue can be moved under the ‘Review’ tab. The reviewers will provide appropriate comments and suggested changes and move the issue to the ‘In progress’ section if needed. Each issue will be reviewed by at least two other team members. Once the final changes are approved, a PR request will be raised to merge the changes into main branch and issue will now be moved to the ‘Done’ section. 
+Here is a general process that our team will follow to work on each issue. The team leader will create different issues under the ‘To do’ section and assign them to different team members as discussed during team meetings. Each team member creates their branch and will pull the latest changes from the main branch. Once the team member has made their changes they can be pushed to GitHub and the related issue can be moved under the ‘Review’ tab. The reviewers will provide appropriate comments and suggested changes and move the issue to the ‘In progress’ section if needed. At least two other team members will review each issue. Once the final changes are approved, a PR request will be raised to merge the changes into the main branch and the issue will now be moved to the ‘Done’ section. 
 
-Each task within the three projects will be scheduled according to the deadlines outlined in the course outline. The documentation project will have a separate milestone for each deliverable mentioned in the course outline along with the appropriate deadlines. The metrics project will track all the team meetings, lecture attendance, and other metrics required throughout the course. We will create an issue for each lecture and each team meeting with the required details in the template. The development project will be classified into different milestones throughout this course. Some stages include initial feature planning, Phase 1 which includes developing core functionalities, including voice recording and chart filling, and Phase 2 which includes developing additional features like the analytical dashboard, triage integration etc. Each phase will have separate issues for feature development, bug fixes, enhancement, and final reviews. 
+Each task within the three projects will be scheduled according to the deadlines outlined in the course outline. The documentation project will have a separate milestone for each deliverable mentioned in the course outline along with the appropriate deadlines. The metrics project will track all the team meetings, lecture attendance, and other metrics required throughout the course. We will create an issue for each lecture and each team meeting with the required details in the template. The development project will be classified into different milestones throughout this course. Some stages include initial feature planning, Phase 1 which includes developing core functionalities, including voice recording and chart filling, and Phase 2 which includes developing additional features like the analytical dashboard, triage integration etc. Each phase will have separate issues for feature development, bug fixes, enhancement, and final reviews.  
 
 \section{Proof of Concept Demonstration Plan}
 
-What is the main risk, or risks, for the success of your project?  What will you
-demonstrate during your proof of concept demonstration to convince yourself that
-you will be able to overcome this risk?\\
+% What is the main risk, or risks, for the success of your project?  What will you
+% demonstrate during your proof of concept demonstration to convince yourself that
+% you will be able to overcome this risk?\\
 
-The main risk of the project is related to the reduction of documentation overhead. This means the biggest risk is really if this project can make a significant reduction to overhead time and trulty reduce patient wait times. Again, through ellicitation and our domain experts we will create an effective set of requirments to reduce the risk of the project and build something that is needed.\\
+The main risk of the project is related to the reduction of documentation overhead. This means the biggest risk is really if this project can make a significant reduction to overhead time and truly reduce patient wait times. Again, through elicitation and our domain experts, we will create an effective set of requirements to reduce the risk of the project and build something that is needed.\\
 
-Through our development plan, the coding standards, and agile approach the development risk is made to be lower than an herculean approach. Therefore due to our development approach and using an agile workflow the projects risk will be reduced as features will be created overtime.\\
+Through our development plan, the coding standards, and the agile approach the development risk is made to be lower than a herculean approach. Therefore due to our development approach and using an agile workflow the project's risk will be reduced as features will be created over time.\\
 
 Looking at implementation details there are a few risks that come up, if these risks can be addressed or have a clearer roadmap that will make us more confident in the project. 
 
 \begin{itemize}
-  \item \textbf{Speech Input} -- A hospital or a clinic can be a loud place, in the event audio input is taken we need to ensure that it is clean and clear. This would be mean essentially blocking outside noise. 
-  \item \textbf{Visual Inputs} -- If any old charts are needing to be inputted into the patient journey having the ability to scan and transfer the information into the required format will be another risk. The document needs to be rid of noisy data.
+  \item \textbf{Speech Input} -- A hospital or a clinic can be a loud place, in the event audio input is taken we need to ensure that it is clean and clear. This would mean essentially blocking outside noise. 
+  \item \textbf{Visual Inputs} -- If any old charts need to be inputted into the patient journey having the ability to scan and transfer the information into the required format will be another risk. The document needs to be rid of noisy data.
   \item \textbf{Pre-Trained Models} -- To manipulate and use both inputs above we need to create a model to be accurate and provide accuracy when filling in charts. 
-  \item \textbf{Data privacy} -- This application will hold a lot of patient data so create a store that is secure and making sure standard data security practice is applied is a must.
-  \item \textbf{User Acceptance} -- This will require further ellicitation outside supervisors. We need to gather data on what critical needs are on healthcare professionals such that critical features are present. 
+  \item \textbf{Data privacy} -- This application will hold a lot of patient data so creating a store that is secure and making sure standard data security practice is applied is a must.
+  \item \textbf{User Acceptance} -- This will require further elicitation outside supervisors. We need to gather data on what critical needs of healthcare professionals such that critical features are present. 
 \end{itemize}
 
 \section{Expected Technology}
-
 % \wss{What programming language or languages do you expect to use?  What external
 % libraries?  What frameworks?  What technologies.  Are there major components of
 % the implementation that you expect you will implement, despite the existence of
 % libraries that provide the required functionality.  For projects with machine
 % learning, will you use pre-trained models, or be training your own model?  }
-
 % \wss{The implementation decisions can, and likely will, change over the course
 % of the project.  The initial documentation should be written in an abstract way;
 % it should be agnostic of the implementation choices, unless the implementation
@@ -212,40 +205,37 @@ Looking at implementation details there are a few risks that come up, if these r
 % implementation helps understand the challenge level and feasibility of a
 % project.  It may also help with early identification of areas where project
 % members will need to augment their training.}
-
 % Topics to discuss include the following:
 
-
-In terms of expected technologies we need expect will again change will implementation details and architectures. Below is a starting point for a microservices based architecture.
-
+In terms of expected technologies, we need to expect will again change will implementation details and architectures. Below is a starting point for a microservices-based architecture.
 
 \begin{itemize}
-  \item Programming languages/Frameworks and Data managment:
+  \item Programming languages/Frameworks and Data management:
     \begin{itemize}
-      \item ReactJS -- This will be used for the frontend of the application.
+      \item ReactJS -- This will be used for the front end of the application.
       \item Python (Flask) -- This will be used to write backend services.
-      \item Java (SpringBoot) -- This will also provide an alternative option for backend services, it could be specifically be useful for MongoDB intergration.
-      \item MongoDB -- All data will be managed through a MongoDB database as it offers built in caching and performs well under load.
-      \item Distributed Cache (Redis) -- Items that make be frequent calls can be cached through redis. This will overall increase the performance of the application.
+      \item Java (SpringBoot) -- This will also provide an alternative option for backend services. It could be specifically useful for MongoDB integration.
+      \item MongoDB -- All data will be managed through a MongoDB database as it offers built-in caching and performs well under load.
+      \item Distributed Cache (Redis) -- Items that make frequent calls can be cached through Redis. This will overall increase the performance of the application.
     \end{itemize}
     
 
   \item Libraries
-    Key frameworks have be
+    Key frameworks:
     \begin{itemize}
-      \item LangChain -- This will be used for and LLM intergrations as it offers integrations will all of big LLMs.
+      \item LangChain -- This will be used for LLM integrations as it offers integrations will all the big LLMs.
       \item NLTK -- NLTK will be used for any natural language processing needs. 
       \item Redux -- Redux will be critical in managing frontend states.
       \item OAuth -- OAuth will be critical in microservices communication to validate the services. This will especially come in handy in a specific middleware layer is implemented.
     \end{itemize}
 
-  \item Specific linter tool -- Linters are useful for catching errors early in the development process. This also ensure the code that is written adhere to the standard which will mitigate code smells and enforce a specific style. Linters we can use include PyLint (Python), PMD for error catching, and/or Checkstyle to ensure the required coding standard is upheld.
-  \item Specific unit testing framework -- For frontend testing we can use selenium to interact with the front and leverage frameworks like JUnit for backend unit testing. 
+  \item Specific linter tool -- Linters are useful for catching errors early in the development process. This also ensures the code that is written adheres to the standard which will mitigate code smells and enforce a specific style. Linters we can use include PyLint (Python), PMD for error catching, and/or Checkstyle to ensure the required coding standard is upheld.
+  \item Specific unit testing framework -- For frontend testing, we can use selenium to interact with the front and leverage frameworks like JUnit for backend unit testing. 
     
-  \item Investigation of code coverage measuring tools -- language specific code coverage tools will be used such as Coverage.py for python to assess coverage metrics and which cases are tested for.
+  \item Investigation of code coverage measuring tools -- language-specific code coverage tools will be used such as Coverage.py for Python to assess coverage metrics and which cases are tested for.
   \item Continuous integration -- As stated above Jenkins will be used to automate a lot of CI tasks. Please refer to the CI/CD section above.
 
-  \item Tools we will be using include Git, GitHub, and GitHub projects for development. This will mean using version control as be thwe workflow plan above, and planning features and sprints based on GitHub projects. 
+  \item Tools we will be using include Git, GitHub, and GitHub projects for development. This will mean using version control as be the workflow plan above, and planning features and sprints based on GitHub projects. 
 \end{itemize}
 
 
