@@ -24,22 +24,20 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-23--09--2024 & Inreet & Introduction\\
-23--09--2024 & Inreet & Confidential Information\\
-23--09--2024 & Inreet & IP to Protect\\
-23--09--2024 & Gurleen & Copyright License\\
-23--09--2024 & Gurleen & Team meeting Plan\\
-23--09--2024 & Gurleen & Team Communication Plan\\
-23--09--2024 & Inreet & Team member Roles\\
-23--09--2024 & Inreet, Pranav & Workflow Plan\\
-23--09--2024 & Inreet & Project Decomposition and Scheduling\\
-23--09--2024 & Pranav & Proof of Concept Demonstration Plan\\
-23--09--2024 & Pranav & Expected Technology\\
-23--09--2024 & Gurleen & Coding Standards\\
-23--09--2024 & All & Reflection\\
-23--09--2024 & Inreet & Team Charter\\
-23--09--2024 & Pranav & Review + Fix Compilation Errors\\
-... & ... & ...\\
+24--09--2024 & Inreet & Introduction\\
+24--09--2024 & Inreet & Confidential Information\\
+24--09--2024 & Inreet & IP to Protect\\
+24--09--2024 & Gurleen & Copyright License\\
+24--09--2024 & Gurleen & Team meeting Plan\\
+24--09--2024 & Gurleen & Team Communication Plan\\
+24--09--2024 & Inreet & Team member Roles\\
+24--09--2024 & Inreet, Pranav & Workflow Plan\\
+24--09--2024 & Inreet & Project Decomposition and Scheduling\\
+24--09--2024 & Pranav & Proof of Concept Demonstration Plan\\
+24--09--2024 & Pranav & Expected Technology\\
+24--09--2024 & Gurleen & Coding Standards\\
+24--09--2024 & All & Reflection\\
+24--09--2024 & All & Team Charter\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -60,7 +58,7 @@ There is no IP to protect this project at the current stage. All work during the
 
 The team would like to choose a Proprietary License for this project. This means that the copyright holder retains all rights and cannot use, copy and modify the code. The license file in our Github repository has been updated with the same.
 
-Link -- 
+Link --  
 \href{https://github.com/Inreet-Kaur/capstone/blob/main/LICENSE}{License File}
 
 
@@ -224,8 +222,7 @@ In terms of expected technologies, we need to expect will again change will impl
     \end{itemize}
 
   \item Specific linter tool -- Linters are useful for catching errors early in the development process. This also ensures the code that is written adheres to the standard which will mitigate code smells and enforce a specific style. Linters we can use include PyLint (Python), PMD for error catching, and/or Checkstyle to ensure the required coding standard is upheld.
-  \item Specific unit testing framework -- For frontend testing, we can use selenium to interact with the front and leverage frameworks like JUnit for backend unit testing. 
-    
+  \item Specific unit testing framework -- For frontend testing, we can use selenium to interact with the front and leverage frameworks like JUnit for backend unit testing.
   \item Investigation of code coverage measuring tools -- language-specific code coverage tools will be used such as Coverage.py for Python to assess coverage metrics and which cases are tested for.
   \item Continuous integration -- As stated above Jenkins will be used to automate a lot of CI tasks. Please refer to the CI/CD section above.
 
@@ -241,7 +238,7 @@ For ReactJS- We have decided to adopt Airbnb's JavaScript Style Guide which cont
 These coding standards can be added in CI/CD by integrating their components in the code. By making sure that the code's consistency and quality is not compromised whenever it is pushed or merged, it will automate the process by following the guidelines.
 CI/CD tools such as Jenkins will help ensure that the code is readable and optimized. 
 
-\textbf{References} --
+\section{References}
 \begin{itemize}
   \item
   \href{https://www.geeksforgeeks.org/pep-8-coding-style-guide-python/}{Coding Standard for Python}
@@ -258,12 +255,28 @@ CI/CD tools such as Jenkins will help ensure that the code is readable and optim
 \input{../Reflection.tex}
 
 \begin{enumerate}
-    \item Why is it important to create a development plan prior to starting the
-    project?
-    \item In your opinion, what are the advantages and disadvantages of using
-    CI/CD?
-    \item What disagreements did your group have in this deliverable, if any,
-    and how did you resolve them?
+    \item \textbf{Why is it important to create a development plan prior to starting the project?}
+    A development plan helps to lay out the goals and objectives of the project. It also helps to identify any potential risks that will give us an opportunity to pre-plan the strategies to avoid them. Furthermore, it is a great tool to track the project’s progress.
+    Not only can we identify the risks, but we can also move towards creating a roadmap such that the project’s overall risk is reduced. Through defining a CI/CD strategy we are also ensuring that the quality of code we deliver is high. 
+
+    \item \textbf{In your opinion, what are the advantages and disadvantages of using CI/CD?}
+
+    Advantages:
+    \begin{itemize}
+    \item Tests will be automated such that the code during integration will always be tested.   
+    \item Automated deployment will ensure that all code deployed follows the same code smell checks, and developers will get quick feedback if their code is not up to standard.
+    \item Due to a lot of DevOps tasks being automated that time can be transferred into development and improve productivity.
+    \end{itemize}
+
+    Disadvantages
+    \begin{itemize}
+    \item Setting up a CI/CD tool takes a lot of time and can pose a huge initial cost overhead.  
+    \item Requires tests to cover a variety of cases and be robust and that will act as a report card for each feature.
+    \end{itemize}
+
+    \item \textbf{What disagreements did your group have in this deliverable, if any, and how did you resolve them?}
+    In terms of disagreements in specific, we didn’t have any but the process of creating this deliverable helped us align our visions for the project, user pain points, and challenges. This made the development plan very clear and emphasized how significant the problem is to society. It highlighted how our approach will have a significant positive impact on the healthcare department and improve the actual world.
+
 \end{enumerate}
 
 \newpage{}

@@ -23,36 +23,33 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-23--09--2024 & Pranav Kalsi & Problem Statement Excluding 1.2\\
-23--09--2024 & Pranav Kalsi & Fixing Headers + Authors\\
-23--09--2024 & Pranav Kalsi & Challenge Level and Extras\\
-23--09--2024 & Pranav Kalsi, Moamen Ahmed& Goals + Stretch Goals\\
+24--09--2024 & Pranav Kalsi & Problem Statement Excluding 1.2\\
+24--09--2024 & Gurleen Rahi & 1.2 - Inputs and Outputs\\
+24--09--2024 & Pranav Kalsi & Challenge Level and Extras\\
+24--09--2024 & Pranav Kalsi, Moamen Ahmed & Goals + Stretch Goals\\
+24--09--2024 & All & Reflection\\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section{Problem Statement}
-
 % \wss{You should check your problem statement with the
 % \href{https://github.com/smiths/capTemplate/blob/main/docs/Checklists/ProbState-Checklist.pdf}
 % {problem statement checklist}.} 
-
 % \wss{You can change the section headings, as long as you include the required
 % information.}
 
 \subsection{Problem}
 
-Ontario is facing an extreme shortage of family doctors, the number of patients without one jumping by 600 000 to 2.5 million which is a growing number [1]. This situation is only to get worse as predicted by the Ontario Medical Association [2]. As a result, people find themselves going to the ER with coughs and colds and flooding ER causing massive wait times which ends in patients even resulting in leaving without being seen [3]. A massive part of the wait time is due to the overhead of documentation tasks. Doctors, health care professionals, and support staff find themselves spending most of their time on documentation which overall slows pipeline of patients tremendously.
+Ontario is facing an extreme shortage of family doctors, with the number of patients without one jumping by 600,000 to 2.5 million which is a growing number [1]. This situation is only to get worse as predicted by the Ontario Medical Association [2]. As a result, people find themselves going to the ER with coughs and colds and flooding the ER causing massive wait times which ends in patients even resulting in leaving without being seen [3]. A massive part of the wait time is due to the overhead of documentation tasks. Doctors, healthcare professionals, and support staff find themselves spending most of their time on documentation which overall slows the pipeline of patients tremendously.
 
 \subsection{Inputs and Outputs}
-
 % \wss{Characterize the problem in terms of ``high level'' inputs and outputs.  
 % Use abstraction so that you can avoid details.}
-
 Inputs for this project will be the following:
 
 \begin{itemize}
-    \item textbf{Doctor-Patient Conversation}: They are the stored information of the conversation between the medical staff and the patient that contains information such as patient’s personal history, their disease history, current treatment among others.
+    \item textbf{Doctor-Patient Conversation}: They are the stored information of the conversation between the medical staff and the patient that contains information such as the patient’s personal history, disease history, and current treatment among others.
     \item textbf{Common Diseases List}: This comprises features such as symptoms and treatment/diagnosis using machine learning algorithms.
     \item textbf{Voice Profiles}: Voice profiles that can be specific for doctors and patients will enable them to be recognized for the chart filled out accordingly. 
 \end {itemize}
@@ -60,31 +57,31 @@ Inputs for this project will be the following:
 Outputs for this project will be the following: 
 
 \begin{itemize} 
-    \item textbf{Triage information}: The subjects involve triage data entry from the recorded conversation with the aim of enhancing documentation process within the emergency department.
+    \item textbf{Triage information}: The subjects involve triage data entry from the recorded conversation with the aim of enhancing the documentation process within the emergency department.
     \item textbf{Auto-filled documents}: The documentation process will be done according to the conversation which will be recorded and then transcribed to electronic means for filing in the patient’s profile.
     \item textbf{Alerts for Medical Staff}: In case of any priority cases the alert will be sent to the doctor, especially in the emergency department, based on the symptoms mentioned for treatment.
-\end{itemize}  
+\end{itemize}
 
 \subsection{Stakeholders}
 
 This project will include many stakeholders from developers, visionaries, supervisors, as well as adopters. Below are the stakeholders concerned with this project.
+
 \begin{itemize}
-    \item \textbf{Application Users} -- These users will include the healthcare staff in the hospital using the application to speed up documentation throughout the patient journey. This will include receptionists, nurses, doctors as well as any other hospital members responsible with patient documentations. They will be the primary users as they are the target group whose time is most used up in patient documentation tasks.
-    \item \textbf{Development Team} -- This is the team of developers who will be implementing the solution. They will take whatever’s in the backlog and implement it as per the requirements into a functional and user-friendly application. This team will also include product owners as well as product managers who will turn the vision into a prioritized backlog. This will ensure the customers needs are fulfilled in a systematic and agile fashion.
-    \item \textbf{Project Supervisors} -- These will include domain experts as well as potential users such as physicians. Project supervisors will be critical in envisioning the app. Namely assisting with requirements elicitation as well as helping in formulating functional and non-functional requirements. As members of the field, they are able to provide, review and give feedback on critical pain points and give feedback on the features to relieve the pain points.
-    \item \textbf{Application Clients} -- The bodies themselves that will purchase the software, in other words this essentially the health systems. These health systems will essentially plug this system into their network of hospitals where health care professionals can use this software.
-    \item \textbf{Regulatory Bodies} -- These are bodies that regulate patient health data. Since the whole patient journey will be tracked through the application abiding by security and privacy policy is a must. Examples of these bodies and would be governments through policy, information and privacy commissions.
+\item \textbf{Application Users} -- These users will include the healthcare staff in the hospital using the application to speed up documentation throughout the patient journey. This will include receptionists, nurses, doctors as well as any other hospital members responsible for patient documentation. They will be the primary users as they are the target group whose time is most used up in patient documentation tasks.
+\item \textbf{Development Team} -- This is the team of developers who will be implementing the solution. They will take whatever’s in the backlog and implement it as per the requirements into a functional and user-friendly application. This team will also include product owners as well as product managers who will turn the vision into a prioritized backlog. This will ensure the customer's needs are fulfilled in a systematic and agile fashion.
+\item \textbf{Project Supervisors} -- These will include domain experts as well as potential users such as physicians. Project supervisors will be critical in envisioning the app. Namely assisting with requirements elicitation as well as helping in formulating functional and non-functional requirements. As members of the field, they can provide, review and give feedback on critical pain points and give feedback on the features to relieve the pain points.
+\item \textbf{Application Clients} -- The bodies themselves that will purchase the software, in other words, this is essentially the health systems. These health systems will essentially plug this system into their network of hospitals where healthcare professionals can use this software.
+\item \textbf{Regulatory Bodies} -- These are bodies that regulate patient health data. Since the whole patient journey will be tracked through the application abiding by security and privacy policy is a must. Examples of these bodies would be governments through policy, information and privacy commissions.
 \end{itemize}
 
 \subsection{Environment}
-
 % \wss{Hardware and software environment}
 
-The application will be implemented as a web application to ensure portability as wifi is a standard in clinics and hospitals. As per the environment the apps services will run in, that would be a cloud provider (AWS, GCP, Azure). 
+The application will be implemented as a web application to ensure portability as wifi is a standard in clinics and hospitals. As per the environment, the app services will run in, that would be a cloud provider (AWS, GCP, Azure). 
 
 \section{Goals}
 
-The goals for this project go as follows:
+The goals for this project are as follows:
 
 \begin{table}[H]
     \centering
@@ -94,11 +91,11 @@ The goals for this project go as follows:
         \midrule
         Use voice to fill in medical documentation (charts, files, etc.) & The app will record conversations and automatically turn them into medical notes and charts. & This will save doctors time by automating paperwork, letting them focus more on patients. \\
         \midrule
-        Reduce documentation overhead time.  & Through tracking the whole patient journey in the app, we look to reduce the overhead of triaging, clinical documentation, and other registration.  & This helps hospital healthcare professionals focus on care, and lowers time take through registration for hospital staff. \\ 
+        Reduce documentation overhead time.  & Through tracking the whole patient journey in the app, we look to reduce the overhead of triaging, clinical documentation, and other registrations.  & This helps hospital healthcare professionals focus on care and lowers the time taken through registration for hospital staff. \\ 
         \midrule
         Compliant with data security standards.  & Patient data will flow through the app therefore the app must abide by privacy laws and privacy standards. & This will give healthcare organizations confidence in the application and will give patients peace of mind that their information is safe. \\
         \midrule 
-        Ease of integration with existing hospital environment. & We want the solution to be portable such that it can be implemented in existing hospital and clinic ecosystems.  & Portability will ensure that hospitals and clinics won’t have to upgrade their existing hardware to use the application. \\
+        Ease of integration with the existing hospital environment. & We want the solution to be portable such that it can be implemented in existing hospital and clinic ecosystems.  & Portability will ensure that hospitals and clinics won’t have to upgrade their existing hardware to use the application. \\
         \midrule 
         Ease of use. & The app will be designed so that healthcare professionals of all skill levels can use it without any difficulty. & A simple, intuitive interface ensures users can quickly learn and use the app, allowing them to spend more time on patient care rather than managing the system. \\
         \bottomrule
@@ -107,7 +104,7 @@ The goals for this project go as follows:
 
 \section{Stretch Goals}
 
-The stretch goals for this project go as follows:
+The stretch goals for this project are as follows:
 
 \begin{table}[H]
     \centering
@@ -115,11 +112,11 @@ The stretch goals for this project go as follows:
         \toprule
         \textbf{Goal} & \textbf{Explaining} & \textbf{Reasoning} \\
         \midrule
-        Automated medicine suggestions. & Based on diagnosis and patient data provide medicine suggestion. & This will help doctors fill out their charts faster. \\ % Row 1
+        Automated medicine suggestions. & Based on diagnosis and patient data provide medicine suggestions. & This will help doctors fill out their charts faster. \\ % Row 1
         \midrule
         Automated diagnosis suggestions.  & Use AI to suggest possible diagnoses based on what the doctor and patient discuss.  & This will help doctors make faster, more accurate diagnoses, especially in tricky cases.\\ 
         \midrule
-        Machine learning for triage.  & Use machine learning to prioritize patients based on the severity of their condition. & This ensures the most critical patients get treated first, improving care in emergency situations. \\
+        Machine learning for triage.  & Use machine learning to prioritize patients based on the severity of their condition. & This ensures the most critical patients get treated first, improving care in emergencies. \\
         \midrule 
         Multi-language support. & Let doctors and patients use the app in different languages.  & This makes the app useful for a wider range of people, especially in diverse hospitals. \\
         \bottomrule
@@ -143,21 +140,28 @@ The stretch goals for this project go as follows:
 % two.  Approval of the extras will be part of the discussion with the instructor
 % for approving the project.  The extras, with the approval (or request) of the
 % instructor, can be modified over the course of the term.}
-
-In terms of the project challenge level it will come in the general category. This is supported by the reasoning below:
+In terms of the project challenge level, the project will come in the general category. This is supported by the reasoning below:
 
 \begin{itemize}
     \item \textbf{Domain Knowledge} -- The documentation process has a lot of ins and outs which may differ between health organizations. Our supervisors and stakeholders will provide us with a base of the requirements, but further elicitation will be required to ensure that the requirements reflect a problem that truly exists. Additionally, since the whole patient journey is tracked we will have to survey other hospital staff as well to gain a further understanding.
-    \item \textbf{Implementation Challenges} -- There will be quite a few microservices required for this project where each microservice has high complexity. The performance of the microservices must be high as this use case requires quick-response time. Additionally, since we are dealing with patient data security and privacy must be upheld. Lastly, the integration between all of the parts must be secure and undergo rigorous integration testing.
+    \item \textbf{Implementation Challenges} -- There will be quite a few microservices required for this project where each microservice has high complexity. The performance of the microservices must be high as this use case requires quick response time. Additionally, since we are dealing with patient data security and privacy must be upheld. Lastly, the integration between all of the parts must be secure and undergo rigorous integration testing.
 \end{itemize}
 
-As part of the extras for this project we will accomplish the following extras:
+As part of the extras for this project, we will accomplish the following extras:
 \begin{itemize}
     \item Usability testing.
     \item User documentation.
 \end{itemize}
 
-This will ensure the project is complete.
+\section{References}
+\begin{itemize}
+  \item
+  \href{https://www.cbc.ca/news/canada/toronto/ontario-family-doctor-shortage-record-high-1.7261558 }
+  \item
+  \href{https://www.cbc.ca/news/canada/toronto/family-doctor-shortage-oma-1.7097935}
+  \item
+  \href{https://www.ices.on.ca/publications/journal-articles/association-between-waiting-times-and-short-term-mortality-and-hospital-admission-after-departure-from-the-emergency-department-population-based-cohort-study-from-ontario-canada/}
+\end {itemize}
 
 \newpage{}
 
@@ -168,12 +172,17 @@ This will ensure the project is complete.
 \input{../Reflection.tex}
 
 \begin{enumerate}
-    \item What went well while writing this deliverable? 
-    \item What pain points did you experience during this deliverable, and how
-    did you resolve them?
-    \item How did you and your team adjust the scope of your goals to ensure
-    they are suitable for a Capstone project (not overly ambitious but also of
-    appropriate complexity for a senior design project)?
+    \item \textbf{What went well while writing this deliverable?}
+    This deliverable has allowed us to flesh out the rough ideas we had brainstormed. Through outlining the problem, stakeholders, inputs and outputs, we were able to provide a detailed insight into the problem. The deliverable also tested our knowledge and forced us to answer important parts of the problem.
+    Next, writing out the goals and stretch goals really puts the direction on the course. This way the goals of the projects are clear.
+    An additional benefit was the whole team could get assimilated with the issue tracker and the agile development. This has now set a precedent for how features should be contributed.
+
+    \item \textbf{What pain points did you experience during thisdeliverable, and how did you resolve them?}
+    Every team project has challenges which need to be resolved to move smoothly. To move smoothly, we needed to create a contribution strategy. We need to create a schedule where we have enough time to iteratively contribute and review each other’s work. Optimizing the schedule to create the best work possible was the hardest part. 
+    Another issue was onboarding everyone as people in Computer Engineering have different schedules than Software program. However, distributing the workload and organizing meetings according to everyone’s availability has been a great source of help for the progress of the project.  
+
+    \item \textbf{How did you and your team adjust the scope of your goals to ensure they are suitable for a Capstone project (not overly ambitious but also of appropriate complexity for a senior design project)?}
+    Any adjustments in the goals were made by thinking if the solution we want to develop is a realistic one and would bring a positive change in society. After doing a thorough analysis of the goals, we decided to break them into smaller parts so that we don’t encounter any problems on a higher level. By not becoming over ambitious about the project and understanding the complexity of the design, we also sought feedback from our supervisor and the instructor regularly.
 \end{enumerate}  
 
 \end{document}
