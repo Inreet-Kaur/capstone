@@ -62,6 +62,11 @@ There is no IP to protect this project at the current stage. All work during the
 repo.}
 
 The team would like to choose a Proprietary License for this project. This means that the copyright holder retains all rights and cannot use, copy and modify the code. The license file in our Github repository has been updated with the same.
+Here is the path of the license-- 
+\begin{itemize}
+  \item
+  \href{https://github.com/Inreet-Kaur/capstone/blob/main/LICENSE} {License File}
+\end{itemize}
 
 \section{Team Meeting Plan}
 
@@ -77,14 +82,15 @@ in-person.}
 
 \wss{How will the meetings be structured?  There should be a chair for all meetings.  There should be an agenda for all meetings.}
 
-The team will have a virtual meeting (on Microsoft teams) to discuss different stages throughout the duration of the project. We will meet at least once every week to discuss the state of the project as well as update ourselves on other team members’ work. Meetings with the industry advisor will depend on their availability, however, the mode of meeting will be in-person. We create an issue for team meetings in the repository on GitHub where we list the agenda of the meeting, meeting minutes and action items, i.e., the next steps.
+The team will have in-person as well as virtual meetings (on Microsoft Teams) to discuss different stages, and milestones, and track progress throughout the duration of the project. We will meet at least once every week to discuss the current stage of the project as well as update ourselves on other team members’ work. 
+Meetings with the industry advisor will depend on their availability. However, the mode of meeting will be in-person. We create an issue for team meetings on the GitHub project – capstone metrics where we list the agenda of the meeting, meeting minutes and action items, i.e., the next steps.
 
 \section{Team Communication Plan}
 
 \wss{Issues on GitHub should be part of your communication plan.}
 
-The team members will communicate with each other using Microsoft Teams for team meetings. Before every team meeting, an issue is created in the github repository which contains the attendance, meeting agenda, meeting minutes and action items. The issue is closed once the meeting is done. 
-For submissions according to the team roles, we have made our branches and submitting our respective work in those branches. At the end, those branches are merged with the main branch and all the latex documents are compiled. 
+The team members will communicate with each other using Microsoft Teams for team meetings.  Before every team meeting, an issue is created in the GitHub repository which contains the attendance, meeting agenda, meeting minutes and action items. The issue is closed once the meeting is done. Team members can review the contents of the issue for future reference. The team will use Microsoft Teams chat for general communication. 
+In addition to this, the team will provide feedback and review comments for code and documentation-specific changes using issues through GitHub projects. Once a member has committed their changes at least two other team members will review the changes and add feedback to the linked issues. The team member will then raise a pull request with the feedback incorporated. The PR is finally reviewed by another team member and merged into the main branch. 
 
 \section{Team Member Roles}
  
@@ -253,10 +259,17 @@ In terms of expected technologies, we need to expect will again change will impl
 \wss{What coding standard will you adopt?}
 
 Our team has decided to move forward with PEP 8 coding standard for Python. For Python, PEP 8 has emerged as the style guide that most projects adhere to; it promotes a very readable and eye-pleasing coding style [1]. It also helps to format the code properly and get rid of inconsistent spaces. By using this coding style, we will ensure that our code is clean and understandable and consistent throughout the project.
+For Java- Since, there is not single official document, we would like to move forward with Oracle Java Code Convention. This convention ensures that the standard conventions are met in the coding style. Furthermore, Google has also published its own Java guide which could be used along with Oracle.
+For ReactJS- We have decided to adopt Airbnb's JavaScript Style Guide which contains some components specifically for ReactJS. It not only tells the conventions for but also explains the high-order component naming [2].
 
-\begin {itemize}
-\item
-\href{https://www.geeksforgeeks.org/pep-8-coding-style-guide-python/}
+These coding standards can be added in CI/CD by integrating their components in the code. By making sure that the code's consistency and quality is not compromised whenever it is pushed or merged, it will automate the process by following the guidelines.
+CI/CD tools such as Jenkins will help ensure that the code is readable and optimized. 
+
+\begin{itemize}
+  \item
+  \href{https://www.geeksforgeeks.org/pep-8-coding-style-guide-python/}{Coding Standard for Python}
+  \item
+  \href{https://airbnb.io/javascript/react/} {Coding Standard for react}
 \end {itemize}
 
 \newpage{}
