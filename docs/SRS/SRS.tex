@@ -349,78 +349,56 @@ The following constraints will guide the system design and implementation:
 \end{itemize}
 
 \subsubsection{Assumptions and Dependencies} \label{sec_assumpt}
-Here are some assumptions of the software--
 
 \begin{itemize}
-  \item\textbf{Software's Compatibility}--We are assuming that this voice recognition software will be compatible with the Health Record Database system of the hospitals. Moreover, we also assume that database system is accessible to keep the conversation secure and private in patient’s profile.
-  \item\textbf{Patient's comfort}--We also assume that patient’s is comfortable using this software, ensuring that all sensitive information will be kept private.
-  \item\textbf{Real-time Processing}--We assume that system is processing the conversation and filling the chart simultaneously, without any delay otherwise any delay in documentation will delete the purpose of this project.
-  \item\textbf{Compatible with all templates}--Since hospitals and clinics have different templates for documenting a patient, we will assume AI is able to pick the key word of the question and fill it in.
+  \item\textbf{Reliable Internet Connection}-- We are assuming that user has a reliable internet connection throughout the patient’s visit as it is essential for authentication to the app, real-time interaction with it, running updates and saving the document to the patient’s profile.
+  \item\textbf{Sufficient Hardware Accessories}-- We are assuming that the hospital staff has enough hardware devices such as monitors, iPads etc. to access the software.
+  \item\textbf{Patient’s Comfort}-- We also assume that patients are comfortable using this software, ensuring that their information will be kept private and secure on their profile.
 \end{itemize}
-
-Here are some dependencies of this software--
-
-\begin{itemize}
-  \item\textbf{Documentation template}-- Automation the documentation process depends on the type of template a doctor is using. For example, a dentist uses a different template compared to a medical doctor in emergency department.
-  \item\textbf{Good sound input}-- The software depends on the type of input it is receiving from the doctor. A clear speech from the doctor and minimized background noise would provide more accurate results as compared to the noisy environment especially in emergency department.
-  \item\textbf{Updating regularly}-- To function the system properly, it is required to update it on a regular basis, as any delay in updating the system would result in lost of information.
-\end{itemize}
-
 
 \subsubsection{Usage Scanerios}
 
 Here are the use-case scenarios for this software--
 
 \begin{itemize}
-  \item\textbf{UC1 Document Consultation}--
+  \item\textbf{UC1 Recording Clinical Notes}--
   \begin{itemize}
-    \item{Hospital staff logs into the system.}
-    \item{Hospital staff will access patient’s profile.}
-    \item{Dictation tool will be activated.}
-    \item{Conversation between the doctor and the patient is captured.}
-    \item{Audio is converted to text, automatically filling out the charts.}
+    \item{Healthcare professional accesses patient’s profile.}
+    \item{Healthcare professional selects dictate button.}
+    \item{Healthcare professional takes clinical notes.}
   \end{itemize}
-  \item\textbf{UC2 Generate Diagnosis Understandings}--
+  \item\textbf{UC2 Generate Diagnostic Suggestions}--
   \begin{itemize}
-    \item{Software will analyze the patient’s symptoms from the recorded data.}
-    \item{Based on the medical understanding, it will suggest some diagnoses methods.}
-    \item{It will also assist the doctors by suggesting some treatment options.}
-    \item{Medical doctor may accept or reject these suggestions, incorporating their professional judgement.}
+    \item{Healthcare professional will review the notes.}
+    \item{App checks symptoms and suggests potential diagnosis and treatment options.}
+    \item{Doctor verifies the options.}
+    \item{Doctor decides to accept or reject.}
   \end{itemize}
 \end{itemize}
 
 \textbf{Usage Scenario 1 : Documenting a Patient Consultation}
 
 \begin{itemize}
-  \item\textbf{Use Case}-- UC1,UC2
-  \item\textbf{Primary Actor}-- Medical staff (such as a medical doctor or a nurse)
-  \item\textbf{Precondition}-- Patient profile database system is accessible to the medical staff along with an electronic device (such as an iPad or a tablet)
-  \item\textbf{Trigger}-- Medical professional wants to document patient’s condition and seek advice on diagnosis and treatment.
+  \item\textbf{Use Case}-- UC1
+  \item\textbf{Primary Actor}-- Healthcare professional (such as a medical doctor or a nurse)
+  \item\textbf{Precondition}-- The healthcare professional has authentication to log in the system and patient’s profile is opened. The basic information such as name, contact information and illness history are already filled.
+  \item\textbf{Trigger}-- The healthcare professional will press the record button.
   \item\textbf{Main Success Scenario}--
   \begin{itemize}
-    \item{The medical staff logs into the system and access the patient’s portfolio.}
-    \item{The app presents the main dashboard with options to start a new documentation process for the patient.}
-    \item{It will also show patient’s illness history and data from previous visit (if applicable).}
-    \item{The voice recognition software is activated, and the medical staff starts the conversation with the patient.}
-    \item{The audio data is then converted to text in real-time and the chart fields are automatically filled.}
-    \item{Once the documentation is completed, the software starts suggesting diagnosis and other treatments options.}
+    \item{The doctor will press the button for dictation tool.}
+    \item{The software will convert audio to text in real-time and produce text.}
+    \item{The user will press complete button.}
+    \item{Review the notes produced.}
+    \item{Submit button if everything is ok.}
   \end{itemize}
   \item\textbf{Secondary Success Scenario}--
-  \begin{itemize}[label=1.\arabic*]
-    \item{If the patient is visiting the doctor for the first time, a new profile is created.}
-  \end{itemize}
-  \begin{itemize}[label=4.\arabic*]
-    \item{The doctor may use some external medical equipment such as BP measuring tool rather than speaking.}
-  \end{itemize}
-  \begin{itemize}[label=5.\arabic*]
-    \item{The doctor may ask some private information (such as family’s illness history) and add it manually if it’s missing in the template.}
-  \end{itemize}
   \begin{itemize}[label=6.\arabic*]
-    \item{It's doctor’s decision to accept or reject software’s suggestions about the treatment and diagnosis options.}
+    \item{If any mistake is found, the doctor will edit the notes manually.}
+    \item{Doctor submits the final version of the notes.}
   \end{itemize}
   \item\textbf{Success Postcondition}--
   \begin{itemize}
-    \item{The medical staff will receive a summary of patient’s visit which will later be saved in their profile for privacy reasons.}
+    \item{The notes are saved in patient’s profile in a secure manner.}
   \end{itemize}
 \end{itemize}
 
