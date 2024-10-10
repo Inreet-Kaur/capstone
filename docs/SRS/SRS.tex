@@ -348,58 +348,109 @@ qualities that the software is expected to exhibit.
 \plt{Every IM should map to at least one requirement, but not every requirement
   has to map to a corresponding IM.}
 
-\subsection{Nonfunctional Requirements}
-
-\plt{List your nonfunctional requirements.  You may consider using a fit
-  criterion to make them verifiable.}
-\plt{The goal is for the nonfunctional requirements to be unambiguous, abstract
-  and verifiable.  This isn't easy to show succinctly, so a good strategy may be
-to give a ``high level'' view of the requirement, but allow for the details to
-be covered in the Verification and Validation document.}
-\plt{An absolute requirement on a quality of the system is rarely needed.  For
-  instance, an accuracy of 0.0101 \% is likely fine, even if the requirement is
-  for 0.01 \% accuracy.  Therefore, the emphasis will often be more on
-  describing now well the quality is achieved, through experimentation, and
-  possibly theory, rather than meeting some bar that was defined a priori.}
-\plt{You do not need an entry for correctness in your NFRs.  The purpose of the
-  SRS is to record the requirements that need to be satisfied for correctness.
-  Any statement of correctness would just be redundant. Rather than discuss
-  correctness, you can characterize how far away from the correct (true)
-  solution you are allowed to be.  This is discussed under accuracy.}
+\subsection{Non-functional Requirements}
 
 \noindent \begin{itemize}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Accuracy}:]
-  \textbf{Accuracy} \plt{Characterize the accuracy by giving the context/use for
-    the software.  Maybe something like, ``The accuracy of the computed
-    solutions should meet the level needed for $<$engineering or scientific
-    application$>$.  The level of accuracy achieved by \progname{} shall be
-    described following the procedure given in Section~X of the Verification and
-    Validation Plan.''  A link to the VnV plan would be a nice extra.}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Performance}:] \textbf{Performance}  
+    
+    \textbf{Requirement:} The system shall process voice recordings and convert them into medical charts within 30 seconds of recording completion.  
+  
+    \textbf{Rationale:} Quick documentation is critical to streamline the patient journey and reduce healthcare professionals' workload.  
+  
+    \textbf{Fit Criterion:} The system will consistently generate completed documentation in under 30 seconds.  
+  
+    \textbf{Dependencies:} Dependent on the speech-to-text engine and cloud infrastructure.  
+  
+    \textbf{Normal Operation:} Under typical conditions, the system will handle up to 100 voice recordings per hour without performance degradation.  
+  
+    \textbf{Undesired Event Handling:} If the system takes longer than 30 seconds, an alert will be triggered, and the system will attempt to resolve delays by reducing background processes or scaling resources.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}
-  \plt{Characterize the usability by giving the context/use for the software.
-    You should likely reference the user characteristics section.  The level of
-    usability achieved by the software shall be described following the
-    procedure given in Section~X of the Verification and Validation Plan.  A
-    link to the VnV plan would be a nice extra.}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Reliability}:] \textbf{Reliability}  
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:]
-  \textbf{Maintainability} \plt{The effort required to make any of the likely
-    changes listed for \progname{} should be less than FRACTION of the original
-    development time.  FRACTION is then a symbolic constant that can be defined
-    at the end of the report.}
+    \textbf{Requirement:} The system shall have a 99.9\% uptime guarantee during operational hours (9 AM to 9 PM).  
+  
+    \textbf{Rationale:} Reliability is critical to ensure uninterrupted service for healthcare professionals, particularly in time-sensitive environments like emergency rooms.  
+  
+    \textbf{Fit Criterion:} System logs will confirm an uptime rate of 99.9\% over a 30-day period.  
+  
+    \textbf{Dependencies:} Cloud infrastructure, hosting services, and local hardware resilience.  
+  
+    \textbf{Undesired Event Handling:} If uptime falls below 99.9\%, an automated system will switch to backup servers within 10 seconds to ensure continuity of service.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Portability}:]
-  \textbf{Portability} \plt{This NFR is easier to write than the others.  The
-    systems that \progname{} should run on should be listed here.  When possible
-    the specific versions of the potential operating environments should be
-    given.  To make the NFR verifiable a statement could be made that the tests
-    from a given section of the VnV plan can be successfully run on all of the
-    possible operating environments.}
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Scalability}:] \textbf{Scalability}  
 
-\item Other NFRs that might be discussed include verifiability,
-  understandability and reusability.
+    \textbf{Requirement:} The system shall be able to scale to accommodate up to 500 simultaneous users without affecting performance.  
+  
+    \textbf{Rationale:} The system must support multiple healthcare providers across various locations, particularly during peak hours.  
+  
+    \textbf{Fit Criterion:} The system will maintain performance benchmarks (processing under 30 seconds) even when 500 users are active.  
+  
+    \textbf{Dependencies:} Cloud infrastructure for auto-scaling capabilities.  
+  
+    \textbf{Normal Operation:} The system will maintain user load without affecting response time.  
+  
+    \textbf{Undesired Event Handling:} In case of unexpected spikes in usage, the system will dynamically allocate additional cloud resources to manage the load without affecting current users.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Security}:] \textbf{Security}  
+
+    \textbf{Requirement:} The system shall encrypt all patient data, both in transit and at rest, following HIPAA standards.  
+  
+    \textbf{Rationale:} Ensuring patient confidentiality and compliance with healthcare data regulations is essential.  
+  
+    \textbf{Fit Criterion:} Security audits will show 100\% compliance with HIPAA and encryption standards.  
+  
+    \textbf{Dependencies:} Encryption services and security protocols in the cloud infrastructure.  
+  
+    \textbf{Undesired Event Handling:} If a security breach is detected, the system will immediately log out all users, lock access to sensitive data, and alert system administrators.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}  
+
+    \textbf{Requirement:} The system’s user interface shall be intuitive, allowing healthcare professionals to complete documentation with minimal training (less than 30 minutes of training).  
+  
+    \textbf{Rationale:} A user-friendly interface reduces learning time and increases adoption among healthcare providers.  
+  
+    \textbf{Fit Criterion:} Usability tests will show that 90\% of healthcare professionals can navigate the system with less than 30 minutes of instruction.  
+  
+    \textbf{Dependencies:} Usability design and feedback loops during development.  
+  
+    \textbf{Undesired Event Handling:} If users encounter usability issues, they can access live chat support integrated within the application.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:] \textbf{Maintainability}  
+
+    \textbf{Requirement:} The system shall be updated with new features without causing downtime for more than 5 minutes.  
+  
+    \textbf{Rationale:} Frequent updates should not disrupt healthcare professionals during critical hours.  
+  
+    \textbf{Fit Criterion:} Release notes and system logs will show that updates occur with less than 5 minutes of downtime, or during non-operational hours.  
+  
+    \textbf{Dependencies:} Continuous integration and delivery pipelines.  
+  
+    \textbf{Undesired Event Handling:} In case of an update failure, the system will automatically revert to the last stable version.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Compatibility}:] \textbf{Compatibility}  
+
+    \textbf{Requirement:} The system shall be compatible with major operating systems (Windows, macOS, and Linux) and dictation devices.  
+  
+    \textbf{Rationale:} Healthcare providers use a variety of platforms, and the system must be versatile to support their workflows.  
+  
+    \textbf{Fit Criterion:} Compatibility tests will show full functionality on all major operating systems and devices used for dictation.  
+  
+    \textbf{Dependencies:} Device drivers and OS compatibility libraries.  
+  
+    \textbf{Undesired Event Handling:} If a compatibility issue arises, the system will notify the user and suggest an alternative setup or device.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_DataIntegrity}:] \textbf{Data Integrity}  
+
+    \textbf{Requirement:} The system shall prevent duplicate or erroneous data entries when processing voice recordings.  
+  
+    \textbf{Rationale:} Data accuracy is critical in healthcare documentation, where errors could lead to incorrect treatment or diagnosis.  
+  
+    \textbf{Fit Criterion:} Data audits will show no more than 0.1\% duplication or errors in generated medical charts.  
+  
+    \textbf{Dependencies:} Data validation protocols and the speech-to-text engine.  
+  
+    \textbf{Undesired Event Handling:} In case of detected duplicates or errors, the system will automatically flag the entry for review and notify the healthcare professional.
 
 \end{itemize}
 
