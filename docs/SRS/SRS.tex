@@ -177,22 +177,9 @@ expect in the Introduction section.}
   purpose of the SRS, including communication, planning for the design stage,
   etc.}
 
-\subsection{Characteristics of Intended Reader} \label{sec_IntendedReader}
+\subsection{Characteristics of Intended Reader} \label{sec_IntendedReader} 
 
-\plt{This section summarizes the skills and knowledge of the readers of the
-  SRS.  It does NOT have the same purpose as the ``User Characteristics''
-  section (Section~\ref{SecUserCharacteristics}).  The intended readers are the
-  people that will read, review and maintain the SRS.  They are the people that
-  will conceivably design the software that is intended to meet the
-  requirements.  The user, on the other hand, is the person that uses the
-  software that is built.  They may never read this SRS document.  Of course,
-  the same person could be a ``user'' and an ``intended reader.''}
-
-\plt{The intended reader characteristics should be written as unambiguously and
-  as specifically as possible.  Rather than say, the user should have an
-  understanding of physics, say what kind of physics and at what level.  For
-  instance, is high school physics adequate, or should the reader have had a
-  graduate course on advanced quantum mechanics?}
+The intended readers of this SRS document include project managers, software developers, testing engineers, and stakeholders directly involved in the design and implementation of the software system. Project managers and testing engineers would be directly involved in the development and testing process. They would generally have an education in computer science along with experience in software design, web or mobile development, and software testing. Project managers generally have experience in managing software projects and knowledge of software development processes. Stakeholders like doctors and nursing staff would have domain knowledge and could provide insights to understand the clinical workflow and documentation process. 
 
 \subsection{Scope of Requirements} 
 
@@ -246,27 +233,81 @@ expect in the Introduction section.}
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 
-\plt{This section is expressed in words, not with equations.  It provide the
-  meaning of the different words and phrases used in the domain of the problem.
-The terminology is used to introduce concepts from the world outside of the
-mathematical model  The terminology provides a real world connection to give the
-mathematical model meaning.}
+\begin{tabular}{l l} 
+  \toprule    
+  \textbf{symbol} & \textbf{description}\\
+  \midrule 
+  A & Assumption\\
+  GD & General Definition\\
+  GS & Goal Statement\\
+  LC & Likely Change\\
+  R & Requirement\\
+  SRS & Software Requirements Specification\\
+  EHR & Electronic Healthcare record\\
+  \bottomrule
+\end{tabular}\\
 
-This subsection provides a list of terms that are used in the subsequent
-sections and their meaning, with the purpose of reducing ambiguity and making it
-easier to correctly understand the requirements:
+The following is the glossary for this document:
 
-\begin{itemize}
-\item 
-\end{itemize}
+\textbf{System} -- When referring to a system the document refers to the intended solution/product.
+
+\textbf{User} -- When referring to a user the document refers to a person who will use the product.
 
 \subsection{System overview}
 
 \subsection{System Functionality}
 
+This section outlines the core functionalities and characteristics of the proposed system:
+
+\begin{itemize}
+  \item \textbf{Patient Documentation} -- The system should facilitate efficient and streamlined patient documentation throughout the EHR documentation process. This includes storing patient data, clinical notes, treatment plans, and patient history in a secure mamnner.
+  
+  \item \textbf{Voice Recording and Transcription} -- The system should be able to record conversations between healthcare professionals and patients which will be transcribed to fill out charts and patient profiles efficiently.
+  
+  \item \textbf{Real-time Data Access} –- The users must have real-time access to patient data and documentation enabling them to make informed decisions quickly and efficiently.
+  
+  \item \textbf{Automated Medicine Suggestions} –- The system should be able to provide automated medicine suggestions based on the transcribed data which will help users to fill out the charts faster and make informed treatment decisions.
+  
+  \item \textbf{Automated Diagnosis Suggestions} -- The system should be able to suggest possible diagnoses based on transcribed data which will help users to make faster and more accurate diagnoses.
+  
+  \item \textbf{User Authentication} -- The system must provide secure user authentication methods to ensure that only authorized personnel can access sensitive patient information.
+  
+  \item \textbf{Data Privacy} -- The system must store all patient data in a secure manner to avoid any data privacy and regulatory concerns.
+  
+\end{itemize}
+
+
 \subsection{User Characteristics} \label{SecUserCharacteristics}
 
+The intended users of this product are healthcare professionals, specifically those involved in patient documentation, including doctors, nurses, and other clinical administrative staff. 
+
+The following are the user characteristics associated with the intended users:
+
+\textbf{Education Level} -- All users are expected to have a minimum of a college diploma and basic reading, writing, and speaking skills. The education level of the intended users will vary based on their role, generally a bachelor’s degree or college diploma in nursing, medicine, or other healthcare fields. 
+
+\textbf{Experience} -- All users will be expected to have basic familiarity with EHR systems or similar applications. This experience will depend on their roles ranging from entry-level positions to experienced professionals. 
+
+\textbf{Technical Expertise} -- The users should have basic technical skills to use EHR systems and other healthcare software applications. In addition to this, the users should have familiarity with data entry processes and analytics interpretation.
+
+\textbf{Accessibility Considerations} -- It is anticipated that some users may have accessibility issues. The user interface should be designed for ease of navigation, incorporating various accessibility features.
+
+Specific requirements must be specified to accommodate users with varying technical expertise and diverse educational backgrounds. This will ensure the application is usable by all healthcare staff, regardless of their abilities.
+
+
 \subsection{System Constraints}
+
+The following constraints will guide the system design and implementation:
+
+\begin{itemize} 
+  \item \textbf{System Compatibility} -- The system must be compatible with existing EHR systems for seamless integration and data exchange.
+
+  \item \textbf{Compliance with Regulatory Standards} -- The system must adhere to healthcare regulations ensuring the confidentiality and security of patient data.
+
+  \item \textbf{User Accessibility} -- The system must meet established accessibility standards to ensure usability for all healthcare staff, including those with disabilities.
+
+  \item \textbf{Cost and Time} -- The system must be developed within the imposed budget and time restrictions.
+
+\end{itemize}
 
 \subsubsection{Assumptions and Dependencies} \label{sec_assumpt}
 
