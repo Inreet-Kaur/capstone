@@ -81,6 +81,9 @@
 \newcounter{lcnum} %Likely change number
 \newcommand{\lthelcnum}{LC\thelcnum}
 \newcommand{\lcref}[1]{LC\ref{#1}}
+\newcounter{ulcnum} %Unlikely change number
+\newcommand{\ltheulcnum}{ULC\theulcnum}
+\newcommand{\ulcref}[1]{ULC\ref{#1}}
 
 \usepackage{fullpage}
 
@@ -174,6 +177,9 @@ N/A
   \midrule 
   A & Assumption\\
   G & Goals\\
+  UI & User Interface\\
+  UX & User Experience\\
+  HIPAA & Health Insurance Portability and Accountability Act\\
   STG & Stretch Goals\\
   FR & Functional Requirement\\
   NFR & Non-functional Requirement\\
@@ -306,85 +312,6 @@ The following is the glossary for this document:
   \item \textbf{Healthcare Professional:} When referring to healthcare professionals the document refers to doctors, nurses, and other healthcare professionals who will be using the product.
   \item \textbf{Patient:} When referring to a patient the document refers to any person who is receiving medical treatment.
   \item \textbf{Healthcare Network:} When referring to a healthcare network the document refers to an organisation that has group of hospitals or clinics and will use the system.
-
-    \item[R\refstepcounter{reqnum}\thereqnum \label{FR_DictationRecording}:] \textbf{Voice Dictation for Patient Records}
-
-    \textbf{Requirement:} he system should allow healthcare workers to update patient records using dictation. 
-    
-    \textbf{Rationale:} This will reduce the workload on the healthcare workers, while also efficiently reducing the time spent on documentation. 
-    
-    \textbf{Fit Criterion:} The system should use voice dictation to document medical reports with a minimum of 90\% accuracy. 
-    
-    \textbf{Dependencies:} 3.1.7, 3.1.8
-    
-    \textbf{Monitored Variables:}
-    \begin{itemize}
-        \item Accuracy
-    \end{itemize}
-    
-    \textbf{Performance:} 
-    \begin{itemize}
-        \item System should transcribe speech in real time and segment it into the right fields onto the record.
-    \end{itemize}
-    
-    \textbf{Hardware Requirements:}
-    \begin{itemize}
-        \item Workstations to access the system and a microphone which can record the voice in the system. 
-    \end{itemize}
-    
-    \textbf{Software Requirements:}
-    \begin{itemize}
-        \item An audio transcription service to transcribe audio to text 
-
-        \item Access to patient record database. 
-
-        \item Internet browser to access the system.  
-    \end{itemize}
-    
-    \textbf{Normal Use:} The system records the provider's voice and updates the patient file with the transcribed text.
-    
-    \textbf{Undesired Event Handling:} If the recording or transcription fails, the system should notify the user and offer manual review.
-
-
-
-\item[R\refstepcounter{reqnum}\thereqnum \label{FR_DiagnosticSuggestions}:] \textbf{Diagnostic Suggestions from Transcribed Data}
-
-    \textbf{Requirement:} The system should analyze transcribed text and provide diagnostic suggestions based on the input.
-    
-    \textbf{Rationale:} This alerts the healthcare professionals about the possible diagnostics and helps them to diagnose the patients quicker based on suggested options.
-    
-    \textbf{Fit Criterion:} The system must suggest diagnoses within 5 seconds after transcript is provided, with 85\% accuracy based on known patient’s medical record.
-    
-    \textbf{Dependencies:} 3.1.12
-    
-    \textbf{Monitored Variables:}
-    \begin{itemize}
-        \item Suggested diagnostic accuracy 
-        \item Time to generate suggestions 
-    \end{itemize}
-    
-    \textbf{Performance:}
-    \begin{itemize}
-        \item Suggestions must be provided within 5 seconds of transcript completion. 
-        \item  Suggestions should match known diagnoses with 85\% accuracy. 
-    \end{itemize}
-    
-    \textbf{Hardware Requirements:}
-    \begin{itemize}
-        \item Workstations and other peripherals to access the system. 
-    \end{itemize}
-    
-    \textbf{Software Requirements:}
-    \begin{itemize}
-        \item Access to patient record database. 
-        \item Internet browser to access the system.  
-        \item Service engine that generates diagnostic suggestions. 
-    \end{itemize}
-    
-    \textbf{Normal Use:} The system analyzes the transcribed conversation and suggests possible diagnoses based on a patient’s medical record. 
-    
-    \textbf{Undesired Event Handling:} If the system can’t suggest a diagnosis, it should notify the user and offer a manual search option. 
-
 \end{itemize}
 
 
@@ -464,9 +391,9 @@ N/A
 \subsubsection{Assumptions} \label{sec_assumpt}
 
 \begin{itemize}
-  \item\textbf{Reliable Internet Connection:} We assume that the user has a reliable internet connection throughout their operational hours.
-  \item\textbf{Sufficient Hardware Accessories:} We are assuming that the user has the required hardware devices such as monitors, iPads etc. to access the system.
-  \item\textbf{Patient’s Consent:} We also assume that medical staff will obtain patients’ consent when required.
+  \item[A\refstepcounter{assumpnum}\theassumpnum \label{A_reliableInternet}:] \textbf{Reliable Internet Connection:} We assume that the user has a reliable internet connection throughout their operational hours.
+  \item[A\refstepcounter{assumpnum}\theassumpnum \label{A_sufficientHardware}:] \textbf{Sufficient Hardware Accessories:} We are assuming that the user has the required hardware devices such as monitors, iPads etc. to access the system.
+  \item[A\refstepcounter{assumpnum}\theassumpnum \label{A_patientConsent}:] \textbf{Patient’s Consent:} We also assume that medical staff will obtain patients’ consent when required.
 \end{itemize}
 
 
@@ -584,7 +511,7 @@ Looking at implementation details there are a few risks that come up, if these r
 
 \noindent \begin{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_addHealthNetwork}:] 
 
 \textbf{Requirement:} The system should allow to add healthcare network to the system. 
 
@@ -629,7 +556,7 @@ Looking at implementation details there are a few risks that come up, if these r
 \end{itemize}
 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:]  
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_removeHealthNetwork}:]  
 
 \textbf{Requirement:} The system should allow to remove a health network from the system.
 
@@ -639,7 +566,7 @@ When health networks close and want to pivot to another documentation tool their
 \textbf{Fit Criterion:} 
 The network data and profiles are fully deleted from the database. This could be verified by returning the valid entries from the patient database.
 
-\textbf{Dependencies:} 3.1.1
+\textbf{Dependencies:} FR\ref{FR_addHealthNetwork} 
 
 \textbf{Monitored and Controlled Variables:} N/A
 
@@ -681,7 +608,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Fit Criterion:} The healthcare network data will be up to date with its current state (i.e. number of hospitals, staff etc…), the data’s recency will depend on the networks need. 
 
-\textbf{Dependencies:} 3.1.1 
+\textbf{Dependencies:} FR\ref{FR_addHealthNetwork}
 
 \textbf{Monitored and Controlled Variables:} N/A
 
@@ -756,7 +683,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Fit Criterion:} The healthcare professional is successfully removed from the system, this will be verified by the fact that they are not present in the databases. 
 
-\textbf{Dependencies:} 3.1.4 
+\textbf{Dependencies:} FR\ref{FR_AddHealthProfessional}
 
 \textbf{Monitored and Controlled Variables:} N/A
 
@@ -793,7 +720,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Fit Criterion:} The healthcare professional’s data will be up to date in its current state (i.e. role of a healthcare professional, the organization they work in etc), the data’s latency will depend on the networks’ need. 
 
-\textbf{Dependencies:} 3.1.4 
+\textbf{Dependencies:} FR\ref{FR_AddHealthProfessional}
 
 \textbf{Monitored and Controlled Variables:} N/A
 
@@ -831,7 +758,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Fit Criterion:} The system only authenticates the authorized users to log into the system and has 100\% accuracy. 
 
-\textbf{Dependencies:}  3.1.4
+\textbf{Dependencies:} FR\ref{FR_AddHealthProfessional}
 
 \textbf{Monitored and Controlled Variables:} number of failed login attempts
 
@@ -871,7 +798,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Fit Criterion:} The record is created and added to the patient database. This could be verified by returning the valid entries from the patient database.
 
-\textbf{Dependencies:} 3.1.7
+\textbf{Dependencies:} FR\ref{FR_login}
 
 \textbf{Monitored and Controlled Variables:} field validation
 
@@ -915,7 +842,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Fit Criterion:} The record is successfully removed from the patient database. This could be verified by returning the valid entries from the patient database.
 
-\textbf{Dependencies:} 3.1.7, 3.1.8
+\textbf{Dependencies:} FR\ref{FR_login}, FR\ref{FR_createRecord}
 
 \textbf{Monitored and Controlled Variables:} N/A
 
@@ -959,7 +886,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Fit Criterion:} The system should update the current state and patient database with the input information.
 
-\textbf{Dependencies:} 3.1.7, 3.1.8
+\textbf{Dependencies:} FR\ref{FR_login}, FR\ref{FR_createRecord}
 
 \textbf{Monitored and Controlled Variables:} N/A
 
@@ -992,75 +919,96 @@ The network data and profiles are fully deleted from the database. This could be
   \item If the system fails to update the record due to a system error, the system should display an appropriate error message. 
 \end{itemize}
 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_DictationRecording}:]
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
-
-\textbf{Requirement:} Update the patient record by dictation -ability to record. 
-
-\textbf{Fit Criterion:}  
-
-\textbf{Dependencies:}  
-
-\textbf{Monitored and Controlled Variables:} 
-
-\textbf{Performance Requirements:} 
-
-\textbf{Hardware Requirements:} 
-
-\textbf{Software Requirements:} 
-
-\textbf{Normal Behavior:} 
-
+\textbf{Requirement:} The system should allow healthcare workers to update patient records using dictation. 
+    
+\textbf{Rationale:} This will reduce the workload on the healthcare workers, while also efficiently reducing the time spent on documentation. 
+    
+\textbf{Fit Criterion:} The system should use voice dictation to document medical reports with a minimum of 90\% accuracy. 
+    
+\textbf{Dependencies:} FR\ref{FR_login}, FR\ref{FR_createRecord}
+    
+\textbf{Monitored Variables:} Accuracy
+    
+\textbf{Performance:} 
+  \begin{itemize}
+      \item System should transcribe speech in real time and segment it into the right fields onto the record.
+  \end{itemize}
+    
+\textbf{Hardware Requirements:}
+  \begin{itemize}
+      \item Workstations to access the system and a microphone which can record the voice in the system. 
+  \end{itemize}
+    
+\textbf{Software Requirements:}
+  \begin{itemize}
+      \item An audio transcription service to transcribe audio to text 
+      \item Access to patient record database. 
+      \item Internet browser to access the system.  
+  \end{itemize}
+    
+\textbf{Normal Use:} 
+\begin{itemize}
+  \item The system records the provider's voice and updates the patient file with the transcribed text.
+\end{itemize}
+    
 \textbf{Undesired Event Handling:} 
+\begin{itemize}
+  \item If the recording or transcription fails, the system should notify the user and offer manual review.
+\end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
 
-\textbf{Requirement:} transcribe conversation to text in real time. 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_DiagnosticSuggestions}:]
 
-\textbf{Fit Criterion:}  
-
-\textbf{Dependencies:}  
-
-\textbf{Monitored and Controlled Variables:} 
-
-\textbf{Performance Requirements:} 
-
-\textbf{Hardware Requirements:} 
-
-\textbf{Software Requirements:} 
-
-\textbf{Normal Behavior:} 
-
+\textbf{Requirement:} The system should analyze transcribed text and provide diagnostic suggestions based on the input.
+    
+\textbf{Rationale:} This alerts the healthcare professionals about the possible diagnostics and helps them to diagnose the patients quicker based on suggested options.
+    
+\textbf{Fit Criterion:} The system must suggest diagnoses within 5 seconds after transcript is provided, with 85\% accuracy based on known patient’s medical record.
+    
+\textbf{Dependencies:} FR\ref{FR_DictationRecording}
+    
+\textbf{Monitored Variables:} Suggested diagnostic accuracy, time to generate suggestions 
+  
+\textbf{Performance:}
+  \begin{itemize}
+    \item Suggestions must be provided within 5 seconds of transcript completion. 
+    \item Suggestions should match known diagnoses with 85\% accuracy. 
+  \end{itemize}
+    
+\textbf{Hardware Requirements:}
+  \begin{itemize}
+    \item Workstations and other peripherals to access the system. 
+  \end{itemize}
+    
+\textbf{Software Requirements:}
+  \begin{itemize}
+    \item Access to patient record database. 
+    \item Internet browser to access the system.  
+    \item Service engine that generates diagnostic suggestions. 
+  \end{itemize}
+    
+\textbf{Normal Use:} 
+  \begin{itemize}
+    \item The system analyzes the transcribed conversation and suggests possible diagnoses based on a patient’s medical record. 
+  \end{itemize}
+    
 \textbf{Undesired Event Handling:} 
+  \begin{itemize}
+    \item If the system can’t suggest a diagnosis, it should notify the user and offer a manual search option. 
+  \end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
 
-\textbf{Requirement:} provide diagnostic suggestions based on the transcribed data.
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_medicalSuggestions}:] 
 
-\textbf{Fit Criterion:}  
-
-\textbf{Dependencies:}  
-
-\textbf{Monitored and Controlled Variables:} 
-
-\textbf{Performance Requirements:} 
-
-\textbf{Hardware Requirements:} 
-
-\textbf{Software Requirements:} 
-
-\textbf{Normal Behavior:} 
-
-\textbf{Undesired Event Handling:} 
-
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
-\textbf{Requirement:} The system should provide a list of frequently used medicines based on accepted diagnosis
+\textbf{Requirement:} The system should provide a list of frequently used medicines based on accepted diagnosis.
 
 \textbf{Rationale:} As the patients’ medical records and data is being added into the charts, having a model that can provide a preliminary set of diagnosis such that documentation time can be saved. This will be a supplementary auto-complete type of tool again to continue to speed up documentation.
 
 \textbf{Fit Criterion:} Auto-completion accuracy is 85+ percent as that the benchmark for most autocompleting keyboards etc. The model will be measured through cross validation techniques.
-
-\textbf{ Dependencies:} 3.1.7, 3.1.8, 3.1.10, 3.1.11, 3.1.12
+ 
+\textbf{Dependencies:} FR\ref{FR_DictationRecording}, FR\ref{FR_DiagnosticSuggestions}
 
 \textbf{Monitored and Controlled Variables:} accuracy
 
@@ -1088,14 +1036,14 @@ Workstations and other peripherals to access the system.
   \item In case no medicine suggestions are provided the doctor can manually add a prescription.
 \end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_transferPatient}:] 
 \textbf{Requirement:} The system should be able to transfer patient documentation to another provider. 
 
 \textbf{Rationale:} If the patient goes to a hospital in another health network, perhaps the medical history is to be shared. This functionality will allow the request and transfer of files.
 
 \textbf{Fit Criterion:} Transfer over the files in a short time, the transfer protocol is secure, and data is not leaked.
 
-\textbf{Dependencies:} 3.1.1, 3.1.4, 3.1.8, 3.1.10, 3.1.11, 3.1.12
+\textbf{Dependencies:} FR\ref{FR_createRecord}
 
 \textbf{Monitored and Controlled Variables:} N/A
 
@@ -1125,46 +1073,6 @@ Access to patient record database.
   \item A patient file is requested, the request is denied then a detailed request is submitted.
 \end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
-\textbf{Requirement:} provide a list of frequently used medicines based on diagnosis.
-
-\textbf{Fit Criterion:}  
-
-\textbf{Dependencies:}  
-
-\textbf{Monitored and Controlled Variables:} 
-
-\textbf{Performance Requirements:} 
-
-\textbf{Hardware Requirements:} 
-
-\textbf{Software Requirements:} 
-
-\textbf{Normal Behavior:} 
-
-\textbf{Undesired Event Handling:} 
-
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
-
-\textbf{Requirement:} send patient journey to another provider.
-
-\textbf{Fit Criterion:}  
-
-\textbf{Dependencies:}  
-
-\textbf{Monitored and Controlled Variables:} 
-
-\textbf{Performance Requirements:} 
-
-\textbf{Hardware Requirements:} 
-
-\textbf{Software Requirements:} 
-
-\textbf{Normal Behavior:} 
-
-\textbf{Undesired Event Handling:} 
-
-\end{itemize}
 
 
 \subsection{Non-functional Requirements} \label{sec_NonFunctionalRequirements}
@@ -1277,24 +1185,93 @@ Access to patient record database.
 should be provided for scope decisions, modelling decisions, assumptions and
 typical values.}
 
-\section{Likely Changes}    
+\section{Likely Changes}
 
+\subsection{Functional Requirements}
 \noindent \begin{itemize}
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_profileUpdate}:] The healthcare professional should be able to update their profile information. (FR\ref{FR_UpdateHealthProfessional})
+\textbf{Rationale:} This is a likely change because health network may want to reserve permission to make certain changes to healthcare professionals profiles for security reasons such as updating password.
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
-    the likely changes, with a reference to the related assumption (aref), as appropriate.}
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_patientDelete}:] The user should be able to delete an existing patient record from the system. (FR\ref{FR_deleteRecord})
+\textbf{Rationale:} This is a likely change because health network may want to preserve certain entries for compliance and security reasons.
+
+\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_addHealthNetwork}:] The system should provide a list of frequently used medicines based on accepted diagnosis. (FR\ref{FR_medicalSuggestions})
+\textbf{Rationale:} This is a likely change because health network may have some policies that restrict the use of certain medicines.
+\end{itemize}
+
+
+\subsection{Non-functional Requirements}
+\noindent \begin{itemize}
+  \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_maintainability}:] The system should be updated with new features without causing downtime longer than 2 minutes.(NFR\ref{NFR_Maintainability})
+  \textbf{Rationale:} This a likely change because of the availability of technologies and services that can be integrated into the system.
+
+  \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_cultural}:] The system should allow customization of language settings to accommodate all healthcare workers.(NFR\ref{NFR_Cultural})
+  \textbf{Rationale:} This is a likely change because health network may not have the resources to customize the language settings.
+
+  \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_operational}:] The system should have an uptime guarantee of 99.9\% during operational hours.(NFR\ref{NFR_Operational})
+  \textbf{Rationale:} This a likely change because of the availability of technologies and services that can be integrated into the system.
 
 \end{itemize}
 
-\section{Unlikely Changes}    
 
+
+\section{Unlikely Changes}   
+
+
+\subsection{Functional Requirements}
 \noindent \begin{itemize}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_addHealthNetwork}:] The system should allow to add healthcare network to the system. (FR\ref{FR_addHealthNetwork})
+\textbf{Rationale:} This is unlikely to change because health network are the primary bodies using this system for their staff and hospitals.
 
-\item[ULC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
-    the unlikely changes.  The design can assume that the changes listed will
-    not occur.}
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_removeHealthNetwork}:]  The system should allow to remove a health network from the system. (FR\ref{FR_removeHealthNetwork})
+\textbf{Rationale:} This is unlikely to change because health network may want to switch to a different system.
 
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_updateHealthNetwork}:] The health network should be able to update its organizational and hospital information. (FR\ref{FR_UpdateHealthNetwork})
+\textbf{Rationale:} This is unlikely to change because health network must be able to update their organizational and hospital information..
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_addHealthProfessional}:] The system should allow to add healthcare professionals to the system. (FR\ref{FR_AddHealthProfessional})
+\textbf{Rationale:} This is unlikely to change because health network must be able to add new hired healthcare professionals and staff information to the system.
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_removeHealthProfessional}:] The system should allow to remove healthcare professionals from the system. (FR\ref{FR_RemoveHealthProfessional})
+\textbf{Rationale:} This is unlikely to change because health network must be able to remove healthcare professionals that have left the organization from the system.
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_login}:] The system should allow the authorized user to successfully log in to the system. (FR\ref{FR_login})
+\textbf{Rationale:} This is unlikely to change because this supports the primary function of the system that is to be able to access the system.
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_createPatientRecord}:] The user should be able to create a new patient record. (FR\ref{FR_createRecord})
+\textbf{Rationale:} This is unlikely to change because this is a part of the primary function of the system that is to be able to create patient records.
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_updatePatientRecord}:] The system should allow the user to update the patient records manually by typing. (FR\ref{FR_updateRecordtyping})
+\textbf{Rationale:} This is unlikely to change because this is a part of the primary function of the system that is to be able to update patient records.
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_dictation}:] The system should allow healthcare workers to update patient records using dictation. (FR\ref{FR_DictationRecording})
+\textbf{Rationale:} This is unlikely to change because this is a the key functionality that address the overhead of the healthcare documentation process. 
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_diagnosticSuggestions}:] The system should analyze transcribed text and provide diagnostic suggestions based on the input. (FR\ref{FR_DiagnosticSuggestions})
+\textbf{Rationale:} This is unlikely to change because this is a the key functionality that address the overhead of the healthcare documentation process. 
+
+\item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_transferPatient}:] The system should be able to transfer patient documentation to another provider. (FR\ref{FR_transferPatient})
+\textbf{Rationale:} This is unlikely to change because this requirement is essentials to collobrate with other health networks that user another documentation service.
 \end{itemize}
+
+\subsection{Non-functional Requirements}
+\noindent \begin{itemize}
+  \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_LookAndFeel}:] The UI should keep a clean design, that fits the healthcare standards.(NFR\ref{NFR_LookAndFeel})
+  \textbf{Rationale:} This is unlikely to change because the design must meet the healthcare standards.
+
+  \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_usability}:] The UI of the system should be intuitive, allowing healthcare workers to master its use with a training of up to 30 minutes.(NFR\ref{NFR_Usability})
+  \textbf{Rationale:} This is unlikely to change because the UI must be intuitive, easy to use, and learn.
+
+  \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_performance}:] The system should convert voice recordings into text onto medical charts within 30 seconds of recording.(NFR\ref{NFR_Performance})
+  \textbf{Rationale:} This is unlikely to change because this is a key functionality that address the overhead of the healthcare documentation process.
+
+  \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_security}:] The system should have all patient data encrypted, and in compliance with HIPAA standards.(NFR\ref{NFR_Security})
+  \textbf{Rationale:} This is unlikely to change because patient data must be stored securely and protected against unauthorized access.
+
+  \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_legal}:] The system should comply with all healthcare data protection regulations. (NFR\ref{NFR_Legal})
+  \textbf{Rationale:} This is unlikely to change because patient data must be protected and compliant with healthcare data protection regulations.
+\end{itemize}
+
 
 
 \section{Traceability Matrices and Graphs}
