@@ -565,86 +565,173 @@ Looking at implementation details there are a few risks that come up, if these r
 \textbf{Undesired Event Handling:} 
 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_login}:] Login
 
-\textbf{Requirement:} Allow users to log in.
+\textbf{Requirement:} The system should allow the authorized user to successfully log in to the system.
 
-\textbf{Fit Criterion:}  
+\textbf{Rationale:} Doctors and other medical professionals should be able to log into the system to create patients, update, and delete patient records and access their medical records. The system should also authenticate the user to avoid unauthorized access to the data.
 
-\textbf{Dependencies:}  
+\textbf{Fit Criterion:} The system only authenticates the authorized users to log into the system and has 100\% accuracy. 
 
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Dependencies:}  3.1.4
 
-\textbf{Performance Requirements:} 
-
-\textbf{Hardware Requirements:} 
-
-\textbf{Software Requirements:} 
-
-\textbf{Normal Behavior:} 
-
-\textbf{Undesired Event Handling:} 
-
-
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
-
-\textbf{Requirement:} create a patient record.
-
-\textbf{Fit Criterion:}  
-
-\textbf{Dependencies:}  
-
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Monitored and Controlled Variables:} number of failed login attempts
 
 \textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The system successfully redirects users to correct system state based on authentication.
+\end{itemize}
 
 \textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
 
 \textbf{Software Requirements:} 
+\begin{itemize}
+  \item Authentication protocols and encryption for security. 
+  \item Internet browser to access the system.
+\end{itemize}
 
 \textbf{Normal Behavior:} 
+\begin{itemize}
+  \item The user is able to successfully login upon providing valid credentials and is redirected to the appropriate dashboard based on their role.
+\end{itemize}
 
-\textbf{Undesired Event Handling:} 
+\textbf{Undesired Event Handling:}
+\begin{itemize}
+  \item If a user provides invalid credentials, the system will display an error message and redirect the user to sign in page.
+  \item After three failed login attempts, the user account will be locked, and the user will have to contact the support team to regain access.
+\end{itemize}
+ 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_createRecord}:] Create a new patient record
 
-\textbf{Requirement:} Delete the patient record.
+\textbf{Requirement:} The user should be able to create a new patient record. 
 
-\textbf{Fit Criterion:}  
+\textbf{Rationale:} The patient data and medical history must be stored in a secure manner. Therefore, medical staff should be able to create a new patient record to store all the relevant information. 
 
-\textbf{Dependencies:}  
+\textbf{Fit Criterion:} The record is created and added to the patient database. This could be verified by returning the valid entries from the patient database.
 
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Dependencies:} 3.1.7
+
+\textbf{Monitored and Controlled Variables:} field validation
 
 \textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The system only adds valid entries to the database.
+  \item The system prevents any data leaks.
+\end{itemize}
 
 \textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
 
 \textbf{Software Requirements:} 
+\begin{itemize}
+  \item Database management system to store patient information.
+  \item Internet browser to access the system.
+\end{itemize}
 
 \textbf{Normal Behavior:} 
+\begin{itemize}
+  \item All input data is validated as it is entered using field level validation. 
+  \item Once all required fields are completed the user selects the submit button, a new patient record is successfully created and stored.
+\end{itemize}
 
 \textbf{Undesired Event Handling:} 
+\begin{itemize}
+  \item The user may enter invalid input data. The system should display appropriate error messages. 
+  \item The system should have constraints to restrict the user from submitting, unless all required fields are completed and have valid input data. 
+  \item If the system fails to save the record due to a system error, the system should display an appropriate error message. 
+\end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
 
-\textbf{Requirement:} Update the patient record by typing - allow the user to edit the transcribed data
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_deleteRecord}:] Delete an existing patient record.
 
-\textbf{Fit Criterion:}  
+\textbf{Requirement:} The user should be able to delete an existing patient record from the system.
 
-\textbf{Dependencies:}  
+\textbf{Rationale:} There can be instances where medical professionals need to delete a certain patient record, for example inaccurate entries, duplicate records etc. Therefore, the system should allow authorized users to remove patient records.
 
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Fit Criterion:} The record is successfully removed from the patient database. This could be verified by returning the valid entries from the patient database.
+
+\textbf{Dependencies:} 3.1.7, 3.1.8
+
+\textbf{Monitored and Controlled Variables:} N/A
 
 \textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The system should be able to identify the correct record to delete. 
+  \item The system should delete the correct record without affecting the rest of the database. 
+\end{itemize}
 
 \textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
 
 \textbf{Software Requirements:} 
+\begin{itemize}
+  \item Access to patient record database.
+  \item Role based access control system to manage user permissions.
+  \item Internet browser to access the system.
+\end{itemize}
 
 \textbf{Normal Behavior:} 
+\begin{itemize}
+  \item The user selects the delete button and confirms the deletion. The patient record is successfully removed from the database and no longer appears on the system.
+\end{itemize}
 
 \textbf{Undesired Event Handling:} 
+\begin{itemize}
+  \item If the user does not have permission to delete the record, the system should show an appropriate error message.
+  \item If the system fails to delete the record due to a system error, the system should display an appropriate error message. 
+\end{itemize}
+
+
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_updateRecordtyping}:] Update the patient record by typing
+
+\textbf{Requirement:} : The system should allow the user to update the patient records manually by typing.
+
+\textbf{Rationale:} Medical professionals frequently need to update patient information, such as changes in diagnosis, medication, or medical history. The healthcare professional may want to add some information manually. Moreover, if healthcare professionals use the dictation tool, they still should be allowed to edit the auto filled transcribed data in case there are inaccuracies.
+
+\textbf{Fit Criterion:} The system should update the current state and patient database with the input information.
+
+\textbf{Dependencies:} 3.1.7, 3.1.8
+
+\textbf{Monitored and Controlled Variables:} N/A
+
+\textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The changes should be reflected in real time on the user interface.
+  \item The changes should be stored successfully in the database.
+\end{itemize}
+
+\textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
+
+\textbf{Software Requirements:} 
+\begin{itemize}
+  \item Access to patient record database.
+  \item Internet browser to access the system. 
+\end{itemize}
+
+\textbf{Normal Behavior:} 
+\begin{itemize}
+  \item The user edits the selected field and enters new information. 
+  \item The system successfully updates the changes in database and reflect changes on the user interface. 
+\end{itemize}
+
+\textbf{Undesired Event Handling:}
+\begin{itemize}
+  \item If an unauthorized user tries to update a record, the system displays appropriate error messages. 
+  \item If the system fails to update the record due to a system error, the system should display an appropriate error message. 
+\end{itemize}
+
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
 
