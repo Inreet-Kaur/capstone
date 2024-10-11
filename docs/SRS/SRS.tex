@@ -225,9 +225,7 @@ The stretch goals for this project are as follows:
         \midrule
         STG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{STG_diagnosisSuggestions}: Automated diagnosis suggestions.  & Use AI to suggest possible diagnoses based on what the doctor and patient discuss.  & This will help doctors make faster, more accurate diagnoses, especially in tricky cases.\\ 
         \midrule
-        STG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{STG_triage}: Machine learning for triage.  & Use machine learning to prioritize patients based on the severity of their condition. & This ensures the most critical patients get treated first, improving care in emergencies. \\
-        \midrule 
-        STG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{STG_multiLanguage}: Multi-language support. & Let doctors and patients use the app in different languages.  & This makes the app useful for a wider range of people, especially in diverse hospitals. \\
+        STG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{STG_triage}: Increase efficiency for triage.  & Create functionality to prioritize patients based on the severity of their condition. & This ensures the most critical patients get treated first, improving care in emergencies. \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -276,11 +274,11 @@ The organization of this document is as follows:
 The following is the glossary for this document:
 
 \begin{itemize}
-  \item \textbf{System} -- When referring to a system the document refers to the intended solution/product.
-  \item \textbf{User} -- When referring to a user the document refers to a person who will use the product.
-  \item \textbf{Healthcare Professional} -- When referring to healthcare professionals the document refers to doctors, nurses, and other healthcare professionals who will be using the product.
-  \item \textbf{Patient} -- When referring to a patient the document refers to any person who is receiving medical treatment.
-  \item \textbf{Healthcare Network} -- When referring to a healthcare network the document refers to an organisation that has group of hospitals or clinics and will use the system.
+  \item \textbf{System:} When referring to a system the document refers to the intended solution/product.
+  \item \textbf{User:} When referring to a user the document refers to a person who will use the product.
+  \item \textbf{Healthcare Professional:} When referring to healthcare professionals the document refers to doctors, nurses, and other healthcare professionals who will be using the product.
+  \item \textbf{Patient:} When referring to a patient the document refers to any person who is receiving medical treatment.
+  \item \textbf{Healthcare Network:} When referring to a healthcare network the document refers to an organisation that has group of hospitals or clinics and will use the system.
 
 \end{itemize}
 
@@ -296,34 +294,34 @@ Through this project we aim to develop a solution that will address key niche pr
 This section outlines the core functionalities and characteristics of the proposed system:
 
 \begin{itemize}
-  \item \textbf{Patient Documentation} -- The system should facilitate efficient and streamlined patient documentation throughout the EHR documentation process. This includes storing patient data, clinical notes, treatment plans, and patient history in a secure mamnner.
+  \item \textbf{Patient Documentation:} The system should facilitate efficient and streamlined patient documentation throughout the EHR documentation process. This includes storing patient data, clinical notes, treatment plans, and patient history in a secure manner.
   
-  \item \textbf{Voice Transcription} -- The system should be able to record conversations between healthcare professionals and patients which will be transcribed to fill out charts and patient profiles efficiently.
+  \item \textbf{Voice Transcription:} The system should be able to record conversations between healthcare professionals and patients which will be transcribed to fill out charts and patient profiles efficiently.
   
-  \item \textbf{Real-time Data Access} –- The users must have real-time access to patient data and documentation enabling them to make informed decisions quickly and efficiently.
+  \item \textbf{Real-time Data Access:} The users must have real-time access to patient data and documentation enabling them to make informed decisions quickly and efficiently.
   
-  \item \textbf{Automated Medicine Suggestions} –- The system should be able to provide automated medicine suggestions based on the transcribed data which will help users to fill out the charts faster and make informed treatment decisions.
+  \item \textbf{Automated Medicine Suggestions:} The system should be able to provide automated medicine suggestions based on the transcribed data which will help users to fill out the charts faster and make informed treatment decisions.
   
-  \item \textbf{Automated Diagnosis Suggestions} -- The system should be able to suggest possible diagnoses based on transcribed data which will help users to make faster and more accurate diagnoses.
+  \item \textbf{Automated Diagnosis Suggestions:} The system should be able to suggest possible diagnoses based on transcribed data which will help users to make faster and more accurate diagnoses.
   
-  \item \textbf{User Authentication} -- The system must provide secure user authentication methods to ensure that only authorized personnel can access sensitive patient information.
+  \item \textbf{User Authentication:} The system must provide secure user authentication methods to ensure that only authorized personnel can access sensitive patient information.
   
 \end{itemize}
 
 
 \subsection{User Characteristics} \label{sec_UserCharacteristics}
 
-The intended users of this product are healthcare professionals, specifically those involved in patient documentation, including doctors, nurses, and other clinical administrative staff. 
+The intended users of this product are healthcare professionals, specifically those involved in patient documentation, including doctors, nurses, and other clinical administrative staff. \\
 
-The following are the user characteristics associated with the intended users:
+The following are the user characteristics associated with the intended users:\\
 
-\textbf{Education Level} -- All users are expected to have a minimum of a college diploma and basic reading, writing, and speaking skills. The education level of the intended users will vary based on their role, generally a bachelor’s degree or college diploma in nursing, medicine, or other healthcare fields. 
+\textbf{Education Level:} All users are expected to have a minimum of a college diploma and basic reading, writing, and speaking skills. The education level of the intended users will vary based on their role, generally a bachelor’s degree or college diploma in nursing, medicine, or other healthcare fields. \\
 
-\textbf{Experience} -- All users will be expected to have basic familiarity with EHR systems or similar applications. This experience will depend on their roles ranging from entry-level positions to experienced professionals. 
+\textbf{Experience:} All users will be expected to have basic familiarity with EHR systems or similar applications. This experience will depend on their roles ranging from entry-level positions to experienced professionals. \\
 
-\textbf{Technical Expertise} -- The users should have basic technical skills to use EHR systems and other healthcare software applications. In addition to this, the users should have familiarity with data entry processes and analytics interpretation.
+\textbf{Technical Expertise:} The users should have basic technical skills to use EHR systems and other healthcare software applications. In addition to this, the users should have familiarity with data entry processes and analytics interpretation. \\
 
-\textbf{Accessibility Considerations} -- It is anticipated that some users may have accessibility issues. The user interface should be designed for ease of navigation, incorporating various accessibility features.
+\textbf{Accessibility Considerations:} It is anticipated that some users may have accessibility issues. The user interface should be designed for ease of navigation, incorporating various accessibility features.\\
 
 Specific requirements must be specified to accommodate users with varying technical expertise and diverse educational backgrounds. This will ensure the application is usable by all healthcare staff, regardless of their abilities.
 
@@ -334,11 +332,11 @@ The following constraints will guide the system design and implementation:
 
 \begin{itemize} 
 
-  \item \textbf{Compliance with Regulatory Standards} -- The system must adhere to healthcare regulations ensuring the confidentiality and security of patient data.
+  \item \textbf{Compliance with Regulatory Standards:} The system must adhere to healthcare regulations ensuring the confidentiality and security of patient data.
 
-  \item \textbf{User Accessibility} -- The system must meet established accessibility standards to ensure usability for all healthcare staff, including those with disabilities.
+  \item \textbf{User Accessibility:} The system must meet established accessibility standards to ensure usability for all healthcare staff, including those with disabilities.
 
-  \item \textbf{Cost and Time} -- The system must be developed within the imposed budget and time restrictions.
+  \item \textbf{Cost and Time:} The system must be developed within the imposed budget and time restrictions.
 
 \end{itemize}
 
@@ -786,7 +784,7 @@ Looking at implementation details there are a few risks that come up, if these r
 
     \textbf{Requirement:} The system should have an uptime guarantee of 99.9\% during operational hours.
 
-    \textbf{Rationale:} Reliable uptime ensures consistent service for healthcare workers, specially in time-sensitive atmospheres like hospitals.
+    \textbf{Rationale:} Reliable uptime ensures consistent system for healthcare workers, specially in time-sensitive atmospheres like hospitals.
 
     \textbf{Fit Criterion:} System logs will confirm an uptime rate of 99.9\% over a 30-day period.  
 
