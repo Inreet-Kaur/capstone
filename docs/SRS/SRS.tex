@@ -619,6 +619,7 @@ Looking at implementation details there are a few risks that come up, if these r
 
 \textbf{Performance Requirements:} 
 \begin{itemize}
+  \item The system should update the patient database with the latency of 1 second. 
   \item The system only adds valid entries to the database.
   \item The system prevents any data leaks.
 \end{itemize}
@@ -662,6 +663,7 @@ Looking at implementation details there are a few risks that come up, if these r
 
 \textbf{Performance Requirements:} 
 \begin{itemize}
+  \item The deletion process must be easy to complete with a latency of 1 second. 
   \item The system should be able to identify the correct record to delete. 
   \item The system should delete the correct record without affecting the rest of the database. 
 \end{itemize}
