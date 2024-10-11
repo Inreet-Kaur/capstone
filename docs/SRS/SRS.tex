@@ -156,6 +156,38 @@ Date 2 & 1.1 & Notes\\
 \bottomrule
 \end{tabularx}
 
+~\newpage
+
+\section{Reference Material}
+N/A
+
+\subsection{Table of Units}
+N/A
+
+\subsection{Table of Symbols}
+N/A
+
+\subsection{Abbreviations and Acronyms}
+
+\begin{tabular}{l l} 
+  \toprule    
+  \textbf{symbol} & \textbf{description}\\
+  \midrule 
+  A & Assumption\\
+  G & Goals\\
+  STG & Stretch Goals\\
+  FR & Functional Requirement\\
+  NFR & Non-functional Requirement\\
+  LC & Likely Change\\
+  ULC & Unlikely Change\\
+  SRS & Software Requirements Specification\\
+  EHR & Electronic Healthcare Record\\
+  \bottomrule
+\end{tabular}\\
+
+\subsection{Mathematical Notation}
+N/A
+
 \newpage
 
 \pagenumbering{arabic}
@@ -167,17 +199,48 @@ Date 2 & 1.1 & Notes\\
 
 The purpose of this document is to provide a comprehensive description of the requirements for a software application that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used in as a contract in a sense between the team and the client who intends to use this application. This document will allow for an in-depth description of the software's functionality, performance, and other non-functional requirements. Additionally, it will outline common use-cases under which the software will be used. This will in turn provide a direction to the developers such that they will be empowered to creating the right product as this document will contain various stakeholders' requirements. Along with development direction, this document will be a direct reference for all of the stakeholders to understand the product's scope, functionality, and limitations.
 
+\subsection{Scope of Requirements} \label{sec_ScopeOfRequirements}
+
+Need to complete this section.
+
+
 
 \subsection{Characteristics of Intended Reader} \label{sec_IntendedReader} 
 
 The intended readers of this SRS document include project managers, software developers, testing engineers, and stakeholders directly involved in the design and implementation of the software system. Project managers and testing engineers would be directly involved in the development and testing process. They would generally have an education in computer science along with experience in software design, web or mobile development, and software testing. Project managers generally have experience in managing software projects and knowledge of software development processes. Stakeholders like doctors and nursing staff would have domain knowledge and could provide insights to understand the clinical workflow and documentation process. 
 
-\subsection{Scope of Requirements} \label{sec_ScopeOfRequirements}
+\subsection{Organization of Document} \label{sec_OrganizationOfDocument}
+
+The organization of this document is as follows:
+\begin{itemize}
+  \item \textbf{System Description}\\
+  This section will provide an overview of the system, its functionality, the characteristics of the users, and the constraints of the system.
+  \item \textbf{Requirements}\\
+  This section will outline the functional and non-functional requirements. Additionally, it will provide a rationale for all of the requirements.
+  \item \textbf{Likely Changes}\\
+  This section will outline the likely changes that may occur in the future.
+  \item \textbf{Unlikely Changes}\\
+  This section will outline the unlikely changes that may occur in the future.
+  \item \textbf{References}\\
+  This section will provide a list of references used in the document.
+
+\end{itemize}
 
 
-\subsubsection{Context Overall Objective} \label{sec_ContextOverallObjective}
+\section{General System Description} \label{sec_GeneralSystemDescription}
 
-Ontario is facing an extreme shortage of family doctors, with the number of patients without one jumping by 600,000 to 2.5 million which is a growing number [1]. This situation is only to get worse as predicted by the Ontario Medical Association [2]. As a result, people find themselves going to the ER with coughs and colds and flooding the ER causing massive wait times which ends in patients even resulting in leaving without being seen [3]. A massive part of the wait time is due to the overhead of documentation tasks. Doctors, healthcare professionals, and support staff find themselves spending most of their time on documentation which overall slows the pipeline of patients tremendously.
+\subsection{System Context} \label{sec_SystemContext}
+
+Through this project we aim to develop a solution that will address key niche problems through customizability and add features of critical need that do not already exist in existing solutions. This will allow healthcare networks to centralize the data of their hospitals and increase the staff productivity.\\
+
+\noindent This product has been conceived by the group members based on elicitation. Through interviews and discussion the problem of documentation overhead was found. This is the problem to be solved for the capstone course SFWRENG 4G06.
+
+
+inputs
+Outputs
+External Entities
+User responsibilities
+System responsibilities
 
 \subsubsection{Expected Benefits} \label{sec_ExpectedBenefits}
 
@@ -191,7 +254,66 @@ The expected benefits of this project are as follows:
 
 Much like how copilot is a tool for programmers, the aim is to create a tool for healthcare professionals to help with documentation such that the number of patient processed per day can be increased, and the focus of doctors and nurses can be shifted from documentation to patient care. 
 
-\subsubsection{Goals} \label{sec_Goals}
+
+\subsection{User Characteristics} \label{sec_UserCharacteristics}
+
+The intended users of this product are healthcare professionals, specifically those involved in patient documentation, including doctors, nurses, and other clinical administrative staff. \\
+
+The following are the user characteristics associated with the intended users:\\
+
+\textbf{Education Level:} All users are expected to have a minimum of a college diploma and basic reading, writing, and speaking skills. The education level of the intended users will vary based on their role, generally a bachelor’s degree or college diploma in nursing, medicine, or other healthcare fields. \\
+
+\textbf{Experience:} All users will be expected to have basic familiarity with EHR systems or similar applications. This experience will depend on their roles ranging from entry-level positions to experienced professionals. \\
+
+\textbf{Technical Expertise:} The users should have basic technical skills to use EHR systems and other healthcare software applications. In addition to this, the users should have familiarity with data entry processes and analytics interpretation. \\
+
+\textbf{Accessibility Considerations:} It is anticipated that some users may have accessibility issues. The user interface should be designed for ease of navigation, incorporating various accessibility features.\\
+
+Specific requirements must be specified to accommodate users with varying technical expertise and diverse educational backgrounds. This will ensure the application is usable by all healthcare staff, regardless of their abilities.
+
+
+\subsection{System Constraints}
+
+The following constraints will guide the system design and implementation:
+
+\begin{itemize} 
+
+  \item \textbf{Compliance with Regulatory Standards:} The system must adhere to healthcare regulations ensuring the confidentiality and security of patient data.
+
+  \item \textbf{User Accessibility:} The system must meet established accessibility standards to ensure usability for all healthcare staff, including those with disabilities.
+
+  \item \textbf{Cost and Time:} The system must be developed within the imposed budget and time restrictions.
+
+\end{itemize}
+
+
+\section{Specific System Description} \label{sec_SpecificSystemDescription}
+
+
+\subsection{Problem Description} \label{sec_ProblemDescription}
+
+Ontario is facing an extreme shortage of family doctors, with the number of patients without one jumping by 600,000 to 2.5 million which is a growing number [1]. This situation is only to get worse as predicted by the Ontario Medical Association [2]. As a result, people find themselves going to the ER with coughs and colds and flooding the ER causing massive wait times which ends in patients even resulting in leaving without being seen [3]. A massive part of the wait time is due to the overhead of documentation tasks. Doctors, healthcare professionals, and support staff find themselves spending most of their time on documentation which overall slows the pipeline of patients tremendously.
+
+
+\subsubsection{Terminology and Definitions} \label{sec_TerminologyDefinitions}
+
+The following is the glossary for this document:
+
+\begin{itemize}
+  \item \textbf{System:} When referring to a system the document refers to the intended solution/product.
+  \item \textbf{User:} When referring to a user the document refers to a person who will use the product.
+  \item \textbf{Healthcare Professional:} When referring to healthcare professionals the document refers to doctors, nurses, and other healthcare professionals who will be using the product.
+  \item \textbf{Patient:} When referring to a patient the document refers to any person who is receiving medical treatment.
+  \item \textbf{Healthcare Network:} When referring to a healthcare network the document refers to an organisation that has group of hospitals or clinics and will use the system.
+
+\end{itemize}
+
+
+\subsubsection{Physical System Description} \label{sec_phySystDescrip}
+N/A
+
+
+\subsubsection{Goals Statements} \label{sec_Goals}
 The goals for this project are as follows:
 \begin{table}[H]
     \centering
@@ -231,65 +353,7 @@ The stretch goals for this project are as follows:
 \end{table}
 
 
-\subsection{Organization of Document} \label{sec_OrganizationOfDocument}
-
-The organization of this document is as follows:
-\begin{itemize}
-  \item \textbf{System Description}\\
-  This section will provide an overview of the system, its functionality, the characteristics of the users, and the constraints of the system.
-  \item \textbf{Requirements}\\
-  This section will outline the functional and non-functional requirements. Additionally, it will provide a rationale for all of the requirements.
-  \item \textbf{Likely Changes}\\
-  This section will outline the likely changes that may occur in the future.
-  \item \textbf{Unlikely Changes}\\
-  This section will outline the unlikely changes that may occur in the future.
-  \item \textbf{References}\\
-  This section will provide a list of references used in the document.
-
-\end{itemize}
-
-~\newpage
-
-\section{System Description} \label{sec_SystemDescription}
-
-\subsection{Definitions, Acronyms, and Abbreviations} \label{sec_DefinitionsAcronymsAbbreviations}
-
-\begin{tabular}{l l} 
-  \toprule    
-  \textbf{symbol} & \textbf{description}\\
-  \midrule 
-  A & Assumption\\
-  G & Goals\\
-  STG & Stretch Goals\\
-  FR & Functional Requirement\\
-  NFR & Non-functional Requirement\\
-  LC & Likely Change\\
-  ULC & Unlikely Change\\
-  SRS & Software Requirements Specification\\
-  EHR & Electronic Healthcare Record\\
-  
-  \bottomrule
-\end{tabular}\\
-
-The following is the glossary for this document:
-
-\begin{itemize}
-  \item \textbf{System:} When referring to a system the document refers to the intended solution/product.
-  \item \textbf{User:} When referring to a user the document refers to a person who will use the product.
-  \item \textbf{Healthcare Professional:} When referring to healthcare professionals the document refers to doctors, nurses, and other healthcare professionals who will be using the product.
-  \item \textbf{Patient:} When referring to a patient the document refers to any person who is receiving medical treatment.
-  \item \textbf{Healthcare Network:} When referring to a healthcare network the document refers to an organisation that has group of hospitals or clinics and will use the system.
-
-\end{itemize}
-
-
-\subsection{System overview} \label{sec_SystemOverview}
-
-Through this project we aim to develop a solution that will address key niche problems through customizability and add features of critical need that do not already exist in existing solutions. This will allow healthcare networks to centralize the data of their hospitals and increase the staff productivity.\\
-
-\noindent This product has been conceived by the group members based on elicitation. Through interviews and discussion the problem of documentation overhead was found. This is the problem to be solved for the capstone course SFWRENG 4G06.
-
-\subsection{System Functionality} \label{sec_SystemFunctionality}
+\subsection{Solution Characteristics Specification} \label{sec_SolutionCharacteristicsSpecification}
 
 This section outlines the core functionalities and characteristics of the proposed system:
 
@@ -308,39 +372,17 @@ This section outlines the core functionalities and characteristics of the propos
   
 \end{itemize}
 
+\subsubsection{Types} \label{sec_Types}
+N/A
 
-\subsection{User Characteristics} \label{sec_UserCharacteristics}
+\subsubsection{Scope Decisions} \label{sec_ScopeDecisions}
+N/A
 
-The intended users of this product are healthcare professionals, specifically those involved in patient documentation, including doctors, nurses, and other clinical administrative staff. \\
-
-The following are the user characteristics associated with the intended users:\\
-
-\textbf{Education Level:} All users are expected to have a minimum of a college diploma and basic reading, writing, and speaking skills. The education level of the intended users will vary based on their role, generally a bachelor’s degree or college diploma in nursing, medicine, or other healthcare fields. \\
-
-\textbf{Experience:} All users will be expected to have basic familiarity with EHR systems or similar applications. This experience will depend on their roles ranging from entry-level positions to experienced professionals. \\
-
-\textbf{Technical Expertise:} The users should have basic technical skills to use EHR systems and other healthcare software applications. In addition to this, the users should have familiarity with data entry processes and analytics interpretation. \\
-
-\textbf{Accessibility Considerations:} It is anticipated that some users may have accessibility issues. The user interface should be designed for ease of navigation, incorporating various accessibility features.\\
-
-Specific requirements must be specified to accommodate users with varying technical expertise and diverse educational backgrounds. This will ensure the application is usable by all healthcare staff, regardless of their abilities.
+\subsubsection{Modelling Decisions} \label{sec_ModellingDecisions}
+N/A
 
 
-\subsection{System Constraints}
-
-The following constraints will guide the system design and implementation:
-
-\begin{itemize} 
-
-  \item \textbf{Compliance with Regulatory Standards:} The system must adhere to healthcare regulations ensuring the confidentiality and security of patient data.
-
-  \item \textbf{User Accessibility:} The system must meet established accessibility standards to ensure usability for all healthcare staff, including those with disabilities.
-
-  \item \textbf{Cost and Time:} The system must be developed within the imposed budget and time restrictions.
-
-\end{itemize}
-
-\subsubsection{Assumptions and Dependencies} \label{sec_assumpt}
+\subsubsection{Assumptions} \label{sec_assumpt}
 
 \begin{itemize}
   \item\textbf{Reliable Internet Connection:} We assume that the user has a reliable internet connection throughout their operational hours.
@@ -348,9 +390,29 @@ The following constraints will guide the system design and implementation:
   \item\textbf{Patient’s Consent:} We also assume that medical staff will obtain patients’ consent when required.
 \end{itemize}
 
-\subsubsection{Usage Scanerios}
 
-Here are the use-case scenarios for this software:
+\subsubsection{Theoretical Models}\label{sec_theoretical}
+N/A
+
+\subsubsection{General Definitions} \label{sec_GeneralDefinitions}
+N/A
+
+\subsubsection{Data Definitions}\label{sec_DataDefinitions} 
+N/A
+
+\subsubsection{Data Types}\label{sec_DataTypes}
+N/A
+
+\subsubsection{Instance Models} \label{sec_InstanceModels} 
+N/A
+
+\subsubsection{Input Data Constraints} \label{sec_InputDataConstraints}
+N/A
+
+
+\subsubsection{Properties of a Correct Solution} \label{sec_CorrectSolution}
+
+Along with the functionalities and propertiesmentioned above, here are the use-case scenarios for the system:
 
 \begin{itemize}
   \item\textbf{UC1 Login:}
@@ -966,6 +1028,17 @@ typical values.}
     not occur.}
 
 \end{itemize}
+
+
+\section{Traceability Matrices and Graphs}
+N/A   
+
+\section{Development Plan}
+N/A
+
+\section{Values of Auxiliary Constants}
+N/A
+
 
 ~\newpage
 
