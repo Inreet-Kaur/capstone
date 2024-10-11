@@ -381,6 +381,84 @@ qualities that the software is expected to exhibit.
 \item[R\refstepcounter{reqnum}\thereqnum \label{R_Output}:] \plt{Output related
     requirements.}
 
+    \item[R\refstepcounter{reqnum}\thereqnum \label{FR_DictationRecording}:] \textbf{Voice Dictation for Patient Records}
+
+    \textbf{Requirement:} he system should allow healthcare workers to update patient records using dictation. 
+    
+    \textbf{Rationale:} This will reduce the workload on the healthcare workers, while also efficiently reducing the time spent on documentation. 
+    
+    \textbf{Fit Criterion:} The system should use voice dictation to document medical reports with a minimum of 90\% accuracy. 
+    
+    \textbf{Dependencies:} 3.1.7, 3.1.8
+    
+    \textbf{Monitored Variables:}
+    \begin{itemize}
+        \item Accuracy
+    \end{itemize}
+    
+    \textbf{Performance:} 
+    \begin{itemize}
+        \item System should transcribe speech in real time and segment it into the right fields onto the record.
+    \end{itemize}
+    
+    \textbf{Hardware Requirements:}
+    \begin{itemize}
+        \item Workstations to access the system and a microphone which can record the voice in the system. 
+    \end{itemize}
+    
+    \textbf{Software Requirements:}
+    \begin{itemize}
+        \item An audio transcription service to transcribe audio to text 
+
+        \item Access to patient record database. 
+
+        \item Internet browser to access the system.  
+    \end{itemize}
+    
+    \textbf{Normal Use:} The system records the provider's voice and updates the patient file with the transcribed text.
+    
+    \textbf{Undesired Event Handling:} If the recording or transcription fails, the system should notify the user and offer manual review.
+
+
+
+\item[R\refstepcounter{reqnum}\thereqnum \label{FR_DiagnosticSuggestions}:] \textbf{Diagnostic Suggestions from Transcribed Data}
+
+    \textbf{Requirement:} The system should analyze transcribed text and provide diagnostic suggestions based on the input.
+    
+    \textbf{Rationale:} This alerts the healthcare professionals about the possible diagnostics and helps them to diagnose the patients quicker based on suggested options.
+    
+    \textbf{Fit Criterion:} The system must suggest diagnoses within 5 seconds after transcript is provided, with 85\% accuracy based on known patient’s medical record.
+    
+    \textbf{Dependencies:} 3.1.12
+    
+    \textbf{Monitored Variables:}
+    \begin{itemize}
+        \item Suggested diagnostic accuracy 
+        \item Time to generate suggestions 
+    \end{itemize}
+    
+    \textbf{Performance:}
+    \begin{itemize}
+        \item Suggestions must be provided within 5 seconds of transcript completion. 
+        \item  Suggestions should match known diagnoses with 85\% accuracy. 
+    \end{itemize}
+    
+    \textbf{Hardware Requirements:}
+    \begin{itemize}
+        \item Workstations and other peripherals to access the system. 
+    \end{itemize}
+    
+    \textbf{Software Requirements:}
+    \begin{itemize}
+        \item Access to patient record database. 
+        \item Internet browser to access the system.  
+        \item Service engine that generates diagnostic suggestions. 
+    \end{itemize}
+    
+    \textbf{Normal Use:} The system analyzes the transcribed conversation and suggests possible diagnoses based on a patient’s medical record. 
+    
+    \textbf{Undesired Event Handling:} If the system can’t suggest a diagnosis, it should notify the user and offer a manual search option. 
+
 \end{itemize}
 
 \plt{Every IM should map to at least one requirement, but not every requirement
