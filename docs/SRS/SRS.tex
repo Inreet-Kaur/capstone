@@ -19,6 +19,7 @@
 \usepackage{pdflscape}
 \usepackage{afterpage}
 
+
 \usepackage[round]{natbib}
 
 %\usepackage{refcheck}
@@ -343,8 +344,85 @@ The following constraints will guide the system design and implementation:
 
 \subsubsection{Assumptions and Dependencies} \label{sec_assumpt}
 
+\begin{itemize}
+  \item\textbf{Reliable Internet Connection} -- We are assuming that user has a reliable internet connection throughout the patient’s visit as it is essential for authentication to the app, real-time interaction with it, running updates and saving the document to the patient’s profile.
+  \item\textbf{Sufficient Hardware Accessories} -- We are assuming that the hospital staff has enough hardware devices such as monitors, iPads etc. to access the software.
+  \item\textbf{Patient’s Comfort} -- We also assume that patients are comfortable using this software, ensuring that their information will be kept private and secure on their profile.
+\end{itemize}
+
 \subsubsection{Usage Scanerios}
 
+Here are the use-case scenarios for this software--
+
+\begin{itemize}
+  \item\textbf{UC1 Recording Clinical Notes} --
+  \begin{itemize}
+    \item Healthcare professional accesses patient’s profile.
+    \item Healthcare professional selects dictate button.
+    \item Healthcare professional takes clinical notes.
+  \end{itemize}
+  \item\textbf{UC2 Generate Diagnostic Suggestions} --
+  \begin{itemize}
+    \item Healthcare professional will review the notes.
+    \item App checks symptoms and suggests potential diagnosis and treatment options.
+    \item Doctor verifies the options.
+    \item Doctor decides to accept or reject.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Usage Scenario 1 : Documenting a Patient Consultation}
+
+\begin{itemize}
+  \item\textbf{Use Case} -- UC1
+  \item\textbf{Primary Actor} -- Healthcare professional (such as a medical doctor or a nurse)
+  \item\textbf{Precondition} -- The healthcare professional has authentication to log in the system and patient’s profile is opened. The basic information such as name, contact information and illness history are already filled.
+  \item\textbf{Trigger} -- The healthcare professional will press the record button.
+  \item\textbf{Main Success Scenario} --
+  \begin{itemize}
+    \item The doctor will press the button for dictation tool.
+    \item The software will convert audio to text in real-time and produce text.
+    \item The user will press complete button.
+    \item  The doctor will review the notes produced.
+    \item The doctor will press the submit button if everything is ok.
+  \end{itemize}
+  \item\textbf{Secondary Success Scenario} --
+  \begin{itemize}[label=6.\arabic*]
+    \item If any mistake is found, the doctor will edit the notes manually.
+    \item Doctor submits the final version of the notes.
+  \end{itemize}
+  \item\textbf{Success Postcondition} --
+  \begin{itemize}
+    \item The notes are saved in patient’s profile in a secure manner.
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{use_case_diag.png}
+  \caption{This is the use-case diagram for this project.}
+  \label{fig:Use-Case Diagram}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{activity_diag.png}
+  \caption{This is the activity diagram for this project.}
+  \label{fig:Activity Diagram}
+\end{figure}
+
+\subsubsection{Risks and Mitigation}
+
+Looking at implementation details there are a few risks that come up, if these risks can be addressed or have a clearer roadmap that will make us more confident in the project. 
+
+\begin{itemize}
+  \item \textbf{Speech Input} -- A hospital or a clinic can be a loud place, in the event audio input is taken we need to ensure that it is clean and clear. This would mean essentially blocking outside noise. 
+  \item \textbf{Visual Inputs} -- If any old charts need to be inputted into the patient journey having the ability to scan and transfer the information into the required format will be another risk. The document needs to be rid of noisy data.
+  \item \textbf{Pre-Trained Models} -- To manipulate and use both inputs above we need to create a model to be accurate and provide accuracy when filling in charts. 
+  \item \textbf{Data Privacy} -- This application will hold a lot of patient data so creating a store that is secure and making sure standard data security practice is applied is a must.
+  \item \textbf{User Acceptance} -- This will require further elicitation from outside supervisors. We need to gather data on what critical needs of healthcare professionals such that critical features are present.
+  \item \textbf{Technical Delay} -– Integration with Electronic Health record systems might cause some delays if there’s any technical issue or if the software faces compatibility issues. This will require sample testing to make sure that the software is compatible in the early stage of the development process.
+  \item \textbf{Professional Verification} -– Misinterpretation of some words might lead to inaccurate records and wrong diagnosis. Therefore, it’s important for the doctor/nurse to verify the final version of the document and manually delete anything that was falsely recorded. 
+\end{itemize}
 
 ~\newpage
 
