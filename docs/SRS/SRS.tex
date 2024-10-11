@@ -165,7 +165,7 @@ Date 2 & 1.1 & Notes\\
 
 \subsection{Purpose of Document} \label{sec_PurposeOfDocument}
 
-  The purpose of this document is to provide a comprehensive description of the requirements for a software application that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used in as a contract in a sense between the team and the client who intends to use this application. This document will allow for an in-depth description of the software's functionality, performance, and other non-functional requirements. Additionally, it will outline common use-cases under which the software will be used. This will in turn provide a direction to the developers such that they will be empowered to creating the right product as this document will contain various stakeholders' requirements. Along with development direction, this document will be a direct reference for all of the stakeholders to understand the product's scope, functionality, and limitations.
+The purpose of this document is to provide a comprehensive description of the requirements for a software application that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used in as a contract in a sense between the team and the client who intends to use this application. This document will allow for an in-depth description of the software's functionality, performance, and other non-functional requirements. Additionally, it will outline common use-cases under which the software will be used. This will in turn provide a direction to the developers such that they will be empowered to creating the right product as this document will contain various stakeholders' requirements. Along with development direction, this document will be a direct reference for all of the stakeholders to understand the product's scope, functionality, and limitations.
 
 
 \subsection{Characteristics of Intended Reader} \label{sec_IntendedReader} 
@@ -343,83 +343,94 @@ The following constraints will guide the system design and implementation:
 \subsubsection{Assumptions and Dependencies} \label{sec_assumpt}
 
 \begin{itemize}
-  \item\textbf{Reliable Internet Connection} -- We are assuming that user has a reliable internet connection throughout the patient’s visit as it is essential for authentication to the app, real-time interaction with it, running updates and saving the document to the patient’s profile.
-  \item\textbf{Sufficient Hardware Accessories} -- We are assuming that the hospital staff has enough hardware devices such as monitors, iPads etc. to access the software.
-  \item\textbf{Patient’s Comfort} -- We also assume that patients are comfortable using this software, ensuring that their information will be kept private and secure on their profile.
+  \item\textbf{Reliable Internet Connection:} We assume that the user has a reliable internet connection throughout their operational hours.
+  \item\textbf{Sufficient Hardware Accessories:} We are assuming that the user has the required hardware devices such as monitors, iPads etc. to access the system.
+  \item\textbf{Patient’s Consent:} We also assume that medical staff will obtain patients’ consent when required.
 \end{itemize}
 
 \subsubsection{Usage Scanerios}
 
-Here are the use-case scenarios for this software--
+Here are the use-case scenarios for this software:
 
 \begin{itemize}
-  \item\textbf{UC1 Recording Clinical Notes} --
+  \item\textbf{UC1 Login:}
   \begin{itemize}
-    \item Healthcare professional accesses patient’s profile.
-    \item Healthcare professional selects dictate button.
-    \item Healthcare professional takes clinical notes.
+    \item The user accesses the system using an internet browser.
+    \item The user enters valid credentials on the log in page.
+    \item The user selects the login button.
+    \item The user lands on the default dashboard.
   \end{itemize}
-  \item\textbf{UC2 Generate Diagnostic Suggestions} --
+  \item\textbf{UC2 Recording Clinical Notes:}
   \begin{itemize}
-    \item Healthcare professional will review the notes.
-    \item App checks symptoms and suggests potential diagnosis and treatment options.
-    \item Doctor verifies the options.
-    \item Doctor decides to accept or reject.
+    \item The user accesses patient’s record.
+    \item The user selects dictate button.
+    \item The user dictates the notes and hit the stop button.
+    \item The user reviews the transcribed text.
+    \item The user selects the submit button.
   \end{itemize}
-\end{itemize}
-
-\textbf{Usage Scenario 1 : Documenting a Patient Consultation}
-
-\begin{itemize}
-  \item\textbf{Use Case} -- UC1
-  \item\textbf{Primary Actor} -- Healthcare professional (such as a medical doctor or a nurse)
-  \item\textbf{Precondition} -- The healthcare professional has authentication to log in the system and patient’s profile is opened. The basic information such as name, contact information and illness history are already filled.
-  \item\textbf{Trigger} -- The healthcare professional will press the record button.
-  \item\textbf{Main Success Scenario} --
+  \item\textbf{UC3 Diagnostic Suggestions:}
   \begin{itemize}
-    \item The doctor will press the button for dictation tool.
-    \item The software will convert audio to text in real-time and produce text.
-    \item The user will press complete button.
-    \item  The doctor will review the notes produced.
-    \item The doctor will press the submit button if everything is ok.
+    \item The user submits the transcribed text.
+    \item The user reviews the potential diagnostic suggestions.
+    \item The user accepts or rejects suggestions.
   \end{itemize}
-  \item\textbf{Secondary Success Scenario} --
+  \item\textbf{UC4 Create Patient Profile:}
   \begin{itemize}
-    \item If any mistake is found, the doctor will edit the notes manually.
-    \item Doctor submits the final version of the notes.
-  \end{itemize}
-  \item\textbf{Success Postcondition} --
-  \begin{itemize}
-    \item The notes are saved in patient’s profile in a secure manner.
+    \item The user log into the system.
+    \item The user selects the ‘create a new record’ button.
+    \item The user provide input for the required fields.    
+    \item The user selects the submit button.
   \end{itemize}
 \end{itemize}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.8\textwidth]{use_case_diag.png}
-  \caption{This is the use-case diagram for this project.}
+  \includegraphics[width=0.8\textwidth]{use-case.drawio.png}
+  \caption{This is the use-case diagram for this scenario.}
   \label{fig:Use-Case Diagram}
 \end{figure}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.8\textwidth]{activity_diag.png}
-  \caption{This is the activity diagram for this project.}
-  \label{fig:Activity Diagram}
-\end{figure}
+\textbf{Usage Scenario 1: Documenting a Patient Consultation}
+
+\begin{itemize}
+  \item\textbf{Use Case:} UC2, UC3
+  \item\textbf{Primary Actor:} Healthcare professional (such as a medical doctor or a nurse)
+  \item\textbf{Precondition:} The user has been successfully authenticated, logged into the system and has patient’s profile is created. The basic information such as name, contact information, and history is prefilled.
+  \item\textbf{Trigger:} The user will press the dictate button.
+  \item\textbf{Main Success Scenario:}
+  \begin{itemize}
+    \item The user will press the dictate button.
+    \item The system will convert audio to text in real-time.
+    \item The user will press stop button.
+    \item The user reviews the transcribed notes. 
+    \item The system has accurately transcribed the audio to text without any inaccuracies.
+    \item The user selects the submit button after review. 
+  \end{itemize}
+  \item\textbf{Secondary Success Scenario:}
+  \begin{itemize}
+    \item The system has produced some inaccuracies in the transcribed text.
+    \begin{itemize}
+      \item The user selects the edit button.
+      \item The system prompts user to edit the text.
+      \item The user manually edits the transcribed text.
+    \end{itemize} 
+  \end{itemize}
+  \item\textbf{Success Postcondition:}
+  \begin{itemize}
+    \item The notes are successfully saved in patient database and changes are reflected in the user interface.
+  \end{itemize}
+\end{itemize}
 
 \subsubsection{Risks and Mitigation}
 
 Looking at implementation details there are a few risks that come up, if these risks can be addressed or have a clearer roadmap that will make us more confident in the project. 
 
 \begin{itemize}
-  \item \textbf{Speech Input} -- A hospital or a clinic can be a loud place, in the event audio input is taken we need to ensure that it is clean and clear. This would mean essentially blocking outside noise. 
-  \item \textbf{Visual Inputs} -- If any old charts need to be inputted into the patient journey having the ability to scan and transfer the information into the required format will be another risk. The document needs to be rid of noisy data.
-  \item \textbf{Pre-Trained Models} -- To manipulate and use both inputs above we need to create a model to be accurate and provide accuracy when filling in charts. 
-  \item \textbf{Data Privacy} -- This application will hold a lot of patient data so creating a store that is secure and making sure standard data security practice is applied is a must.
-  \item \textbf{User Acceptance} -- This will require further elicitation from outside supervisors. We need to gather data on what critical needs of healthcare professionals such that critical features are present.
-  \item \textbf{Technical Delay} -– Integration with Electronic Health record systems might cause some delays if there’s any technical issue or if the software faces compatibility issues. This will require sample testing to make sure that the software is compatible in the early stage of the development process.
-  \item \textbf{Professional Verification} -– Misinterpretation of some words might lead to inaccurate records and wrong diagnosis. Therefore, it’s important for the doctor/nurse to verify the final version of the document and manually delete anything that was falsely recorded. 
+  \item \textbf{Speech Input:} A hospital or a clinic can be a loud place, in the event audio input is taken we need to ensure that it is clean and clear. This would mean essentially blocking outside noise. 
+  \item \textbf{Pre-Trained Models:} To manipulate and use both inputs above we need to create a model to be accurate and provide accuracy when filling in charts. 
+  \item \textbf{User Acceptance:} This will require further elicitation from outside supervisors. We need to gather data on what critical needs of healthcare professionals such that critical features are present.
+  \item \textbf{Technical Delay:} Integration with EHR systems might cause some delays if there’s any technical issue or if the software faces compatibility issues. This will require sample testing to make sure that the system is compatible in the early stage of the development process.
+  \item \textbf{Professional Verification:} Misinterpretation of some words might lead to inaccurate records and wrong diagnosis. Therefore, it’s important for the healthcare professionals to verify the final version of the document and manually delete anything that was falsely recorded. 
 \end{itemize}
 
 ~\newpage
