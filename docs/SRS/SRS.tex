@@ -159,7 +159,6 @@ Date 2 & 1.1 & Notes\\
 ~\newpage
 
 \section{Reference Material}
-N/A
 
 \subsection{Table of Units}
 N/A
@@ -286,6 +285,8 @@ The following constraints will guide the system design and implementation:
 
 \end{itemize}
 
+
+~\newpage
 
 \section{Specific System Description} \label{sec_SpecificSystemDescription}
 
@@ -507,46 +508,94 @@ Looking at implementation details there are a few risks that come up, if these r
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
 
-\textbf{Requirement:} Add healthcare network
+\textbf{Requirement:} The system should allow to add healthcare network to the system. 
 
-\textbf{Fit Criterion:}  
+\textbf{Rationale:} Rapid care is an organizational tool, where networks can register their various hospitals, and in turn add the corresponding health care professionals. When the networks want to register, the app needs to be able to add the network to the database along with the relevant staff profiles etc.
 
-\textbf{Dependencies:}  
+\textbf{Fit Criterion:} The network data and profiles are fully added to the database. This could be verified by returning the valid entries from the patient database.
 
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Dependencies:} N/A
+
+\textbf{Monitored and Controlled Variables:} N/A
 
 \textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The system should update the entries with the latency of 1 second.
+  \item After user input is taken the system only adds valid entries to the database and prevents any data leaks.
+\end{itemize}
 
 \textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
 
 \textbf{Software Requirements:} 
+\begin{itemize}
+  \item Database management system to store health network data.
+  \item Internet browser to access the application.
+\end{itemize}
 
 \textbf{Normal Behavior:} 
+\begin{itemize}
+  \item All input data is validated as being entered into the system.
+  \item Once all required fields are completed the user selects the submit button and the network is added successfully to the system.
+  \item The process should have a low turnover time such that health networks will not have to spend a long time waiting to use the system.
+\end{itemize}
 
 \textbf{Undesired Event Handling:} 
+\begin{itemize}
+  \item The user may enter invalid input data. The system should display appropriate error messages. 
+  \item The system should have constraints to restrict the user from submitting, unless all required fields are completed and have valid input data. 
+  \item When the database is overloaded with requests, appropriate error messages should be delayed. 
+  \item The updates will be queued to prevent this in the future, data resources will be scaled just so that the calls are faster. This will include indexing or caching and scaling the solution horizontally to balance the load.
+\end{itemize}
 
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:]  
 
-\textbf{Requirement:} Remove healthcare network 
+\textbf{Requirement:} The system should allow to remove a health network from the system.
 
-\textbf{Fit Criterion:}  
+\textbf{Rationale:} 
+When health networks close and want to pivot to another documentation tool their data and profiles must be deleted. Therefore, there is a requirement for functionality that allows organizations to deregister and have their data deleted.
 
-\textbf{Dependencies:}  
+\textbf{Fit Criterion:} 
+The network data and profiles are fully deleted from the database. This could be verified by returning the valid entries from the patient database.
 
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Dependencies:} 3.1.1
+
+\textbf{Monitored and Controlled Variables:} N/A
 
 \textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The removal process must be easy to complete with a latency of 1 second. 
+  \item The system should be able to identify the correct record to delete. 
+  \item The system should delete the correct record without affecting the rest of the database. 
+\end{itemize}
 
 \textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
 
-\textbf{Software Requirements:} 
+\textbf{Software Requirements:}
+\begin{itemize}
+  \item Access to health network database.
+  \item Internet browser to access the application.
+\end{itemize}
 
-\textbf{Normal Behavior:} 
+\textbf{Normal Behavior:}
+\begin{itemize}
+  \item Network is successfully removed from database with low turnover time such that health networks will not have to spend a long time waiting for their data to be deleted.
+\end{itemize}
 
-\textbf{Undesired Event Handling:} 
+\textbf{Undesired Event Handling:}
+\begin{itemize}
+  \item If the system fails to delete the health network due to a system error, the system should display an appropriate error message. 
+  \item When the database is overloaded with requests, the operation to delete all the hospital data will be queued as the next action in line.
+\end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_UpdateHealthNetwork}:] Update Healthcare Network Profile in the System
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_UpdateHealthNetwork}:]
 
 \textbf{Requirement:} The health care network should be able to update its organizational and hospital information.
 
@@ -584,7 +633,7 @@ Looking at implementation details there are a few risks that come up, if these r
   \item When the health network data is being updated and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
 \end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_AddHealthProfessional}:] Add a list of Healthcare Professionals
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_AddHealthProfessional}:]
 
 \textbf{Requirement:} The system should allow to add healthcare professionals to the system.
 
@@ -621,7 +670,7 @@ Looking at implementation details there are a few risks that come up, if these r
   \item When the healthcare professional’s data is being added and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
 \end{itemize} 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_RemoveHealthProfessionals}:] Remove a list of Healthcare Professionals 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_RemoveHealthProfessionals}:] 
 
 \textbf{Requirement:} The system should allow to remove healthcare professionals from the system. 
 
@@ -658,7 +707,7 @@ Looking at implementation details there are a few risks that come up, if these r
   \item When the healthcare professional’s data is being removed and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
 \end{itemize} 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_UpdateHealthProfessionals}:] Update a list of Healthcare Professionals
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_UpdateHealthProfessionals}:]
 
 \textbf{Requirement:} The system should allow to update healthcare professional’s data in the system.
 
@@ -696,7 +745,7 @@ Looking at implementation details there are a few risks that come up, if these r
   \item When the healthcare professional’s data is being updated and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
 \end{itemize} 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_login}:] Login
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_login}:]
 
 \textbf{Requirement:} The system should allow the authorized user to successfully log in to the system.
 
@@ -736,7 +785,7 @@ Looking at implementation details there are a few risks that come up, if these r
 \end{itemize}
  
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_createRecord}:] Create a new patient record
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_createRecord}:]
 
 \textbf{Requirement:} The user should be able to create a new patient record. 
 
@@ -780,7 +829,7 @@ Looking at implementation details there are a few risks that come up, if these r
 \end{itemize}
 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_deleteRecord}:] Delete an existing patient record.
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_deleteRecord}:]
 
 \textbf{Requirement:} The user should be able to delete an existing patient record from the system.
 
@@ -824,7 +873,7 @@ Looking at implementation details there are a few risks that come up, if these r
 
 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_updateRecordtyping}:] Update the patient record by typing
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_updateRecordtyping}:]
 
 \textbf{Requirement:} : The system should allow the user to update the patient records manually by typing.
 
@@ -927,7 +976,78 @@ Looking at implementation details there are a few risks that come up, if these r
 \textbf{Undesired Event Handling:} 
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\textbf{Requirement:} The system should provide a list of frequently used medicines based on accepted diagnosis
 
+\textbf{Rationale:} As the patients’ medical records and data is being added into the charts, having a model that can provide a preliminary set of diagnosis such that documentation time can be saved. This will be a supplementary auto-complete type of tool again to continue to speed up documentation.
+
+\textbf{Fit Criterion:} Auto-completion accuracy is 85+ percent as that the benchmark for most autocompleting keyboards etc. The model will be measured through cross validation techniques.
+
+\textbf{ Dependencies:} 3.1.7, 3.1.8, 3.1.10, 3.1.11, 3.1.12
+
+\textbf{Monitored and Controlled Variables:} accuracy
+
+\textbf{Performance Requirements:}
+\begin{itemize}
+  \item The autocompletion is accurate, such that it is correct 85+ percent of the time. 
+\end{itemize}
+
+\textbf{Hardware Requirements:} 
+Workstations and other peripherals to access the system.
+
+\textbf{Software Requirements:}
+\begin{itemize}
+  \item Access to patient record database.
+  \item Internet browser to access the system. 
+\end{itemize}
+
+\textbf{Normal Behavior:}
+\begin{itemize}
+  \item A list of medicine suggestion is provided almost instantly analogous to an auto-complete feature based on the selected diagnosis.
+\end{itemize}
+
+\textbf{Undesired Event Handling:}
+\begin{itemize}
+  \item In case no medicine suggestions are provided the doctor can manually add a prescription.
+\end{itemize}
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\textbf{Requirement:} The system should be able to transfer patient documentation to another provider. 
+
+\textbf{Rationale:} If the patient goes to a hospital in another health network, perhaps the medical history is to be shared. This functionality will allow the request and transfer of files.
+
+\textbf{Fit Criterion:} Transfer over the files in a short time, the transfer protocol is secure, and data is not leaked.
+
+\textbf{Dependencies:} 3.1.1, 3.1.4, 3.1.8, 3.1.10, 3.1.11, 3.1.12
+
+\textbf{Monitored and Controlled Variables:} N/A
+
+\textbf{Performance Requirements:}
+\begin{itemize}
+  \item The system should transfer data with low latency.
+\end{itemize}
+
+\textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
+
+\textbf{Software Requirements:}
+Access to patient record database.
+\begin{itemize}
+  \item Internet browser to access the system. 
+\end{itemize}
+
+\textbf{Normal Behavior:}
+\begin{itemize}
+  \item A patient file is requested, the request is approved then the files are transferred.
+\end{itemize}
+
+\textbf{Undesired Event Handling:}
+\begin{itemize}
+  \item A patient file is requested, the request is denied then a detailed request is submitted.
+\end{itemize}
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
 \textbf{Requirement:} provide a list of frequently used medicines based on diagnosis.
 
 \textbf{Fit Criterion:}  
