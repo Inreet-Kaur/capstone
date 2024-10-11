@@ -390,105 +390,103 @@ qualities that the software is expected to exhibit.
 
 \noindent \begin{itemize}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Performance}:] \textbf{Performance}  
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_LookAndFeel}:] \textbf{Aesthetic and Design}
+
+    \textbf{Requirement:} The UI should keep a clean design, that fits the healthcare standards.
+
+    \textbf{Rationale:} A clean user interface allows users to navigate through the application with ease.
+
+    \textbf{Fit Criterion:} UI demos will be sampled to healthcare workers to ensure that the design is easily understood and user-friendly.
+
+    \textbf{Dependencies:} Design feedback loops and UX/UI design software.  
+
+    \textbf{Undesired Event Handling:} If the surveys shows less than 80\% satisfaction, the design will then be revised.
+
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}
+
+    \textbf{Requirement:} The UI of the system should be intuitive, allowing healthcare workers to master its use with a training of up to 30 minutes. 
+
+    \textbf{Rationale:} If the UI is user-friendly, it tends to reduce the learning time and allows health care workers to focus on patients.
+  
+
+    \textbf{Fit Criterion:} Tests that demonstrates that atleast 90\% of healthcare workers are able to navigate the system with 30 minutes of training or less.
+
+    \textbf{Dependencies:} Feedback on the design during the development of the system.
+
+    \textbf{Undesired Event Handling:} The system should support the user using a live chat support integrated within the application.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Performance}:] \textbf{Performance}
+
+    \textbf{Requirement:} The system should convert voice recordings into text onto medical charts within 30 seconds of recording.
+
+    \textbf{Rationale:} Reduces the documentation time to reduce workload and allow healthcare workers to focus on patients.
     
-    \textbf{Requirement:} The system shall process voice recordings and convert them into medical charts within 30 seconds of recording completion.  
-  
-    \textbf{Rationale:} Quick documentation is critical to streamline the patient journey and reduce healthcare professionals' workload.  
-  
-    \textbf{Fit Criterion:} The system will consistently generate completed documentation in under 30 seconds.  
-  
-    \textbf{Dependencies:} Dependent on the speech-to-text engine and cloud infrastructure.  
-  
-    \textbf{Normal Operation:} Under typical conditions, the system will handle up to 100 voice recordings per hour without performance degradation.  
-  
-    \textbf{Undesired Event Handling:} If the system takes longer than 30 seconds, an alert will be triggered, and the system will attempt to resolve delays by reducing background processes or scaling resources.
+    \textbf{Fit Criterion:} The system will consistently generate completed documentation within 30 seconds of recording completion.  
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Reliability}:] \textbf{Reliability}  
+    \textbf{Dependencies:} Speech-to-text engine.  
 
-    \textbf{Requirement:} The system shall have a 99.9\% uptime guarantee during operational hours (9 AM to 9 PM).  
-  
-    \textbf{Rationale:} Reliability is critical to ensure uninterrupted service for healthcare professionals, particularly in time-sensitive environments like emergency rooms.  
-  
+    \textbf{Undesired Event Handling:} The system will reduce any background processes, if it fails to generate completed documentation within 30 seconds.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Operational}:] \textbf{Operational Requirement}
+
+    \textbf{Requirement:} The system should have an uptime guarantee of 99.9\% during operational hours.
+
+    \textbf{Rationale:} Reliable uptime ensures consistent service for healthcare workers, specially in time-sensitive atmospheres like hospitals.
+
     \textbf{Fit Criterion:} System logs will confirm an uptime rate of 99.9\% over a 30-day period.  
-  
-    \textbf{Dependencies:} Cloud infrastructure, hosting services, and local hardware resilience.  
-  
-    \textbf{Undesired Event Handling:} If uptime falls below 99.9\%, an automated system will switch to backup servers within 10 seconds to ensure continuity of service.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Scalability}:] \textbf{Scalability}  
+    \textbf{Dependencies:} Cloud infrastructure and local hardware resilience. 
+    
+    \textbf{Undesired Event Handling:} There should be backup servers that turn on within 10 seconds of downtime to ensure reliable uptime.
 
-    \textbf{Requirement:} The system shall be able to scale to accommodate up to 500 simultaneous users without affecting performance.  
-  
-    \textbf{Rationale:} The system must support multiple healthcare providers across various locations, particularly during peak hours.  
-  
-    \textbf{Fit Criterion:} The system will maintain performance benchmarks (processing under 30 seconds) even when 500 users are active.  
-  
-    \textbf{Dependencies:} Cloud infrastructure for auto-scaling capabilities.  
-  
-    \textbf{Normal Operation:} The system will maintain user load without affecting response time.  
-  
-    \textbf{Undesired Event Handling:} In case of unexpected spikes in usage, the system will dynamically allocate additional cloud resources to manage the load without affecting current users.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:] \textbf{Maintainability Requirement}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Security}:] \textbf{Security}  
+    \textbf{Requirement:} The system should be updated with new features without causing downtime longer than 2 minutes.
 
-    \textbf{Requirement:} The system shall encrypt all patient data, both in transit and at rest, following HIPAA standards.  
-  
-    \textbf{Rationale:} Ensuring patient confidentiality and compliance with healthcare data regulations is essential.  
-  
+    \textbf{Rationale:} Easily maintained system allows for consistent service.
+
+    \textbf{Fit Criterion:} Release logs will show updates occur with less than 2 minutes of downtime.  
+
+    \textbf{Dependencies:} Continuous integration of updates to the system.  
+
+    \textbf{Undesired Event Handling:} If an update fails, the system will automatically revert to the last stable version.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Security}:] \textbf{Security Requirement}
+
+    \textbf{Requirement:} The system should have all patient data encrypted, and in compliance with HIPAA standards.
+
+    \textbf{Rationale:} A secure and confidential system ensures the user to be confident in using the application.
+
     \textbf{Fit Criterion:} Security audits will show 100\% compliance with HIPAA and encryption standards.  
-  
-    \textbf{Dependencies:} Encryption services and security protocols in the cloud infrastructure.  
-  
-    \textbf{Undesired Event Handling:} If a security breach is detected, the system will immediately log out all users, lock access to sensitive data, and alert system administrators.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}  
+    \textbf{Dependencies:} Encryption services and security protocols.  
 
-    \textbf{Requirement:} The system’s user interface shall be intuitive, allowing healthcare professionals to complete documentation with minimal training (less than 30 minutes of training).  
-  
-    \textbf{Rationale:} A user-friendly interface reduces learning time and increases adoption among healthcare providers.  
-  
-    \textbf{Fit Criterion:} Usability tests will show that 90\% of healthcare professionals can navigate the system with less than 30 minutes of instruction.  
-  
-    \textbf{Dependencies:} Usability design and feedback loops during development.  
-  
-    \textbf{Undesired Event Handling:} If users encounter usability issues, they can access live chat support integrated within the application.
+    \textbf{Undesired Event Handling:} If a security breach is detected, all users will be logged out, access will be locked, and administrators alerted.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:] \textbf{Maintainability}  
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Cultural}:] \textbf{Cultural Requirement}
 
-    \textbf{Requirement:} The system shall be updated with new features without causing downtime for more than 5 minutes.  
-  
-    \textbf{Rationale:} Frequent updates should not disrupt healthcare professionals during critical hours.  
-  
-    \textbf{Fit Criterion:} Release notes and system logs will show that updates occur with less than 5 minutes of downtime, or during non-operational hours.  
-  
-    \textbf{Dependencies:} Continuous integration and delivery pipelines.  
-  
-    \textbf{Undesired Event Handling:} In case of an update failure, the system will automatically revert to the last stable version.
+    \textbf{Requirement:} The system should allow customization of language settings to accommodate all healthcare workers.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Compatibility}:] \textbf{Compatibility}  
+    \textbf{Rationale:} A customized UI allows the user to feel comfortable and confident when using the application.
 
-    \textbf{Requirement:} The system shall be compatible with major operating systems (Windows, macOS, and Linux) and dictation devices.  
-  
-    \textbf{Rationale:} Healthcare providers use a variety of platforms, and the system must be versatile to support their workflows.  
-  
-    \textbf{Fit Criterion:} Compatibility tests will show full functionality on all major operating systems and devices used for dictation.  
-  
-    \textbf{Dependencies:} Device drivers and OS compatibility libraries.  
-  
-    \textbf{Undesired Event Handling:} If a compatibility issue arises, the system will notify the user and suggest an alternative setup or device.
+    \textbf{Fit Criterion:} Tests will show that healthcare workers can navigate through the application and switch languages based on their preference without impacting the functionality of the application.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_DataIntegrity}:] \textbf{Data Integrity}  
+    \textbf{Dependencies:} Language bundles.  
 
-    \textbf{Requirement:} The system shall prevent duplicate or erroneous data entries when processing voice recordings.  
-  
-    \textbf{Rationale:} Data accuracy is critical in healthcare documentation, where errors could lead to incorrect treatment or diagnosis.  
-  
-    \textbf{Fit Criterion:} Data audits will show no more than 0.1\% duplication or errors in generated medical charts.  
-  
-    \textbf{Dependencies:} Data validation protocols and the speech-to-text engine.  
-  
-    \textbf{Undesired Event Handling:} In case of detected duplicates or errors, the system will automatically flag the entry for review and notify the healthcare professional.
+    \textbf{Undesired Event Handling:} If a language bundle fails to load, the system will revert to the default language and notify the user.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Legal}:] \textbf{Legal Requirement}
+
+    \textbf{Requirement:} The system should comply with all healthcare data protection regulations. 
+
+    \textbf{Rationale:} Legal compliance is mandatory to protect patient data and avoid penalties.  
+
+    \textbf{Fit Criterion:} Legal audits will confirm compliance with HIPAA and any other relevant data protection laws.  
+
+    \textbf{Dependencies:} Legal consultancy, data protection regulations.  
+
+    \textbf{Undesired Event Handling:} If the system fails to comply with regulations, it will be updated within 24 hours to meet compliance.
 
 \end{itemize}
 
