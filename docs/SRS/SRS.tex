@@ -19,6 +19,7 @@
 \usepackage{pdflscape}
 \usepackage{afterpage}
 
+
 \usepackage[round]{natbib}
 
 %\usepackage{refcheck}
@@ -159,7 +160,7 @@ Date 2 & 1.1 & Notes\\
 
 \section{Introduction}
 
-\subsection{Purpose of Document}
+\subsection{Purpose of Document} \label{sec_PurposeOfDocument}
 
   The purpose of this document is to provide a comprehensive description of the requirements for a software application that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used in as a contract in a sense between the team and the client who intends to use this application. This document will allow for an in-depth description of the software's functionality, performance, and other non-functional requirements. Additionally, it will outline common use-cases under which the software will be used. This will in turn provide a direction to the developers such that they will be empowered to creating the right product as this document will contain various stakeholders' requirements.\\
 
@@ -170,21 +171,15 @@ Date 2 & 1.1 & Notes\\
 
 The intended readers of this SRS document include project managers, software developers, testing engineers, and stakeholders directly involved in the design and implementation of the software system. Project managers and testing engineers would be directly involved in the development and testing process. They would generally have an education in computer science along with experience in software design, web or mobile development, and software testing. Project managers generally have experience in managing software projects and knowledge of software development processes. Stakeholders like doctors and nursing staff would have domain knowledge and could provide insights to understand the clinical workflow and documentation process. 
 
-\subsection{Scope of Requirements} 
+\subsection{Scope of Requirements} \label{sec_ScopeOfRequirements}
 
 
-\subsubsection{Context Overall Objective}
-Ontario is facing an extreme shortage of family doctors, with the number of
-patients without one jumping by 600,000 to 2.5 million which is a growing
-number [1]. This situation is only to get worse as predicted by the Ontario
-Medical Association [2]. As a result, people find themselves going to the ER with
-coughs and colds and flooding the ER causing massive wait times which ends in
-patients even resulting in leaving without being seen [3]. A massive part of the
-wait time is due to the overhead of documentation tasks. Doctors, healthcare
-professionals, and support staff find themselves spending most of their time on
-documentation which overall slows the pipeline of patients tremendously.
+\subsubsection{Context Overall Objective} \label{sec_ContextOverallObjective}
 
-\subsubsection{Expected Benefits}
+Ontario is facing an extreme shortage of family doctors, with the number of patients without one jumping by 600,000 to 2.5 million which is a growing number [1]. This situation is only to get worse as predicted by the Ontario Medical Association [2]. As a result, people find themselves going to the ER with coughs and colds and flooding the ER causing massive wait times which ends in patients even resulting in leaving without being seen [3]. A massive part of the wait time is due to the overhead of documentation tasks. Doctors, healthcare professionals, and support staff find themselves spending most of their time on documentation which overall slows the pipeline of patients tremendously.
+
+\subsubsection{Expected Benefits} \label{sec_ExpectedBenefits}
+
 The expected benefits of this project are as follows:
 \begin{itemize}
   \item Reduced documentation overhead time
@@ -195,7 +190,7 @@ The expected benefits of this project are as follows:
 
 Much like how copilot is a tool for programmers, the aim is to create a tool for healthcare professionals to help with documentation such that the number of patient processed per day can be increased, and the focus of doctors and nurses can be shifted from documentation to patient care. 
 
-\subsubsection{Goals}
+\subsubsection{Goals} \label{sec_Goals}
 The goals for this project are as follows:
 \begin{table}[H]
     \centering
@@ -203,9 +198,9 @@ The goals for this project are as follows:
         \toprule
         \textbf{Goal} & \textbf{Definition} & \textbf{Rationale} \\
         \midrule
-        G1: Use voice to fill in medical documentation (charts, files, etc.) & The app will record conversations and automatically turn them into medical notes and charts. & This will save doctors time by automating paperwork, letting them focus more on patients. \\
+        [G\refstepcounter{goalnum}\thegoalnum \label{G_VoiceToDocumentation}:] Use voice to fill in medical documentation (charts, files, etc.) & The app will record conversations and automatically turn them into medical notes and charts. & This will save doctors time by automating paperwork, letting them focus more on patients. \\
         \midrule
-        G2: Reduce documentation overhead time.  & Through tracking the whole patient journey in the app, we look to reduce the overhead of triaging, clinical documentation, and other registrations.  & This helps hospital healthcare professionals focus on care and lowers the time taken through registration for hospital staff. \\ 
+        [G\refstepcounter{goalnum}\thegoalnum \label{G_reduceOverhead}:] Reduce documentation overhead time.  & Through tracking the whole patient journey in the app, we look to reduce the overhead of triaging, clinical documentation, and other registrations.  & This helps hospital healthcare professionals focus on care and lowers the time taken through registration for hospital staff. \\ 
         \midrule
         G3: Integrates with the existing hospital environment. & We want the solution to be portable such that it can be implemented in existing hospital and clinic ecosystems.  & Portability will ensure that hospitals and clinics won’t have to upgrade their existing hardware to use the application. \\
         \midrule 
@@ -213,10 +208,11 @@ The goals for this project are as follows:
         \midrule 
         G5: Allow health care professional profiles with in service. & Need the ability for health networks to add, update, and delete staff profile details. & This will ensure that the list of staff will be able to use the tool to dictate patient conversations or add other notes. Additionally, making sure they have access to patient journey. \\
         \midrule 
+
     \end{tabular}
 \end{table}
 
-\subsubsection{Stretch Goals}
+\subsubsection{Stretch Goals} \label{sec_StretchGoals}
 The stretch goals for this project are as follows:
 \begin{table}[H]
     \centering
@@ -224,26 +220,20 @@ The stretch goals for this project are as follows:
         \toprule
         \textbf{Goal} & \textbf{Definition} & \textbf{Rationale} \\
         \midrule
-        STG1: Automated medicine suggestions. & Based on diagnosis and patient data provide medicine suggestions. & This will help doctors fill out their charts faster. \\ % Row 1
+        [SG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{SG_medicineSuggestions}:] Automated medicine suggestions. & Based on diagnosis and patient data provide medicine suggestions. & This will help doctors fill out their charts faster. \\ % Row 1
         \midrule
-        STG2: Automated diagnosis suggestions.  & Use AI to suggest possible diagnoses based on what the doctor and patient discuss.  & This will help doctors make faster, more accurate diagnoses, especially in tricky cases.\\ 
+        [SG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{SG_diagnosisSuggestions}:] Automated diagnosis suggestions.  & Use AI to suggest possible diagnoses based on what the doctor and patient discuss.  & This will help doctors make faster, more accurate diagnoses, especially in tricky cases.\\ 
         \midrule
-        STG3: Machine learning for triage.  & Use machine learning to prioritize patients based on the severity of their condition. & This ensures the most critical patients get treated first, improving care in emergencies. \\
+        [SG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{SG_triage}:] Machine learning for triage.  & Use machine learning to prioritize patients based on the severity of their condition. & This ensures the most critical patients get treated first, improving care in emergencies. \\
         \midrule 
-        STG4: Multi-language support. & Let doctors and patients use the app in different languages.  & This makes the app useful for a wider range of people, especially in diverse hospitals. \\
+        [SG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{SG_multiLanguage}:] Multi-language support. & Let doctors and patients use the app in different languages.  & This makes the app useful for a wider range of people, especially in diverse hospitals. \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-% \begin{itemize}
-% \item[GS\refstepcounter{goalnum}\thegoalnum \label{G_meaningfulLabel}:] \plt{One
-%     sentence description of the goal.  There may be more than one.  Each Goal
-%     should have a meaningful label.}
-% \end{itemize}
 
-% References at the end of the document
+\subsection{Organization of Document} \label{sec_OrganizationOfDocument}
 
-\subsection{Organization of Document}
 The organization of this document is as follows:
 \begin{itemize}
   \item \textbf{System Description}\\
@@ -261,39 +251,46 @@ The organization of this document is as follows:
 
 ~\newpage
 
-\section{System Description}
+\section{System Description} \label{sec_SystemDescription}
 
-\subsection{Definitions, Acronyms, and Abbreviations}
+\subsection{Definitions, Acronyms, and Abbreviations} \label{sec_DefinitionsAcronymsAbbreviations}
 
 \begin{tabular}{l l} 
   \toprule    
   \textbf{symbol} & \textbf{description}\\
   \midrule 
   A & Assumption\\
-  G & Goal Statement\\
+  G & Goals\\
+  SG & Stretch Goals\\
+  FR & Functional Requirement\\
+  NFR & Non-functional Requirement\\
   LC & Likely Change\\
-  R & Requirement\\
+  ULC & Unlikely Change\\
   SRS & Software Requirements Specification\\
-  EHR & Electronic Healthcare record\\
-  STG & Stretch Goals\\
+  EHR & Electronic Healthcare Record\\
+  
   \bottomrule
 \end{tabular}\\
 
 The following is the glossary for this document:
 
-\textbf{System} -- When referring to a system the document refers to the intended solution/product.
+\begin{itemize}
+  \item \textbf{System} -- When referring to a system the document refers to the intended solution/product.
+  \item \textbf{User} -- When referring to a user the document refers to a person who will use the product.
+  \item \textbf{Medical Staff} -- When referring to healthcare professionals the document refers to doctors, nurses, and other healthcare professionals who will be using the product.
+  \item \textbf{Patient} -- When referring to a patient the document refers to any person who is receiving medical treatment.
+  \item \textbf{Healthcare Network} -- When referring to a healthcare network the document refers to an organisation that has group of hospitals or clinics and will use the system.
+
+\end{itemize}
 
 
-\textbf{User} -- When referring to a user the document refers to a person who will use the product.
-
-
-\subsection{System overview}
+\subsection{System overview} \label{sec_SystemOverview}
 
 This product has been conceived by the group members based on elicitation. Through interviews and discussion the problem of documentation overhead was found. This is the problem to be solved for the capstone course SFWRENG 4G06.\\
 
 Through this project we aim to develop a solution that will address key niche problems through customizability and add features of critical need that do not already exist in existing solutions. This will allow healthcare networks to centralize the data of their hospitals and increase the staff productivity.
 
-\subsection{System Functionality}
+\subsection{System Functionality} \label{sec_SystemFunctionality}
 
 This section outlines the core functionalities and characteristics of the proposed system:
 
@@ -315,7 +312,7 @@ This section outlines the core functionalities and characteristics of the propos
 \end{itemize}
 
 
-\subsection{User Characteristics} \label{SecUserCharacteristics}
+\subsection{User Characteristics} \label{sec_UserCharacteristics}
 
 The intended users of this product are healthcare professionals, specifically those involved in patient documentation, including doctors, nurses, and other clinical administrative staff. 
 
@@ -337,7 +334,6 @@ Specific requirements must be specified to accommodate users with varying techni
 The following constraints will guide the system design and implementation:
 
 \begin{itemize} 
-  \item \textbf{System Compatibility} -- The system must be compatible with existing EHR systems for seamless integration and data exchange.
 
   \item \textbf{Compliance with Regulatory Standards} -- The system must adhere to healthcare regulations ensuring the confidentiality and security of patient data.
 
@@ -349,146 +345,503 @@ The following constraints will guide the system design and implementation:
 
 \subsubsection{Assumptions and Dependencies} \label{sec_assumpt}
 
+\begin{itemize}
+  \item\textbf{Reliable Internet Connection} -- We are assuming that user has a reliable internet connection throughout the patient’s visit as it is essential for authentication to the app, real-time interaction with it, running updates and saving the document to the patient’s profile.
+  \item\textbf{Sufficient Hardware Accessories} -- We are assuming that the hospital staff has enough hardware devices such as monitors, iPads etc. to access the software.
+  \item\textbf{Patient’s Comfort} -- We also assume that patients are comfortable using this software, ensuring that their information will be kept private and secure on their profile.
+\end{itemize}
+
 \subsubsection{Usage Scanerios}
 
+Here are the use-case scenarios for this software--
+
+\begin{itemize}
+  \item\textbf{UC1 Recording Clinical Notes} --
+  \begin{itemize}
+    \item Healthcare professional accesses patient’s profile.
+    \item Healthcare professional selects dictate button.
+    \item Healthcare professional takes clinical notes.
+  \end{itemize}
+  \item\textbf{UC2 Generate Diagnostic Suggestions} --
+  \begin{itemize}
+    \item Healthcare professional will review the notes.
+    \item App checks symptoms and suggests potential diagnosis and treatment options.
+    \item Doctor verifies the options.
+    \item Doctor decides to accept or reject.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Usage Scenario 1 : Documenting a Patient Consultation}
+
+\begin{itemize}
+  \item\textbf{Use Case} -- UC1
+  \item\textbf{Primary Actor} -- Healthcare professional (such as a medical doctor or a nurse)
+  \item\textbf{Precondition} -- The healthcare professional has authentication to log in the system and patient’s profile is opened. The basic information such as name, contact information and illness history are already filled.
+  \item\textbf{Trigger} -- The healthcare professional will press the record button.
+  \item\textbf{Main Success Scenario} --
+  \begin{itemize}
+    \item The doctor will press the button for dictation tool.
+    \item The software will convert audio to text in real-time and produce text.
+    \item The user will press complete button.
+    \item  The doctor will review the notes produced.
+    \item The doctor will press the submit button if everything is ok.
+  \end{itemize}
+  \item\textbf{Secondary Success Scenario} --
+  \begin{itemize}[label=6.\arabic*]
+    \item If any mistake is found, the doctor will edit the notes manually.
+    \item Doctor submits the final version of the notes.
+  \end{itemize}
+  \item\textbf{Success Postcondition} --
+  \begin{itemize}
+    \item The notes are saved in patient’s profile in a secure manner.
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{use_case_diag.png}
+  \caption{This is the use-case diagram for this project.}
+  \label{fig:Use-Case Diagram}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{activity_diag.png}
+  \caption{This is the activity diagram for this project.}
+  \label{fig:Activity Diagram}
+\end{figure}
+
+\subsubsection{Risks and Mitigation}
+
+Looking at implementation details there are a few risks that come up, if these risks can be addressed or have a clearer roadmap that will make us more confident in the project. 
+
+\begin{itemize}
+  \item \textbf{Speech Input} -- A hospital or a clinic can be a loud place, in the event audio input is taken we need to ensure that it is clean and clear. This would mean essentially blocking outside noise. 
+  \item \textbf{Visual Inputs} -- If any old charts need to be inputted into the patient journey having the ability to scan and transfer the information into the required format will be another risk. The document needs to be rid of noisy data.
+  \item \textbf{Pre-Trained Models} -- To manipulate and use both inputs above we need to create a model to be accurate and provide accuracy when filling in charts. 
+  \item \textbf{Data Privacy} -- This application will hold a lot of patient data so creating a store that is secure and making sure standard data security practice is applied is a must.
+  \item \textbf{User Acceptance} -- This will require further elicitation from outside supervisors. We need to gather data on what critical needs of healthcare professionals such that critical features are present.
+  \item \textbf{Technical Delay} -– Integration with Electronic Health record systems might cause some delays if there’s any technical issue or if the software faces compatibility issues. This will require sample testing to make sure that the software is compatible in the early stage of the development process.
+  \item \textbf{Professional Verification} -– Misinterpretation of some words might lead to inaccurate records and wrong diagnosis. Therefore, it’s important for the doctor/nurse to verify the final version of the document and manually delete anything that was falsely recorded. 
+\end{itemize}
 
 ~\newpage
 
-\section{Requirements}
+\section{Requirements} \label{sec_Requirements}
 
-This section provides the functional requirements, the business tasks that the
-software is expected to complete, and the nonfunctional requirements, the
-qualities that the software is expected to exhibit.
 
-\subsection{Functional Requirements}
+\subsection{Functional Requirements} \label{sec_FunctionalRequirements}
+
 
 \noindent \begin{itemize}
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_Inputs}:] \plt{Requirements
-    for the inputs that are supplied by the user.  This information has to be
-    explicit.}
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_OutputInputs}:] \plt{It isn't
-    always required, but often echoing the inputs as part of the output is a
-    good idea.}
+\textbf{Requirement:} Add healthcare network
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_Calculate}:] \plt{Calculation
-    related requirements.}
+\textbf{Fit Criterion:}  
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_VerifyOutput}:]
-  \plt{Verification related requirements.}
+\textbf{Dependencies:}  
 
-\item[R\refstepcounter{reqnum}\thereqnum \label{R_Output}:] \plt{Output related
-    requirements.}
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:]  
+
+\textbf{Requirement:} Remove healthcare network 
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} Update healthcare network
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:]
+
+\textbf{Requirement:} Add healthcare professionals
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} Remove healthcare professionals.
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} Update the list of healthcare professionals. 
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} Allow users to log in.
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} create a patient record.
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} Delete the patient record.
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} Update the patient record by typing - allow the user to edit the transcribed data
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} Update the patient record by dictation -ability to record. 
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} transcribe conversation to text in real time. 
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} provide diagnostic suggestions based on the transcribed data.
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} provide a list of frequently used medicines based on diagnosis.
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+
+\textbf{Requirement:} send patient journey to another provider.
+
+\textbf{Fit Criterion:}  
+
+\textbf{Dependencies:}  
+
+\textbf{Monitored and Controlled Variables:} 
+
+\textbf{Performance Requirements:} 
+
+\textbf{Hardware Requirements:} 
+
+\textbf{Software Requirements:} 
+
+\textbf{Normal Behavior:} 
+
+\textbf{Undesired Event Handling:} 
 
 \end{itemize}
 
-\plt{Every IM should map to at least one requirement, but not every requirement
-  has to map to a corresponding IM.}
 
-\subsection{Non-functional Requirements}
+\subsection{Non-functional Requirements} \label{sec_NonFunctionalRequirements}
 
 \noindent \begin{itemize}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Performance}:] \textbf{Performance}  
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_LookAndFeel}:] \textbf{Aesthetic and Design}
+
+    \textbf{Requirement:} The UI should keep a clean design, that fits the healthcare standards.
+
+    \textbf{Rationale:} A clean user interface allows users to navigate through the application with ease.
+
+    \textbf{Fit Criterion:} UI demos will be sampled to healthcare workers to ensure that the design is easily understood and user-friendly.
+
+    \textbf{Dependencies:} Design feedback loops and UX/UI design software.  
+
+    \textbf{Undesired Event Handling:} If the surveys shows less than 80\% satisfaction, the design will then be revised.
+
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}
+
+    \textbf{Requirement:} The UI of the system should be intuitive, allowing healthcare workers to master its use with a training of up to 30 minutes. 
+
+    \textbf{Rationale:} If the UI is user-friendly, it tends to reduce the learning time and allows health care workers to focus on patients.
+  
+
+    \textbf{Fit Criterion:} Tests that demonstrates that atleast 90\% of healthcare workers are able to navigate the system with 30 minutes of training or less.
+
+    \textbf{Dependencies:} Feedback on the design during the development of the system.
+
+    \textbf{Undesired Event Handling:} The system should support the user using a live chat support integrated within the application.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Performance}:] \textbf{Performance}
+
+    \textbf{Requirement:} The system should convert voice recordings into text onto medical charts within 30 seconds of recording.
+
+    \textbf{Rationale:} Reduces the documentation time to reduce workload and allow healthcare workers to focus on patients.
     
-    \textbf{Requirement:} The system shall process voice recordings and convert them into medical charts within 30 seconds of recording completion.  
-  
-    \textbf{Rationale:} Quick documentation is critical to streamline the patient journey and reduce healthcare professionals' workload.  
-  
-    \textbf{Fit Criterion:} The system will consistently generate completed documentation in under 30 seconds.  
-  
-    \textbf{Dependencies:} Dependent on the speech-to-text engine and cloud infrastructure.  
-  
-    \textbf{Normal Operation:} Under typical conditions, the system will handle up to 100 voice recordings per hour without performance degradation.  
-  
-    \textbf{Undesired Event Handling:} If the system takes longer than 30 seconds, an alert will be triggered, and the system will attempt to resolve delays by reducing background processes or scaling resources.
+    \textbf{Fit Criterion:} The system will consistently generate completed documentation within 30 seconds of recording completion.  
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Reliability}:] \textbf{Reliability}  
+    \textbf{Dependencies:} Speech-to-text engine.  
 
-    \textbf{Requirement:} The system shall have a 99.9\% uptime guarantee during operational hours (9 AM to 9 PM).  
-  
-    \textbf{Rationale:} Reliability is critical to ensure uninterrupted service for healthcare professionals, particularly in time-sensitive environments like emergency rooms.  
-  
+    \textbf{Undesired Event Handling:} The system will reduce any background processes, if it fails to generate completed documentation within 30 seconds.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Operational}:] \textbf{Operational Requirement}
+
+    \textbf{Requirement:} The system should have an uptime guarantee of 99.9\% during operational hours.
+
+    \textbf{Rationale:} Reliable uptime ensures consistent service for healthcare workers, specially in time-sensitive atmospheres like hospitals.
+
     \textbf{Fit Criterion:} System logs will confirm an uptime rate of 99.9\% over a 30-day period.  
-  
-    \textbf{Dependencies:} Cloud infrastructure, hosting services, and local hardware resilience.  
-  
-    \textbf{Undesired Event Handling:} If uptime falls below 99.9\%, an automated system will switch to backup servers within 10 seconds to ensure continuity of service.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Scalability}:] \textbf{Scalability}  
+    \textbf{Dependencies:} Cloud infrastructure and local hardware resilience. 
+    
+    \textbf{Undesired Event Handling:} There should be backup servers that turn on within 10 seconds of downtime to ensure reliable uptime.
 
-    \textbf{Requirement:} The system shall be able to scale to accommodate up to 500 simultaneous users without affecting performance.  
-  
-    \textbf{Rationale:} The system must support multiple healthcare providers across various locations, particularly during peak hours.  
-  
-    \textbf{Fit Criterion:} The system will maintain performance benchmarks (processing under 30 seconds) even when 500 users are active.  
-  
-    \textbf{Dependencies:} Cloud infrastructure for auto-scaling capabilities.  
-  
-    \textbf{Normal Operation:} The system will maintain user load without affecting response time.  
-  
-    \textbf{Undesired Event Handling:} In case of unexpected spikes in usage, the system will dynamically allocate additional cloud resources to manage the load without affecting current users.
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:] \textbf{Maintainability Requirement}
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Security}:] \textbf{Security}  
+    \textbf{Requirement:} The system should be updated with new features without causing downtime longer than 2 minutes.
 
-    \textbf{Requirement:} The system shall encrypt all patient data, both in transit and at rest, following HIPAA standards.  
-  
-    \textbf{Rationale:} Ensuring patient confidentiality and compliance with healthcare data regulations is essential.  
-  
+    \textbf{Rationale:} Easily maintained system allows for consistent service.
+
+    \textbf{Fit Criterion:} Release logs will show updates occur with less than 2 minutes of downtime.  
+
+    \textbf{Dependencies:} Continuous integration of updates to the system.  
+
+    \textbf{Undesired Event Handling:} If an update fails, the system will automatically revert to the last stable version.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Security}:] \textbf{Security Requirement}
+
+    \textbf{Requirement:} The system should have all patient data encrypted, and in compliance with HIPAA standards.
+
+    \textbf{Rationale:} A secure and confidential system ensures the user to be confident in using the application.
+
     \textbf{Fit Criterion:} Security audits will show 100\% compliance with HIPAA and encryption standards.  
-  
-    \textbf{Dependencies:} Encryption services and security protocols in the cloud infrastructure.  
-  
-    \textbf{Undesired Event Handling:} If a security breach is detected, the system will immediately log out all users, lock access to sensitive data, and alert system administrators.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}  
+    \textbf{Dependencies:} Encryption services and security protocols.  
 
-    \textbf{Requirement:} The system’s user interface shall be intuitive, allowing healthcare professionals to complete documentation with minimal training (less than 30 minutes of training).  
-  
-    \textbf{Rationale:} A user-friendly interface reduces learning time and increases adoption among healthcare providers.  
-  
-    \textbf{Fit Criterion:} Usability tests will show that 90\% of healthcare professionals can navigate the system with less than 30 minutes of instruction.  
-  
-    \textbf{Dependencies:} Usability design and feedback loops during development.  
-  
-    \textbf{Undesired Event Handling:} If users encounter usability issues, they can access live chat support integrated within the application.
+    \textbf{Undesired Event Handling:} If a security breach is detected, all users will be logged out, access will be locked, and administrators alerted.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:] \textbf{Maintainability}  
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Cultural}:] \textbf{Cultural Requirement}
 
-    \textbf{Requirement:} The system shall be updated with new features without causing downtime for more than 5 minutes.  
-  
-    \textbf{Rationale:} Frequent updates should not disrupt healthcare professionals during critical hours.  
-  
-    \textbf{Fit Criterion:} Release notes and system logs will show that updates occur with less than 5 minutes of downtime, or during non-operational hours.  
-  
-    \textbf{Dependencies:} Continuous integration and delivery pipelines.  
-  
-    \textbf{Undesired Event Handling:} In case of an update failure, the system will automatically revert to the last stable version.
+    \textbf{Requirement:} The system should allow customization of language settings to accommodate all healthcare workers.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Compatibility}:] \textbf{Compatibility}  
+    \textbf{Rationale:} A customized UI allows the user to feel comfortable and confident when using the application.
 
-    \textbf{Requirement:} The system shall be compatible with major operating systems (Windows, macOS, and Linux) and dictation devices.  
-  
-    \textbf{Rationale:} Healthcare providers use a variety of platforms, and the system must be versatile to support their workflows.  
-  
-    \textbf{Fit Criterion:} Compatibility tests will show full functionality on all major operating systems and devices used for dictation.  
-  
-    \textbf{Dependencies:} Device drivers and OS compatibility libraries.  
-  
-    \textbf{Undesired Event Handling:} If a compatibility issue arises, the system will notify the user and suggest an alternative setup or device.
+    \textbf{Fit Criterion:} Tests will show that healthcare workers can navigate through the application and switch languages based on their preference without impacting the functionality of the application.
 
-\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_DataIntegrity}:] \textbf{Data Integrity}  
+    \textbf{Dependencies:} Language bundles.  
 
-    \textbf{Requirement:} The system shall prevent duplicate or erroneous data entries when processing voice recordings.  
-  
-    \textbf{Rationale:} Data accuracy is critical in healthcare documentation, where errors could lead to incorrect treatment or diagnosis.  
-  
-    \textbf{Fit Criterion:} Data audits will show no more than 0.1\% duplication or errors in generated medical charts.  
-  
-    \textbf{Dependencies:} Data validation protocols and the speech-to-text engine.  
-  
-    \textbf{Undesired Event Handling:} In case of detected duplicates or errors, the system will automatically flag the entry for review and notify the healthcare professional.
+    \textbf{Undesired Event Handling:} If a language bundle fails to load, the system will revert to the default language and notify the user.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Legal}:] \textbf{Legal Requirement}
+
+    \textbf{Requirement:} The system should comply with all healthcare data protection regulations. 
+
+    \textbf{Rationale:} Legal compliance is mandatory to protect patient data and avoid penalties.  
+
+    \textbf{Fit Criterion:} Legal audits will confirm compliance with HIPAA and any other relevant data protection laws.  
+
+    \textbf{Dependencies:} Legal consultancy, data protection regulations.  
+
+    \textbf{Undesired Event Handling:} If the system fails to comply with regulations, it will be updated within 24 hours to meet compliance.
 
 \end{itemize}
 
@@ -511,7 +864,7 @@ typical values.}
 
 \noindent \begin{itemize}
 
-\item[LC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
+\item[ULC\refstepcounter{lcnum}\thelcnum\label{LC_meaningfulLabel}:] \plt{Give
     the unlikely changes.  The design can assume that the changes listed will
     not occur.}
 
