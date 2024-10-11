@@ -66,6 +66,9 @@
 \newcounter{goalnum} %Goal Number
 \newcommand{\gthegoalnum}{GS\thegoalnum}
 \newcommand{\gsref}[1]{GS\ref{#1}}
+\newcounter{stretchgoalnum} %Stretch Goal Number
+\newcommand{\sgthestretchgoalnum}{STG\thestretchgoalnum}
+\newcommand{\sgref}[1]{STG\ref{#1}}
 \newcounter{instnum} %Instance Number
 \newcommand{\itheinstnum}{IM\theinstnum}
 \newcommand{\iref}[1]{IM\ref{#1}}
@@ -162,9 +165,7 @@ Date 2 & 1.1 & Notes\\
 
 \subsection{Purpose of Document} \label{sec_PurposeOfDocument}
 
-  The purpose of this document is to provide a comprehensive description of the requirements for a software application that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used in as a contract in a sense between the team and the client who intends to use this application. This document will allow for an in-depth description of the software's functionality, performance, and other non-functional requirements. Additionally, it will outline common use-cases under which the software will be used. This will in turn provide a direction to the developers such that they will be empowered to creating the right product as this document will contain various stakeholders' requirements.\\
-
-  Along with development direction, this document will be a direct reference for all of the stakeholders to understand the product's scope, functionality, and limitations. Additionally, this document will be a method of communication between the developers and stakeholders (domain experts, client, etc.) to ensure that the developers will be building the right product. This will ensure a feedback loop is established to allow for the development of a product that will satisfy the needs of the stakeholders and if project needs change it will be relayed through this document.
+  The purpose of this document is to provide a comprehensive description of the requirements for a software application that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used in as a contract in a sense between the team and the client who intends to use this application. This document will allow for an in-depth description of the software's functionality, performance, and other non-functional requirements. Additionally, it will outline common use-cases under which the software will be used. This will in turn provide a direction to the developers such that they will be empowered to creating the right product as this document will contain various stakeholders' requirements. Along with development direction, this document will be a direct reference for all of the stakeholders to understand the product's scope, functionality, and limitations.
 
 
 \subsection{Characteristics of Intended Reader} \label{sec_IntendedReader} 
@@ -198,15 +199,15 @@ The goals for this project are as follows:
         \toprule
         \textbf{Goal} & \textbf{Definition} & \textbf{Rationale} \\
         \midrule
-        [G\refstepcounter{goalnum}\thegoalnum \label{G_VoiceToDocumentation}:] Use voice to fill in medical documentation (charts, files, etc.) & The app will record conversations and automatically turn them into medical notes and charts. & This will save doctors time by automating paperwork, letting them focus more on patients. \\
+        G\refstepcounter{goalnum}\thegoalnum\label{G_VoiceToDocumentation}: Use voice to fill in medical documentation (charts, files, etc.) & The app will record conversations and automatically turn them into medical notes and charts. & This will save doctors time by automating paperwork, letting them focus more on patients. \\
         \midrule
-        [G\refstepcounter{goalnum}\thegoalnum \label{G_reduceOverhead}:] Reduce documentation overhead time.  & Through tracking the whole patient journey in the app, we look to reduce the overhead of triaging, clinical documentation, and other registrations.  & This helps hospital healthcare professionals focus on care and lowers the time taken through registration for hospital staff. \\ 
+        G\refstepcounter{goalnum}\thegoalnum \label{G_reduceOverhead}: Reduce documentation overhead time.  & Through tracking the whole patient journey in the app, we look to reduce the overhead of triaging, clinical documentation, and other registrations.  & This helps hospital healthcare professionals focus on care and lowers the time taken through registration for hospital staff. \\ 
         \midrule
-        G3: Integrates with the existing hospital environment. & We want the solution to be portable such that it can be implemented in existing hospital and clinic ecosystems.  & Portability will ensure that hospitals and clinics won’t have to upgrade their existing hardware to use the application. \\
+        G\refstepcounter{goalnum}\thegoalnum \label{G_integrateEnv}: Integrates with the existing hospital environment. & We want the solution to be portable such that it can be implemented in existing hospital and clinic ecosystems.  & Portability will ensure that hospitals and clinics won’t have to upgrade their existing hardware to use the application. \\
         \midrule 
-        G4: Allow health networks profiles with in service. & Need the ability for health networks to add, update, and delete network profile details. & This will ensure that the list of hospitals and staff in the network is up to date with appropriate permissions. \\
+        G\refstepcounter{goalnum}\thegoalnum \label{G_hNetworkProfiles}: Allow health networks profiles with in service. & Need the ability for health networks to add, update, and delete network profile details. & This will ensure that the list of hospitals and staff in the network is up to date with appropriate permissions. \\
         \midrule 
-        G5: Allow health care professional profiles with in service. & Need the ability for health networks to add, update, and delete staff profile details. & This will ensure that the list of staff will be able to use the tool to dictate patient conversations or add other notes. Additionally, making sure they have access to patient journey. \\
+        G\refstepcounter{goalnum}\thegoalnum \label{G_hProfessionalProfiles}: Allow health care professional profiles with in service. & Need the ability for health networks to add, update, and delete staff profile details. & This will ensure that the list of staff will be able to use the tool to dictate patient conversations or add other notes. Additionally, making sure they have access to patient journey. \\
         \midrule 
 
     \end{tabular}
@@ -220,13 +221,13 @@ The stretch goals for this project are as follows:
         \toprule
         \textbf{Goal} & \textbf{Definition} & \textbf{Rationale} \\
         \midrule
-        [SG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{SG_medicineSuggestions}:] Automated medicine suggestions. & Based on diagnosis and patient data provide medicine suggestions. & This will help doctors fill out their charts faster. \\ % Row 1
+        STG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{STG_medicineSuggestions}: Automated medicine suggestions. & Based on diagnosis and patient data provide medicine suggestions. & This will help doctors fill out their charts faster. \\ % Row 1
         \midrule
-        [SG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{SG_diagnosisSuggestions}:] Automated diagnosis suggestions.  & Use AI to suggest possible diagnoses based on what the doctor and patient discuss.  & This will help doctors make faster, more accurate diagnoses, especially in tricky cases.\\ 
+        STG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{STG_diagnosisSuggestions}: Automated diagnosis suggestions.  & Use AI to suggest possible diagnoses based on what the doctor and patient discuss.  & This will help doctors make faster, more accurate diagnoses, especially in tricky cases.\\ 
         \midrule
-        [SG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{SG_triage}:] Machine learning for triage.  & Use machine learning to prioritize patients based on the severity of their condition. & This ensures the most critical patients get treated first, improving care in emergencies. \\
+        STG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{STG_triage}: Machine learning for triage.  & Use machine learning to prioritize patients based on the severity of their condition. & This ensures the most critical patients get treated first, improving care in emergencies. \\
         \midrule 
-        [SG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{SG_multiLanguage}:] Multi-language support. & Let doctors and patients use the app in different languages.  & This makes the app useful for a wider range of people, especially in diverse hospitals. \\
+        STG\refstepcounter{stretchgoalnum}\thestretchgoalnum \label{STG_multiLanguage}: Multi-language support. & Let doctors and patients use the app in different languages.  & This makes the app useful for a wider range of people, especially in diverse hospitals. \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -261,7 +262,7 @@ The organization of this document is as follows:
   \midrule 
   A & Assumption\\
   G & Goals\\
-  SG & Stretch Goals\\
+  STG & Stretch Goals\\
   FR & Functional Requirement\\
   NFR & Non-functional Requirement\\
   LC & Likely Change\\
@@ -277,7 +278,7 @@ The following is the glossary for this document:
 \begin{itemize}
   \item \textbf{System} -- When referring to a system the document refers to the intended solution/product.
   \item \textbf{User} -- When referring to a user the document refers to a person who will use the product.
-  \item \textbf{Medical Staff} -- When referring to healthcare professionals the document refers to doctors, nurses, and other healthcare professionals who will be using the product.
+  \item \textbf{Healthcare Professional} -- When referring to healthcare professionals the document refers to doctors, nurses, and other healthcare professionals who will be using the product.
   \item \textbf{Patient} -- When referring to a patient the document refers to any person who is receiving medical treatment.
   \item \textbf{Healthcare Network} -- When referring to a healthcare network the document refers to an organisation that has group of hospitals or clinics and will use the system.
 
@@ -286,9 +287,9 @@ The following is the glossary for this document:
 
 \subsection{System overview} \label{sec_SystemOverview}
 
-This product has been conceived by the group members based on elicitation. Through interviews and discussion the problem of documentation overhead was found. This is the problem to be solved for the capstone course SFWRENG 4G06.\\
+Through this project we aim to develop a solution that will address key niche problems through customizability and add features of critical need that do not already exist in existing solutions. This will allow healthcare networks to centralize the data of their hospitals and increase the staff productivity.\\
 
-Through this project we aim to develop a solution that will address key niche problems through customizability and add features of critical need that do not already exist in existing solutions. This will allow healthcare networks to centralize the data of their hospitals and increase the staff productivity.
+\noindent This product has been conceived by the group members based on elicitation. Through interviews and discussion the problem of documentation overhead was found. This is the problem to be solved for the capstone course SFWRENG 4G06.
 
 \subsection{System Functionality} \label{sec_SystemFunctionality}
 
@@ -297,7 +298,7 @@ This section outlines the core functionalities and characteristics of the propos
 \begin{itemize}
   \item \textbf{Patient Documentation} -- The system should facilitate efficient and streamlined patient documentation throughout the EHR documentation process. This includes storing patient data, clinical notes, treatment plans, and patient history in a secure mamnner.
   
-  \item \textbf{Voice Recording and Transcription} -- The system should be able to record conversations between healthcare professionals and patients which will be transcribed to fill out charts and patient profiles efficiently.
+  \item \textbf{Voice Transcription} -- The system should be able to record conversations between healthcare professionals and patients which will be transcribed to fill out charts and patient profiles efficiently.
   
   \item \textbf{Real-time Data Access} –- The users must have real-time access to patient data and documentation enabling them to make informed decisions quickly and efficiently.
   
@@ -306,8 +307,6 @@ This section outlines the core functionalities and characteristics of the propos
   \item \textbf{Automated Diagnosis Suggestions} -- The system should be able to suggest possible diagnoses based on transcribed data which will help users to make faster and more accurate diagnoses.
   
   \item \textbf{User Authentication} -- The system must provide secure user authentication methods to ensure that only authorized personnel can access sensitive patient information.
-  
-  \item \textbf{Data Privacy} -- The system must store all patient data in a secure manner to avoid any data privacy and regulatory concerns.
   
 \end{itemize}
 
@@ -387,7 +386,7 @@ Here are the use-case scenarios for this software--
     \item The doctor will press the submit button if everything is ok.
   \end{itemize}
   \item\textbf{Secondary Success Scenario} --
-  \begin{itemize}[label=6.\arabic*]
+  \begin{itemize}
     \item If any mistake is found, the doctor will edit the notes manually.
     \item Doctor submits the final version of the notes.
   \end{itemize}
