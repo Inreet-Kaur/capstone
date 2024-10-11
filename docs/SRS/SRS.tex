@@ -484,86 +484,154 @@ Looking at implementation details there are a few risks that come up, if these r
 
 \textbf{Undesired Event Handling:} 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_UpdateHealthNetwork}:] Update Healthcare Network Profile in the System
 
-\textbf{Requirement:} Update healthcare network
+\textbf{Requirement:} The health care network should be able to update its organizational and hospital information.
 
-\textbf{Fit Criterion:}  
+\textbf{Rationale:} The healthcare network will update its own organizational changes. This will include creating and maintaining the staff present as well as the hospitals in the network.
 
-\textbf{Dependencies:}  
+\textbf{Fit Criterion:} The healthcare network data will be up to date with its current state (i.e. number of hospitals, staff etc…), the data’s recency will depend on the networks need. 
 
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Dependencies:} 3.1.1 
 
-\textbf{Performance Requirements:} 
-
-\textbf{Hardware Requirements:} 
-
-\textbf{Software Requirements:} 
-
-\textbf{Normal Behavior:} 
-
-\textbf{Undesired Event Handling:} 
-
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:]
-
-\textbf{Requirement:} Add healthcare professionals
-
-\textbf{Fit Criterion:}  
-
-\textbf{Dependencies:}  
-
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Monitored and Controlled Variables:} N/A
 
 \textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The updating process of healthcare networks should be quick and easy so that healthcare professionals remain up to date with the facility information, operational data, healthcare professional data, and patient data.
+\end{itemize}
 
 \textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
 
 \textbf{Software Requirements:} 
+\begin{itemize}
+  \item Internet browser to access the application.
+\end{itemize}
 
-\textbf{Normal Behavior:} 
+\textbf{Normal Behavior:}
+\begin{itemize}
+  \item Network is updated in the database without any leaks or latency.
+  \item Normal behavior will be seen as updated reflected on the front-end and backend of the system.
+\end{itemize} 
 
 \textbf{Undesired Event Handling:} 
+\begin{itemize}
+  \item When the health network data is being updated and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
+\end{itemize}
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_AddHealthProfessional}:] Add a list of Healthcare Professionals
 
-\textbf{Requirement:} Remove healthcare professionals.
+\textbf{Requirement:} The system should allow to add healthcare professionals to the system.
 
-\textbf{Fit Criterion:}  
+\textbf{Rationale:} When new healthcare professionals join the healthcare network, their information is to be added to the system for authentication purposes. This will include adding a list of hospital staff members to the network.
 
-\textbf{Dependencies:}  
+\textbf{Fit Criterion:} The healthcare professional’s data will be up to date in the system so that they can get authenticated without any delay. 
 
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Dependencies:} N/A 
+
+\textbf{Monitored and Controlled Variables:} N/A
 
 \textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The addition process should be quick and easy to ensure that all professionals can access the database without any interruptions.
+\end{itemize}
 
 \textbf{Hardware Requirements:} 
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize}
 
 \textbf{Software Requirements:} 
+\begin{itemize}
+  \item Internet browser to access the database.
+\end{itemize}
 
-\textbf{Normal Behavior:} 
+\textbf{Normal Behavior:}
+\begin{itemize}
+  \item Data is added to the database without any leaks or latency. Normal behavior will be seen as updated are reflected on the front-end and backend of the system.
+\end{itemize} 
 
-\textbf{Undesired Event Handling:} 
+\textbf{Undesired Event Handling:}
+\begin{itemize}
+  \item When the healthcare professional’s data is being added and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
+\end{itemize} 
 
-\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_meaningfulLabel}:] 
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_RemoveHealthProfessionals}:] Remove a list of Healthcare Professionals 
 
-\textbf{Requirement:} Update the list of healthcare professionals. 
+\textbf{Requirement:} The system should allow to remove healthcare professionals from the system. 
 
-\textbf{Fit Criterion:}  
+\textbf{Rationale:} Sometimes a healthcare professional decides to change the area of service or leaves the organization and retires. Therefore, there is a need for functionality that allows to remove them from the system.
 
-\textbf{Dependencies:}  
+\textbf{Fit Criterion:} The healthcare professional is successfully removed from the system, this will be verified by the fact that they are not present in the databases. 
 
-\textbf{Monitored and Controlled Variables:} 
+\textbf{Dependencies:} 3.1.4 
+
+\textbf{Monitored and Controlled Variables:} Total number of healthcare professionals removed after each action.
+
+\textbf{Performance Requirements:}
+\begin{itemize}
+  \item The deleting process must be easy to complete with a low turnover time such that health networks will not have to spend a long time waiting for their data to be deleted.
+\end{itemize} 
+
+\textbf{Hardware Requirements:}
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize} 
+
+\textbf{Software Requirements:}
+\begin{itemize}
+  \item Internet browser to access the database.
+\end{itemize} 
+
+\textbf{Normal Behavior:}
+\begin{itemize}
+  \item Data is removed to the database without any leaks or latency. Normal behavior will be seen as updated are reflected on the front-end and backend of the system.
+\end{itemize} 
+
+\textbf{Undesired Event Handling:}
+\begin{itemize}
+  \item When the healthcare professional’s data is being removed and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
+\end{itemize} 
+
+\item[FR\refstepcounter{reqnum}\thereqnum \label{FR_UpdateHealthProfessionals}:] Update a list of Healthcare Professionals
+
+\textbf{Requirement:} The system should allow to update healthcare professional’s data in the system.
+
+\textbf{Rationale:} Sometimes healthcare professionals receive promotions or other changes in their roles which require updating the information in their profiles. Therefore, it is essential for functionality that allows to edit the data in case there are inaccuracies.  
+
+\textbf{Fit Criterion:} The healthcare professional’s data will be up to date in its current state (i.e. role of a healthcare professional, the organization they work in etc....), the data’s recency will depend on the networks’ need. 
+
+\textbf{Dependencies:} 3.1.4 
+
+\textbf{Monitored and Controlled Variables:} N/A
 
 \textbf{Performance Requirements:} 
+\begin{itemize}
+  \item The updating process should be quick and easy task such that healthcare professionals remain up to date with their information and schedule of other staff members.
+\end{itemize} 
 
-\textbf{Hardware Requirements:} 
+\textbf{Hardware Requirements:}
+\begin{itemize}
+  \item Workstations and other peripherals to access the system.
+\end{itemize} 
 
-\textbf{Software Requirements:} 
+\textbf{Software Requirements:}
+\begin{itemize}
+  \item Internet browser to access the database.
+\end{itemize} 
 
-\textbf{Normal Behavior:} 
+\textbf{Normal Behavior:}
+\begin{itemize}
+  \item Data is updated in the database without any leaks or latency. Normal behavior will be seen as updated are reflected on the front-end and backend of the system.
+\end{itemize} 
 
-\textbf{Undesired Event Handling:} 
-
+\textbf{Undesired Event Handling:}
+\begin{itemize}
+  \item When the healthcare professional’s data is being updated and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
+\end{itemize} 
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_login}:] Login
 
