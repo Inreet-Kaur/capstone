@@ -631,7 +631,7 @@ Looking at implementation details there are a few risks that come up, if these r
 
 \textbf{Dependencies:} 3.1.4 
 
-\textbf{Monitored and Controlled Variables:} Total number of healthcare professionals removed after each action.
+\textbf{Monitored and Controlled Variables:} N/A
 
 \textbf{Performance Requirements:}
 \begin{itemize}
@@ -664,7 +664,7 @@ Looking at implementation details there are a few risks that come up, if these r
 
 \textbf{Rationale:} Sometimes healthcare professionals receive promotions or other changes in their roles which require updating the information in their profiles. Therefore, it is essential for functionality that allows to edit the data in case there are inaccuracies.  
 
-\textbf{Fit Criterion:} The healthcare professional’s data will be up to date in its current state (i.e. role of a healthcare professional, the organization they work in etc....), the data’s recency will depend on the networks’ need. 
+\textbf{Fit Criterion:} The healthcare professional’s data will be up to date in its current state (i.e. role of a healthcare professional, the organization they work in etc), the data’s latency will depend on the networks’ need. 
 
 \textbf{Dependencies:} 3.1.4 
 
@@ -672,7 +672,8 @@ Looking at implementation details there are a few risks that come up, if these r
 
 \textbf{Performance Requirements:} 
 \begin{itemize}
-  \item The updating process should be quick and easy task such that healthcare professionals remain up to date with their information and schedule of other staff members.
+  \item The changes should be reflected in real time on the user interface.
+  \item The changes should be stored successfully in the database.
 \end{itemize} 
 
 \textbf{Hardware Requirements:}
