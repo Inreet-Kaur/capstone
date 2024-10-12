@@ -1190,13 +1190,13 @@ typical values.}
 \subsection{Functional Requirements}
 \noindent \begin{itemize}
 \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_profileUpdate}:] The healthcare professional should be able to update their profile information. (FR\ref{FR_UpdateHealthProfessional})
-\textbf{Rationale:} This is a likely change because health network may want to reserve permission to make certain changes to healthcare professionals profiles for security reasons such as updating password.
+\textbf{Rationale:} This is a likely change because health network may want to restrict the ability to make certain changes to healthcare professionals profiles, such as resetting their password, for security reasons.
 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_patientDelete}:] The user should be able to delete an existing patient record from the system. (FR\ref{FR_deleteRecord})
-\textbf{Rationale:} This is a likely change because health network may want to preserve certain entries for compliance and security reasons.
+\textbf{Rationale:} This is a likely change because healthcare network may want to preserve certain entries for compliance and security reasons.
 
 \item[LC\refstepcounter{lcnum}\thelcnum\label{LC_addHealthNetwork}:] The system should provide a list of frequently used medicines based on accepted diagnosis. (FR\ref{FR_medicalSuggestions})
-\textbf{Rationale:} This is a likely change because health network may have some policies that restrict the use of certain medicines.
+\textbf{Rationale:} This is a likely change because healthcare network may have some policies that restrict the use of certain medicines due to their organizational policies.
 \end{itemize}
 
 
@@ -1221,13 +1221,13 @@ typical values.}
 \subsection{Functional Requirements}
 \noindent \begin{itemize}
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_addHealthNetwork}:] The system should allow to add healthcare network to the system. (FR\ref{FR_addHealthNetwork})
-\textbf{Rationale:} This is unlikely to change because health network are the primary bodies using this system for their staff and hospitals.
+\textbf{Rationale:} This is unlikely to change because health network are the primary bodies using this system for their staff and hospital facilities.
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_removeHealthNetwork}:]  The system should allow to remove a health network from the system. (FR\ref{FR_removeHealthNetwork})
 \textbf{Rationale:} This is unlikely to change because health network may want to switch to a different system.
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_updateHealthNetwork}:] The health network should be able to update its organizational and hospital information. (FR\ref{FR_UpdateHealthNetwork})
-\textbf{Rationale:} This is unlikely to change because health network must be able to update their organizational and hospital information..
+\textbf{Rationale:} This is unlikely to change because the healthcare network will update its own organizational changes by creating and maintaining the staff present as well as the hospitals in the network.
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_addHealthProfessional}:] The system should allow to add healthcare professionals to the system. (FR\ref{FR_AddHealthProfessional})
 \textbf{Rationale:} This is unlikely to change because health network must be able to add new hired healthcare professionals and staff information to the system.
@@ -1236,22 +1236,22 @@ typical values.}
 \textbf{Rationale:} This is unlikely to change because health network must be able to remove healthcare professionals that have left the organization from the system.
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_login}:] The system should allow the authorized user to successfully log in to the system. (FR\ref{FR_login})
-\textbf{Rationale:} This is unlikely to change because this supports the primary function of the system that is to be able to access the system.
+\textbf{Rationale:} This is unlikely to change because this supports the primary function of the system, that is to be able to access the system.
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_createPatientRecord}:] The user should be able to create a new patient record. (FR\ref{FR_createRecord})
-\textbf{Rationale:} This is unlikely to change because this is a part of the primary function of the system that is to be able to create patient records.
+\textbf{Rationale:} This is unlikely to change because this is a part of the primary function of the system, that is to be able to create patient records.
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_updatePatientRecord}:] The system should allow the user to update the patient records manually by typing. (FR\ref{FR_updateRecordtyping})
-\textbf{Rationale:} This is unlikely to change because this is a part of the primary function of the system that is to be able to update patient records.
+\textbf{Rationale:} This is unlikely to change because this is a part of the primary function of the system, that is to be able to update patient records.
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_dictation}:] The system should allow healthcare workers to update patient records using dictation. (FR\ref{FR_DictationRecording})
-\textbf{Rationale:} This is unlikely to change because this is a the key functionality that address the overhead of the healthcare documentation process. 
+\textbf{Rationale:} This is unlikely to change because this is a key functionality that addresses the overhead of the healthcare documentation process. 
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_diagnosticSuggestions}:] The system should analyze transcribed text and provide diagnostic suggestions based on the input. (FR\ref{FR_DiagnosticSuggestions})
-\textbf{Rationale:} This is unlikely to change because this is a the key functionality that address the overhead of the healthcare documentation process. 
+\textbf{Rationale:} This is unlikely to change because this is a key functionality that addresses the overhead of the healthcare documentation process. 
 
 \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_transferPatient}:] The system should be able to transfer patient documentation to another provider. (FR\ref{FR_transferPatient})
-\textbf{Rationale:} This is unlikely to change because this requirement is essentials to collobrate with other health networks that user another documentation service.
+\textbf{Rationale:} This is unlikely to change because this requirement is essential to collaborate with other health networks that uses another documentation service.
 \end{itemize}
 
 \subsection{Non-functional Requirements}
@@ -1263,7 +1263,7 @@ typical values.}
   \textbf{Rationale:} This is unlikely to change because the UI must be intuitive, easy to use, and learn.
 
   \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_performance}:] The system should convert voice recordings into text onto medical charts within 30 seconds of recording.(NFR\ref{NFR_Performance})
-  \textbf{Rationale:} This is unlikely to change because this is a key functionality that address the overhead of the healthcare documentation process.
+  \textbf{Rationale:} This is unlikely to change because this is a key functionality that addresses the overhead of the healthcare documentation process.
 
   \item[ULC\refstepcounter{ulcnum}\theulcnum\label{ULC_security}:] The system should have all patient data encrypted, and in compliance with HIPAA standards.(NFR\ref{NFR_Security})
   \textbf{Rationale:} This is unlikely to change because patient data must be stored securely and protected against unauthorized access.
