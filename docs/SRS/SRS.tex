@@ -428,9 +428,25 @@ N/A
 \subsubsection{Assumptions} \label{sec_assumpt}
 
 \begin{itemize}
+<<<<<<< Updated upstream
   \item[A\refstepcounter{assumpnum}\theassumpnum \label{A_reliableInternet}:] \textbf{Reliable Internet Connection:} We assume that the user has a reliable internet connection throughout their operational hours.
   \item[A\refstepcounter{assumpnum}\theassumpnum \label{A_sufficientHardware}:] \textbf{Sufficient Hardware Accessories:} We are assuming that the user has the required hardware devices such as monitors, iPads etc. to access the system.
   \item[A\refstepcounter{assumpnum}\theassumpnum \label{A_patientConsent}:] \textbf{Patient’s Consent:} We also assume that medical staff will obtain patients’ consent when required.  
+=======
+  \item\textbf{UC1 Recording Clinical Notes}--
+  \begin{itemize}
+    \item{Healthcare professional accesses patient’s profile.}
+    \item{Healthcare professional selects dictate button.}
+    \item{Healthcare professional takes clinical notes.}
+  \end{itemize}
+  \item\textbf{UC2 Generate Diagnosis Suggestions}--
+  \begin{itemize}
+    \item{Healthcare professional will review the notes.}
+    \item{App checks symptoms and suggests potential diagnosis and treatment options.}
+    \item{Doctor verifies the options.}
+    \item{Doctor decides to accept or reject.}
+  \end{itemize}
+>>>>>>> Stashed changes
 \end{itemize}
 
 
@@ -458,6 +474,7 @@ N/A
 Since this is a software application, the properties of correctness can be described through its core use-case scenarios for the system:
 
 \begin{itemize}
+<<<<<<< Updated upstream
   \item\textbf{UC1 Login:}
   \begin{itemize}
     \item The user accesses the system using an internet browser.
@@ -525,6 +542,30 @@ Since this is a software application, the properties of correctness can be descr
   \end{itemize}
 \end{itemize}
 
+=======
+  \item\textbf{Use Case}-- UC1
+  \item\textbf{Primary Actor}-- Healthcare professional (such as a medical doctor or a nurse)
+  \item\textbf{Precondition}-- The healthcare professional has authentication to log in the system and patient’s profile is opened. The basic information such as name, contact information and illness history are already filled.
+  \item\textbf{Trigger}-- The healthcare professional will press the record button.
+  \item\textbf{Main Success Scenario}--
+  \begin{itemize}
+    \item{The doctor will press the button for dictation tool.}
+    \item{The software will convert audio to text in real-time and produce text.}
+    \item{The user will press complete button.}
+    \item{Review the notes produced.}
+    \item{Submit button if everything is ok.}
+    \item{Once the documentation is completed, the software starts suggesting diagnosis and other treatments options.}
+  \end{itemize}
+  \item\textbf{Secondary Success Scenario}--
+  \begin{itemize}[label=6.\arabic*]
+    \item{If any mistake is found, the doctor will edit the notes manually.}
+    \item{Doctor submits the final version of the notes.}
+  \end{itemize}
+  \item\textbf{Success Postcondition}--
+  The notes are saved in patient’s profile in a secure manner.
+\end{itemize}
+
+>>>>>>> Stashed changes
 \subsubsection{Risks and Mitigation}
 
 Looking at implementation details there are a few risks that come up, if these risks can be addressed or have a clearer roadmap that will make us more confident in the project. 
