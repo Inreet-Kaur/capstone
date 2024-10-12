@@ -1108,41 +1108,41 @@ Access to patient record database.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_LookAndFeel}:] \textbf{Aesthetic and Design}
 
-    \textbf{Requirement:} The UI should keep a clean design, that fits the healthcare standards.
+    \textbf{Requirement:} The UI should be a clean design which is minimalistic and simple.
 
-    \textbf{Rationale:} A clean user interface allows users to navigate through the application with ease.
+    \textbf{Rationale:} A clean user interface allows users to navigate through the application with ease. We want to reduce excess noise and make the UI as simple as possible.
 
-    \textbf{Fit Criterion:} UI demos will be sampled to healthcare workers to ensure that the design is easily understood and user-friendly.
+    \textbf{Fit Criterion:} UI demos will be sampled to healthcare workers to ensure that the design is easily understood and aesthetically pleasing.
 
-    \textbf{Dependencies:} Design feedback loops and UX/UI design software.  
+    \textbf{Dependencies:} NFR\ref{NFR_Usability}
 
-    \textbf{Undesired Event Handling:} If the surveys shows less than 80\% satisfaction, the design will then be revised.
+    \textbf{Undesired Event Handling:} If the surveys shows less than 80\% satisfaction, UI will be revised.
 
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}
 
-    \textbf{Requirement:} The UI of the system should be intuitive, allowing healthcare workers to master its use with a training of up to 30 minutes. 
+    \textbf{Requirement:} The UI of the system should be intuitive, with high discoverability.
 
-    \textbf{Rationale:} If the UI is user-friendly, it tends to reduce the learning time and allows health care workers to focus on patients.
+    \textbf{Rationale:} If the UI is user-friendly, it tends to reduce the learning time and allows health care workers to focus on patients. Additionally, we want the functionality to be easy to discover such that the user does not have to spend time searching for a feature.
   
 
     \textbf{Fit Criterion:} Tests that demonstrates that atleast 90\% of healthcare workers are able to navigate the system with 30 minutes of training or less.
 
-    \textbf{Dependencies:} Feedback on the design during the development of the system.
+    \textbf{Dependencies:} NFR\ref{NFR_LookAndFeel}
 
-    \textbf{Undesired Event Handling:} The system should support the user using a live chat support integrated within the application.
+    \textbf{Undesired Event Handling:} If user satisfaction is low the system should have clear documentation and training materials to help the user learn the system.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Performance}:] \textbf{Performance}
 
-    \textbf{Requirement:} The system should convert voice recordings into text onto medical charts within 30 seconds of recording.
+    \textbf{Requirement:} The system should convert voice recordings into text onto medical charts.
 
-    \textbf{Rationale:} Reduces the documentation time to reduce workload and allow healthcare workers to focus on patients.
+    \textbf{Rationale:} Reduces the documentation time to reduce workload and allow healthcare workers to focus on patients. Real time transcription will allow for lower friction when documenting.
     
-    \textbf{Fit Criterion:} The system will consistently generate completed documentation within 30 seconds of recording completion.  
+    \textbf{Fit Criterion:} The system will consistently generate completed transcription live or off a recording within 30 seconds. Additionally, the accuracy will be greater than 85\%.
 
-    \textbf{Dependencies:} Speech-to-text engine.  
+    \textbf{Dependencies:} NFR\ref{NFR_Operational}
 
-    \textbf{Undesired Event Handling:} The system will reduce any background processes, if it fails to generate completed documentation within 30 seconds.
+    \textbf{Undesired Event Handling:} In case of transcription delay or failiure, a feedback bar will indicate the status of the transcription.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Operational}:] \textbf{Operational Requirement}
 
@@ -1152,19 +1152,19 @@ Access to patient record database.
 
     \textbf{Fit Criterion:} System logs will confirm an uptime rate of 99.9\% over a 30-day period.  
 
-    \textbf{Dependencies:} Cloud infrastructure and local hardware resilience. 
+    \textbf{Dependencies:} N/A
     
     \textbf{Undesired Event Handling:} There should be backup servers that turn on within 10 seconds of downtime to ensure reliable uptime.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:] \textbf{Maintainability Requirement}
 
-    \textbf{Requirement:} The system should be updated with new features without causing downtime longer than 2 minutes.
+    \textbf{Requirement:} The system should be maintainable.
+    
+    \textbf{Rationale:} Easily maintained system allows for consistent service, and allows for extension of features.
 
-    \textbf{Rationale:} Easily maintained system allows for consistent service.
+    \textbf{Fit Criterion:} Effective development patterns will be used, for extensions to be in updates.
 
-    \textbf{Fit Criterion:} Release logs will show updates occur with less than 2 minutes of downtime.  
-
-    \textbf{Dependencies:} Continuous integration of updates to the system.  
+    \textbf{Dependencies:} N/A
 
     \textbf{Undesired Event Handling:} If an update fails, the system will automatically revert to the last stable version.
 
@@ -1176,7 +1176,7 @@ Access to patient record database.
 
     \textbf{Fit Criterion:} Security audits will show 100\% compliance with HIPAA and encryption standards.  
 
-    \textbf{Dependencies:} Encryption services and security protocols.  
+    \textbf{Dependencies:} N/A
 
     \textbf{Undesired Event Handling:} If a security breach is detected, all users will be logged out, access will be locked, and administrators alerted.
 
@@ -1188,7 +1188,7 @@ Access to patient record database.
 
     \textbf{Fit Criterion:} Tests will show that healthcare workers can navigate through the application and switch languages based on their preference without impacting the functionality of the application.
 
-    \textbf{Dependencies:} Language bundles.  
+    \textbf{Dependencies:} N/A
 
     \textbf{Undesired Event Handling:} If a language bundle fails to load, the system will revert to the default language and notify the user.
 
@@ -1200,7 +1200,7 @@ Access to patient record database.
 
     \textbf{Fit Criterion:} Legal audits will confirm compliance with HIPAA and any other relevant data protection laws.  
 
-    \textbf{Dependencies:} Legal consultancy, data protection regulations.  
+    \textbf{Dependencies:} N/A
 
     \textbf{Undesired Event Handling:} If the system fails to comply with regulations, it will be updated within 24 hours to meet compliance.
 
