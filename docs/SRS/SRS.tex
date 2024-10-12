@@ -574,7 +574,7 @@ Looking at implementation details there are a few risks that come up, if these r
 \textbf{Normal Behavior:} 
 \begin{itemize}
   \item All input data is validated as being entered into the system.
-  \item Once all required fields are completed the user selects the submit button and the network is added successfully to the system.
+  \item Once all required fields are completed the user selects the submits the information and the network is added successfully to the system.
   \item The process should have a low turnover time such that health networks will not have to spend a long time waiting to use the system.
 \end{itemize}
 
@@ -583,7 +583,7 @@ Looking at implementation details there are a few risks that come up, if these r
   \item The user may enter invalid input data. The system should display appropriate error messages. 
   \item The system should have constraints to restrict the user from submitting, unless all required fields are completed and have valid input data. 
   \item When the database is overloaded with requests, appropriate error messages should be delayed. 
-  \item The updates will be queued to prevent this in the future, data resources will be scaled just so that the calls are faster. This will include indexing or caching and scaling the solution horizontally to balance the load.
+  \item The updates will be queued to prevent this in the future, data resources will be scaled just so that the calls are faster.
 \end{itemize}
 
 
@@ -633,7 +633,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_UpdateHealthNetwork}:]
 
-\textbf{Requirement:} The health care network should be able to update its organizational and hospital information.
+\textbf{Requirement:} The healthcare network should be able to update its organizational and hospital information.
 
 \textbf{Rationale:} The healthcare network will update its own organizational changes. This will include creating and maintaining the staff present as well as the hospitals in the network.
 
@@ -666,7 +666,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Undesired Event Handling:} 
 \begin{itemize}
-  \item When the health network data is being updated and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
+  \item When the health network data is being updated and the database is overloaded with requests, then updates will be queued.
 \end{itemize}
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_AddHealthProfessional}:]
@@ -698,12 +698,12 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Normal Behavior:}
 \begin{itemize}
-  \item Data is added to the database without any leaks or latency. Normal behavior will be seen as updated are reflected on the front-end and backend of the system.
+  \item Data is added to the database without any leaks or latency. Normal behavior will be seen as updated are reflected in database and UI of the system.
 \end{itemize} 
 
 \textbf{Undesired Event Handling:}
 \begin{itemize}
-  \item When the healthcare professional’s data is being added and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
+  \item When the healthcare professional’s data is being added and the database is overloaded with requests, then updates will be queued.
 \end{itemize} 
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_RemoveHealthProfessionals}:] 
@@ -735,12 +735,12 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Normal Behavior:}
 \begin{itemize}
-  \item Data is removed to the database without any leaks or latency. Normal behavior will be seen as updated are reflected on the front-end and backend of the system.
+  \item Data is removed to the database without any leaks or latency. Normal behavior will be seen as updated are reflected on the frontend and backend of the system.
 \end{itemize} 
 
 \textbf{Undesired Event Handling:}
 \begin{itemize}
-  \item When the healthcare professional’s data is being removed and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
+  \item When the healthcare professional’s data is being removed and the database is overloaded with requests, then updates will be queued.
 \end{itemize} 
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_UpdateHealthProfessionals}:]
@@ -757,7 +757,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Performance Requirements:} 
 \begin{itemize}
-  \item The changes should be reflected in real time on the user interface.
+  \item The changes should be reflected in real time on the UI.
   \item The changes should be stored successfully in the database.
 \end{itemize} 
 
@@ -778,7 +778,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Undesired Event Handling:}
 \begin{itemize}
-  \item When the healthcare professional’s data is being updated and the database is overloaded with requests, then updates will be queued to prevent this in the future, data resources will be scaled just that the calls are faster this will include indexing or caching and scaling the solution horizontally to balance the load.
+  \item When the healthcare professional’s data is being updated and the database is overloaded with requests, then updates will be queued.
 \end{itemize} 
 
 \item[FR\refstepcounter{reqnum}\thereqnum \label{FR_login}:]
@@ -789,7 +789,7 @@ The network data and profiles are fully deleted from the database. This could be
 
 \textbf{Fit Criterion:} The system only authenticates the authorized users to log into the system and has 100\% accuracy. 
 
-\textbf{Dependencies:} FR\ref{FR_AddHealthProfessional}
+\textbf{Dependencies:} FR\ref{FR_AddHealthProfessional}, \label{NFR_Security}
 
 \textbf{Monitored and Controlled Variables:} number of failed login attempts
 
@@ -958,13 +958,13 @@ The network data and profiles are fully deleted from the database. This could be
     
 \textbf{Fit Criterion:} The system should use voice dictation to document medical reports with a minimum of 90\% accuracy. 
     
-\textbf{Dependencies:} FR\ref{FR_login}, FR\ref{FR_createRecord}
+\textbf{Dependencies:} FR\ref{FR_login}, FR\ref{FR_createRecord}, 
     
 \textbf{Monitored Variables:} Accuracy
     
 \textbf{Performance:} 
   \begin{itemize}
-      \item System should transcribe speech in real time and segment it into the right fields onto the record.
+      \item System should transcribe speech in real time and segment it into the right fields onto the record with a minimum of 90\% accuracy.
   \end{itemize}
     
 \textbf{Hardware Requirements:}
@@ -1138,13 +1138,13 @@ Access to patient record database.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Performance}:] \textbf{Performance}
 
-    \textbf{Requirement:} The system should convert voice recordings into text onto medical charts.
+    \textbf{Requirement:} The system should accurately convert voice into text.
 
     \textbf{Rationale:} Reduces the documentation time to reduce workload and allow healthcare workers to focus on patients. Real time transcription will allow for lower friction when documenting.
     
     \textbf{Fit Criterion:} The system will consistently generate completed transcription live or off a recording within 30 seconds. Additionally, the accuracy will be greater than 85\%.
 
-    \textbf{Dependencies:} NFR\ref{NFR_Operational}
+    \textbf{Dependencies:} NFR\ref{NFR_Operational}, \label{FR_DictationRecording}
 
     \textbf{Undesired Event Handling:} In case of transcription delay or failiure, a feedback bar will indicate the status of the transcription.
 
@@ -1162,9 +1162,9 @@ Access to patient record database.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:] \textbf{Maintainability Requirement}
 
-    \textbf{Requirement:} The system should be maintainable.
+    \textbf{Requirement:} The system must undergo regular software updates to patch bugs and enhance encryption algorithms.
 
-    \textbf{Rationale:} Easily maintained system allows for consistent service, and allows for extension of features.
+    \textbf{Rationale:} Easily maintained system allows for consistent service, and allows for extension of features. Also, regular updates to encryption algorithms enhance security.
 
     \textbf{Fit Criterion:} Effective development patterns will be used, for extensions to be in updates.
 
