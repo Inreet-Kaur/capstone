@@ -4,6 +4,33 @@
 \usepackage{tabularx}
 \usepackage{hyperref}
 
+\usepackage{amsmath, mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{xr}
+\usepackage{longtable}
+\usepackage{xfrac}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{float}
+\usepackage[round]{natbib}
+
+% For easy change of table widths
+\newcommand{\colZwidth}{1.0\textwidth}
+\newcommand{\colAwidth}{0.13\textwidth}
+\newcommand{\colBwidth}{0.82\textwidth}
+\newcommand{\colCwidth}{0.1\textwidth}
+\newcommand{\colDwidth}{0.05\textwidth}
+\newcommand{\colEwidth}{0.8\textwidth}
+\newcommand{\colFwidth}{0.17\textwidth}
+\newcommand{\colGwidth}{0.5\textwidth}
+\newcommand{\colHwidth}{0.28\textwidth}
+
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
     linkcolor=red,          % color of internal links (change box color with linkbordercolor)
@@ -108,14 +135,38 @@ this potential failure mode.}
 
 \section{Failure Mode and Effect Analysis}
 
-\wss{Include your FMEA table here. This is the most important part of this document.}
-\wss{The safety requirements in the table do not have to have the prefix SR.
-The most important thing is to show traceability to your SRS. You might trace to
-requirements you have already written, or you might need to add new
-requirements.}
-\wss{If no safety requirement can be devised, other mitigation strategies can be
-entered in the table, including strategies involving providing additional
-documentation, and/or test cases.}
+\newpage
+\newpage
+\begin{landscape} 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{p{1cm} p{2cm} p{2cm} p{2cm} p{2cm} p{2cm} p{4cm} p{1cm} p{1cm}}
+        \toprule
+        \textbf{Comp.} & \textbf{Design Function} & \textbf{Failure mode} & \textbf{Effects of failure} & \textbf{Causes of failure} & \textbf{Detection} & \textbf{Recommended action} & \textbf{Req.} & \textbf{Ref.}\\ 
+        \midrule
+        User Interface & Allow user input and access data & User errors in data input & Incorrect data stored in the database; Inaccurate data may lead to medical errors & Poor UI design; Lack of input validation & User reports; Record validation checks & Display soft feedback to guide user input. Implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; SR1 & H1.1 \\ 
+        \midrule
+        & & Misinterpretation of displayed data & Misdiagnosis; Other medical errors & Poor UI design & Feedback mechanisms; Detected medical errors & Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; SR1 & H1.2 \\ 
+        \midrule
+        & Display error messages and provide feedback & Inadequate feedback when errors occur & Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & Insufficient feedback mechanism & Error logs; User reports; Record validation checks & Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state & NFR1; NFR2; SR1 & H1.3 \\
+        \midrule
+        & Display correct data to the user & Incorrect data displayed to the user & Incorrect medical decisions; Compromise patient safety & Data processing error; System bugs & User reports; Error logs & Ensure user input is accurately interpreted and stored by the system. Add data verification steps to ensure the system retrieves the correct data to display & SR2 & H1.4 \\ 
+        \midrule
+        Database & Manage and store data in a secure manner & Accidental deletion of database entries or the entire database & Permanent loss of critical data & User error; Lack of validation checks & User reports; Failure to retrieve or access a data instance or database & Display appropriate feedback before confirming the deletion. Implement role-based access control for deletion action. Implement automatic data backup and recovery system. & FR5; FR9; FR2 & H2.1 \\ 
+        \midrule
+        & & Creation of duplicate records & Incorrect output displayed to the user; Medical errors & Lack of validation on user input & Record validation checks & Implement validation checks for user input. Implement validation checks before storing a new entry. Regular data integrity checks & SR2 & H2.2 \\ 
+        \midrule
+        & & Security breaches & Unauthorized access to sensitive data; Regulatory and compliance issues & Improper authentication and encryption & Security audits; Access logs & Implement strong authentication protocols. Encrypt sensitive data using standard encryption protocols. Ensure compliance with HIPAA and regulatory standards. & NFR6; NFR8; FR7 & H2.3 \\ 
+        \midrule
+        & Retrieve and store data in real-time. & Database crashes & Inability to access stored data; Inability to store new data & Server overload; System failure & Error messages; Monitoring system performance & Implement failover systems. Implement automatic backups. Implement scalable server infrastructure. & NFR4; NFR5 & H2.4 \\ 
+        \midrule
+        General & Provide continuous access to the system & App closes unexpectedly & Unsaved progress is lost; Delayed medical access to patients & Loss of power or internet; Device failure; Software failure & User reports; System logs & Implement automatic data backups and recovery system. & NFR4 & H3 \\ 
+        \bottomrule
+    \end{tabular}
+    \caption{Failure Modes and Recommendations}
+    \label{tab:failure_modes}
+\end{table}
+\end{landscape}
 
 \section{Safety and Security Requirements}
 
