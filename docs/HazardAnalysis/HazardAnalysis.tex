@@ -156,7 +156,7 @@ this potential failure mode.}
         \midrule
         & Display correct data to the user & Incorrect data displayed to the user & Incorrect medical decisions; Compromise patient safety & Data processing error; System bugs & User reports; Error logs & Ensure user input is accurately interpreted and stored by the system. Add data verification steps to ensure the system retrieves the correct data to display & SR2 & H1.4 \\ 
         \midrule
-        Database & Manage and store data in a secure manner & Accidental deletion of database entries or the entire database & Permanent loss of critical data & User error; Lack of validation checks & User reports; Failure to retrieve or access a data instance or database & Display appropriate feedback before confirming the deletion. Implement role-based access control for deletion action. Implement automatic data backup and recovery system. & FR5; FR9; FR2 & H2.1 \\ 
+        Data Layer & Manage and store data in a secure manner & Accidental deletion of database entries or the entire database & Permanent loss of critical data & User error; Lack of validation checks & User reports; Failure to retrieve or access a data instance or database & Display appropriate feedback before confirming the deletion. Implement role-based access control for deletion action. Implement automatic data backup and recovery system. & FR5; FR9; FR2 & H2.1 \\ 
         \midrule
         & & Creation of duplicate records & Incorrect output displayed to the user; Medical errors & Lack of validation on user input & Record validation checks & Implement validation checks for user input. Implement validation checks before storing a new entry. Regular data integrity checks & SR2 & H2.2 \\ 
         \midrule
