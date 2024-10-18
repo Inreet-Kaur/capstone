@@ -64,11 +64,40 @@ hazards.}
 
 \section{System Boundaries and Components}
 
-\wss{Dividing the system into components will help you brainstorm the hazards.
-You shouldn't do a full design of the components, just get a feel for the major
-ones.  For projects that involve hardware, the components will typically include
-each individual piece of hardware.  If your software will have a database, or an
-important library, these are also potential components.}
+To identify potential hazards, we first define the system boundaries and break it down into its major components:
+
+\begin{itemize}
+    \item \textbf{User Interface:}
+    The user interface is the point of interaction between the users and the system. It is responsible for displaying outputs from the system, such as patient data, medication suggestions, diagnosis predictions etc. The UI plays a crucial role in ensuring a user-friendly and intuitive experience for the users.
+    
+
+    Potential Hazards:
+    \begin{itemize}
+        \item User errors: incorrect data input or misinterpretation of displayed data
+        \item Inadequate feedback when errors occur
+        \item Incorrect data displayed to the user
+    \end{itemize}
+
+    \item \textbf{Data Layer:}
+    The data layer in the system is responsible for managing and processing all data related to patient records, healthcare professionals, health networks, and predictive models for medication and diagnosis. It is divided into the following databases:
+    \begin{itemize}
+        \item DB1: Patient, Healthcare Professional, and Network Database: This database stores patient records, healthcare professionals, and healthcare network profiles. This component is responsible for storing, retrieving, updating, and deleting data. 
+
+        \item DB2: Diagnosis Prediction Database: This database stores the data used by the diagnosis prediction component to suggest potential diagnoses based on analysis of the transcribed data.
+
+        \item DB3: Medication Prediction Database: This database holds the data used by the medical prediction component to suggest appropriate medications based on the identified or accepted diagnosis.
+    \end{itemize}
+
+    Potential Hazards:
+    \begin{itemize}
+        \item Accidental deletion of database entries or the entire database
+        \item Creation of duplicate records
+        \item Security breaches
+        \item Database crashes   
+    \end{itemize}
+    
+\end{itemize}
+
 
 \section{Critical Assumptions}
 
