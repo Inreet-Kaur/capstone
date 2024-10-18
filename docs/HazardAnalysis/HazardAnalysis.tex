@@ -31,6 +31,10 @@
 \newcommand{\colGwidth}{0.5\textwidth}
 \newcommand{\colHwidth}{0.28\textwidth}
 
+\newcounter{srnum} %SR Number
+\newcommand{\rthesrnum}{SR\thesrnum}
+\newcommand{\srref}[1]{SR\ref{#1}}
+
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
     linkcolor=red,          % color of internal links (change box color with linkbordercolor)
@@ -170,8 +174,17 @@ this potential failure mode.}
 
 \section{Safety and Security Requirements}
 
-\wss{Newly discovered requirements.  These should also be added to the SRS.  (A
-rationale design process how and why to fake it.)}
+
+\begin{itemize}
+    \item[SR\refstepcounter{srnum}\thesrnum \label{SR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
+    \textbf{Rationale:}To prevent user errors and incorrect output it is vital to check errors induced by the user input. Moreover, in the event of an error, the system should communicate its current state, how the input has been interpreted, and any related errors to the user.
+    
+    \item [SR\refstepcounter{srnum}\thesrnum \label{SR_DuplicateRecordDetection}:] The system should provide duplicate record detection and prevention for patients, healthcare professionals, and healthcare network records.
+    \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
+\end{itemize}
+
+
+
 
 \section{Roadmap}
 
