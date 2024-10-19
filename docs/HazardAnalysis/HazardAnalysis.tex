@@ -132,10 +132,17 @@ To identify potential hazards, we first define the system boundaries and break i
 
 \section{Critical Assumptions}
 
-\wss{These assumptions that are made about the software or system.  You should
-minimize the number of assumptions that remove potential hazards.  For instance,
-you could assume a part will never fail, but it is generally better to include
-this potential failure mode.}
+
+The following assumptions are made regarding both the software and hardware components of the system:
+
+\begin{itemize}
+    \item \textbf{Stable Network Connection:} It is assumed that the network connection between the client and server will be stable. If the connection is unstable, it could cause interruptions to the process, which results in significant issues in the system’s performance.
+    
+    \item \textbf{Accurate Data Entry:} It is expected that healthcare professionals will enter accurate information into the system. Any incorrect data could lead to inaccurate predictions of patient conditions, potentially creating serious risks.
+    
+    \item \textbf{Reliable Hardware:} It is assumed that there won’t be any major hardware failures. Although hardware problems are rare, they could severely affect system availability and accuracy, especially in critical healthcare environment.
+    
+\end{itemize}
 
 \section{Failure Mode and Effect Analysis}
 
