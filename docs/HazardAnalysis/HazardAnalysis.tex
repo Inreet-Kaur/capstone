@@ -126,6 +126,27 @@ To identify potential hazards, we first define the system boundaries and break i
         \item Security breaches
         \item Database crashes   
     \end{itemize}
+
+    \item \textbf{Report Generating Module:}
+    The report generating module is responsible for generating organized and thorough reports from the audio conversations recorded during patient's visit. The important aspects of medical data (such as the symptoms, illness history, etc.) is extracted from the conversation which is then compiled into the report using this module.
+
+
+    Potential Hazards:
+    \begin{itemize}
+        \item Data inaccuracy: Misinterpretation of a medical term from the audio conversation
+        \item Formatting issues
+        \item System crash while generating the report
+    \end{itemize}
+
+    \item \textbf{Transcription Module:}
+    The transcription module is responsible for converting audio data from the conversation to written text. The converted written text is used thereafter used by the report generation module to generate the report of the patient.
+
+    Potential Hazards:
+    \begin{itemize}
+        \item Background noise disruption
+        \item Failure to use correct punctuation for non-verbal signs such as a sigh or pause
+        \item Autocorrect failure after rephrasing the word in audio input
+    \end{itemize}
     
 \end{itemize}
 
@@ -175,7 +196,7 @@ The following assumptions are made regarding both the software and hardware comp
         \midrule
         User Authentication & \raggedright Verify user credentials & \raggedright User cannot log in to the system & \raggedright User cannot access any system data or functions & \raggedright Invalid credentials, database failure & \raggedright Failed login attempts trigger security alerts & \raggedright Reset credentials, verify database connectivity & IR1 & H6.1 \\
         \midrule
-        Account Management & \raggedright Manage user accounts (create, update, delete) & \raggedright Account cannot be created, updated, or deleted & \raggedright User unable to register, update info, or remove account & \raggedright Database failure, validation errors & \raggedright Log account creation, update, and deletion attempts & \raggedright Check database integrity, validate inputs, retry operations & ACR2 & H7.1 \\  
+        Account Management & \raggedright Manage user accounts (create, update, delete) & \raggedright Account cannot be created, updated, or deleted & \raggedright User unable to register, update info, or remove account & \raggedright Database failure, validation errors & \raggedright Log account creation, update, and deletion attempts & \raggedright Check database integrity, validate inputs, retry operations & ACR2 & H7.1 \\ 
         \bottomrule
     \end{longtable}
 \end{landscape}
@@ -189,6 +210,12 @@ The following assumptions are made regarding both the software and hardware comp
     
     \item [SR\refstepcounter{srnum}\thesrnum \label{SR_DuplicateRecordDetection}:] The system should provide duplicate record detection and prevention for patients, healthcare professionals, and healthcare network records.
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
+
+    \item [SR\refstepcounter{srnum}\thesrnum \label{SR_BackNoiseFilter}:] The system should be able to filter the background noise to capture the medical data from the audio conversation between the patient and healthcare professional only.
+    \textbf{Rationale:} To prevent data inaccuracy with addition of unwanted information in the report.
+
+    \item [SR\refstepcounter{srnum}\thesrnum \label{SR_CompilingVerification}:] The system should provide validation that the text can be compiled by the report generating module as audio is being transcribed to the written text.
+    \textbf{Rationale:} To identify technical errors in the beginning itself. However, in the event of any error, the system should be able to fix it without causing delay in the transcription process. 
 \end{itemize}
 
 \subsection{Access Requirements}
