@@ -132,55 +132,51 @@ To identify potential hazards, we first define the system boundaries and break i
 
 \section{Critical Assumptions}
 
-
 The following assumptions are made regarding both the software and hardware components of the system:
 
 \begin{itemize}
     \item \textbf{Stable Network Connection:} It is assumed that the network connection between the client and server will be stable. If the connection is unstable, it could cause interruptions to the process, which results in significant issues in the system’s performance.
-    
-    \item \textbf{Accurate Data Entry:} It is expected that healthcare professionals will enter accurate information into the system. Any incorrect data could lead to inaccurate predictions of patient conditions, potentially creating serious risks.
-    
+        
     \item \textbf{Reliable Hardware:} It is assumed that there won’t be any major hardware failures. Although hardware problems are rare, they could severely affect system availability and accuracy, especially in critical healthcare environment.
-    
 \end{itemize}
 
-\section{Failure Mode and Effect Analysis}
-
-\newpage
-\newpage
 \begin{landscape} 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{p{1cm} p{2cm} p{2cm} p{2cm} p{2cm} p{2cm} p{4cm} p{1cm} p{1cm}}
+
+\section{Failure Mode and Effect Analysis}
+    
+    \begin{longtable}{|p{1.5cm}|p{2cm}|p{2.6cm}|p{2cm}|p{2cm}|p{2cm}|p{3.5cm}|p{1cm}|p{0.8cm}|}
         \toprule
         \textbf{Comp.} & \textbf{Design Function} & \textbf{Failure mode} & \textbf{Effects of failure} & \textbf{Causes of failure} & \textbf{Detection} & \textbf{Recommended action} & \textbf{Req.} & \textbf{Ref.}\\ 
         \midrule
-        User Interface & Allow user input and access data & User errors in data input & Incorrect data stored in the database; Inaccurate data may lead to medical errors & Poor UI design; Lack of input validation & User reports; Record validation checks & Display soft feedback to guide user input. Implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; SR1 & H1.1 \\ 
+        User Interface & \raggedright Allow user input and access data & \raggedright User errors in data input & \raggedright Incorrect data stored in the database; Inaccurate data may lead to medical errors & \raggedright Poor UI design; Lack of input validation & \raggedright User reports; Record validation checks & \raggedright Display soft feedback to guide user input. Implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; SR1 & H1.1 \\ 
         \midrule
-        & & Misinterpretation of displayed data & Misdiagnosis; Other medical errors & Poor UI design & Feedback mechanisms; Detected medical errors & Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; SR1 & H1.2 \\ 
+        & & \raggedright Misinterpretation of displayed data & \raggedright Misdiagnosis; Other medical errors & \raggedright Poor UI design & \raggedright Feedback mechanisms; Detected medical errors & \raggedright Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; SR1 & H1.2 \\ 
         \midrule
-        & Display error messages and provide feedback & Inadequate feedback when errors occur & Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & Insufficient feedback mechanism & Error logs; User reports; Record validation checks & Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state & NFR1; NFR2; SR1 & H1.3 \\
+        & \raggedright Display error messages and provide feedback & \raggedright Inadequate feedback when errors occur & \raggedright Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & \raggedright Insufficient feedback mechanism & \raggedright Error logs; User reports; Record validation checks & \raggedright Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state & NFR1; NFR2; SR1 & H1.3 \\
         \midrule
-        & Display correct data to the user & Incorrect data displayed to the user & Incorrect medical decisions; Compromise patient safety & Data processing error; System bugs & User reports; Error logs & Ensure user input is accurately interpreted and stored by the system. Add data verification steps to ensure the system retrieves the correct data to display & SR2 & H1.4 \\ 
+        & \raggedright Display correct data to the user & \raggedright Incorrect data displayed to the user & \raggedright Incorrect medical decisions; Compromise patient safety & \raggedright Data processing error; System bugs & \raggedright User reports; Error logs & \raggedright Ensure user input is accurately interpreted and stored by the system. Add data verification steps to ensure the system retrieves the correct data to display & SR2 & H1.4 \\
         \midrule
-        Data Layer & Manage and store data in a secure manner & Accidental deletion of database entries or the entire database & Permanent loss of critical data & User error; Lack of validation checks & User reports; Failure to retrieve or access a data instance or database & Display appropriate feedback before confirming the deletion. Implement role-based access control for deletion action. Implement automatic data backup and recovery system. & FR5; FR9; FR2 & H2.1 \\ 
+        Data Layer & \raggedright Manage and store data in a secure manner & \raggedright Accidental deletion of database entries or the entire database & \raggedright Permanent loss of critical data & \raggedright User error; Lack of validation checks & \raggedright User reports; Failure to retrieve or access a data instance or database & \raggedright Display appropriate feedback before confirming the deletion. Implement role-based access control for deletion action. Implement automatic data backup and recovery system. & FR5; FR9; FR2 & H2.1 \\ 
         \midrule
-        & & Creation of duplicate records & Incorrect output displayed to the user; Medical errors & Lack of validation on user input & Record validation checks & Implement validation checks for user input. Implement validation checks before storing a new entry. Regular data integrity checks & SR2 & H2.2 \\ 
+        & & \raggedright Creation of duplicate records & \raggedright Incorrect output displayed to the user; Medical errors & \raggedright Lack of validation on user input & \raggedright Record validation checks & \raggedright Implement validation checks for user input. Implement validation checks before storing a new entry. Regular data integrity checks & SR2 & H2.2 \\ 
         \midrule
-        & & Security breaches & Unauthorized access to sensitive data; Regulatory and compliance issues & Improper authentication and encryption & Security audits; Access logs & Implement strong authentication protocols. Encrypt sensitive data using standard encryption protocols. Ensure compliance with HIPAA and regulatory standards. & NFR6; NFR8; FR7 & H2.3 \\ 
+        & & \raggedright Security breaches & \raggedright Unauthorized access to sensitive data; Regulatory and compliance issues & \raggedright Improper authentication and encryption & \raggedright Security audits; Access logs & \raggedright Implement strong authentication protocols. Encrypt sensitive data using standard encryption protocols. Ensure compliance with HIPAA and regulatory standards. & NFR6; NFR8; FR7 & H2.3 \\ 
         \midrule
-        & Retrieve and store data in real-time. & Database crashes & Inability to access stored data; Inability to store new data & Server overload; System failure & Error messages; Monitoring system performance & Implement failover systems. Implement automatic backups. Implement scalable server infrastructure. & NFR4; NFR5 & H2.4 \\ 
+        & \raggedright Retrieve and store data in real-time. & \raggedright Database crashes & \raggedright Inability to access stored data; Inability to store new data & \raggedright Server overload; System failure & \raggedright Error messages; Monitoring system performance & \raggedright Implement failover systems. Implement automatic backups. Implement scalable server infrastructure. & NFR4; NFR5 & H2.4 \\ 
         \midrule
-        General & Provide continuous access to the system & App closes unexpectedly & Unsaved progress is lost; Delayed medical access to patients & Loss of power or internet; Device failure; Software failure & User reports; System logs & Implement automatic data backups and recovery system. & NFR4 & H3 \\ 
+        General & \raggedright Provide continuous access to the system & \raggedright App closes unexpectedly & \raggedright Unsaved progress is lost; Delayed medical access to patients & \raggedright Loss of power or internet; Device failure; Software failure & \raggedright User reports; System logs & \raggedright Implement automatic data backups and recovery system. & NFR4 & H3.1 \\
+        \midrule
+        API Module (OAuth) & \raggedright Securely connect components with OAuth & \raggedright Failed connection between components & \raggedright Inability to authenticate users, disrupting services & \raggedright Network failure, OAuth misconfiguration & \raggedright Monitor connection status and failed authentication attempts & \raggedright Check network status, verify OAuth configuration, retry connection & ACR1 & H5.1 \\
+        \midrule
+        User Authentication & \raggedright Verify user credentials & \raggedright User cannot log in to the system & \raggedright User cannot access any system data or functions & \raggedright Invalid credentials, database failure & \raggedright Failed login attempts trigger security alerts & \raggedright Reset credentials, verify database connectivity & IR1 & H6.1 \\
+        \midrule
+        Account Management & \raggedright Manage user accounts (create, update, delete) & \raggedright Account cannot be created, updated, or deleted & \raggedright User unable to register, update info, or remove account & \raggedright Database failure, validation errors & \raggedright Log account creation, update, and deletion attempts & \raggedright Check database integrity, validate inputs, retry operations & ACR2 & H7.1 \\  
         \bottomrule
-    \end{tabular}
-    \caption{Failure Modes and Recommendations}
-    \label{tab:failure_modes}
-\end{table}
+    \end{longtable}
+
 \end{landscape}
 
 \section{Safety and Security Requirements}
-
 
 \begin{itemize}
     \item[SR\refstepcounter{srnum}\thesrnum \label{SR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
@@ -190,8 +186,13 @@ The following assumptions are made regarding both the software and hardware comp
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
 \end{itemize}
 
+\subsection{Access Requirements}
+\textbf{ACR1}: The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.
 
+\noindent \textbf{ACR2}: Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.
 
+\subsection{Integrity Requirements}
+\textbf{IR1}: User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
 
 \section{Roadmap}
 
