@@ -132,22 +132,17 @@ To identify potential hazards, we first define the system boundaries and break i
 
 \section{Critical Assumptions}
 
-
 The following assumptions are made regarding both the software and hardware components of the system:
 
 \begin{itemize}
     \item \textbf{Stable Network Connection:} It is assumed that the network connection between the client and server will be stable. If the connection is unstable, it could cause interruptions to the process, which results in significant issues in the system’s performance.
-    
-    \item \textbf{Accurate Data Entry:} It is expected that healthcare professionals will enter accurate information into the system. Any incorrect data could lead to inaccurate predictions of patient conditions, potentially creating serious risks.
-    
+        
     \item \textbf{Reliable Hardware:} It is assumed that there won’t be any major hardware failures. Although hardware problems are rare, they could severely affect system availability and accuracy, especially in critical healthcare environment.
-    
 \end{itemize}
-
 
 \begin{landscape} 
 
-    \section{Failure Mode and Effect Analysis}
+\section{Failure Mode and Effect Analysis}
     
     \begin{longtable}{|p{1.5cm}|p{2cm}|p{2.6cm}|p{2cm}|p{2cm}|p{2cm}|p{3.5cm}|p{1cm}|p{0.8cm}|}
         \toprule
@@ -178,10 +173,10 @@ The following assumptions are made regarding both the software and hardware comp
         Account Management & \raggedright Manage user accounts (create, update, delete) & \raggedright Account cannot be created, updated, or deleted & \raggedright User unable to register, update info, or remove account & \raggedright Database failure, validation errors & \raggedright Log account creation, update, and deletion attempts & \raggedright Check database integrity, validate inputs, retry operations & ACR2 & H7.1 \\  
         \bottomrule
     \end{longtable}
+    
 \end{landscape}
 
 \section{Safety and Security Requirements}
-
 
 \begin{itemize}
     \item[SR\refstepcounter{srnum}\thesrnum \label{SR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
@@ -198,8 +193,6 @@ The following assumptions are made regarding both the software and hardware comp
 
 \subsection{Integrity Requirements}
 \textbf{IR1}: User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
-
-
 
 \section{Roadmap}
 
