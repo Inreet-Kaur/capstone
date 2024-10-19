@@ -132,18 +132,13 @@ To identify potential hazards, we first define the system boundaries and break i
 
 \section{Critical Assumptions}
 
-
 The following assumptions are made regarding both the software and hardware components of the system:
 
 \begin{itemize}
     \item \textbf{Stable Network Connection:} It is assumed that the network connection between the client and server will be stable. If the connection is unstable, it could cause interruptions to the process, which results in significant issues in the system’s performance.
-    
-    \item \textbf{Accurate Data Entry:} It is expected that healthcare professionals will enter accurate information into the system. Any incorrect data could lead to inaccurate predictions of patient conditions, potentially creating serious risks.
-    
+        
     \item \textbf{Reliable Hardware:} It is assumed that there won’t be any major hardware failures. Although hardware problems are rare, they could severely affect system availability and accuracy, especially in critical healthcare environment.
-    
 \end{itemize}
-
 
 \begin{landscape} 
 
@@ -190,7 +185,6 @@ The following assumptions are made regarding both the software and hardware comp
     \item [SR\refstepcounter{srnum}\thesrnum \label{SR_DuplicateRecordDetection}:] The system should provide duplicate record detection and prevention for patients, healthcare professionals, and healthcare network records.
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
 \end{itemize}
-
 \subsection{Access Requirements}
 \textbf{ACR1}: The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.
 
@@ -198,8 +192,6 @@ The following assumptions are made regarding both the software and hardware comp
 
 \subsection{Integrity Requirements}
 \textbf{IR1}: User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
-
-
 
 \section{Roadmap}
 
