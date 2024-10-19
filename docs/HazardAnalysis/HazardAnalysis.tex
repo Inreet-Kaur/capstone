@@ -190,6 +190,13 @@ The following assumptions are made regarding both the software and hardware comp
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
 \end{itemize}
 
+\subsection{Access Requirements}
+\textbf{ACR1}: The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.
+
+\noindent \textbf{ACR2}: Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.
+
+\subsection{Integrity Requirements}
+\textbf{IR1}: User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
 
 
 
