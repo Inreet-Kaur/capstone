@@ -126,7 +126,31 @@ To identify potential hazards, we first define the system boundaries and break i
         \item Security breaches
         \item Database crashes   
     \end{itemize}
-
+    
+    \item \textbf{API Module (OAuth):}
+    This component securely connects different parts of the system using OAuth authentication. It verifies the identity of users and services before allowing them to access protected resources. The module manages the OAuth process, including user authentication, issuing access tokens, and validating these tokens for each request.
+    
+    Potential Hazards:
+    \begin{itemize}
+        \item Failed connection between components
+    \end{itemize}
+    
+    \item \textbf{User Authentication:}
+    This component verifies and validates user credentials for secure system access. It implements multi-factor authentication and integrates with the system's cryptographic infrastructure. The component also handles password security and implements measures against unauthorized access attempts.
+    
+    Potential Hazards:
+    \begin{itemize}
+        \item User cannot log in to the system
+    \end{itemize}
+    
+    \item \textbf{Account Management:}
+    This component oversees user account lifecycles within the system. It handles account creation, profile updates, and account deletion, ensuring data integrity throughout these processes.
+    
+    Potential Hazards:
+    \begin{itemize}
+        \item Account cannot be created, updated, or deleted
+    \end{itemize}
+    
     \item \textbf{Report Generating Module:}
     The report generating module is responsible for generating organized and thorough reports from the audio conversations recorded during patient's visit. The important aspects of medical data (such as the symptoms, illness history, etc.) is extracted from the conversation which is then compiled into the report using this module.
 
@@ -152,22 +176,17 @@ To identify potential hazards, we first define the system boundaries and break i
 
 \section{Critical Assumptions}
 
-
 The following assumptions are made regarding both the software and hardware components of the system:
 
 \begin{itemize}
     \item \textbf{Stable Network Connection:} It is assumed that the network connection between the client and server will be stable. If the connection is unstable, it could cause interruptions to the process, which results in significant issues in the system’s performance.
-    
-    \item \textbf{Accurate Data Entry:} It is expected that healthcare professionals will enter accurate information into the system. Any incorrect data could lead to inaccurate predictions of patient conditions, potentially creating serious risks.
-    
+        
     \item \textbf{Reliable Hardware:} It is assumed that there won’t be any major hardware failures. Although hardware problems are rare, they could severely affect system availability and accuracy, especially in critical healthcare environment.
-    
 \end{itemize}
-
 
 \begin{landscape} 
 
-    \section{Failure Mode and Effect Analysis}
+\section{Failure Mode and Effect Analysis}
     
     \begin{longtable}{|p{1.5cm}|p{2cm}|p{2.6cm}|p{2cm}|p{2cm}|p{2cm}|p{3.5cm}|p{1cm}|p{0.8cm}|}
         \toprule
@@ -202,10 +221,10 @@ The following assumptions are made regarding both the software and hardware comp
         Transcription Module & \raggedright Convert audio data from the conversation to written text & \raggedright Failure to use correct punctuation for non-verbal signs such as a sigh or pause & \raggedright Inclusion of incorrect data in the report & \raggedright Inability to filter the background noise as a result of which the conversation is overwritten by the noise & \raggedright Background noise Filteration & \raggedright Filter any noise which is not related to the medical terminologies used in the report and capture every aspect of conversation. This includes using a full stop after a long pause and a comma after a short pause. & SR3 & H9.2 \\ 
         \bottomrule
     \end{longtable}
+    
 \end{landscape}
 
 \section{Safety and Security Requirements}
-
 
 \begin{itemize}
     \item[SR\refstepcounter{srnum}\thesrnum \label{SR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
@@ -228,8 +247,6 @@ The following assumptions are made regarding both the software and hardware comp
 
 \subsection{Integrity Requirements}
 \textbf{IR1}: User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
-
-
 
 \section{Roadmap}
 
