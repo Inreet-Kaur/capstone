@@ -126,6 +126,30 @@ To identify potential hazards, we first define the system boundaries and break i
         \item Security breaches
         \item Database crashes   
     \end{itemize}
+
+    \item \textbf{API Module (OAuth):}
+    This component securely connects different parts of the system using OAuth authentication. It verifies the identity of users and services before allowing them to access protected resources. The module manages the OAuth process, including user authentication, issuing access tokens, and validating these tokens for each request.
+    
+    Potential Hazards:
+    \begin{itemize}
+        \item Failed connection between components
+    \end{itemize}
+    
+    \item \textbf{User Authentication:}
+    This component verifies and validates user credentials for secure system access. It implements multi-factor authentication and integrates with the system's cryptographic infrastructure. The component also handles password security and implements measures against unauthorized access attempts.
+    
+    Potential Hazards:
+    \begin{itemize}
+        \item User cannot log in to the system
+    \end{itemize}
+    
+    \item \textbf{Account Management:}
+    This component oversees user account lifecycles within the system. It handles account creation, profile updates, and account deletion, ensuring data integrity throughout these processes.
+    
+    Potential Hazards:
+    \begin{itemize}
+        \item Account cannot be created, updated, or deleted
+    \end{itemize}
     
 \end{itemize}
 
