@@ -31,9 +31,25 @@
 \newcommand{\colGwidth}{0.5\textwidth}
 \newcommand{\colHwidth}{0.28\textwidth}
 
-\newcounter{srnum} %SR Number
-\newcommand{\rthesrnum}{SR\thesrnum}
-\newcommand{\srref}[1]{SR\ref{#1}}
+\newcounter{irnum} %IR Number
+\newcommand{\rtheirnum}{IR\theirnum}
+\newcommand{\irref}[1]{IR\ref{#1}}
+
+\newcounter{acnum} %AC Number
+\newcommand{\rtheacnum}{AC\theacnum}
+\newcommand{\acref}[1]{AC\ref{#1}}
+
+\newcounter{prnum} %PR Number
+\newcommand{\rtheprnum}{PR\theprnum}
+\newcommand{\prref}[1]{PR\ref{#1}}
+
+\newcounter{adnum} %AD Number
+\newcommand{\rtheadnum}{AD\theadnum}
+\newcommand{\adref}[1]{AD\ref{#1}}
+
+\newcounter{imnum} %IM Number
+\newcommand{\rtheimnum}{IM\theimnum}
+\newcommand{\imref}[1]{IM\ref{#1}}
 
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
@@ -86,12 +102,15 @@ Date2 & Name(s) & Description of changes\\
 
 \section{Introduction}
 
-\wss{You can include your definition of what a hazard is here.}
+The purpose of this document is to provide a comprehensive hazard analysis for RapidCare, a software application that aims to streamline the healthcare documentation process. According to Nancy Leveson, hazard is a property/condition within the system and its environment that can cause harm or result in loss [1]. To ensure the safety of the system as well as the user, it is critical to identify and mitigate potential hazards.
+
+For the purposes of this document, we will use the Failure Modes and Effect Analysis (FMEA) method for hazard analysis. This document will provide an overview of the scope and purpose of hazard analysis, system boundaries and components, critical assumptions about the system and its environment, and an FMEA table listing the causes and effects of failure along with recommended actions. The document will also list any additional safety and security requirements identified as a result of hazard analysis and a roadmap for implementation.
 
 \section{Scope and Purpose of Hazard Analysis}
 
-\wss{You should say what \textbf{loss} could be incurred because of the
-hazards.}
+Hazards can arise from various sources such as user input, security issues, system failure or other external factors where the system is deployed. The scope of this document is a hazard within the various system components as well as the environment in which the system will operate.
+
+The purpose of hazard analysis is to proactively identify all potential hazards, the effects and causes of the failure and to develop appropriate mitigation strategies. Since the system will operate in a healthcare setting, it is critical to identify potential hazards. This will ensure the safety, reliability, and security of the system. Moreover, it is essential to protect sensitive information, delays in treatment, other medical errors, and the safety of the system and user. 
 
 \section{System Boundaries and Components}
 
@@ -189,29 +208,29 @@ The following assumptions are made regarding both the software and hardware comp
         \toprule
         \textbf{Comp.} & \textbf{Design Function} & \textbf{Failure mode} & \textbf{Effects of failure} & \textbf{Causes of failure} & \textbf{Detection} & \textbf{Recommended action} & \textbf{Req.} & \textbf{Ref.}\\ 
         \midrule
-        User Interface & \raggedright Allow user input and access data & \raggedright User errors in data input & \raggedright Incorrect data stored in the database; Inaccurate data may lead to medical errors & \raggedright Poor UI design; Lack of input validation & \raggedright User reports; Record validation checks & \raggedright Display soft feedback to guide user input. Implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; SR1 & H1.1 \\ 
+        User Interface & \raggedright Allow user input and access data & \raggedright User errors in data input & \raggedright Incorrect data stored in the database; Inaccurate data may lead to medical errors & \raggedright Poor UI design; Lack of input validation & \raggedright User reports; Record validation checks & \raggedright Display soft feedback to guide user input. Implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.1 \\ 
         \midrule
-        & & \raggedright Misinterpretation of displayed data & \raggedright Misdiagnosis; Other medical errors & \raggedright Poor UI design & \raggedright Feedback mechanisms; Detected medical errors & \raggedright Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; SR1 & H1.2 \\ 
+        & & \raggedright Misinterpretation of displayed data & \raggedright Misdiagnosis; Other medical errors & \raggedright Poor UI design & \raggedright Feedback mechanisms; Detected medical errors & \raggedright Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.2 \\ 
         \midrule
-        & \raggedright Display error messages and provide feedback & \raggedright Inadequate feedback when errors occur & \raggedright Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & \raggedright Insufficient feedback mechanism & \raggedright Error logs; User reports; Record validation checks & \raggedright Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state & NFR1; NFR2; SR1 & H1.3 \\
+        & \raggedright Display error messages and provide feedback & \raggedright Inadequate feedback when errors occur & \raggedright Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & \raggedright Insufficient feedback mechanism & \raggedright Error logs; User reports; Record validation checks & \raggedright Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.3 \\
         \midrule
-        & \raggedright Display correct data to the user & \raggedright Incorrect data displayed to the user & \raggedright Incorrect medical decisions; Compromise patient safety & \raggedright Data processing error; System bugs & \raggedright User reports; Error logs & \raggedright Ensure user input is accurately interpreted and stored by the system. Add data verification steps to ensure the system retrieves the correct data to display & SR2 & H1.4 \\
+        & \raggedright Display correct data to the user & \raggedright Incorrect data displayed to the user & \raggedright Incorrect medical decisions; Compromise patient safety & \raggedright Data processing error; System bugs & \raggedright User reports; Error logs & \raggedright Ensure user input is accurately interpreted and stored by the system. Add data verification steps to ensure the system retrieves the correct data to display & IR\ref{IR_DuplicateRecordDetection} & H1.4 \\
         \midrule
         Data Layer & \raggedright Manage and store data in a secure manner & \raggedright Accidental deletion of database entries or the entire database & \raggedright Permanent loss of critical data & \raggedright User error; Lack of validation checks & \raggedright User reports; Failure to retrieve or access a data instance or database & \raggedright Display appropriate feedback before confirming the deletion. Implement role-based access control for deletion action. Implement automatic data backup and recovery system. & FR5; FR9; FR2 & H2.1 \\ 
         \midrule
-        & & \raggedright Creation of duplicate records & \raggedright Incorrect output displayed to the user; Medical errors & \raggedright Lack of validation on user input & \raggedright Record validation checks & \raggedright Implement validation checks for user input. Implement validation checks before storing a new entry. Regular data integrity checks & SR2 & H2.2 \\ 
+        & & \raggedright Creation of duplicate records & \raggedright Incorrect output displayed to the user; Medical errors & \raggedright Lack of validation on user input & \raggedright Record validation checks & \raggedright Implement validation checks for user input. Implement validation checks before storing a new entry. Regular data integrity checks & IR\ref{IR_DuplicateRecordDetection} & H2.2 \\ 
         \midrule
         & & \raggedright Security breaches & \raggedright Unauthorized access to sensitive data; Regulatory and compliance issues & \raggedright Improper authentication and encryption & \raggedright Security audits; Access logs & \raggedright Implement strong authentication protocols. Encrypt sensitive data using standard encryption protocols. Ensure compliance with HIPAA and regulatory standards. & NFR6; NFR8; FR7 & H2.3 \\ 
         \midrule
         & \raggedright Retrieve and store data in real-time. & \raggedright Database crashes & \raggedright Inability to access stored data; Inability to store new data & \raggedright Server overload; System failure & \raggedright Error messages; Monitoring system performance & \raggedright Implement failover systems. Implement automatic backups. Implement scalable server infrastructure. & NFR4; NFR5 & H2.4 \\ 
         \midrule
-        General & \raggedright Provide continuous access to the system & \raggedright App closes unexpectedly & \raggedright Unsaved progress is lost; Delayed medical access to patients & \raggedright Loss of power or internet; Device failure; Software failure & \raggedright User reports; System logs & \raggedright Implement automatic data backups and recovery system. & NFR4 & H3.1 \\
+        General & \raggedright Provide continuous access to the system & \raggedright App closes unexpectedly & \raggedright Unsaved progress is lost; Delayed medical access to patients & \raggedright Loss of power or internet; Software failure & \raggedright User reports; System logs & \raggedright Implement automatic data backups and recovery system. & NFR4 & H3.1 \\
         \midrule
-        API Module (OAuth) & \raggedright Securely connect components with OAuth & \raggedright Failed connection between components & \raggedright Inability to authenticate users, disrupting services & \raggedright Network failure, OAuth misconfiguration & \raggedright Monitor connection status and failed authentication attempts & \raggedright Check network status, verify OAuth configuration, retry connection & ACR1 & H5.1 \\
+        API Module (OAuth) & \raggedright Securely connect components with OAuth & \raggedright Failed connection between components & \raggedright Inability to authenticate users, disrupting services & \raggedright Network failure, OAuth misconfiguration & \raggedright Monitor connection status and failed authentication attempts & \raggedright Check network status, verify OAuth configuration, retry connection & AC\ref{AC_Authentication} & H5.1 \\
         \midrule
-        User Authentication & \raggedright Verify user credentials & \raggedright User cannot log in to the system & \raggedright User cannot access any system data or functions & \raggedright Invalid credentials, database failure & \raggedright Failed login attempts trigger security alerts & \raggedright Reset credentials, verify database connectivity & IR1 & H6.1 \\
+        User Authentication & \raggedright Verify user credentials & \raggedright User cannot log in to the system & \raggedright User cannot access any system data or functions & \raggedright Invalid credentials, database failure & \raggedright Failed login attempts trigger security alerts & \raggedright Reset credentials, verify database connectivity & IR\ref{IR_Autentication} & H6.1 \\
         \midrule
-        Account Management & \raggedright Manage user accounts (create, update, delete) & \raggedright Account cannot be created, updated, or deleted & \raggedright User unable to register, update info, or remove account & \raggedright Database failure, validation errors & \raggedright Log account creation, update, and deletion attempts & \raggedright Check database integrity, validate inputs, retry operations & ACR2 & H7.1 \\ 
+        Account Management & \raggedright Manage user accounts (create, update, delete) & \raggedright Account cannot be created, updated, or deleted & \raggedright User unable to register, update info, or remove account & \raggedright Database failure, validation errors & \raggedright Log account creation, update, and deletion attempts & \raggedright Check database integrity, validate inputs, retry operations & AC\ref{AC_AuthorizedPersonnel} & H7.1 \\ 
         \midrule
         Report Generating Module & \raggedright Generate organized medical reports from audio input & \raggedright System crash while report generation & \raggedright Might lead to data loss or delay in fetching information again for compiling & \raggedright Loss of internet access & \raggedright Compiling verification checks & \raggedright The system should check if the compiling can be done successfully while the written notes are being made. & SR4 & H8.2 \\
         \midrule
@@ -224,12 +243,6 @@ The following assumptions are made regarding both the software and hardware comp
 \section{Safety and Security Requirements}
 
 \begin{itemize}
-    \item[SR\refstepcounter{srnum}\thesrnum \label{SR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
-    \textbf{Rationale:}To prevent user errors and incorrect output it is vital to check errors induced by the user input. Moreover, in the event of an error, the system should communicate its current state, how the input has been interpreted, and any related errors to the user.
-    
-    \item [SR\refstepcounter{srnum}\thesrnum \label{SR_DuplicateRecordDetection}:] The system should provide duplicate record detection and prevention for patients, healthcare professionals, and healthcare network records.
-    \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
-
     \item [SR\refstepcounter{srnum}\thesrnum \label{SR_BackNoiseFilter}:] The system should be able to filter the background noise to capture the medical data from the audio conversation between the patient and healthcare professional only.
     \textbf{Rationale:} To prevent data inaccuracy with addition of unwanted information in the report.
 
@@ -237,18 +250,55 @@ The following assumptions are made regarding both the software and hardware comp
     \textbf{Rationale:} To identify technical errors in the beginning itself. However, in the event of any error, the system should be able to fix it without causing delay in the transcription process. 
 \end{itemize}
 
-\subsection{Access Requirements}
-\textbf{ACR1}: The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.
 
-\noindent \textbf{ACR2}: Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.
+\subsection{Access Requirements}
+\begin{itemize}
+    \item [AC\refstepcounter{acnum}\theacnum \label{AC_Autentication}:] The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.
+    \item [AC\refstepcounter{acnum}\theacnum \label{AC_AuthorizedPersonnel}:] Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.
+\end{itemize}
+
 
 \subsection{Integrity Requirements}
-\textbf{IR1}: User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
+\begin{itemize}
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_Autentication}:] User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
+
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
+    \textbf{Rationale:}To prevent user errors and incorrect output, it is vital to check the integrity of user input. Moreover, in the event of an error, the system should communicate its current state, how the input has been interpreted, and any related errors to the user.
+    
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_DuplicateRecordDetection}:] The system should provide duplicate record detection for the record in various databases of the system.
+    \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
+\end{itemize}
+
+
+\subsection{Privacy Requirements}
+\begin{itemize}
+    \item [PR\refstepcounter{prnum}\theprnum \label{PR_}:] 
+\end{itemize}
+
+\subsection{Audit Requirements}
+\begin{itemize}
+    \item [AD\refstepcounter{adnum}\theadnum \label{AD_}:] 
+\end{itemize}
+
+
+\subsection{Immunity Requirements}
+\begin{itemize}
+    \item [IM\refstepcounter{imnum}\theimnum \label{IM_}:] 
+\end{itemize}
+
 
 \section{Roadmap}
 
 \wss{Which safety requirements will be implemented as part of the capstone timeline?
 Which requirements will be implemented in the future?}
+
+\newpage{}
+
+\section{Refrences}
+
+\begin{itemize}
+    \item [1] S. Smith, SE 4G06: Capstone Design Project, Lecture: "Hazard Analysis”, Faculty of Engineering, McMaster University, Hamilton, October 9, 2024.
+\end{itemize}
 
 \newpage{}
 
