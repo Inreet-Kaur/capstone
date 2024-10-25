@@ -225,15 +225,16 @@ The following assumptions are made regarding both the software and hardware comp
 
 \begin{landscape} 
 
-\section{Failure Mode and Effect Analys is}
+\section{Failure Mode and Effect Analysis}
     
     \begin{longtable}{|p{1.5cm}|p{2cm}|p{2.6cm}|p{2cm}|p{2cm}|p{2cm}|p{3.5cm}|p{1cm}|p{0.8cm}|}
+        % \caption{Failure Mode and Effect Analysis of the System} \label{tab:fmea} 
         \toprule
         \textbf{Comp.} & \textbf{Design Function} & \textbf{Failure mode} & \textbf{Effects of failure} & \textbf{Causes of failure} & \textbf{Detection} & \textbf{Recommended action} & \textbf{Req.} & \textbf{Ref.}\\ 
         \midrule
         User Interface & \raggedright Allow user input and access data & \raggedright User errors in data input & \raggedright Incorrect data stored in the database; Inaccurate data may lead to medical errors & \raggedright Poor UI design; Lack of input validation & \raggedright User reports; Record validation checks & \raggedright Display soft feedback to guide user input. Implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.1 \\ 
         \midrule
-        & & \raggedright Misinterpretation of displayed data & \raggedright Misdiagnosis; Other medical errors & \raggedright Poor UI design & \raggedright Feedback mechanisms; Detected medical errors & \raggedright Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.2 \\ 
+        & & \raggedright Incorrect interpretation of displayed data & \raggedright Incorrect diagnosis; Other medical errors & \raggedright Poor UI design & \raggedright Feedback mechanisms; Detected medical errors & \raggedright Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.2 \\ 
         \midrule
         & \raggedright Display error messages and provide feedback & \raggedright Inadequate feedback when errors occur & \raggedright Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & \raggedright Insufficient feedback mechanism & \raggedright Error logs; User reports; Record validation checks & \raggedright Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.3 \\
         \midrule
@@ -264,6 +265,7 @@ The following assumptions are made regarding both the software and hardware comp
         & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & SR\ref{SR_InputCheck}, NFR6 & PR2 \\ 
         \bottomrule
     \end{longtable}
+    
     
 \end{landscape}
 
