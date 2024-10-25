@@ -18,6 +18,7 @@
 \usepackage{pdflscape}
 \usepackage{afterpage}
 \usepackage{float}
+\usepackage{array}
 \usepackage[round]{natbib}
 
 % For easy change of table widths
@@ -51,6 +52,10 @@
 \newcommand{\rtheimnum}{IM\theimnum}
 \newcommand{\imref}[1]{IM\ref{#1}}
 
+\newcounter{srnum} %IM Number
+\newcommand{\rthesrnum}{SR\thesrnum}
+\newcommand{\srref}[1]{SR\ref{#1}}
+
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
     linkcolor=red,          % color of internal links (change box color with linkbordercolor)
@@ -83,9 +88,12 @@
 \toprule
 \textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
 \midrule
-Date1 & Name(s) & Description of changes\\
-Date2 & Name(s) & Description of changes\\
-... & ... & ...\\
+18-10-2024 & Inreet Kaur & FMEA Table, Critical Assumptions\\
+18-10-2024 & Moamen Ahmed & FMEA Table, Safety + Security Reqs.\\
+20-10-2024 & Gurleen Rahi & FMEA Table, Safety + Security Reqs.\\
+20-10-2024 & Inreet Kaur & System Composition\\
+24-10-2024 & Inreet Kaur & Intro, Scope\\
+24-10-2024 & Pranav Kalsi & FMEA Table, Safety + Security Reqs, Roadmap, Document Compilation Fix..\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -93,12 +101,13 @@ Date2 & Name(s) & Description of changes\\
 ~\newpage
 
 \tableofcontents
+% \listoffigures 
 
 ~\newpage
 
 \pagenumbering{arabic}
 
-\wss{You are free to modify this template.}
+% \wss{You are free to modify this template.}
 
 \section{Introduction}
 
@@ -117,10 +126,23 @@ The purpose of hazard analysis is to proactively identify all potential hazards,
 To identify potential hazards, we first define the system boundaries and break it down into its major components:
 
 \begin{itemize}
+    \item \textbf{Prediction Modules}
+    This module is responsible for all of the predictions that will occur based on the medical notes.
+
+    \begin{itemize}
+        \item PR1: Diagnosis Prediction: The prediction module is responsible for using the clinical notes to provide some diagnosis predictions. The goal of this is module to associate symptoms with common diagnoses. This allows for a lateral view of possible patient diagnoses.
+        \item PR2: Medicine Prediction: Once a diagnosis is selected through the model or manual entry the corresponding frequently used medication will also be provided.
+    \end{itemize}
+    
+    Potential Hazards:
+    \begin{itemize}
+        \item Wrong diagnosis family is predicted.
+        \item Processing non-medical related inputs.
+    \end{itemize}
+ 
     \item \textbf{User Interface:}
     The user interface is the point of interaction between the users and the system. It is responsible for displaying outputs from the system, such as patient data, medication suggestions, diagnosis predictions etc. The UI plays a crucial role in ensuring a user-friendly and intuitive experience for the users.
     
-
     Potential Hazards:
     \begin{itemize}
         \item User errors: incorrect data input or misinterpretation of displayed data
@@ -205,12 +227,13 @@ The following assumptions are made regarding both the software and hardware comp
 \section{Failure Mode and Effect Analysis}
     
     \begin{longtable}{|p{1.5cm}|p{2cm}|p{2.6cm}|p{2cm}|p{2cm}|p{2cm}|p{3.5cm}|p{1cm}|p{0.8cm}|}
+        % \caption{Failure Mode and Effect Analysis of the System} \label{tab:fmea} 
         \toprule
         \textbf{Comp.} & \textbf{Design Function} & \textbf{Failure mode} & \textbf{Effects of failure} & \textbf{Causes of failure} & \textbf{Detection} & \textbf{Recommended action} & \textbf{Req.} & \textbf{Ref.}\\ 
         \midrule
         User Interface & \raggedright Allow user input and access data & \raggedright User errors in data input & \raggedright Incorrect data stored in the database; Inaccurate data may lead to medical errors & \raggedright Poor UI design; Lack of input validation & \raggedright User reports; Record validation checks & \raggedright Display soft feedback to guide user input. Implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.1 \\ 
         \midrule
-        & & \raggedright Misinterpretation of displayed data & \raggedright Misdiagnosis; Other medical errors & \raggedright Poor UI design & \raggedright Feedback mechanisms; Detected medical errors & \raggedright Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.2 \\ 
+        & & \raggedright Incorrect interpretation of displayed data & \raggedright Incorrect diagnosis; Other medical errors & \raggedright Poor UI design & \raggedright Feedback mechanisms; Detected medical errors & \raggedright Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.2 \\ 
         \midrule
         & \raggedright Display error messages and provide feedback & \raggedright Inadequate feedback when errors occur & \raggedright Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & \raggedright Insufficient feedback mechanism & \raggedright Error logs; User reports; Record validation checks & \raggedright Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.3 \\
         \midrule
@@ -235,8 +258,13 @@ The following assumptions are made regarding both the software and hardware comp
         Report Generating Module & \raggedright Generate organized medical reports from audio input & \raggedright System crash while report generation & \raggedright Might lead to data loss or delay in fetching information again for compiling & \raggedright Loss of internet access & \raggedright Compiling verification checks & \raggedright The system should check if the compiling can be done successfully while the written notes are being made. & SR4 & H8.2 \\
         \midrule
         Transcription Module & \raggedright Convert audio data from the conversation to written text & \raggedright Incorrect transcription & \raggedright Inaccurate diagnosis & \raggedright Background noise disruption & \raggedright Error analysis through text-review tools & \raggedright Validation of data accuracy by the healthcare professional & SR3 & H8.1; H9.1 \\ 
+        \midrule
+        Prediction Module & \raggedright Use medical notes to predict diagnosis and medicine required. & \raggedright Incorrect due to biased prediction & \raggedright Healthcare professional may be misled. & \raggedright Poorly trained model, biased data. & \raggedright Use validation and cross validation evaluate the models. & \raggedright Use healthcare professional evaluation and train systematically. & IR\ref{IR_ValidationScore}, NFR6 & PR1 \\
+        \midrule
+        & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & IR\ref{IR_InputCheck}, NFR6 & PR2 \\ 
         \bottomrule
     \end{longtable}
+    
     
 \end{landscape}
 
@@ -248,6 +276,7 @@ The following assumptions are made regarding both the software and hardware comp
 
     \item [SR\refstepcounter{srnum}\thesrnum \label{SR_CompilingVerification}:] The system should provide validation that the text can be compiled by the report generating module as audio is being transcribed to the written text.
     \textbf{Rationale:} To identify technical errors in the beginning itself. However, in the event of any error, the system should be able to fix it without causing delay in the transcription process. 
+
 \end{itemize}
 
 
@@ -268,9 +297,16 @@ The following assumptions are made regarding both the software and hardware comp
 
     \item [IR\refstepcounter{irnum}\theirnum \label{IR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
     \textbf{Rationale:}To prevent user errors and incorrect output, it is vital to check the integrity of user input. Moreover, in the event of an error, the system should communicate its current state, how the input has been interpreted, and any related errors to the user.
+
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_ValidationScore}:] The system should provide confidence score on any prediction. Additionally, after each model training session validation accuracy score must be outputted.
+    \textbf{Rationale:} To understand the bias in any data and in the model. Using validation scores for training and test sets the model can be evaluated to detect underfitting and overfitting. Additionally, adding model confidence scores will allow  the healthcare professionals to see how confident the model is with the scores.
     
     \item [IR\refstepcounter{irnum}\theirnum \label{IR_DuplicateRecordDetection}:] The system should provide duplicate record detection for the record in various databases of the system.
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
+
+    \item [IR\refstepcounter{irnum}\thesrnum \label{IR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. 
+    \textbf{Rationale:} Medical data may contain a lot of side notes and information which is not critical for diagnosis and medicine prediction. That data should be filters out and not be passed into the model as an input. This is because the model will be expecting only a certain set of parameters. Any irrelevant parameters must be left out. 
+
 \end{itemize}
 
 \subsection{Privacy Requirements}
@@ -290,12 +326,13 @@ The following assumptions are made regarding both the software and hardware comp
 
 \section{Roadmap}
 
-\wss{Which safety requirements will be implemented as part of the capstone timeline?
-Which requirements will be implemented in the future?}
+% \wss{Which safety requirements will be implemented as part of the capstone timeline?
+% Which requirements will be implemented in the future?}
 
+After this hazard analysis a lot of new points, specifically requirements have been raised. In terms of the scope of the capstone project, in terms of these requirements the team will aim to deliver them. SR\label{SR_InputCheck} and IR\label{IR_ValidationScore} may be simplified. As for the input check it may be reduced to a simple filter, and the validation scores maybe to simplified to just attempting to mitigate model bias. The roadmap will re-assessed towards the end of the project to see if features can be augmented to complete the requirements.
 \newpage{}
 
-\section{Refrences}
+\section{References}
 
 \begin{itemize}
     \item [1] S. Smith, SE 4G06: Capstone Design Project, Lecture: "Hazard Analysis”, Faculty of Engineering, McMaster University, Hamilton, October 9, 2024.
