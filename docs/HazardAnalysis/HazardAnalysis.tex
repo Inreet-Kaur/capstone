@@ -52,9 +52,6 @@
 \newcommand{\rtheimnum}{IM\theimnum}
 \newcommand{\imref}[1]{IM\ref{#1}}
 
-\newcounter{srnum} %IM Number
-\newcommand{\rthesrnum}{SR\thesrnum}
-\newcommand{\srref}[1]{SR\ref{#1}}
 
 \hypersetup{
     colorlinks=true,       % false: boxed links; true: colored links
@@ -126,26 +123,13 @@ The purpose of hazard analysis is to proactively identify all potential hazards,
 To identify potential hazards, we first define the system boundaries and break it down into its major components:
 
 \begin{itemize}
-    \item \textbf{Prediction Modules}
-    This module is responsible for all of the predictions that will occur based on the medical notes.
-
-    \begin{itemize}
-        \item PR1: Diagnosis Prediction: The prediction module is responsible for using the clinical notes to provide some diagnosis predictions. The goal of this is module to associate symptoms with common diagnoses. This allows for a lateral view of possible patient diagnoses.
-        \item PR2: Medicine Prediction: Once a diagnosis is selected through the model or manual entry the corresponding frequently used medication will also be provided.
-    \end{itemize}
-    
-    Potential Hazards:
-    \begin{itemize}
-        \item Wrong diagnosis family is predicted.
-        \item Processing non-medical related inputs.
-    \end{itemize}
  
     \item \textbf{User Interface:}
     The user interface is the point of interaction between the users and the system. It is responsible for displaying outputs from the system, such as patient data, medication suggestions, diagnosis predictions etc. The UI plays a crucial role in ensuring a user-friendly and intuitive experience for the users.
     
     Potential Hazards:
     \begin{itemize}
-        \item User errors: incorrect data input or misinterpretation of displayed data
+        \item Incorrect user input
         \item Inadequate feedback when errors occur
         \item Incorrect data displayed to the user
     \end{itemize}
@@ -193,12 +177,11 @@ To identify potential hazards, we first define the system boundaries and break i
     \end{itemize}
     
     \item \textbf{Report Generating Module:}
-    The report generating module is responsible for generating organized and thorough reports from the audio conversations recorded during patient's visit. The important aspects of medical data (such as the symptoms, illness history, etc.) is extracted from the conversation which is then compiled into the report using this module.
+    The report generating module is responsible for generating accurate reports using the transcribed data from transcription module. The important aspects of medical data (such as the symptoms, illness history, etc.) is extracted from the data which is then compiled into the report using this module.
 
     Potential Hazards:
     \begin{itemize}
-        \item Data inaccuracy
-        \item System crash
+        \item Data inaccuracy in reports
     \end{itemize}
 
     \item \textbf{Transcription Module:}
@@ -206,7 +189,21 @@ To identify potential hazards, we first define the system boundaries and break i
 
     Potential Hazards:
     \begin{itemize}
-        \item Background noise disruption
+        \item Incorrect transcription from audio to text
+    \end{itemize}
+
+    \item \textbf{Prediction Modules}
+    This module is responsible for all of the predictions that will occur based on the medical notes.
+
+    \begin{itemize}
+        \item PR1: Diagnosis Prediction: The prediction module is responsible for using the clinical notes to provide some diagnosis predictions. The goal of this module is to associate symptoms with common diagnoses. This allows for a lateral view of possible patient diagnoses.
+        \item PR2: Medicine Prediction: Once a diagnosis is selected through the model or manual entry, the corresponding frequently used medication will also be provided.
+    \end{itemize}
+    
+    Potential Hazards:
+    \begin{itemize}
+        \item Wrong diagnosis family is predicted
+        \item Processing non-medical related inputs
     \end{itemize}
     
 \end{itemize}
@@ -231,15 +228,13 @@ The following assumptions are made regarding both the software and hardware comp
         \toprule
         \textbf{Comp.} & \textbf{Design Function} & \textbf{Failure mode} & \textbf{Effects of failure} & \textbf{Causes of failure} & \textbf{Detection} & \textbf{Recommended action} & \textbf{Req.} & \textbf{Ref.}\\ 
         \midrule
-        User Interface & \raggedright Allow user input and access data & \raggedright User errors in data input & \raggedright Incorrect data stored in the database; Inaccurate data may lead to medical errors & \raggedright Poor UI design; Lack of input validation & \raggedright User reports; Record validation checks & \raggedright Display soft feedback to guide user input. Implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.1 \\ 
+        User Interface & \raggedright Allow user to provide data through input for processing & \raggedright System accepts incorrect data & \raggedright Incorrect data stored in the database; Incorrect diagnosis; Inaccurate data may lead to medical errors & \raggedright Lack of input validation; Insufficient feedback mechanism & \raggedright User reports; Record validation checks & \raggedright Improve UI design for discoverability and use appropriate signifiers for various data fields. Display soft feedback to guide user input i.e. implement input masks, field-level validation, and page-level validation to prevent the system from saving any invalid data. Implement constraints on input data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.1 \\ 
         \midrule
-        & & \raggedright Incorrect interpretation of displayed data & \raggedright Incorrect diagnosis; Other medical errors & \raggedright Poor UI design & \raggedright Feedback mechanisms; Detected medical errors & \raggedright Improve UI design for clarity. Improve discoverability and use appropriate signifiers for various data fields. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.2 \\ 
+        & \raggedright Display error messages and provide feedback & \raggedright System provides inadequate feedback when errors occur & \raggedright Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & \raggedright Insufficient feedback mechanism & \raggedright Error logs; User reports; Record validation checks & \raggedright Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state. & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.2 \\
         \midrule
-        & \raggedright Display error messages and provide feedback & \raggedright Inadequate feedback when errors occur & \raggedright Users are unaware of the current system state; Unresolved issues; Inaccurate data stored in a database & \raggedright Insufficient feedback mechanism & \raggedright Error logs; User reports; Record validation checks & \raggedright Provide clear and actionable error messages when an error occurs. Use language familiar to the user for easy interpretation. Provide steps to recover from the error state & NFR1; NFR2; IR\ref{IR_ErrorDetection} & H1.3 \\
+        & \raggedright Display correct data to the user & \raggedright System displays incorrect data to the user & \raggedright Incorrect medical decisions; Compromise patient safety & \raggedright Data processing errors; System bugs & \raggedright User reports; Error logs & \raggedright Ensure user input is accurately interpreted and stored by the system. Add data verification steps to ensure the system retrieves the correct data to display & IR\ref{IR_DuplicateRecordDetection} & H1.3 \\
         \midrule
-        & \raggedright Display correct data to the user & \raggedright Incorrect data displayed to the user & \raggedright Incorrect medical decisions; Compromise patient safety & \raggedright Data processing error; System bugs & \raggedright User reports; Error logs & \raggedright Ensure user input is accurately interpreted and stored by the system. Add data verification steps to ensure the system retrieves the correct data to display & IR\ref{IR_DuplicateRecordDetection} & H1.4 \\
-        \midrule
-        Data Layer & \raggedright Manage and store data in a secure manner & \raggedright Accidental deletion of database entries or the entire database & \raggedright Permanent loss of critical data & \raggedright User error; Lack of validation checks & \raggedright User reports; Failure to retrieve or access a data instance or database & \raggedright Display appropriate feedback before confirming the deletion. Implement role-based access control for deletion action. Implement automatic data backup and recovery system. & FR5; FR9; FR2 & H2.1 \\ 
+        Data Layer & \raggedright Manage and store data in a secure manner & \raggedright Accidental deletion of database entries or the entire database & \raggedright Permanent loss of critical data & \raggedright User errors; Lack of validation checks & \raggedright User reports; Failure to retrieve or access a data instance or database & \raggedright Display appropriate feedback before confirming the deletion. Implement role-based access control for deletion action. Implement automatic data backup and recovery system. & FR5; FR9; FR2 & H2.1 \\ 
         \midrule
         & & \raggedright Creation of duplicate records & \raggedright Incorrect output displayed to the user; Medical errors & \raggedright Lack of validation on user input & \raggedright Record validation checks & \raggedright Implement validation checks for user input. Implement validation checks before storing a new entry. Regular data integrity checks & IR\ref{IR_DuplicateRecordDetection} & H2.2 \\ 
         \midrule
@@ -247,21 +242,21 @@ The following assumptions are made regarding both the software and hardware comp
         \midrule
         & \raggedright Retrieve and store data in real-time. & \raggedright Database crashes & \raggedright Inability to access stored data; Inability to store new data & \raggedright Server overload; System failure & \raggedright Error messages; Monitoring system performance & \raggedright Implement failover systems. Implement automatic backups. Implement scalable server infrastructure. & NFR4; NFR5 & H2.4 \\ 
         \midrule
-        General & \raggedright Provide continuous access to the system & \raggedright App closes unexpectedly & \raggedright Unsaved progress is lost; Delayed medical access to patients & \raggedright Loss of power or internet; Software failure & \raggedright User reports; System logs & \raggedright Implement automatic data backups and recovery system. & NFR4 & H3.1 \\
+        General & \raggedright Provide continuous access to the system & \raggedright App closes unexpectedly & \raggedright Unsaved progress is lost; Delayed medical access to patients & \raggedright Loss of power or internet; Software failure & \raggedright User reports; System logs & \raggedright Implement automatic data backups and recovery system. & NFR4 & H3 \\
         \midrule
-        API Module (OAuth) & \raggedright Securely connect components with OAuth & \raggedright Failed connection between components & \raggedright Inability to authenticate users, disrupting services & \raggedright Network failure, OAuth misconfiguration & \raggedright Monitor connection status and failed authentication attempts & \raggedright Check network status, verify OAuth configuration, retry connection & AC\ref{AC_Authentication} & H5.1 \\
+        API Module (OAuth) & \raggedright Securely connect components with OAuth & \raggedright Failed connection between components & \raggedright Inability to authenticate users, disrupting services & \raggedright Network failure, OAuth misconfiguration & \raggedright Monitor connection status and failed authentication attempts & \raggedright Check network status, verify OAuth configuration, retry connection & AC\ref{AC_Authentication} & H4 \\
         \midrule
-        User Authentication & \raggedright Verify user credentials & \raggedright User cannot log in to the system & \raggedright User cannot access any system data or functions & \raggedright Invalid credentials, database failure & \raggedright Failed login attempts trigger security alerts & \raggedright Reset credentials, verify database connectivity & IR\ref{IR_Autentication} & H6.1 \\
+        User Authentication & \raggedright Verify user credentials & \raggedright User cannot log in to the system & \raggedright User cannot access any system data or functions & \raggedright Invalid credentials, database failure & \raggedright Failed login attempts trigger security alerts & \raggedright Reset credentials, verify database connectivity & IR\ref{IR_Autentication} & H5 \\
         \midrule
-        Account Management & \raggedright Manage user accounts (create, update, delete) & \raggedright Account cannot be created, updated, or deleted & \raggedright User unable to register, update info, or remove account & \raggedright Database failure, validation errors & \raggedright Log account creation, update, and deletion attempts & \raggedright Check database integrity, validate inputs, retry operations & AC\ref{AC_AuthorizedPersonnel} & H7.1 \\ 
+        Account Management & \raggedright Manage user accounts (create, update, delete) & \raggedright Account cannot be created, updated, or deleted & \raggedright User unable to register, update info, or remove account & \raggedright Database failure, validation errors & \raggedright Log account creation, update, and deletion attempts & \raggedright Check database integrity, validate inputs, retry operations & AC\ref{AC_AuthorizedPersonnel} & H6 \\ 
         \midrule
-        Report Generating Module & \raggedright Generate organized medical reports from audio input & \raggedright System crash while report generation & \raggedright Might lead to data loss or delay in fetching information again for compiling & \raggedright Loss of internet access & \raggedright Compiling verification checks & \raggedright The system should check if the compiling can be done successfully while the written notes are being made. & SR4 & H8.2 \\
+        Report Generating Module & \raggedright Generate medical reports from transcribed data & \raggedright System produce inaccurate reports. Inputs wrong data in various data fields & \raggedright Inaccurate daignosis and medicine predictions; Inaccurate data stored in databases & \raggedright misclassification of the transcribed data & \raggedright User reports, Error logs & \raggedright Implement validation checks when system classify data for different data fields. Prompt the user to validate the data. Allow the user to edit the data manually &  FR11, NFR3, IR\ref{IR_CompilingVerification} & H7 \\
         \midrule
-        Transcription Module & \raggedright Convert audio data from the conversation to written text & \raggedright Incorrect transcription & \raggedright Inaccurate diagnosis & \raggedright Background noise disruption & \raggedright Error analysis through text-review tools & \raggedright Validation of data accuracy by the healthcare professional & SR3 & H8.1; H9.1 \\ 
+        Transcription Module & \raggedright Convert audio data from the conversation to written text & \raggedright system provides incorrect transcription & \raggedright Inaccurate diagnosis; medical errors & \raggedright Background noise disruption; misinterpretation of the pronouced words & \raggedright User reports & \raggedright Use models with high transcription accuracy. Prompt user to review the transcribed data. Allow user to validate and edit transcribed data. & FR11, NFR3, IR\ref{IR_BackNoiseFilter} & H8 \\ 
         \midrule
-        Prediction Module & \raggedright Use medical notes to predict diagnosis and medicine required. & \raggedright Incorrect due to biased prediction & \raggedright Healthcare professional may be misled. & \raggedright Poorly trained model, biased data. & \raggedright Use validation and cross validation evaluate the models. & \raggedright Use healthcare professional evaluation and train systematically. & IR\ref{IR_ValidationScore}, NFR6 & PR1 \\
+        Prediction Module & \raggedright Use medical notes to predict diagnosis and medicine required. & \raggedright Incorrect due to biased prediction & \raggedright Healthcare professional may be misled. & \raggedright Poorly trained model, biased data. & \raggedright Use validation and cross-validation to evaluate the models. & \raggedright Use healthcare professional evaluation and train systematically. & IR\ref{IR_ValidationScore}, NFR6 & H9.1 \\
         \midrule
-        & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & IR\ref{IR_InputCheck}, NFR6 & PR2 \\ 
+        & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & IR\ref{IR_InputCheck}, NFR6 & H9.2 \\ 
         \bottomrule
     \end{longtable}
     
@@ -269,15 +264,6 @@ The following assumptions are made regarding both the software and hardware comp
 \end{landscape}
 
 \section{Safety and Security Requirements}
-
-\begin{itemize}
-    \item [SR\refstepcounter{srnum}\thesrnum \label{SR_BackNoiseFilter}:] The system should be able to filter the background noise to capture the medical data from the audio conversation between the patient and healthcare professional only.
-    \textbf{Rationale:} To prevent data inaccuracy with addition of unwanted information in the report.
-
-    \item [SR\refstepcounter{srnum}\thesrnum \label{SR_CompilingVerification}:] The system should provide validation that the text can be compiled by the report generating module as audio is being transcribed to the written text.
-    \textbf{Rationale:} To identify technical errors in the beginning itself. However, in the event of any error, the system should be able to fix it without causing delay in the transcription process. 
-
-\end{itemize}
 
 
 \subsection{Access Requirements}
@@ -307,29 +293,31 @@ The following assumptions are made regarding both the software and hardware comp
     \item [IR\refstepcounter{irnum}\thesrnum \label{IR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. 
     \textbf{Rationale:} Medical data may contain a lot of side notes and information which is not critical for diagnosis and medicine prediction. That data should be filters out and not be passed into the model as an input. This is because the model will be expecting only a certain set of parameters. Any irrelevant parameters must be left out. 
 
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_CompilingVerification}:] The system should have proper validation when cassifying the data for report generation.
+    \textbf{Rationale:} It is essential to generate correct reports to aviod any future medical and diagnosis errors.
+
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_BackNoiseFilter}:] The system should be able to filter the background noise to produce accuracy transcribed data.
+    \textbf{Rationale:} It is essential to produce accurate data to avoid any inaccurate records, potential medical errors and misdiagonsis. 
+
 \end{itemize}
 
 \subsection{Privacy Requirements}
-\begin{itemize}
-    \item [PR\refstepcounter{prnum}\theprnum \label{PR_}:] 
-\end{itemize}
+N/A
 
 \subsection{Audit Requirements}
-\begin{itemize}
-    \item [AD\refstepcounter{adnum}\theadnum \label{AD_}:] 
-\end{itemize}
+N/A
 
 \subsection{Immunity Requirements}
-\begin{itemize}
-    \item [IM\refstepcounter{imnum}\theimnum \label{IM_}:] 
-\end{itemize}
+N/A
 
 \section{Roadmap}
 
 % \wss{Which safety requirements will be implemented as part of the capstone timeline?
 % Which requirements will be implemented in the future?}
 
-After this hazard analysis a lot of new points, specifically requirements have been raised. In terms of the scope of the capstone project, in terms of these requirements the team will aim to deliver them. SR\label{SR_InputCheck} and IR\label{IR_ValidationScore} may be simplified. As for the input check it may be reduced to a simple filter, and the validation scores maybe to simplified to just attempting to mitigate model bias. The roadmap will re-assessed towards the end of the project to see if features can be augmented to complete the requirements.
+After the hazard analysis we identified a lot of new safety and security requirements. In terms of the scope of the capstone project, in terms of these requirements the team will aim to deliver all of the mentioned requirements in this document including the mentioned access and integrity reqirements. 
+
+IR\label{IR_InputCheck} and IR\label{IR_ValidationScore} may be simplified. For the input check, it may be reduced to a simple filter, and the validation scores maybe to simplified to just attempting to mitigate model bias. The roadmap will re-assessed towards the end of the project to see if features can be augmented to complete the requirements.
 \newpage{}
 
 \section{References}
