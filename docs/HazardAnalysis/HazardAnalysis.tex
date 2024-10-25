@@ -18,6 +18,7 @@
 \usepackage{pdflscape}
 \usepackage{afterpage}
 \usepackage{float}
+\usepackage{array}
 \usepackage[round]{natbib}
 
 % For easy change of table widths
@@ -100,6 +101,7 @@
 ~\newpage
 
 \tableofcontents
+% \listoffigures 
 
 ~\newpage
 
@@ -262,7 +264,7 @@ The following assumptions are made regarding both the software and hardware comp
         \midrule
         Prediction Module & \raggedright Use medical notes to predict diagnosis and medicine required. & \raggedright Incorrect due to biased prediction & \raggedright Healthcare professional may be misled. & \raggedright Poorly trained model, biased data. & \raggedright Use validation and cross validation evaluate the models. & \raggedright Use healthcare professional evaluation and train systematically. & IR\ref{IR_ValidationScore}, NFR6 & PR1 \\
         \midrule
-        & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & SR\ref{SR_InputCheck}, NFR6 & PR2 \\ 
+        & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & SR\ref{IR_InputCheck}, NFR6 & PR2 \\ 
         \bottomrule
     \end{longtable}
     
@@ -278,8 +280,6 @@ The following assumptions are made regarding both the software and hardware comp
     \item [SR\refstepcounter{srnum}\thesrnum \label{SR_CompilingVerification}:] The system should provide validation that the text can be compiled by the report generating module as audio is being transcribed to the written text.
     \textbf{Rationale:} To identify technical errors in the beginning itself. However, in the event of any error, the system should be able to fix it without causing delay in the transcription process. 
 
-    \item [SR\refstepcounter{srnum}\thesrnum \label{SR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. 
-    \textbf{Rationale:} Medical data may contain a lot of side notes and information which is not critical for diagnosis and medicine prediction. That data should be filters out and not be passed into the model as an input. This is because the model will be expecting only a certain set of parameters. Any irrelevant parameters must be left out. 
 \end{itemize}
 
 
@@ -302,6 +302,10 @@ The following assumptions are made regarding both the software and hardware comp
     
     \item [IR\refstepcounter{irnum}\theirnum \label{IR_DuplicateRecordDetection}:] The system should provide duplicate record detection for the record in various databases of the system.
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
+
+    \item [SR\refstepcounter{irnum}\thesrnum \label{IR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. 
+    \textbf{Rationale:} Medical data may contain a lot of side notes and information which is not critical for diagnosis and medicine prediction. That data should be filters out and not be passed into the model as an input. This is because the model will be expecting only a certain set of parameters. Any irrelevant parameters must be left out. 
+
 \end{itemize}
 
 
