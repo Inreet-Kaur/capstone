@@ -192,13 +192,14 @@ The following assumptions are made regarding both the software and hardware comp
 
 \subsection{Access Requirements}
 \textbf{ACR1}: The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.
+\noindent \textbf{Rationale:} Authentication is fundamental to system security as it ensures that only verified users can access sensitive resources. Logging failed attempts is crucial for detecting potential security breaches and maintaining an audit trail for security investigations.
 
 \noindent \textbf{ACR2}: Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.
+\noindent \textbf{Rationale:} Restricting user management operations to authorized personnel prevents unauthorized account creation and modification, which could lead to security breaches. Logging blocked attempts provides accountability and helps identify potential internal threats or compromised credentials.
 
 \subsection{Integrity Requirements}
 \textbf{IR1}: User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
-
-
+\noindent \textbf{Rationale:} Maintaining the integrity of user credentials during authentication is essential to prevent unauthorized access and data corruption. The system must remain stable and secure regardless of authentication failures to ensure continuous service availability and protect stored credentials from potential tampering or corruption.
 
 \section{Roadmap}
 
