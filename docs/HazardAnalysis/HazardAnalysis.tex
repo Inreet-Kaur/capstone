@@ -130,7 +130,7 @@ To identify potential hazards, we first define the system boundaries and break i
     This module is responsible for all of the predictions that will occur based on the medical notes.
 
     \begin{itemize}
-        \item PR1: Diagnosis Prediction: The prediction module is responsible for using the clinical notes to provide some diagnosis predictions. The goal of this is module to associate symptoms with common diagnosis'. This allows for a lateral view of possible patient diagnoses.
+        \item PR1: Diagnosis Prediction: The prediction module is responsible for using the clinical notes to provide some diagnosis predictions. The goal of this is module to associate symptoms with common diagnoses. This allows for a lateral view of possible patient diagnoses.
         \item PR2: Medicine Prediction: Once a diagnosis is selected through the model or manual entry the corresponding frequently used medication will also be provided.
     \end{itemize}
     
@@ -261,7 +261,7 @@ The following assumptions are made regarding both the software and hardware comp
         \midrule
         Prediction Module & \raggedright Use medical notes to predict diagnosis and medicine required. & \raggedright Incorrect due to biased prediction & \raggedright Healthcare professional may be misled. & \raggedright Poorly trained model, biased data. & \raggedright Use validation and cross validation evaluate the models. & \raggedright Use healthcare professional evaluation and train systematically. & IR\ref{IR_ValidationScore}, NFR6 & PR1 \\
         \midrule
-        & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & SR\ref{IR_InputCheck}, NFR6 & PR2 \\ 
+        & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & IR\ref{IR_InputCheck}, NFR6 & PR2 \\ 
         \bottomrule
     \end{longtable}
     
@@ -300,7 +300,7 @@ The following assumptions are made regarding both the software and hardware comp
     \item [IR\refstepcounter{irnum}\theirnum \label{IR_DuplicateRecordDetection}:] The system should provide duplicate record detection for the record in various databases of the system.
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
 
-    \item [SR\refstepcounter{irnum}\thesrnum \label{IR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. 
+    \item [IR\refstepcounter{irnum}\thesrnum \label{IR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. 
     \textbf{Rationale:} Medical data may contain a lot of side notes and information which is not critical for diagnosis and medicine prediction. That data should be filters out and not be passed into the model as an input. This is because the model will be expecting only a certain set of parameters. Any irrelevant parameters must be left out. 
 
 \end{itemize}
