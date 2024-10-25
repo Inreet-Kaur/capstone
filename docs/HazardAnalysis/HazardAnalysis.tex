@@ -217,6 +217,8 @@ The following assumptions are made regarding both the software and hardware comp
     \item \textbf{Stable Network Connection:} It is assumed that the network connection between the client and server will be stable. If the connection is unstable, it could cause interruptions to the process, which results in significant issues in the system’s performance.
         
     \item \textbf{Reliable Hardware:} It is assumed that there won’t be any major hardware failures. Although hardware problems are rare, they could severely affect system availability and accuracy, especially in critical healthcare environment.
+
+    \item \textbf{Well Intentioned Inputs: } We will assume that the user will enter input with good intention and will not be attempting to break the system or overload the system with the requests. 
 \end{itemize}
 
 \begin{landscape} 
@@ -244,7 +246,7 @@ The following assumptions are made regarding both the software and hardware comp
         \midrule
         General & \raggedright Provide continuous access to the system & \raggedright App closes unexpectedly & \raggedright Unsaved progress is lost; Delayed medical access to patients & \raggedright Loss of power or internet; Software failure & \raggedright User reports; System logs & \raggedright Implement automatic data backups and recovery system. & NFR4 & H3 \\
         \midrule
-        API Module (OAuth) & \raggedright Securely connect components with OAuth & \raggedright Failed connection between components & \raggedright Inability to authenticate users, disrupting services & \raggedright Network failure, OAuth misconfiguration & \raggedright Monitor connection status and failed authentication attempts & \raggedright Check network status, verify OAuth configuration, retry connection & AC\ref{AC_Authentication} & H4 \\
+        API Module (OAuth) & \raggedright Securely connect components with OAuth & \raggedright Failed connection between components & \raggedright Inability to authenticate users, disrupting services & \raggedright OAuth misconfiguration & \raggedright Monitor connection status and failed authentication attempts & \raggedright Check network status, verify OAuth configuration, retry connection & AC\ref{AC_Autentication} & H4 \\
         \midrule
         User Authentication & \raggedright Verify user credentials & \raggedright User cannot log in to the system & \raggedright User cannot access any system data or functions & \raggedright Invalid credentials, database failure & \raggedright Failed login attempts trigger security alerts & \raggedright Reset credentials, verify database connectivity & IR\ref{IR_Autentication} & H5 \\
         \midrule
@@ -252,7 +254,7 @@ The following assumptions are made regarding both the software and hardware comp
         \midrule
         Report Generating Module & \raggedright Generate medical reports from transcribed data & \raggedright System produce inaccurate reports. Inputs wrong data in various data fields & \raggedright Inaccurate daignosis and medicine predictions; Inaccurate data stored in databases & \raggedright misclassification of the transcribed data & \raggedright User reports, Error logs & \raggedright Implement validation checks when system classify data for different data fields. Prompt the user to validate the data. Allow the user to edit the data manually &  FR11, NFR3, IR\ref{IR_CompilingVerification} & H7 \\
         \midrule
-        Transcription Module & \raggedright Convert audio data from the conversation to written text & \raggedright system provides incorrect transcription & \raggedright Inaccurate diagnosis; medical errors & \raggedright Background noise disruption; misinterpretation of the pronouced words & \raggedright User reports & \raggedright Use models with high transcription accuracy. Prompt user to review the transcribed data. Allow user to validate and edit transcribed data. & FR11, NFR3, IR\ref{IR_BackNoiseFilter} & H8 \\ 
+        Transcri-ption Module & \raggedright Convert audio data from the conversation to written text & \raggedright system provides incorrect transcription & \raggedright Inaccurate diagnosis; medical errors & \raggedright Background noise disruption; misinterpretation of the pronounced words & \raggedright User reports & \raggedright Use models with high transcription accuracy. Prompt user to review the transcribed data. Allow user to validate and edit transcribed data. & FR11, NFR3, IR\ref{IR_BackNoiseFilter} & H8 \\ 
         \midrule
         Prediction Module & \raggedright Use medical notes to predict diagnosis and medicine required. & \raggedright Incorrect due to biased prediction & \raggedright Healthcare professional may be misled. & \raggedright Poorly trained model, biased data. & \raggedright Use validation and cross-validation to evaluate the models. & \raggedright Use healthcare professional evaluation and train systematically. & IR\ref{IR_ValidationScore}, NFR6 & H9.1 \\
         \midrule
@@ -268,36 +270,36 @@ The following assumptions are made regarding both the software and hardware comp
 
 \subsection{Access Requirements}
 \begin{itemize}
-    \item [AC\refstepcounter{acnum}\theacnum \label{AC_Autentication}:] The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.
+    \item [AC\refstepcounter{acnum}\theacnum \label{AC_Autentication}:] The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.\\
     \textbf{Rationale:} Authentication is fundamental to system security as it ensures that only verified users can access sensitive resources. Logging failed attempts is crucial for detecting potential security breaches and maintaining an audit trail for security investigations.
     
-    \item [AC\refstepcounter{acnum}\theacnum \label{AC_AuthorizedPersonnel}:] Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.
+    \item [AC\refstepcounter{acnum}\theacnum \label{AC_AuthorizedPersonnel}:] Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.\\
     \textbf{Rationale:} Restricting user management operations to authorized personnel prevents unauthorized account creation and modification, which could lead to security breaches. Logging blocked attempts provides accountability and helps identify potential internal threats or compromised credentials.
 \end{itemize}
 
 
 \subsection{Integrity Requirements}
 \begin{itemize}
-    \item [IR\refstepcounter{irnum}\theirnum \label{IR_Autentication}:] User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_Autentication}:] User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.\\
     \textbf{Rationale:} Maintaining the integrity of user credentials during authentication is essential to prevent unauthorized access and data corruption. The system must remain stable and secure regardless of authentication failures to ensure continuous service availability and protect stored credentials from potential tampering or corruption.
 
-    \item [IR\refstepcounter{irnum}\theirnum \label{IR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.\\
     \textbf{Rationale:}To prevent user errors and incorrect output, it is vital to check the integrity of user input. Moreover, in the event of an error, the system should communicate its current state, how the input has been interpreted, and any related errors to the user.
 
-    \item [IR\refstepcounter{irnum}\theirnum \label{IR_ValidationScore}:] The system should provide confidence score on any prediction. Additionally, after each model training session validation accuracy score must be outputted.
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_ValidationScore}:] The system should provide confidence score on any prediction. Additionally, after each model training session validation accuracy score must be outputted.\\
     \textbf{Rationale:} To understand the bias in any data and in the model. Using validation scores for training and test sets the model can be evaluated to detect underfitting and overfitting. Additionally, adding model confidence scores will allow  the healthcare professionals to see how confident the model is with the scores.
     
-    \item [IR\refstepcounter{irnum}\theirnum \label{IR_DuplicateRecordDetection}:] The system should provide duplicate record detection for the record in various databases of the system.
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_DuplicateRecordDetection}:] The system should provide duplicate record detection for the record in various databases of the system.\\
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
 
-    \item [IR\refstepcounter{irnum}\thesrnum \label{IR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. 
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. \\
     \textbf{Rationale:} Medical data may contain a lot of side notes and information which is not critical for diagnosis and medicine prediction. That data should be filters out and not be passed into the model as an input. This is because the model will be expecting only a certain set of parameters. Any irrelevant parameters must be left out. 
 
-    \item [IR\refstepcounter{irnum}\theirnum \label{IR_CompilingVerification}:] The system should have proper validation when cassifying the data for report generation.
-    \textbf{Rationale:} It is essential to generate correct reports to aviod any future medical and diagnosis errors.
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_CompilingVerification}:] The system should have proper validation when classifying the data for report generation.\\
+    \textbf{Rationale:} It is essential to generate correct reports to avoid any future medical and diagnosis errors.
 
-    \item [IR\refstepcounter{irnum}\theirnum \label{IR_BackNoiseFilter}:] The system should be able to filter the background noise to produce accuracy transcribed data.
-    \textbf{Rationale:} It is essential to produce accurate data to avoid any inaccurate records, potential medical errors and misdiagonsis. 
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_BackNoiseFilter}:] The system should be able to filter the background noise to produce accuracy transcribed data.\\
+    \textbf{Rationale:} It is essential to produce accurate data to avoid any inaccurate records, potential medical errors and incorrect diagnosis. 
 
 \end{itemize}
 
@@ -315,7 +317,7 @@ N/A
 % \wss{Which safety requirements will be implemented as part of the capstone timeline?
 % Which requirements will be implemented in the future?}
 
-After the hazard analysis we identified a lot of new safety and security requirements. In terms of the scope of the capstone project, in terms of these requirements the team will aim to deliver all of the mentioned requirements in this document including the mentioned access and integrity reqirements. 
+After the hazard analysis we identified a lot of new safety and security requirements. In terms of the scope of the capstone project, in terms of these requirements the team will aim to deliver all of the mentioned requirements in this document including the mentioned access and integrity requirements. 
 
 IR\label{IR_InputCheck} and IR\label{IR_ValidationScore} may be simplified. For the input check, it may be reduced to a simple filter, and the validation scores maybe to simplified to just attempting to mitigate model bias. The roadmap will re-assessed towards the end of the project to see if features can be augmented to complete the requirements.
 \newpage{}
@@ -335,23 +337,17 @@ IR\label{IR_InputCheck} and IR\label{IR_ValidationScore} may be simplified. For 
 \input{../Reflection.tex}
 
 \begin{enumerate}
-    \item What went well while writing this deliverable?
+    \item What went well while writing this deliverable?\\
     This document has let us build more on the critical hazards and mitigation strategies to overcome them. While going through the outline of this document, we were able to provide the system components as well as their failure modes of the system. 
     
-    \item What pain points did you experience during this deliverable, and how
-    did you resolve them?
+    \item What pain points did you experience during this deliverable, and how did you resolve them?\\
     Every team project has challenges that must be solved in order to move forward successfully. We had to create a donation plan to guarantee smooth operations. To ensure that all of our plans are in line with the system, we need to plan the system components that complement our project. In order to contribute to the document and evaluate each other's work as effectively as possible, we also needed to set up a schedule.
 
-    \item Which of your listed risks had your team thought of before this
-    deliverable, and which did you think of while doing this deliverable? For
-    the latter ones (ones you thought of while doing the Hazard Analysis), how
-    did they come about?
+    \item Which of your listed risks had your team thought of before this deliverable, and which did you think of while doing this deliverable? For the latter ones (ones you thought of while doing the Hazard Analysis), how did they come about?\\
     Our team had some knowledge of the system's components and possible software hazards prior to this deliverable. However, we also came up with some safety requirements, including integrity requirements, while working on this deliverable. Integrity requirements have listed a lot of detection modules that are essential for authentication purposes.
     
-    \item Other than the risk of physical harm (some projects may not have any
-    appreciable risks of this form), list at least 2 other types of risk in
-    software products. Why are they important to consider?
-    The other two categories of risks are security risks, like cyberattacks, and functional risks, like performance problems. They are crucial since a malfunctioning system could cause the automation process to be delayed, which would defeat the goal of the project. Additionally, phishing and hacking may result in the loss of patient data, which would affect data privacy. 
+    \item Other than the risk of physical harm (some projects may not have any appreciable risks of this form), list at least 2 other types of risk in software products. Why are they important to consider?\\
+    The other two categories of risks are security risks, like cyber-attacks, and functional risks, like performance problems. They are crucial since a malfunctioning system could cause the automation process to be delayed, which would defeat the goal of the project. Additionally, phishing and hacking may result in the loss of patient data, which would affect data privacy. 
 
 \end{enumerate}
 
