@@ -254,13 +254,17 @@ The following assumptions are made regarding both the software and hardware comp
 \subsection{Access Requirements}
 \begin{itemize}
     \item [AC\refstepcounter{acnum}\theacnum \label{AC_Autentication}:] The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.
+    \textbf{Rationale:} Authentication is fundamental to system security as it ensures that only verified users can access sensitive resources. Logging failed attempts is crucial for detecting potential security breaches and maintaining an audit trail for security investigations.
+    
     \item [AC\refstepcounter{acnum}\theacnum \label{AC_AuthorizedPersonnel}:] Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.
+    \textbf{Rationale:} Restricting user management operations to authorized personnel prevents unauthorized account creation and modification, which could lead to security breaches. Logging blocked attempts provides accountability and helps identify potential internal threats or compromised credentials.
 \end{itemize}
 
 
 \subsection{Integrity Requirements}
 \begin{itemize}
     \item [IR\refstepcounter{irnum}\theirnum \label{IR_Autentication}:] User credentials must remain intact during authentication. Failed login attempts should not affect the system's functionality or stored data.
+    \textbf{Rationale:} Maintaining the integrity of user credentials during authentication is essential to prevent unauthorized access and data corruption. The system must remain stable and secure regardless of authentication failures to ensure continuous service availability and protect stored credentials from potential tampering or corruption.
 
     \item [IR\refstepcounter{irnum}\theirnum \label{IR_ErrorDetection}:] The system should provide real-time error detection based on validation checks and provide feedback to users.
     \textbf{Rationale:}To prevent user errors and incorrect output, it is vital to check the integrity of user input. Moreover, in the event of an error, the system should communicate its current state, how the input has been interpreted, and any related errors to the user.
@@ -268,7 +272,6 @@ The following assumptions are made regarding both the software and hardware comp
     \item [IR\refstepcounter{irnum}\theirnum \label{IR_DuplicateRecordDetection}:] The system should provide duplicate record detection for the record in various databases of the system.
     \textbf{Rationale:} To prevent confusion and medical errors resulting from duplicate entries, the system should validate and flag potential duplicate records before they are created.
 \end{itemize}
-
 
 \subsection{Privacy Requirements}
 \begin{itemize}
@@ -280,12 +283,10 @@ The following assumptions are made regarding both the software and hardware comp
     \item [AD\refstepcounter{adnum}\theadnum \label{AD_}:] 
 \end{itemize}
 
-
 \subsection{Immunity Requirements}
 \begin{itemize}
     \item [IM\refstepcounter{imnum}\theimnum \label{IM_}:] 
 \end{itemize}
-
 
 \section{Roadmap}
 
