@@ -177,7 +177,7 @@ To identify potential hazards, we first define the system boundaries and break i
     \end{itemize}
     
     \item \textbf{Report Generating Module:}
-    The report generating module is responsible for generating accurate reports using the transcribed data from trasncription module. The important aspects of medical data (such as the symptoms, illness history, etc.) is extracted from the data which is then compiled into the report using this module.
+    The report generating module is responsible for generating accurate reports using the transcribed data from transcription module. The important aspects of medical data (such as the symptoms, illness history, etc.) is extracted from the data which is then compiled into the report using this module.
 
     Potential Hazards:
     \begin{itemize}
@@ -196,14 +196,14 @@ To identify potential hazards, we first define the system boundaries and break i
     This module is responsible for all of the predictions that will occur based on the medical notes.
 
     \begin{itemize}
-        \item PR1: Diagnosis Prediction: The prediction module is responsible for using the clinical notes to provide some diagnosis predictions. The goal of this is module to associate symptoms with common diagnoses. This allows for a lateral view of possible patient diagnoses.
-        \item PR2: Medicine Prediction: Once a diagnosis is selected through the model or manual entry the corresponding frequently used medication will also be provided.
+        \item PR1: Diagnosis Prediction: The prediction module is responsible for using the clinical notes to provide some diagnosis predictions. The goal of this module is to associate symptoms with common diagnoses. This allows for a lateral view of possible patient diagnoses.
+        \item PR2: Medicine Prediction: Once a diagnosis is selected through the model or manual entry, the corresponding frequently used medication will also be provided.
     \end{itemize}
     
     Potential Hazards:
     \begin{itemize}
-        \item Wrong diagnosis family is predicted.
-        \item Processing non-medical related inputs.
+        \item Wrong diagnosis family is predicted
+        \item Processing non-medical related inputs
     \end{itemize}
     
 \end{itemize}
@@ -254,7 +254,7 @@ The following assumptions are made regarding both the software and hardware comp
         \midrule
         Transcription Module & \raggedright Convert audio data from the conversation to written text & \raggedright system provides incorrect transcription & \raggedright Inaccurate diagnosis; medical errors & \raggedright Background noise disruption; misinterpretation of the pronouced words & \raggedright User reports & \raggedright Use models with high transcription accuracy. Prompt user to review the transcribed data. Allow user to validate and edit transcribed data. & FR11, NFR3, IR\ref{IR_BackNoiseFilter} & H8 \\ 
         \midrule
-        Prediction Module & \raggedright Use medical notes to predict diagnosis and medicine required. & \raggedright Incorrect due to biased prediction & \raggedright Healthcare professional may be misled. & \raggedright Poorly trained model, biased data. & \raggedright Use validation and cross validation evaluate the models. & \raggedright Use healthcare professional evaluation and train systematically. & IR\ref{IR_ValidationScore}, NFR6 & H9.1 \\
+        Prediction Module & \raggedright Use medical notes to predict diagnosis and medicine required. & \raggedright Incorrect due to biased prediction & \raggedright Healthcare professional may be misled. & \raggedright Poorly trained model, biased data. & \raggedright Use validation and cross-validation to evaluate the models. & \raggedright Use healthcare professional evaluation and train systematically. & IR\ref{IR_ValidationScore}, NFR6 & H9.1 \\
         \midrule
         & \raggedright Use medical notes to predict diagnosis and medicine required & \raggedright Processing non-medical related inputs & \raggedright Healthcare professional may be misled. & \raggedright Inputs for model are not appropriately filtered for & \raggedright Add filters to the model pipeline to ensure data inputted is useful data. & \raggedright Add filters to check for quantitative inputs. & IR\ref{IR_InputCheck}, NFR6 & H9.2 \\ 
         \bottomrule
@@ -293,11 +293,11 @@ The following assumptions are made regarding both the software and hardware comp
     \item [IR\refstepcounter{irnum}\thesrnum \label{IR_InputCheck}:] The system should filter out irrelevant parameters before feeding the data into the model. 
     \textbf{Rationale:} Medical data may contain a lot of side notes and information which is not critical for diagnosis and medicine prediction. That data should be filters out and not be passed into the model as an input. This is because the model will be expecting only a certain set of parameters. Any irrelevant parameters must be left out. 
 
-    \item [IR\refstepcounter{irnum}\theirnum \label{IR_CompilingVerification}:] The system should provide validation that the text can be compiled by the report generating module as audio is being transcribed to the written text.
-    \textbf{Rationale:} To identify technical errors in the beginning itself. However, in the event of any error, the system should be able to fix it without causing delay in the transcription process. 
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_CompilingVerification}:] The system should have proper validation when cassifying the data for report generation.
+    \textbf{Rationale:} It is essential to generate correct reports to aviod any future medical and diagnosis errors.
 
-    \item [IR\refstepcounter{irnum}\theirnum \label{IR_BackNoiseFilter}:] The system should be able to filter the background noise to produce accurcy transcribed data.
-    \textbf{Rationale:} It is essential to produce accurate data to avoid any inaccurte records, potential medical errors and misdiagonsis. 
+    \item [IR\refstepcounter{irnum}\theirnum \label{IR_BackNoiseFilter}:] The system should be able to filter the background noise to produce accuracy transcribed data.
+    \textbf{Rationale:} It is essential to produce accurate data to avoid any inaccurate records, potential medical errors and misdiagonsis. 
 
 \end{itemize}
 
@@ -317,7 +317,7 @@ N/A
 
 After the hazard analysis we identified a lot of new safety and security requirements. In terms of the scope of the capstone project, in terms of these requirements the team will aim to deliver all of the mentioned requirements in this document including the mentioned access and integrity reqirements. 
 
-IR\label{IR_InputCheck} and IR\label{IR_ValidationScore} may be simplified. As for the input check it may be reduced to a simple filter, and the validation scores maybe to simplified to just attempting to mitigate model bias. The roadmap will re-assessed towards the end of the project to see if features can be augmented to complete the requirements.
+IR\label{IR_InputCheck} and IR\label{IR_ValidationScore} may be simplified. For the input check, it may be reduced to a simple filter, and the validation scores maybe to simplified to just attempting to mitigate model bias. The roadmap will re-assessed towards the end of the project to see if features can be augmented to complete the requirements.
 \newpage{}
 
 \section{References}
