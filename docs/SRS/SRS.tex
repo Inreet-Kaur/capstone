@@ -1112,17 +1112,18 @@ Access to patient record database.
 \end{itemize}
 
 
+
 \subsection{Non-functional Requirements} \label{sec_NonFunctionalRequirements}
 
 \noindent \begin{itemize}
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_LookAndFeel}:] \textbf{Aesthetic and Design}
 
-    \textbf{Requirement:} The UI should be a clean design which is minimalistic and simple.
+    \textbf{Requirement:} The UI should have a clean design that prioritizes simplicity and ease of navigation.
 
     \textbf{Rationale:} A clean user interface allows users to navigate through the application with ease. We want to reduce excess noise and make the UI as simple as possible.
 
-    \textbf{Fit Criterion:} UI demos will be sampled to healthcare workers to ensure that the design is easily understood and aesthetically pleasing.
+    \textbf{Fit Criterion:} UI prototypes will be tested with healthcare workers to confirm that they find the interface easy to use and navigate, with primary functions accessible within two clicks from the main screen.
 
     \textbf{Dependencies:} NFR\ref{NFR_Usability}
 
@@ -1131,12 +1132,11 @@ Access to patient record database.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Usability}:] \textbf{Usability}
 
-    \textbf{Requirement:} The UI of the system should be intuitive, with high discoverability.
+    \textbf{Requirement:} The UI must be highly intuitive, ensuring high discoverability of all system functions.
 
     \textbf{Rationale:} If the UI is user-friendly, it tends to reduce the learning time and allows health care workers to focus on patients. Additionally, we want the functionality to be easy to discover such that the user does not have to spend time searching for a feature.
   
-
-    \textbf{Fit Criterion:} Tests that demonstrates that atleast 90\% of healthcare workers are able to navigate the system with 30 minutes of training or less.
+    \textbf{Fit Criterion:} Usability tests will demonstrate that 90\% of healthcare workers can effectively use the system after 30 minutes of training.
 
     \textbf{Dependencies:} NFR\ref{NFR_LookAndFeel}
 
@@ -1144,7 +1144,7 @@ Access to patient record database.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Performance}:] \textbf{Performance}
 
-    \textbf{Requirement:} The system should accurately convert voice into text.
+    \textbf{Requirement:} The system shall provide responsive voice-to-text conversion and maintain high processing throughput during peak operational loads.
 
     \textbf{Rationale:} Reduces the documentation time to reduce workload and allow healthcare workers to focus on patients. Real time transcription will allow for lower friction when documenting.
     
@@ -1152,27 +1152,27 @@ Access to patient record database.
 
     \textbf{Dependencies:} NFR\ref{NFR_Operational}, \label{FR_DictationRecording}
 
-    \textbf{Undesired Event Handling:} In case of transcription delay or failiure, a feedback bar will indicate the status of the transcription.
+    \textbf{Undesired Event Handling:} In case of transcription delay or failure, a feedback bar will indicate the status of the transcription.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Operational}:] \textbf{Operational Requirement}
 
-    \textbf{Requirement:} The system should have an uptime guarantee of 99.9\% during operational hours.
+    \textbf{Requirement:} The system must maintain a 99.9\% uptime during operational hours and implement real-time data duplication to mitigate data loss.
 
     \textbf{Rationale:} Reliable uptime ensures consistent system for healthcare workers, specially in time-sensitive atmospheres like hospitals.
 
-    \textbf{Fit Criterion:} System logs will confirm an uptime rate of 99.9\% over a 30-day period.  
+    \textbf{Fit Criterion:} System logs will validate that the 99.9\% uptime is maintained over a 30-day period. Backup servers should engage within 10 seconds of downtime, with real-time data replication ensuring minimal data loss. 
 
     \textbf{Dependencies:} N/A
     
-    \textbf{Undesired Event Handling:} There should be backup servers that turn on within 10 seconds of downtime to ensure reliable uptime.
+    \textbf{Undesired Event Handling:} Data should be buffered in a temporary storage solution if a server switch occurs, ensuring that no data is lost during system recovery.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Maintainability}:] \textbf{Maintainability Requirement}
 
-    \textbf{Requirement:} The system must undergo regular software updates to patch bugs and enhance encryption algorithms.
+    \textbf{Requirement:} The system shall undergo regular updates for bug fixes and feature enhancements, ensuring minimal disruption.
 
-    \textbf{Rationale:} Easily maintained system allows for consistent service, and allows for extension of features. Also, regular updates to encryption algorithms enhance security.
+    \textbf{Rationale:} Easily maintained system allows for consistent service, and allows for extension of features. Also, regular maintenance supports long-term reliability and adaptability of the system.
 
-    \textbf{Fit Criterion:} Effective development patterns will be used, for extensions to be in updates.
+    \textbf{Fit Criterion:} Update logs will show periodic patches and updates at least once per quarter, with minimal downtime.
 
     \textbf{Dependencies:} N/A
 
@@ -1180,11 +1180,11 @@ Access to patient record database.
 
 \item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Security}:] \textbf{Security Requirement}
 
-    \textbf{Requirement:} The system should have all patient data encrypted, and in compliance with HIPAA standards.
+    \textbf{Requirement:} The system should have all patient data encrypted, and in compliance with Personal Information Protection and Electronic Documents Act (PIPEDA) standards.
 
-    \textbf{Rationale:} A secure and confidential system ensures the user to be confident in using the application.
+    \textbf{Rationale:} A secure and confidential system ensures the user to be confident in using the application while protecting sensitive patient data.
 
-    \textbf{Fit Criterion:} Security audits will show 100\% compliance with HIPAA and encryption standards.  
+    \textbf{Fit Criterion:} Security audits will confirm full compliance with PIPEDA, encryption and data protection standards.  
 
     \textbf{Dependencies:} N/A
 
@@ -1206,13 +1206,25 @@ Access to patient record database.
 
     \textbf{Requirement:} The system should comply with all healthcare data protection regulations. 
 
-    \textbf{Rationale:} Legal compliance is mandatory to protect patient data and avoid penalties.  
+    \textbf{Rationale:} Legal compliance is necessary to ensure patient data protection and avoid potential legal penalties.  
 
-    \textbf{Fit Criterion:} Legal audits will confirm compliance with HIPAA and any other relevant data protection laws.  
+    \textbf{Fit Criterion:} Legal audits will confirm full compliance with PIPEDA and any other relevant data protection laws.  
 
     \textbf{Dependencies:} N/A
 
     \textbf{Undesired Event Handling:} If the system fails to comply with regulations, it will be updated within 24 hours to meet compliance.
+
+\item[NFR\refstepcounter{nfrnum}\thenfrnum \label{NFR_Scalability}:] \textbf{Scalability Requirement}
+
+    \textbf{Requirement:} The system must scale horizontally to handle an increase in concurrent users and data processing load without hindering performance.
+
+    \textbf{Rationale:} Scalability ensures that the system can support growth and increased usage, maintaining performance across multiple healthcare facilities.  
+
+    \textbf{Fit Criterion:}  Stress tests will confirm that the system can support a large number of concurrent users and processes data without a drop in performance.  
+
+    \textbf{Dependencies:} N/A
+
+    \textbf{Undesired Event Handling:} If the system encounters performance bottlenecks, horizontal scaling solutions will be deployed to distribute the load effectively.
 
 \end{itemize}
 
