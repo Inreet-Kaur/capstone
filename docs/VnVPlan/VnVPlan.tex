@@ -436,42 +436,276 @@ How test will be performed:
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\wss{If there is a module that needs to be independently assessed for
-  performance, those test cases can go here.  In some projects, planning for
-  nonfunctional tests of units will not be that relevant.}
-
-\wss{These tests may involve collecting performance data from previously
-  mentioned functional tests.}
-
-\subsubsection{Module ?}
+\subsubsection{Aesthetic and Design (NFR1)}
 		
+\paragraph{Aesthetic and Design}
+
+\begin{enumerate}
+    \item{NFR1-test1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: UI is designed and implemented.\\
+    
+    Input/Condition: Healthcare workers view the UI under normal operating conditions.\\
+    
+    Output/Result: Feedback collected on UI’s aesthetic appeal and simplicity.\\
+    
+    How test will be performed: Conduct a comprehensive survey with healthcare workers, collecting quantitative and qualitative responses on UI usability and design clarity.
+
+    \item{NFR1-test2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: UI is operational and accessible to users.\\
+    
+    Input/Condition: Users interact with the UI during routine tasks and provides feedback.\\
+    
+    Output/Result: 80\% of users report satisfaction with the UI design.\\
+    
+    How test will be performed: Conduct observational tests and collect detailed feedback to analyze user experience, ensuring primary functions are accessible within two clicks from the main screen. 
+\end{enumerate}
+
+\subsubsection{Usability (NFR2)}
+
+\paragraph{Usability}
+
+\begin{enumerate}
+    \item{NFR2-test1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System is fully available and accessible to healthcare workers.\\
+    
+    Input/Condition: Healthcare workers perform key functions after a 30-minute training session.\\
+    
+    Output/Result: 90\% of healthcare workers complete tasks without assistanceand within the expected time frame.\\
+    
+    How test will be performed: Conduct structured observations, recording task completion rates and collecting user feedback on ease of use.
+
+    \item{NFR2-test2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System is deployed and accessible.\\
+    
+    Input/Condition: Users navigate and explore the system features independently.\\
+    
+    Output/Result: Majority of users can locate core functions without additional guidance.\\
+    
+    How test will be performed: Use task-based usability tests and track completion times and feedback to confirm high detectability of system functions.
+\end{enumerate}
+
+\subsubsection{Performance (NFR3)}
+
+\paragraph{Performance}
+
+\begin{enumerate}
+    \item{NFR3-test1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System with voice transcription feature is active.\\
+    
+    Input/Condition: Input of a 30-second audio recording under typical clinic noise levels.\\
+    
+    Output/Result: System completes transcription within 30 seconds with an accuracy of 85\%.\\
+    
+    How test will be performed: Use audio samples in a controlled setting to measure transcription speed and accuracy, ensuring the system meets performance standards.
+
+    \item{NFR3-test2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: Transcription interface open and ready.\\
+    
+    Input/Condition: Real-time voice input provided by healthcare professional.\\
+    
+    Output/Result: Real-time transcription displayed within a 1 second delay.\\
+    
+    How test will be performed: Conduct real-time testing and monitor the delay in transcription display, verifying it meets standards.
+\end{enumerate}
+
+\subsubsection{Operational (NFR4)}
+
+\paragraph{Operational Requirement}
+
+\begin{enumerate}
+    \item{NFR4-test1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System is live and connected to monitoring software.\\
+    
+    Input/Condition: 30-day operational period with intermittent load testing.\\
+    
+    Output/Result: Uptime is consistently maintained at 99.9\% or above.\\
+    
+    How test will be performed: Use uptime monitoring tools to track server availability over the 30-day period.
+
+    \item{NFR4-test2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System in operational use.\\
+    
+    Input/Condition: Users access the system over a 30-day period under normal and peak loads.\\
+    
+    Output/Result: Log data and user feedback confirm uptime meets standards with no significant disruptions.\\
+    
+    How test will be performed: Review system logs and usage reports at the end of the period to ensure compliance with operational goals.
+\end{enumerate}
+
+\subsubsection{Maintainability (NFR5)}
+
+\paragraph{Maintainability Requirement}
+
+\begin{enumerate}
+    \item{NFR5-test1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System running on the latest version with recent update logs.\\
+    
+    Input/Condition: Regular software update is applied for bug fixes and improvements.\\
+    
+    Output/Result: System successfully applies updates without impacting stability.\\
+    
+    How test will be performed: Conduct a manual inspection of update logs and perform basic functionality checks after each update.
+
+    \item{NFR5-test2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+
+    Initial State: Previous version of the system with identified bugs or issues.\\
+
+    Input/Condition: Apply updates addressing known issues.\\
+
+    Output/Result: System functions as expected with resolved issues and no new errors introduced.\\
+
+    How test will be performed: Conduct regression testing to verify that updates did not affect system performance.
+\end{enumerate}
+
+\subsubsection{Security (NFR6)}
+
+\paragraph{Security Requirement}
+
+\begin{enumerate}
+    \item{NFR6-test1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System with live patient data encryption protocols active.\\
+    
+    Input/Condition: Security audit test is performed on the system.\\
+    
+    Output/Result: No vulnerabilities are detected; all data remains encrypted in transit and at rest.\\
+    
+    How test will be performed: Conduct automated vulnerability scans and manual security audit to confirm full compliance with PIPEDA and encryption standards.
+
+    \item{NFR6-test2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System fully operational with access logs enabled.\\
+    
+    Input/Condition: Simulate unauthorized access attempts.\\
+    
+    Output/Result: Unauthorized attempts are blocked; access logs capture details.\\
+    
+    How test will be performed: Attempt controlled security breaches to validate the integrity of access control and logging mechanisms.
+\end{enumerate}
+
+\subsubsection{Cultural Requirement (NFR7)}
+
+\paragraph{Language Customization}
+
+\begin{enumerate}
+    \item{NFR7-test1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System operational in default language (English).\\
+    
+    Input/Condition: User selects an alternate language from the settings menu.\\
+    
+    Output/Result: System displays all content in the selected language without loss of functionality.\\
+    
+    How test will be performed: Users switch between languages and verify that UI elements and content display correctly in each selected language.
+
+    \item{NFR7-test2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System set to the default language with alternative language packs installed.\\
+
+    Input/Condition: User navigates through various sections in alternative language selected.\\
+    
+    Output/Result: No functional errors or misaligned text appear in the UI.\\
+    
+    How test will be performed: Conduct navigation tests across UI components in different languages to ensure consistent experience.
+\end{enumerate}
+
+\subsubsection{Legal Compliance (NFR8)}
+
+\paragraph{Legal Requirement}
+
+\begin{enumerate}
+    \item{NFR8-test1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System is fully functional and contains patient records.\\
+    
+    Input/Condition: Conduct a compliance audit against PIPEDA and other relevant data protection standards.\\
+    
+    Output/Result: System passes all compliance checks with no exceptions.\\
+    
+    How test will be performed: A certified compliance auditor verifies data handling, encryption protocols, and data access policies.
+
+    \item{NFR8-test2\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System storing and transmitting patient data over a network.\\
+    
+    Input/Condition: Monitor data handling and transfer processes during operation.\\
+    
+    Output/Result: All patient data is handled in compliance with regulations, without any unauthorized access or data breaches.\\
+    
+    How test will be performed: Automated compliance tools track data handling practices over a defined period, and alerts are set up for any regulatory deviations.
+\end{enumerate}
+
+\subsubsection{Scalability (NFR9)}
+
+\paragraph{Scalability Requirement}
+
 \begin{enumerate}
 
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-
+    \item{NFR9-test1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System deployed on a test server environment capable of scaling horizontally.\\
+    
+    Input/Condition: Simulate an increasing number of concurrent users accessing the system, starting from 100 users up to 10,000 users.\\
+    
+    Output/Result: System maintains consistent performance and response times without a drop in performance.\\
+    
+    How test will be performed: Use load testing tools liek Apache to simulate concurrent user traffic and monitor system response times, server load, and throughput during the test.
+    
+    \item{NFR9-test2\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System operational with data processing services enabled.\\
+    
+    Input/Condition: Increase the data input rate gradually from standard load to peak operational load.\\
+    
+    Output/Result: System processes data without bottlenecks, maintaining efficient load distribution.\\
+    
+    How test will be performed: Conduct stress tests with data processing simulators and monitor resource usage, CPU, memory, and load balancer performance to ensure scalability standards are met.
+    
 \end{enumerate}
 
 \subsubsection{Module ?}
