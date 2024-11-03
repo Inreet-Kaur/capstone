@@ -1,6 +1,7 @@
 \documentclass[12pt, titlepage]{article}
 
 \usepackage{booktabs}
+\usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \hypersetup{
@@ -712,9 +713,48 @@ How test will be performed:
 
 ...
 
-\subsection{Traceability Between Test Cases and Modules}
+\newpage
 
-\wss{Provide evidence that all of the modules have been considered.}
+\subsection{Traceability Between Test Cases and Requirements}
+
+\begin{longtable}{|p{1.3cm}|p{4cm}|p{1.4cm}|p{2.8cm}|p{2.5cm}|}
+\caption{Non-Functional Requirements Traceability Matrix} \label{tab:nfr-traceability} \\
+\hline
+\textbf{Req. ID} & \textbf{Req. Description} & \textbf{Test Cases} & \textbf{Dependencies} & \textbf{Verification Method} \\
+\hline
+\endfirsthead
+
+\multicolumn{5}{c}{Table \ref{tab:nfr-traceability} continued} \\
+\hline
+\textbf{Req. ID} & \textbf{Req. Description} & \textbf{Test Cases} & \textbf{Dependencies} & \textbf{Verification Method} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{5}{r}{Continued on next page} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+NFR1 & Aesthetic and Design - Clean UI & NFR1-test1, NFR1-test2 & NFR2 & User surveys and feedback \\
+\hline
+NFR2 & Usability - Intuitive Interface & NFR2-test1, NFR2-test2 & NFR1 & Task completion rates \\
+\hline
+NFR3 & Performance - Voice Transcription & NFR3-test1, NFR3-test2 & NFR4, FR5.2 & Accuracy measurements \\
+\hline
+NFR4 & Operational - 99.9\% Uptime & NFR4-test1, NFR4-test2 & NFR8, FR5.2 & Uptime monitoring \\
+\hline
+NFR5 & Maintainability - Updates & NFR5-test1, NFR5-test2 & N/A & Update success rate \\
+\hline
+NFR6 & Security - Encryption & NFR6-test1, NFR6-test2 & N/A & Security audits \\
+\hline
+NFR7 & Cultural - Language & NFR7-test1, NFR7-test2 & N/A & UI language testing \\
+\hline
+NFR8 & Legal Compliance & NFR8-test1, NFR8-test2 & N/A & Compliance audits \\
+\hline
+NFR9 & Scalability & NFR9-test1, NFR9-test2 & N/A & Load testing \\
+\end{longtable}
 				
 \bibliographystyle{plainnat}
 
