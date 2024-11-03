@@ -89,56 +89,31 @@ This document ... \wss{provide an introductory blurb and roadmap of the
 
 \subsection{Summary}
 
-\wss{Say what software is being tested.  Give its name and a brief overview of
-  its general functions.}
+The software being tested is called RapidCare. RapidCare is a web application designed with a purpose of expediting the documentation process in healthcare. The software will convert audio data from the conversation to written text using modules and libraries such as OAuth and Redux to improve patient care. Some general functionalities include generating error messages, user credentials integrity check, database sanity check, voice-to-text transcription check etc. 
 
 \subsection{Objectives}
 
-\wss{State what is intended to be accomplished.  The objective will be around
-  the qualities that are most important for your project.  You might have
-  something like: ``build confidence in the software correctness,''
-  ``demonstrate adequate usability.'' etc.  You won't list all of the qualities,
-  just those that are most important.}
-
-\wss{You should also list the objectives that are out of scope.  You don't have 
-the resources to do everything, so what will you be leaving out.  For instance, 
-if you are not going to verify the quality of usability, state this.  It is also 
-worthwhile to justify why the objectives are left out.}
-
-\wss{The objectives are important because they highlight that you are aware of 
-limitations in your resources for verification and validation.  You can't do everything, 
-so what are you going to prioritize?  As an example, if your system depends on an 
-external library, you can explicitly state that you will assume that external library 
-has already been verified by its implementation team.}
+The objective of verification and validation plan is to build confidence in the correctness of the software and decide if the software is correctly following the requirements. Additionally, we want to achieve adequate usability of our software by making sure it satisfies with the user's needs, thus speeding up the documentation process.
 
 \subsection{Challenge Level and Extras}
 
-\wss{State the challenge level (advanced, general, basic) for your project.
-Your challenge level should exactly match what is included in your problem
-statement.  This should be the challenge level agreed on between you and the
-course instructor.  You can use a pull request to update your challenge level
-(in TeamComposition.csv or Repos.csv) if your plan changes as a result of the
-VnV planning exercise.}
+In terms of the project challenge level, the project will come in the general category. The reasoning for this choice is supported below:
 
-\wss{Summarize the extras (if any) that were tackled by this project.  Extras
-can include usability testing, code walkthroughs, user documentation, formal
-proof, GenderMag personas, Design Thinking, etc.  Extras should have already
-been approved by the course instructor as included in your problem statement.
-You can use a pull request to update your extras (in TeamComposition.csv or
-Repos.csv) if your plan changes as a result of the VnV planning exercise.}
+\begin{itemize}
+  \item\textbf{Domain Knowledge}-- The documentation process has a lot of ins and outs which may differ between health organizations. Our supervisors and stakeholders will provide us with a base of the requirements, but further elicitation will be required to ensure that the requirements reflect a problem that truly exists. Additionally, since the whole patient journey is tracked we will have to survey other hospital staff as well to gain a further understanding. 
+  \item\textbf{Implementation Challenges}-- There will be quite a few microservices required for this project where each microservice has high complexity. The performance of the microservices must be high as this use case requires quick response time. Additionally, since we are dealing with patient data security and privacy must be upheld. Lastly, the integration between all of the parts must be secure and undergo rigorous integration testing.
+\end{itemize}
+
+As part of the extras for this project, we will accomplish the following extras:
+
+\begin{itemize}
+  \item\textbf{Usability testing}-- This is designed for the users to assess how easily they can navigate and use the software. This will ensure that the requirements of the software perfectly align with the user's needs.
+  \item\textbf{User documentation}-- This will include instructions that will help the user to get started with the software. It will have an overview of the software along with some help resources for setup instructions and easy navigation for the user.
+\end{itemize}
 
 \subsection{Relevant Documentation}
 
-\wss{Reference relevant documentation.  This will definitely include your SRS
-  and your other project documents (design documents, like MG, MIS, etc).  You
-  can include these even before they are written, since by the time the project
-  is done, they will be written.  You can create BibTeX entries for your
-  documents and within those entries include a hyperlink to the documents.}
-
-\citet{SRS}
-
-\wss{Don't just list the other documents.  You should explain why they are relevant and 
-how they relate to your VnV efforts.}
+The documents that are relevant to this project are Software Requirements Specification (SRS), Hazard Analysis, MG and MIS. SRS and Hazard Analysis documents lists the functional, non-functional, safety and security requirements which will assist us in developing tests for each of them. Moreover, MG and MIS documents give a structured approach of system's architecture and interface, ensuring that the system is thoroughly tested. This will help us to develop test cases for vital areas of the software.  
 
 \section{Plan}
 
