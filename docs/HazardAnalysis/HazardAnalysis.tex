@@ -271,11 +271,11 @@ The following assumptions are made regarding both the software and hardware comp
 
 \subsection{Access Requirements}
 \begin{itemize}
-    \item [AC\refstepcounter{acnum}\theacnum \label{AC_Autentication}:] The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged.\\
-    \textbf{Rationale:} Authentication is fundamental to system security as it ensures that only verified users can access sensitive resources. Logging failed attempts is crucial for detecting potential security breaches and maintaining an audit trail for security investigations.
+    \item [AC\refstepcounter{acnum}\theacnum \label{AC_Authentication}:] The API Module (OAuth) must allow only authenticated users access to system resources. Failed authentication attempts must be logged, and repeated failed login attempts from a single user must trigger an automatic security response, temporarily locking the account and notifying the security team.\\
+    \textbf{Rationale:} Authentication is fundamental to system security as it ensures that only verified users can access sensitive resources. Logging failed attempts is crucial for detecting potential security breaches and maintaining an audit trail for security investigations. Implementing an automatic response to repeated failed login attempts helps mitigate the risk of brute-force attacks and ensures proactive security measures.
     
-    \item [AC\refstepcounter{acnum}\theacnum \label{AC_AuthorizedPersonnel}:] Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked and logged.\\
-    \textbf{Rationale:} Restricting user management operations to authorized personnel prevents unauthorized account creation and modification, which could lead to security breaches. Logging blocked attempts provides accountability and helps identify potential internal threats or compromised credentials.
+    \item [AC\refstepcounter{acnum}\theacnum \label{AC_AuthorizedPersonnel}:] Only authorized personnel can create, update, or delete user accounts. Unauthorized actions should be blocked, logged, and reviewed to detect potential threats.\\
+    \textbf{Rationale:} Restricting user management operations to authorized personnel prevents unauthorized account creation and modification, which could lead to security breaches. Logging and reviewing blocked attempts provide accountability, help identify potential internal threats, and ensure quick responses to compromised credentials or suspicious activities.
 \end{itemize}
 
 
