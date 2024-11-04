@@ -589,7 +589,7 @@ How test will be performed:
         \item User receives lockout notification
     \end{itemize}
     
-    How test will be performed: Use automated testing scripts to simulate multiple failed login attempts and verify system responses, log entries, and notification delivery.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of sample invalid credentials for the system. They will be asked to use these credentials repeatedly to attempt system access. After they do this, they will be given a security test survey. In the security test survey, the supervisor will verify the logging, lockout, and notification requirements are met.
 
     \item{AC1-2\\}
     
@@ -605,7 +605,8 @@ How test will be performed:
         \item Each attempt is logged with timestamp, IP address, and attempted resource
     \end{itemize}
     
-    How test will be performed: Manual testing of various system endpoints and resources without authentication tokens.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of protected resources to access. They will be asked to attempt accessing these resources without authentication. After they do this, they will be given a security test survey. In the security test survey, the supervisor will verify that access was properly blocked and logged.
+
 
     \item{AC2-1\\}
     
@@ -622,7 +623,8 @@ How test will be performed:
         \item Security team can review blocked attempts
     \end{itemize}
     
-    How test will be performed: Manual testing using different user account types to attempt administrative actions.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of standard user credentials. They will be asked to attempt various administrative operations using these credentials. After they do this, they will be given a security test survey. In the security test survey, the supervisor will verify that administrative actions were properly restricted and logged.
+
 \end{enumerate}
 
 \subsubsection{Integrity Requirements Tests}
@@ -637,89 +639,8 @@ How test will be performed:
     
     Output/Result: User credentials remain unchanged and system maintains stability.\\
     
-    How test will be performed: Use load testing tools to simulate concurrent authentication attempts while monitoring database integrity.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of test credentials for concurrent authentication testing. They will be asked to perform multiple simultaneous authentication attempts. After they do this, they will be given a system integrity survey. In the system integrity survey, the supervisor will verify that all credentials remained intact and system stability was maintained.
 
-    \item{IR2-1\\}
-    
-    Type: Functional, Dynamic, Automated\\
-    
-    Initial State: System operational with validation checks enabled.\\
-    
-    Input/Condition: Submit various types of invalid input data through system interfaces.\\
-    
-    Output/Result: 
-    \begin{itemize}
-        \item System detects errors in real-time
-        \item Clear error messages are displayed to users
-        \item Invalid data is prevented from entering the system
-    \end{itemize}
-    
-    How test will be performed: Automated test suite submitting predefined invalid input scenarios.
-
-    \item{IR3-1\\}
-    
-    Type: Functional, Static, Automated\\
-    
-    Initial State: ML model trained and ready for predictions.\\
-    
-    Input/Condition: Submit test dataset for predictions.\\
-    
-    Output/Result: 
-    \begin{itemize}
-        \item Each prediction includes a confidence score
-        \item Validation accuracy scores are generated after training
-        \item Scores are properly formatted and within expected ranges
-    \end{itemize}
-    
-    How test will be performed: Automated testing of model outputs and validation metrics.
-
-    \item{IR4-1\\}
-    
-    Type: Functional, Dynamic, Automated\\
-    
-    Initial State: Database containing test records with known duplicates.\\
-    
-    Input/Condition: Attempt to create new records with varying degrees of similarity to existing records.\\
-    
-    Output/Result: System identifies and flags potential duplicate records based on matching criteria.\\
-    
-    How test will be performed: Automated testing with predefined test cases for duplicate detection.
-
-    \item{IR5-1\\}
-    
-    Type: Functional, Static, Automated\\
-    
-    Initial State: Test dataset with mix of relevant and irrelevant parameters.\\
-    
-    Input/Condition: Process test dataset through model input pipeline.\\
-    
-    Output/Result: Only relevant parameters are passed to the model for processing.\\
-    
-    How test will be performed: Automated verification of model input parameters against predefined parameter list.
-
-    \item{IR6-1\\}
-    
-    Type: Functional, Dynamic, Automated\\
-    
-    Initial State: System configured with report generation capabilities.\\
-    
-    Input/Condition: Generate reports with various data classifications.\\
-    
-    Output/Result: Reports are generated with correct classification and validation checks passed.\\
-    
-    How test will be performed: Automated testing of report generation with predefined test cases.
-
-    \item{IR7-1\\}
-    
-    Type: Functional, Dynamic, Automated\\
-    
-    Initial State: Audio transcription system enabled with test audio files.\\
-    
-    Input/Condition: Process audio files with varying levels of background noise.\\
-    
-    Output/Result: Transcribed data accurately reflects spoken content with minimal noise interference.\\
-    
-    How test will be performed: Automated testing using pre-recorded audio samples with known content and noise levels.
 \end{enumerate}
 
 \newpage
