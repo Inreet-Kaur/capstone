@@ -586,7 +586,7 @@ How test will be performed: The test controller will input an invalid identifier
 
 \begin{enumerate}
 
-    \item{AC1-1\\}
+    \item{test-AC1-1\\} \label{test-AC1-1}
     
     Type: Functional, Dynamic, Automated\\
     
@@ -604,7 +604,7 @@ How test will be performed: The test controller will input an invalid identifier
     
     How test will be performed: Use automated testing scripts to simulate multiple failed login attempts and verify system responses, log entries, and notification delivery.
 
-    \item{AC1-2\\}
+    \item{test-AC1-2\\}  \label{test-AC1-2}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -620,7 +620,7 @@ How test will be performed: The test controller will input an invalid identifier
     
     How test will be performed: Manual testing of various system endpoints and resources without authentication tokens.
 
-    \item{AC2-1\\}
+    \item{test-AC2-1\\}  \label{test-AC2-1}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -642,7 +642,7 @@ How test will be performed: The test controller will input an invalid identifier
 \subsubsection{Integrity Requirements Tests} \label{section:4.3.2}
 
 \begin{enumerate}
-    \item{IR1-1\\}
+    \item{test-IR1-1\\}  \label{test-IR1-1}
     
     Type: Non-functional, Dynamic, Automated\\
     
@@ -655,7 +655,7 @@ How test will be performed: The test controller will input an invalid identifier
     How test will be performed: Use load testing tools to simulate concurrent authentication attempts while monitoring database integrity.
 
 
-    \item{IR2-1}: Generate error Messages
+    \item{test-IR2-1}: Generate error Messages \label{test-IR2-1}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -668,7 +668,7 @@ How test will be performed: The test controller will input an invalid identifier
     How test will be performed: The test controller will input an invalid data input and check if the system is able to validate and reject the invalid data. The controller will verify that an error message appears.
 
 
-    \item{IR3-1\\}: Validation of confidence score (Pranav)
+    \item{test-IR3-1\\}: Validation of confidence score (Pranav) \label{test-IR3-1}
     
     % Type: Functional, Static, Automated\\
     
@@ -685,7 +685,7 @@ How test will be performed: The test controller will input an invalid identifier
     
     % How test will be performed: Automated testing of model outputs and validation metrics.
 
-    \item{IR4-1}: Duplicate record detection 
+    \item{test-IR4-1}: Duplicate record detection \label{test-IR4-1}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -709,7 +709,7 @@ How test will be performed: The test controller will input an invalid identifier
     
     % How test will be performed: Automated verification of model input parameters against predefined parameter list.
 
-    \item{IR6-1\\}: Classification of data for report generation. (Gurleen)
+    \item{test-IR6-1\\}: Classification of data for report generation. (Gurleen) \label{test-IR6-1}
     
     % Type: Functional, Dynamic, Automated\\
     
@@ -813,7 +813,35 @@ test-S\ref{test-S2} & & & & & & & & & & & & & & & & & & $\times$ \\
 \end{table}
 
 
-
+\begin{table} [H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  Test ID & AC1 & AC2 & IR1 & IR2 & IR3 & IR4 & IR5 & IR6 & IR7 \\
+  \hline
+  test-AC1-\ref{test-AC1-1} & $\times$ & & & & & & & & \\
+  \hline
+  test-AC-\ref{test-AC1-2} & $\times$ & & & & & & & & \\
+  \hline
+  test-AC-\ref{test-AC2-1} & & $\times$ & & & & & & & \\
+  \hline
+  test-IR-\ref{test-IR1-1} & & & $\times$ & & & & & &  \\
+  \hline
+  test-IR-\ref{test-IR2-1}  & & & & $\times$ & & & & & \\
+  \hline
+  test-IR-\ref{test-IR3-1}  & & & & & $\times$ & & & & \\
+  \hline
+  test-IR-\ref{test-IR4-1}  & & & & & & $\times$ & & & \\
+  \hline
+  test--\ref{test-}  & & & & & & & $\times$ & & \\
+  \hline
+  test-IR-\ref{test-IR6-1}  & & & & & & & & $\times$ & \\
+  \hline
+  test--\ref{test-}  & & & & & & & & & $\times$ \\
+  \hline
+\end{tabular}
+\caption{\bf Safety and Security Requirements Traceability} \label{tab:sns-test-traceability}
+\end{table}
 
 \end{landscape}
 \newpage
