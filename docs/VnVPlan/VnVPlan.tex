@@ -5,6 +5,10 @@
 \usepackage{pdflscape}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage{float}
+
+
+
 \hypersetup{
     colorlinks,
     citecolor=blue,
@@ -147,6 +151,16 @@ verified. Techniques for this include review and mutation testing.}
 
 \wss{Create a checklists?}
 
+This document must be verified to make sure it is robust and reliable. The plan must have extensive coverage to ensure that all requirements are covered. The two main methods we will be using are the following:
+
+\begin{itemize}
+  \item \textbf{Mutation Testing}: This is essentially making small changes to the code to see if the test cases can detect the changes. This ensures the test cases are robust.
+  
+  \item \textbf{VnV Reviews}: We will identify gaps in the Validation and Verification plan through reviews that we conduct with our peers and supervisors. This will help ensure completeness, accuracy, and feasibility of the plan.
+\end{itemize}
+
+Through both of these processes we will be able to ensure that the plan covers all input and is clear and consistent such that it can be carried out by any reader.
+
 \subsection{Implementation Verification Plan}
 
 \wss{You should at least point to the tests listed in this document and the unit
@@ -159,6 +173,16 @@ verified. Techniques for this include review and mutation testing.}
 \wss{The final class presentation in CAS 741 could be used as a code
 walkthrough.  There is also a possibility of using the final presentation (in
 CAS741) for a partial usability survey.}
+
+The implementation verification plan is really a lot of static review this is include code walkthroughs and code inspections in conjunction with static analyzers. The plan will be as follows:
+
+\begin{enumerate}
+  \item Static analysis will be present at the CI/CD pipeline level essentially whenever code is committed or a pull request is created. This will help catch code errors or style violations.
+  \item Next, the team will do a high level code walkthrough to catch any high level logic errors.
+  \item Finally, in any critical sections or features we will do a thorough code inspection where we will go through a detailed checklist to ensure the implementation is verified.
+\end{enumerate}
+
+This strategy will be implemented in section \ref{section:4}.
 
 \subsection{Automated Testing and Verification Tools}
 
@@ -176,6 +200,8 @@ that document.}
 
 \wss{The details of this section will likely evolve as you get closer to the
   implementation.}
+
+An outline of the CI/CD strategy can be found in section 7 of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/DevelopmentPlan/DevelopmentPlan.pdf}{Development Plan}. A list of relevant frameworks will be found in section 10 of the same document.
 
 \subsection{Software Validation Plan}
 
@@ -196,6 +222,8 @@ The feedback from your supervisor will be very useful for improving your project
 as a Rev 0 demo for the supervisor.}
 
 \wss{This section might reference back to the SRS verification section.}
+
+Validation of the project is critical and our supervisor will be vital for this process. Our supervisor will make sure that our Software solves the user groups needs. Our supervisor is in an excellent position to validate the software as not only are they a domain expert they also fit the potential user group.
 
 \section{System Tests} \label{section:4}
 
@@ -366,8 +394,7 @@ How test will be performed: The test controller will input any invalid credentia
 
 \end{enumerate}
 
-
-\subsubsection{Voice-to-text transcription check} \label{section:4.1.5}
+\subsubsection{Voice-to-text-transcription check} \label{section:4.1.5}
 
 This subsection covers FR7 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the system is able to transcribe audio data to the written text.
 
@@ -418,7 +445,7 @@ How test will be performed: The test controller will input an unclear sentence a
 \subsubsection{Verify completeness and correctness of data} \label{section:4.1.8}
 
 \item{test-} \label{test-}
-
+\end{itemize}
 
 
 
@@ -812,7 +839,7 @@ How test will be performed: The test controller will input an unclear sentence a
     
     Type: Functional, Dynamic, Manual\\
     
-    Initial State: System configured with report generation capabilities.\\
+    Initial State: The system is set up, open to the relevant section and ready to take the user input. A document already exists in the relevant database.\\
     
     Input/Condition: The written text transcribed from the audio data.\\
     
@@ -820,16 +847,16 @@ How test will be performed: The test controller will input an unclear sentence a
     
     How test will be performed: The test controller will have a new data input and check if the system is able to validate and classify the data accurately. The controller will verify that there are no diagnosis errors in the generated report.\\
 
-    \item{test-IR7-1}: 
+    \item{test-IR7-1}: Filter background noise for accuracy. \label{test-IR7-1}
     
-    % Type: Functional, Dynamic, Automated\\
+    Type: Functional, Dynamic, Manual\\
     
-    % Initial State: Audio transcription system enabled with test audio files.\\
+    Initial State: The system is set up, open to the relevant section and ready to take the user input. A document already exists in the relevant database.\\
     
-    % Input/Condition: Process audio files with varying levels of background noise.\\
+    Input/Condition: A valid data input from the audio conversation.\\
     
-    % Output/Result: Transcribed data accurately reflects spoken content with minimal noise interference.\\
-    
+    Output/Result: The written text transcribed from the input data  
+
     % How test will be performed: Automated testing using pre-recorded audio samples with known content and noise levels.
 
 \end{enumerate}
@@ -940,9 +967,9 @@ test-S\ref{test-S2} & & & & & & & & & & & & & & & & & & $\times$ \\
   \hline
   test--\ref{test-}  & & & & & & & $\times$ & & \\
   \hline
-  test-IR-\ref{test-IR6-1}  & & & & & & & & $\times$ & \\
+  test-IR6-\ref{test-IR6-1}  & & & & & & & & $\times$ & \\
   \hline
-  test-IR-\ref{test-IR7-1}  & & & & & & & & & $\times$ \\
+  test-IR7-\ref{test-IR7-1}  & & & & & & & & & $\times$ \\
   \hline
 \end{tabular}
 \caption{\bf Safety and Security Requirements Traceability} \label{tab:sns-test-traceability}
