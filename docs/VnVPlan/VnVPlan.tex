@@ -794,7 +794,7 @@ How test will be performed: The test controller will input an unclear sentence a
     
     Output/Result: An error message. No new document is added to the database.\\
     
-    How test will be performed: The test controller will input a new input with the same data as an existing document and check if the system is able to validate and reject the duplicate record. The controller will verify that an error message appears.
+    How test will be performed: The test controller will have a new input with the same data as an existing document and check if the system is able to validate and reject the duplicate record. The controller will verify that an error message appears.
 
     % \item{IR5-1\\}
     
@@ -808,17 +808,17 @@ How test will be performed: The test controller will input an unclear sentence a
     
     % How test will be performed: Automated verification of model input parameters against predefined parameter list.
 
-    % \item{test-IR6-1}: Classification of data for report generation. \label{test-IR6-1}
+    \item{test-IR6-1}: Classification of data for report generation. \label{test-IR6-1}
     
-    % Type: Functional, Dynamic, Manual\\
+    Type: Functional, Dynamic, Manual\\
     
-    % Initial State: System configured with report generation capabilities.\\
+    Initial State: System configured with report generation capabilities.\\
     
-    % Input/Condition: The system is set up, open to the relevant section and ready to take the user input.\\
+    Input/Condition: The written text transcribed from the audio data.\\
     
-    % Output/Result: Reports are generated with correct classification and validation checks passed.\\
+    Output/Result: The data is correctly classified in the generated report with no diagnosis errors.\\
     
-    % How test will be performed: Automated testing of report generation with predefined test cases.
+    How test will be performed: The test controller will have a new data input and check if the system is able to validate and classify the data accurately. The controller will verify that there are no diagnosis errors in the generated report.\\
 
     % \item{IR7-1\\}
     
