@@ -79,7 +79,7 @@
 
 \subsection{Summary}
 
-This document provides a comprehensive description of the system tests specific to all requirements for a software application, RapidCare, that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used as a verification tool to ensure that system fulfills all the requirements and needs of the user. This document will allow for an in-depth description of system tests for functional, non-functional, safety and security requirements. Additionally, it will outline the verification plan for design and implementation which will make sure that all requirements are fulfilled. Along with this, the document will also include the software validation plan that will validate the requirements by making sure that the client who intends to use this application is satisfied with its features.    
+This document provides a comprehensive description of the system tests specific to all requirements for a software application, RapidCare, that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used as a verification tool to ensure that system fulfills all the requirements and needs of the user. This document will allow for an in-depth description of system tests for functional, non-functional, safety and security requirements. Additionally, it will outline the verification plan for design and implementation which will make sure that all requirements are fulfilled. Along with this, the document will also include the software validation plan that will validate the requirements by making sure that the client who intends to use this application is satisfied with its features. The system will allow the users to automate the documentation process by transcribing audio to text and generating reports based on the transcribed data. The system will also provide diagnostics and medicine suggestions based on the reports to further optimize the process.    
 
 \subsection{Objectives}
 
@@ -141,7 +141,7 @@ issue tracker?}
 \subsection{Verification and Validation Plan Verification Plan}
 
 \wss{The verification and validation plan is an artifact that should also be
-verified.  Techniques for this include review and mutation testing.}
+verified. Techniques for this include review and mutation testing.}
 
 \wss{The review will include reviews by your classmates}
 
@@ -233,7 +233,7 @@ Output: A confirmation message and a new entry is added to the appropriate datab
 
 Test Case Derivation: The system will validate the input data, accept a complete and correct data input, and confirm a successful addition to the database.
 
-How test will be performed: The test controller will input a valid data object and check if the system is able to validate and accept a valid input. The controller will verify that a confirmation message appears and there is a valid new entry in the appropriate database.
+How test will be performed: The test controller will input a valid data object and check if the system is able to validate and accept the valid input. The controller will verify that a confirmation message appears and there is a valid new entry in the appropriate database.
 
 					
 \item{test-FR1,4,8-2} \label{test-FR1,4,8-2}
@@ -271,7 +271,7 @@ Output: A confirmation message and relevant entry no longer exist in the databas
 
 Test Case Derivation: The system should allow the deletion of an existing document when the correct identifier is provided. 
 
-How test will be performed: The test controller will input a valid identifier and check if the system is able to validate and accept a valid input. The controller will verify that a confirmation message appears and there the associated document no longer exists in the database.
+How test will be performed: The test controller will input a valid identifier and check if the system is able to validate and accept the valid input. The controller will verify that a confirmation message appears and the associated document no longer exists in the database.
 
 					
 \item{test-FR2,5,9-2} \label{test-FR2,5,9-2}
@@ -282,7 +282,7 @@ Initial State: The system is set up, open to the relevant section (e.g., Healthc
 
 Input: An invalid identifier for the document to be deleted.
 
-Output: An error message.
+Output: An appropriate error message.
 
 Test Case Derivation: The system should be able to validate the provided identifier and prevent the deletion of any existing document. 
 
@@ -293,17 +293,116 @@ How test will be performed: The test controller will input an invalid identifier
 
 \subsubsection{Update document in the database} \label{section:4.1.3}
 
-\item{test-} \label{test-}
+This subsection covers FR3, FR6, FR10, and FR11 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the system is able to update a document to the database only when a valid input idetifier is provided.
+
+\begin{enumerate}
+
+\item{test-FR3,6,10,11-1} \label{test-FR3,6,10,11-1}
+
+Control: Manual
+
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input.
+
+Input: A correct identifier for the document to be updated.
+
+Output: A confirmation message and relevant entry shows the updated data in the database.
+
+Test Case Derivation: The system should allow to update the existing document when the correct identifier is provided.
+
+How test will be performed: The test controller will input a valid identifier and check if the system is able to validate and accept the valid input. The controller will verify that a confirmation message appears and the current document is updated in the database.
+
+
+\item{test-FR3,6,10,11-2} \label{test-FR3,6,10,11-2}
+
+Control: Manual
+
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input. 
+
+Input: An invalid identifier for the document to be updated.
+
+Output: An appropriate error message.
+
+Test Case Derivation: The system should be able to validate the provided identifier and prevent the update of any document.
+
+How test will be performed: The test controller will input an invalid identifier and check if the system is able to validate and reject the invalid identifier. The controller will verify that an error message appears, and no document is updated in the database. 
+
+\end{enumerate}
 
 
 \subsubsection{login for valid/invalid credentials} \label{section:4.1.4}
 
-\item{test-} \label{test-}
+This subsection covers FR7 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the system is able to allow to access the database only when a valid input credentials is provided.
+
+\begin{enumerate}
+
+\item{test-FR7-1} \label{test-FR7-1}
+
+Control: Manual
+
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input.
+
+Input: The correct credentials for login.
+
+Output: A confirmation message and user can access the homepage of the database.
+
+Test Case Derivation: The system should be able to validate the provided credentials and allow to login the database.
+
+How test will be performed: The test controller will input the valid credentials and check if the system is able to validate and accept the valid input. The controller will verify that a confirmation message appears and the user is able to login the database.
 
 
-\subsubsection{Voice-to-text-transcription check} \label{section:4.1.5}
+\item{test-FR7-2} \label{test-FR7-2}
 
-\item{test-} \label{test-}
+Control: Manual
+
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input.
+
+Input: Invalid credentials for login.
+
+Output: An appropriate error message.
+
+Test Case Derivation: The system should be able to validate the provided credentials and prevent unauthorized access to the database.
+
+How test will be performed: The test controller will input any invalid credentials and check if the system is able to validate and reject the invalid credentials. The controller will verify that an error message appears and unauthorized access will be denied.
+
+\end{enumerate}
+
+
+\subsubsection{Voice-to-text transcription check} \label{section:4.1.5}
+
+This subsection covers FR7 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the system is able to transcribe audio data to the written text.
+
+\begin{enumerate}
+
+\item{test-FR11-1} \label{test-FR11-1}
+
+Control: Manual
+
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input.
+
+Input: A valid sentence from the conversation between the healthcare professional and the patient.
+
+Output: A confirmation message indicating successful transcription and the screen shows the transcribed text.
+
+Test Case Derivation: The system should be able to validate the voice input by processing it and transcribe to written text in real-time.
+
+How test will be performed: The test controller will input a valid sentence from the conversation and check if the system is able to process the valid input. The controller will verify that a confirmation message appears and the voice input is transcribed to written text.
+
+
+\item{test-FR11-2} \label{test-FR11-2}
+
+Control: Manual
+
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input.
+
+Input: An unclear sentence from the conversation.
+
+Output: An appropriate error message.
+
+Test Case Derivation: The system should be able to validate the invalid input and prevent transcription of that sentence.
+
+How test will be performed: The test controller will input an unclear sentence and check if the system is able to validate and reject the input. The controller will verify that an error message appears and audio input will not be transcribed to written text.
+
+\end{enumerate}
 
 
 \subsubsection{Validate output of correct diagonsis and medication} \label{section:4.1.6}
@@ -655,7 +754,7 @@ How test will be performed: The test controller will input an invalid identifier
     How test will be performed: Use load testing tools to simulate concurrent authentication attempts while monitoring database integrity.
 
 
-    \item{test-IR2-1}: Generate error Messages \label{test-IR2-1}
+    \item{test-IR2-1}: Generate error messages \label{test-IR2-1}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -709,13 +808,13 @@ How test will be performed: The test controller will input an invalid identifier
     
     % How test will be performed: Automated verification of model input parameters against predefined parameter list.
 
-    \item{test-IR6-1\\}: Classification of data for report generation. (Gurleen) \label{test-IR6-1}
+    % \item{test-IR6-1}: Classification of data for report generation. \label{test-IR6-1}
     
-    % Type: Functional, Dynamic, Automated\\
+    % Type: Functional, Dynamic, Manual\\
     
     % Initial State: System configured with report generation capabilities.\\
     
-    % Input/Condition: Generate reports with various data classifications.\\
+    % Input/Condition: The system is set up, open to the relevant section and ready to take the user input.\\
     
     % Output/Result: Reports are generated with correct classification and validation checks passed.\\
     
