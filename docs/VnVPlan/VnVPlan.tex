@@ -312,7 +312,8 @@ How test will be performed:
     
     Output/Result: Feedback collected on UI’s aesthetic appeal and simplicity.\\
     
-    How test will be performed: Conduct a comprehensive survey with healthcare workers, collecting quantitative and qualitative responses on UI usability and design clarity.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of routine UI interactions to perform. They will be asked to complete these interactions using the interface. After they do this, they will be given a UI design survey. In the UI design survey, the supervisor will verify that the interface meets aesthetic appeal and simplicity requirements.
+
 
     \item{AD2\\}
     
@@ -324,7 +325,8 @@ How test will be performed:
     
     Output/Result: 80\% of users report satisfaction with the UI design.\\
     
-    How test will be performed: Conduct observational tests and collect detailed feedback to analyze user experience, ensuring primary functions are accessible within two clicks from the main screen. 
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of common tasks to perform. They will be asked to complete these tasks using the interface. After they do this, they will be given a UI satisfaction survey. In the UI satisfaction survey, the supervisor will verify that at least 80\% of users are satisfied with the design.
+
 \end{enumerate}
 
 \subsubsection{Usability Requirement(NFR2)}
@@ -342,7 +344,7 @@ How test will be performed:
     
     Output/Result: 90\% of healthcare workers complete tasks without assistanceand within the expected time frame.\\
     
-    How test will be performed: Conduct structured observations, recording task completion rates and collecting user feedback on ease of use.
+    How this test will be performed: A test group of healthcare workers and the supervisor will be given the system, and a set of key functions to perform after a 30-minute training. They will be asked to complete these functions independently. After they do this, they will be given a task completion survey. In the task completion survey, the supervisor will verify that 90\% of workers completed tasks without assistance.
 
     \item{UR2\\}
     
@@ -354,7 +356,8 @@ How test will be performed:
     
     Output/Result: Majority of users can locate core functions without additional guidance.\\
     
-    How test will be performed: Use task-based usability tests and track completion times and feedback to confirm high detectability of system functions.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of core functions to locate. They will be asked to find these functions without guidance. After they do this, they will be given a navigation survey. In the navigation survey, the supervisor will verify that users could locate core functions independently.
+
 \end{enumerate}
 
 \subsubsection{Performance Requirement(NFR3)}
@@ -372,7 +375,7 @@ How test will be performed:
     
     Output/Result: System completes transcription within 30 seconds with an accuracy of 85\%.\\
     
-    How test will be performed: Use audio samples in a controlled setting to measure transcription speed and accuracy, ensuring the system meets performance standards.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of 30-second audio recordings with typical clinic noise. They will be asked to process these recordings through the transcription system. After they do this, they will be given a performance survey. In the performance survey, the supervisor will verify the transcription speed and accuracy meet the 85\% standard.
 
     \item{PR2\\}
     
@@ -384,7 +387,8 @@ How test will be performed:
     
     Output/Result: Real-time transcription displayed within a 1 second delay.\\
     
-    How test will be performed: Conduct real-time testing and monitor the delay in transcription display, verifying it meets standards.
+    How this test will be performed: A test group of healthcare professionals and the supervisor will be given the system, and a set of voice inputs to transcribe. They will be asked to speak these inputs for real-time transcription. After they do this, they will be given a latency survey. In the latency survey, the supervisor will verify that transcription delay remains under 1 second.
+
 \end{enumerate}
 
 \subsubsection{Operational Requirement(NFR4)}
@@ -414,7 +418,8 @@ How test will be performed:
     
     Output/Result: Log data and user feedback confirm uptime meets standards with no significant disruptions.\\
     
-    How test will be performed: Review system logs and usage reports at the end of the period to ensure compliance with operational goals.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of usage patterns to follow over 30 days. They will be asked to use the system according to these patterns while monitoring performance. After they do this, they will be given an uptime survey. In the uptime survey, the supervisor will verify that no significant disruptions occurred during the test period.
+
 \end{enumerate}
 
 \subsubsection{Maintainability Requirement(NFR5)}
@@ -432,7 +437,8 @@ How test will be performed:
     
     Output/Result: System successfully applies updates without impacting stability.\\
     
-    How test will be performed: Conduct a manual inspection of update logs and perform basic functionality checks after each update.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of software updates to apply. They will be asked to implement these updates following standard procedures. After they do this, they will be given a stability survey. In the stability survey, the supervisor will verify that system functionality remained stable after updates.
+
 
     \item{MR2\\}
     
@@ -444,7 +450,8 @@ How test will be performed:
 
     Output/Result: System functions as expected with resolved issues and no new errors introduced.\\
 
-    How test will be performed: Conduct regression testing to verify that updates did not affect system performance.
+    How this test will be performed: While developers update the system, a test group of users and a supervisor will monitor it. The group will test functionality as updates are deployed, after which they'll complete a regression survey. The supervisor will verify that issues are resolved without introducing new errors.
+
 \end{enumerate}
 
 \subsubsection{Security Requirement(NFR6)}
@@ -474,7 +481,8 @@ How test will be performed:
     
     Output/Result: Unauthorized attempts are blocked; access logs capture details.\\
     
-    How test will be performed: Attempt controlled security breaches to validate the integrity of access control and logging mechanisms.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of unauthorized access scenarios. They will be asked to attempt these scenarios while monitoring system responses. After they do this, they will be given an access control survey. In the access control survey, the supervisor will verify that all unauthorized attempts were properly blocked and logged.
+
 \end{enumerate}
 
 \subsubsection{Cultural Requirement (NFR7)}
@@ -492,7 +500,7 @@ How test will be performed:
     
     Output/Result: System displays all content in the selected language without loss of functionality.\\
     
-    How test will be performed: Users switch between languages and verify that UI elements and content display correctly in each selected language.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of language switching scenarios. They will be asked to change the system language and verify content display. After they do this, they will be given a language functionality survey. In the language functionality survey, the supervisor will verify that all content displays correctly in each language.
 
     \item{CR2\\}
     
@@ -504,7 +512,8 @@ How test will be performed:
     
     Output/Result: No functional errors or misaligned text appear in the UI.\\
     
-    How test will be performed: Conduct navigation tests across UI components in different languages to ensure consistent experience.
+    How this test will be performed: A test group of users and the supervisor will be given the system, and a set of UI navigation tasks in different languages. They will be asked to complete these tasks in various language settings. After they do this, they will be given a language consistency survey. In the language consistency survey, the supervisor will verify that no text misalignment or functional errors occur.
+
 \end{enumerate}
 
 \subsubsection{Legal Requirement(NFR8)}
@@ -553,7 +562,7 @@ How test will be performed:
     
     Output/Result: System maintains consistent performance and response times without a drop in performance.\\
     
-    How test will be performed: Use load testing tools liek Apache to simulate concurrent user traffic and monitor system response times, server load, and throughput during the test.
+    How test will be performed: Use load testing tools like Apache to simulate concurrent user traffic and monitor system response times, server load, and throughput during the test.
     
     \item{S2\\}
     
@@ -565,7 +574,7 @@ How test will be performed:
     
     Output/Result: System processes data without bottlenecks, maintaining efficient load distribution.\\
     
-    How test will be performed: Conduct stress tests with data processing simulators and monitor resource usage, CPU, memory, and load balancer performance to ensure scalability standards are met.
+    How this test will be performed: Conduct automated stress tests with data processing simulators and monitor resource usage, CPU, memory, and load balancer performance to ensure scalability standards are met.
     
 \end{enumerate}
 
