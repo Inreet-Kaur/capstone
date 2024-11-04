@@ -1,6 +1,8 @@
 \documentclass[12pt, titlepage]{article}
 
 \usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{pdflscape}
 \usepackage{tabularx}
 \usepackage{hyperref}
 \hypersetup{
@@ -295,83 +297,474 @@ How test will be performed:
 
 \subsection{Tests for Nonfunctional Requirements}
 
-\wss{The nonfunctional requirements for accuracy will likely just reference the
-  appropriate functional tests from above.  The test cases should mention
-  reporting the relative error for these tests.  Not all projects will
-  necessarily have nonfunctional requirements related to accuracy.}
-
-\wss{For some nonfunctional tests, you won't be setting a target threshold for
-passing the test, but rather describing the experiment you will do to measure
-the quality for different inputs.  For instance, you could measure speed versus
-the problem size.  The output of the test isn't pass/fail, but rather a summary
-table or graph.}
-
-\wss{Tests related to usability could include conducting a usability test and
-  survey.  The survey will be in the Appendix.}
-
-\wss{Static tests, review, inspections, and walkthroughs, will not follow the
-format for the tests given below.}
-
-\wss{If you introduce static tests in your plan, you need to provide details.
-How will they be done?  In cases like code (or document) walkthroughs, who will
-be involved? Be specific.}
-
-\subsubsection{Area of Testing1}
+\subsubsection{Aesthetic and Design (NFR1)}
 		
-\paragraph{Title for Test}
+\paragraph{Aesthetic and Design}
+
+\begin{enumerate}
+    \item{AD1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: UI is designed and implemented.\\
+    
+    Input/Condition: Healthcare workers view the UI under normal operating conditions.\\
+    
+    Output/Result: Feedback collected on UI’s aesthetic appeal and simplicity.\\
+    
+    How test will be performed: Conduct a comprehensive survey with healthcare workers, collecting quantitative and qualitative responses on UI usability and design clarity.
+
+    \item{AD2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: UI is operational and accessible to users.\\
+    
+    Input/Condition: Users interact with the UI during routine tasks and provides feedback.\\
+    
+    Output/Result: 80\% of users report satisfaction with the UI design.\\
+    
+    How test will be performed: Conduct observational tests and collect detailed feedback to analyze user experience, ensuring primary functions are accessible within two clicks from the main screen. 
+\end{enumerate}
+
+\subsubsection{Usability Requirement(NFR2)}
+
+\paragraph{Usability}
+
+\begin{enumerate}
+    \item{UR1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System is fully available and accessible to healthcare workers.\\
+    
+    Input/Condition: Healthcare workers perform key functions after a 30-minute training session.\\
+    
+    Output/Result: 90\% of healthcare workers complete tasks without assistanceand within the expected time frame.\\
+    
+    How test will be performed: Conduct structured observations, recording task completion rates and collecting user feedback on ease of use.
+
+    \item{UR2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System is deployed and accessible.\\
+    
+    Input/Condition: Users navigate and explore the system features independently.\\
+    
+    Output/Result: Majority of users can locate core functions without additional guidance.\\
+    
+    How test will be performed: Use task-based usability tests and track completion times and feedback to confirm high detectability of system functions.
+\end{enumerate}
+
+\subsubsection{Performance Requirement(NFR3)}
+
+\paragraph{Performance}
+
+\begin{enumerate}
+    \item{PR1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System with voice transcription feature is active.\\
+    
+    Input/Condition: Input of a 30-second audio recording under typical clinic noise levels.\\
+    
+    Output/Result: System completes transcription within 30 seconds with an accuracy of 85\%.\\
+    
+    How test will be performed: Use audio samples in a controlled setting to measure transcription speed and accuracy, ensuring the system meets performance standards.
+
+    \item{PR2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: Transcription interface open and ready.\\
+    
+    Input/Condition: Real-time voice input provided by healthcare professional.\\
+    
+    Output/Result: Real-time transcription displayed within a 1 second delay.\\
+    
+    How test will be performed: Conduct real-time testing and monitor the delay in transcription display, verifying it meets standards.
+\end{enumerate}
+
+\subsubsection{Operational Requirement(NFR4)}
+
+\paragraph{Operational Requirement}
+
+\begin{enumerate}
+    \item{OR1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System is live and connected to monitoring software.\\
+    
+    Input/Condition: 30-day operational period with intermittent load testing.\\
+    
+    Output/Result: Uptime is consistently maintained at 99.9\% or above.\\
+    
+    How test will be performed: Use uptime monitoring tools to track server availability over the 30-day period.
+
+    \item{OR2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System in operational use.\\
+    
+    Input/Condition: Users access the system over a 30-day period under normal and peak loads.\\
+    
+    Output/Result: Log data and user feedback confirm uptime meets standards with no significant disruptions.\\
+    
+    How test will be performed: Review system logs and usage reports at the end of the period to ensure compliance with operational goals.
+\end{enumerate}
+
+\subsubsection{Maintainability Requirement(NFR5)}
+
+\paragraph{Maintainability Requirement}
+
+\begin{enumerate}
+    \item{MR1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System running on the latest version with recent update logs.\\
+    
+    Input/Condition: Regular software update is applied for bug fixes and improvements.\\
+    
+    Output/Result: System successfully applies updates without impacting stability.\\
+    
+    How test will be performed: Conduct a manual inspection of update logs and perform basic functionality checks after each update.
+
+    \item{MR2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+
+    Initial State: Previous version of the system with identified bugs or issues.\\
+
+    Input/Condition: Apply updates addressing known issues.\\
+
+    Output/Result: System functions as expected with resolved issues and no new errors introduced.\\
+
+    How test will be performed: Conduct regression testing to verify that updates did not affect system performance.
+\end{enumerate}
+
+\subsubsection{Security Requirement(NFR6)}
+
+\paragraph{Security Requirement}
+
+\begin{enumerate}
+    \item{SR1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System with live patient data encryption protocols active.\\
+    
+    Input/Condition: Security audit test is performed on the system.\\
+    
+    Output/Result: No vulnerabilities are detected; all data remains encrypted in transit and at rest.\\
+    
+    How test will be performed: Conduct automated vulnerability scans and manual security audit to confirm full compliance with PIPEDA and encryption standards.
+
+    \item{SR2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System fully operational with access logs enabled.\\
+    
+    Input/Condition: Simulate unauthorized access attempts.\\
+    
+    Output/Result: Unauthorized attempts are blocked; access logs capture details.\\
+    
+    How test will be performed: Attempt controlled security breaches to validate the integrity of access control and logging mechanisms.
+\end{enumerate}
+
+\subsubsection{Cultural Requirement (NFR7)}
+
+\paragraph{Language Customization}
+
+\begin{enumerate}
+    \item{CR1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System operational in default language (English).\\
+    
+    Input/Condition: User selects an alternate language from the settings menu.\\
+    
+    Output/Result: System displays all content in the selected language without loss of functionality.\\
+    
+    How test will be performed: Users switch between languages and verify that UI elements and content display correctly in each selected language.
+
+    \item{CR2\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System set to the default language with alternative language packs installed.\\
+
+    Input/Condition: User navigates through various sections in alternative language selected.\\
+    
+    Output/Result: No functional errors or misaligned text appear in the UI.\\
+    
+    How test will be performed: Conduct navigation tests across UI components in different languages to ensure consistent experience.
+\end{enumerate}
+
+\subsubsection{Legal Requirement(NFR8)}
+
+\paragraph{Legal Compliance}
+
+\begin{enumerate}
+    \item{LR1\\}
+    
+    Type: Non-functional, Dynamic, Manual\\
+    
+    Initial State: System is fully functional and contains patient records.\\
+    
+    Input/Condition: Conduct a compliance audit against PIPEDA and other relevant data protection standards.\\
+    
+    Output/Result: System passes all compliance checks with no exceptions.\\
+    
+    How test will be performed: A certified compliance auditor verifies data handling, encryption protocols, and data access policies.
+
+    \item{LR2\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System storing and transmitting patient data over a network.\\
+    
+    Input/Condition: Monitor data handling and transfer processes during operation.\\
+    
+    Output/Result: All patient data is handled in compliance with regulations, without any unauthorized access or data breaches.\\
+    
+    How test will be performed: Automated compliance tools track data handling practices over a defined period, and alerts are set up for any regulatory deviations.
+\end{enumerate}
+
+\subsubsection{Scalability (NFR9)}
+
+\paragraph{Scalability}
 
 \begin{enumerate}
 
-\item{test-id1\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-
+    \item{S1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System deployed on a test server environment capable of scaling horizontally.\\
+    
+    Input/Condition: Simulate an increasing number of concurrent users accessing the system, starting from 100 users up to 10,000 users.\\
+    
+    Output/Result: System maintains consistent performance and response times without a drop in performance.\\
+    
+    How test will be performed: Use load testing tools liek Apache to simulate concurrent user traffic and monitor system response times, server load, and throughput during the test.
+    
+    \item{S2\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System operational with data processing services enabled.\\
+    
+    Input/Condition: Increase the data input rate gradually from standard load to peak operational load.\\
+    
+    Output/Result: System processes data without bottlenecks, maintaining efficient load distribution.\\
+    
+    How test will be performed: Conduct stress tests with data processing simulators and monitor resource usage, CPU, memory, and load balancer performance to ensure scalability standards are met.
+    
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
+\subsection{Tests for Safety and Security Requirements}
 
-...
+\subsubsection{Access Requirements Tests}
+\begin{enumerate}
+    \item{AC1-1\\}
+    
+    Type: Functional, Dynamic, Automated\\
+    
+    Initial State: System deployed with authentication module enabled and test user accounts configured.\\
+    
+    Input/Condition: Attempt to access protected resources with invalid credentials 5 times consecutively from the same IP address.\\
+    
+    Output/Result: 
+    \begin{itemize}
+        \item System logs each failed attempt
+        \item Account is temporarily locked after 5 failed attempts
+        \item Security team receives notification
+        \item User receives lockout notification
+    \end{itemize}
+    
+    How test will be performed: Use automated testing scripts to simulate multiple failed login attempts and verify system responses, log entries, and notification delivery.
 
+    \item{AC1-2\\}
+    
+    Type: Functional, Dynamic, Manual\\
+    
+    Initial State: System operational with authentication logs enabled.\\
+    
+    Input/Condition: Attempt to access system resources without authentication.\\
+    
+    Output/Result: 
+    \begin{itemize}
+        \item All unauthorized access attempts are blocked
+        \item Each attempt is logged with timestamp, IP address, and attempted resource
+    \end{itemize}
+    
+    How test will be performed: Manual testing of various system endpoints and resources without authentication tokens.
+
+    \item{AC2-1\\}
+    
+    Type: Functional, Dynamic, Manual\\
+    
+    Initial State: System operational with standard user and admin accounts configured.\\
+    
+    Input/Condition: Attempt to create, update, and delete user accounts using non-admin credentials.\\
+    
+    Output/Result:
+    \begin{itemize}
+        \item All unauthorized actions are blocked
+        \item Actions are logged with user details
+        \item Security team can review blocked attempts
+    \end{itemize}
+    
+    How test will be performed: Manual testing using different user account types to attempt administrative actions.
+\end{enumerate}
+
+\subsubsection{Integrity Requirements Tests}
+\begin{enumerate}
+    \item{IR1-1\\}
+    
+    Type: Non-functional, Dynamic, Automated\\
+    
+    Initial State: System operational with test user accounts and authentication database.\\
+    
+    Input/Condition: Simulate multiple concurrent failed login attempts while monitoring credential storage.\\
+    
+    Output/Result: User credentials remain unchanged and system maintains stability.\\
+    
+    How test will be performed: Use load testing tools to simulate concurrent authentication attempts while monitoring database integrity.
+
+    \item{IR2-1\\}
+    
+    Type: Functional, Dynamic, Automated\\
+    
+    Initial State: System operational with validation checks enabled.\\
+    
+    Input/Condition: Submit various types of invalid input data through system interfaces.\\
+    
+    Output/Result: 
+    \begin{itemize}
+        \item System detects errors in real-time
+        \item Clear error messages are displayed to users
+        \item Invalid data is prevented from entering the system
+    \end{itemize}
+    
+    How test will be performed: Automated test suite submitting predefined invalid input scenarios.
+
+    \item{IR3-1\\}
+    
+    Type: Functional, Static, Automated\\
+    
+    Initial State: ML model trained and ready for predictions.\\
+    
+    Input/Condition: Submit test dataset for predictions.\\
+    
+    Output/Result: 
+    \begin{itemize}
+        \item Each prediction includes a confidence score
+        \item Validation accuracy scores are generated after training
+        \item Scores are properly formatted and within expected ranges
+    \end{itemize}
+    
+    How test will be performed: Automated testing of model outputs and validation metrics.
+
+    \item{IR4-1\\}
+    
+    Type: Functional, Dynamic, Automated\\
+    
+    Initial State: Database containing test records with known duplicates.\\
+    
+    Input/Condition: Attempt to create new records with varying degrees of similarity to existing records.\\
+    
+    Output/Result: System identifies and flags potential duplicate records based on matching criteria.\\
+    
+    How test will be performed: Automated testing with predefined test cases for duplicate detection.
+
+    \item{IR5-1\\}
+    
+    Type: Functional, Static, Automated\\
+    
+    Initial State: Test dataset with mix of relevant and irrelevant parameters.\\
+    
+    Input/Condition: Process test dataset through model input pipeline.\\
+    
+    Output/Result: Only relevant parameters are passed to the model for processing.\\
+    
+    How test will be performed: Automated verification of model input parameters against predefined parameter list.
+
+    \item{IR6-1\\}
+    
+    Type: Functional, Dynamic, Automated\\
+    
+    Initial State: System configured with report generation capabilities.\\
+    
+    Input/Condition: Generate reports with various data classifications.\\
+    
+    Output/Result: Reports are generated with correct classification and validation checks passed.\\
+    
+    How test will be performed: Automated testing of report generation with predefined test cases.
+
+    \item{IR7-1\\}
+    
+    Type: Functional, Dynamic, Automated\\
+    
+    Initial State: Audio transcription system enabled with test audio files.\\
+    
+    Input/Condition: Process audio files with varying levels of background noise.\\
+    
+    Output/Result: Transcribed data accurately reflects spoken content with minimal noise interference.\\
+    
+    How test will be performed: Automated testing using pre-recorded audio samples with known content and noise levels.
+\end{enumerate}
+
+\newpage
+
+\begin{landscape}
 \subsection{Traceability Between Test Cases and Requirements}
-
-\wss{Provide a table that shows which test cases are supporting which
-  requirements.}
-
-\section{Unit Test Description}
-
-\wss{This section should not be filled in until after the MIS (detailed design
-  document) has been completed.}
-
-\wss{Reference your MIS (detailed design document) and explain your overall
-philosophy for test case selection.}  
-
-\wss{To save space and time, it may be an option to provide less detail in this section.  
-For the unit tests you can potentially layout your testing strategy here.  That is, you 
-can explain how tests will be selected for each module.  For instance, your test building 
-approach could be test cases for each access program, including one test for normal behaviour 
-and as many tests as needed for edge cases.  Rather than create the details of the input 
-and output here, you could point to the unit testing code.  For this to work, you code 
-needs to be well-documented, with meaningful names for all of the tests.}
+\begingroup
+\setlength{\tabcolsep}{4pt}  % Reduce column spacing
+\begin{longtable}{|p{1.1cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.6cm}|p{0.6cm}|}
+\hline
+\textbf{NFR ID} & \textbf{AD1} & \textbf{AD2} & \textbf{UR1} & \textbf{UR2} & \textbf{PR1} & \textbf{PR2} & \textbf{OR1} & \textbf{OR2} & \textbf{MR1} & \textbf{MR2} & \textbf{SR1} & \textbf{SR2} & \textbf{CR1} & \textbf{CR2} & \textbf{LR1} & \textbf{LR2} & \textbf{S1} & \textbf{S2} \\
+\hline
+\endfirsthead
+\multicolumn{19}{c}{Table \ref{tab:nfr-test-traceability} continued} \\
+\hline
+\textbf{NFR ID} & \textbf{AD1} & \textbf{AD2} & \textbf{UR1} & \textbf{UR2} & \textbf{PR1} & \textbf{PR2} & \textbf{OR1} & \textbf{OR2} & \textbf{MR1} & \textbf{MR2} & \textbf{SR1} & \textbf{SR2} & \textbf{CR1} & \textbf{CR2} & \textbf{LR1} & \textbf{LR2} & \textbf{S1} & \textbf{S2} \\
+\hline
+\endhead
+\hline
+\multicolumn{19}{r}{Continued on next page} \\
+\endfoot
+\hline
+\caption{Non-Functional Requirements Test Cases Traceability Matrix} \label{tab:nfr-test-traceability}
+\endlastfoot
+NFR1 & $\times$ & $\times$ & & & & & & & & & & & & & & & & \\
+\hline
+NFR2 & & & $\times$ & $\times$ & & & & & & & & & & & & & & \\
+\hline
+NFR3 & & & & & $\times$ & $\times$ & & & & & & & & & & & & \\
+\hline
+NFR4 & & & & & & & $\times$ & $\times$ & & & & & & & & & & \\
+\hline
+NFR5 & & & & & & & & & $\times$ & $\times$ & & & & & & & & \\
+\hline
+NFR6 & & & & & & & & & & & $\times$ & $\times$ & & & & & & \\
+\hline
+NFR7 & & & & & & & & & & & & & $\times$ & $\times$ & & & & \\
+\hline
+NFR8 & & & & & & & & & & & & & & & $\times$ & $\times$ & & \\
+\hline
+NFR9 & & & & & & & & & & & & & & & & & $\times$ & $\times$ \\
+\end{longtable}
+\endgroup
+\end{landscape}
+\newpage
 
 \subsection{Unit Testing Scope}
 
@@ -433,54 +826,6 @@ How test will be performed:
 \subsubsection{Module 2}
 
 ...
-
-\subsection{Tests for Nonfunctional Requirements}
-
-\wss{If there is a module that needs to be independently assessed for
-  performance, those test cases can go here.  In some projects, planning for
-  nonfunctional tests of units will not be that relevant.}
-
-\wss{These tests may involve collecting performance data from previously
-  mentioned functional tests.}
-
-\subsubsection{Module ?}
-		
-\begin{enumerate}
-
-\item{test-id1\\}
-
-Type: \wss{Functional, Dynamic, Manual, Automatic, Static etc. Most will
-  be automatic}
-					
-Initial State: 
-					
-Input/Condition: 
-					
-Output/Result: 
-					
-How test will be performed: 
-					
-\item{test-id2\\}
-
-Type: Functional, Dynamic, Manual, Static etc.
-					
-Initial State: 
-					
-Input: 
-					
-Output: 
-					
-How test will be performed: 
-
-\end{enumerate}
-
-\subsubsection{Module ?}
-
-...
-
-\subsection{Traceability Between Test Cases and Modules}
-
-\wss{Provide evidence that all of the modules have been considered.}
 				
 \bibliographystyle{plainnat}
 
