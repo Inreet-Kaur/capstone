@@ -33,23 +33,13 @@
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
 02-11-2024 & Gurleen Rahi & Summary, Objectives, Challenge Level and Extras, Relevant Documentation\\
+03-11-2024 & Inreet Kaur & Tests for functional requirements and safety and security requirements, traceability matrix\\
+03-11-2024 & Inreet Kaur & Verification and Validation team,SRS Verification Plan, Design Verification Plan\\
+
 \bottomrule
 \end{tabularx}
 
 ~\\
-\wss{The intention of the VnV plan is to increase confidence in the software.
-However, this does not mean listing every verification and validation technique
-that has ever been devised.  The VnV plan should also be a \textbf{feasible}
-plan. Execution of the plan should be possible with the time and team available.
-If the full plan cannot be completed during the time available, it can either be
-modified to ``fake it'', or a better solution is to add a section describing
-what work has been completed and what work is still planned for the future.}
-
-\wss{The VnV plan is typically started after the requirements stage, but before
-the design stage.  This means that the sections related to unit testing cannot
-initially be completed.  The sections will be filled in after the design stage
-is complete.  the final version of the VnV plan should have all sections filled
-in.}
 
 \newpage
 
@@ -78,17 +68,12 @@ in.}
   \bottomrule
 \end{tabular}\\
 
-\wss{symbols, abbreviations, or acronyms --- you can simply reference the SRS
-  \citep{SRS} tables, if appropriate}
-
-\wss{Remove this section if it isn't needed}
+% \wss{symbols, abbreviations, or acronyms --- you can simply reference the SRS
+%   \citep{SRS} tables, if appropriate}
 
 \newpage
 
 \pagenumbering{arabic}
-
-This document ... \wss{provide an introductory blurb and roadmap of the
-  Verification and Validation plan}
 
 \section{General Information}
 
@@ -118,12 +103,12 @@ As part of the extras for this project, we will accomplish the following extras:
 
 \subsection{Relevant Documentation}
 
-The documents that are relevant to this project are SRS, Hazard Analysis, MG and MIS. SRS and Hazard Analysis documents lists the FR, NFR, safety and security requirements which will assist us in developing tests for each of them. Moreover, MG and MIS documents give a structured approach of system's architecture and interface, ensuring that the system is thoroughly tested. This will help us to develop test cases for vital areas of the software.  
+The documents that are relevant to this project are \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS} \citep{SRS}, Hazard Analysis, MG and MIS. SRS and Hazard Analysis documents lists the FR, NFR, safety and security requirements which will assist us in developing tests for each of them. Moreover, MG and MIS documents give a structured approach of system's architecture and interface, ensuring that the system is thoroughly tested. This will help us to develop test cases for vital areas of the software.  
+
 
 \section{Plan}
 
-\wss{Introduce this section.  You can provide a roadmap of the sections to
-  come.}
+\wss{Introduce this section.  You can provide a roadmap of the sections to come.}
 
 \subsection{Verification and Validation Team}
 
@@ -212,75 +197,138 @@ as a Rev 0 demo for the supervisor.}
 
 \wss{This section might reference back to the SRS verification section.}
 
-\section{System Tests}
+\section{System Tests} \label{section:4}
 
-\wss{There should be text between all headings, even if it is just a roadmap of
-the contents of the subsections.}
+% \wss{There should be text between all headings, even if it is just a roadmap of
+% the contents of the subsections.}
+This section will include system tests for functional, non-functional, and safety and security requirements. In addition to this, we will include a traceability table for test cases and requirements.
 
-\subsection{Tests for Functional Requirements}
+\subsection{Tests for Functional Requirements} \label{section:4.1}
 
-\wss{Subsets of the tests may be in related, so this section is divided into
-  different areas.  If there are no identifiable subsets for the tests, this
-  level of document structure can be removed.}
+% \wss{Subsets of the tests may be in related, so this section is divided into
+%   different areas.  If there are no identifiable subsets for the tests, this
+%   level of document structure can be removed.}
 
-\wss{Include a blurb here to explain why the subsections below
-  cover the requirements.  References to the SRS would be good here.}
+% \wss{Include a blurb here to explain why the subsections below
+%   cover the requirements.  References to the SRS would be good here.}
 
-\subsubsection{Area of Testing1}
+This section contains the tests for the Functional Requirements. The subsections for these tests were created based on the subsections of the Functional Requirements listed in the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS} \citep{SRS}. Traceability for these requirements and tests can be found in the section (\ref{section:4.4}).
 
-\wss{It would be nice to have a blurb here to explain why the subsections below
-  cover the requirements.  References to the SRS would be good here.  If a section
-  covers tests for input constraints, you should reference the data constraints
-  table in the SRS.}
-		
-\paragraph{Title for Test}
+
+\subsubsection{Add a document to the database} \label{section:4.1.1}
+
+This subsection covers FR1, FR4, and FR8 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the system is able to add a document to the database only when a valid input is provided.
 
 \begin{enumerate}
 
-\item{test-id1\\}
+\item{test-FR1,4,8-1} \label{test-FR1,4,8-1}
 
-Control: Manual versus Automatic
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs.  Output is not how you
-are going to return the results of the test.  The output is the expected
-result.}
+Control: Manual
 
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
-					
-How test will be performed: 
-					
-\item{test-id2\\}
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input.
 
-Control: Manual versus Automatic
-					
-Initial State: 
-					
-Input: 
-					
-Output: \wss{The expected result for the given inputs}
+Input: Correct and complete input data for all required fields.
 
-Test Case Derivation: \wss{Justify the expected value given in the Output field}
+Output: A confirmation message and a new entry is added to the appropriate database.
 
-How test will be performed: 
+Test Case Derivation: The system will validate the input data, accept a complete and correct data input, and confirm a successful addition to the database.
+
+How test will be performed: The test controller will input a valid data object and check if the system is able to validate and accept a valid input. The controller will verify that a confirmation message appears and there is a valid new entry in the appropriate database.
+
+					
+\item{test-FR1,4,8-2} \label{test-FR1,4,8-2}
+
+Control: Manual
+					
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input.
+
+Input: Invalid input data.
+
+Output: An appropriate error message.
+
+Test Case Derivation: The system will validate the input data and prompt an error message outlining why the system is not able to accept the input data. No new document is added to the database.
+
+How test will be performed: The test controller will input an invalid data object and check if the system is able to validate and reject the invalid input. The controller will also verify that an error message appears and there is no new entry in the appropriate database.
 
 \end{enumerate}
 
-\subsubsection{Area of Testing2}
 
-...
+\subsubsection{Remove a document from the database} \label{section:4.1.2}
 
-\subsection{Tests for Nonfunctional Requirements}
-
-\subsubsection{Aesthetic and Design (NFR1)}
-		
-\paragraph{Aesthetic and Design}
+This subsection covers FR2, FR5, and FR9 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the system is able to remove a document to the database only when a valid input idetifier is provided.
 
 \begin{enumerate}
-    \item{AD1\\}
+
+\item{test-FR2,5,9-1} \label{test-FR2,5,9-1}
+
+Control: Manual
+
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input. A document exists in the appropriate database.
+
+Input: A correct identifier for the document to be deleted.
+
+Output: A confirmation message and relevant entry no longer exist in the database.
+
+Test Case Derivation: The system should allow the deletion of an existing document when the correct identifier is provided. 
+
+How test will be performed: The test controller will input a valid identifier and check if the system is able to validate and accept a valid input. The controller will verify that a confirmation message appears and there the associated document no longer exists in the database.
+
+					
+\item{test-FR2,5,9-2} \label{test-FR2,5,9-2}
+
+Control: Manual
+
+Initial State: The system is set up, open to the relevant section (e.g., Healthcare Network, Healthcare Professional, or Patient Records), and ready to take the user input. A document exists in the appropriate database.
+
+Input: An invalid identifier for the document to be deleted.
+
+Output: An error message.
+
+Test Case Derivation: The system should be able to validate the provided identifier and prevent the deletion of any existing document. 
+
+How test will be performed: The test controller will input an invalid identifier and check if the system is able to validate and reject the invalid identifier. The controller will verify that an error message appears, and no document is deleted from the database.
+
+\end{enumerate}
+
+
+\subsubsection{Update document in the database} \label{section:4.1.3}
+
+\item{test-} \label{test-}
+
+
+\subsubsection{login for valid/invalid credentials} \label{section:4.1.4}
+
+\item{test-} \label{test-}
+
+
+\subsubsection{Voice-to-text-transcription check} \label{section:4.1.5}
+
+\item{test-} \label{test-}
+
+
+\subsubsection{Validate output of correct diagonsis and medication} \label{section:4.1.6}
+
+\item{test-} \label{test-}
+
+
+\subsubsection{Validate input data for models} \label{section:4.1.7}
+
+\item{test-} \label{test-}
+
+
+\subsubsection{Verify completeness and correctness of data} \label{section:4.1.8}
+
+\item{test-} \label{test-}
+
+
+
+
+\subsection{Tests for Nonfunctional Requirements} \label{section:4.2}
+
+\subsubsection{Aesthetic and Design (NFR1)} \label{section:4.2.1}
+
+\begin{enumerate}
+    \item{test-AD1\\} \label{test-AD1}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -292,7 +340,7 @@ How test will be performed:
     
     How test will be performed: Conduct a comprehensive survey with healthcare workers, collecting quantitative and qualitative responses on UI usability and design clarity.
 
-    \item{AD2\\}
+    \item{test-AD2\\} \label{test-AD2}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -305,12 +353,10 @@ How test will be performed:
     How test will be performed: Conduct observational tests and collect detailed feedback to analyze user experience, ensuring primary functions are accessible within two clicks from the main screen. 
 \end{enumerate}
 
-\subsubsection{Usability Requirement(NFR2)}
-
-\paragraph{Usability}
+\subsubsection{Usability Requirement(NFR2)} \label{section:4.2.2}
 
 \begin{enumerate}
-    \item{UR1\\}
+    \item{test-UR1\\} \label{test-UR1}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -322,7 +368,7 @@ How test will be performed:
     
     How test will be performed: Conduct structured observations, recording task completion rates and collecting user feedback on ease of use.
 
-    \item{UR2\\}
+    \item{test-UR2\\} \label{test-UR2}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -335,12 +381,10 @@ How test will be performed:
     How test will be performed: Use task-based usability tests and track completion times and feedback to confirm high detectability of system functions.
 \end{enumerate}
 
-\subsubsection{Performance Requirement(NFR3)}
-
-\paragraph{Performance}
+\subsubsection{Performance Requirement(NFR3)} \label{section:4.2.3}
 
 \begin{enumerate}
-    \item{PR1\\}
+    \item{test-PR1\\} \label{test-PR1}
     
     Type: Non-functional, Dynamic, Automated\\
     
@@ -352,7 +396,7 @@ How test will be performed:
     
     How test will be performed: Use audio samples in a controlled setting to measure transcription speed and accuracy, ensuring the system meets performance standards.
 
-    \item{PR2\\}
+    \item{test-PR2\\} \label{test-PR2}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -365,12 +409,10 @@ How test will be performed:
     How test will be performed: Conduct real-time testing and monitor the delay in transcription display, verifying it meets standards.
 \end{enumerate}
 
-\subsubsection{Operational Requirement(NFR4)}
-
-\paragraph{Operational Requirement}
+\subsubsection{Operational Requirement(NFR4)} \label{section:4.2.4}
 
 \begin{enumerate}
-    \item{OR1\\}
+    \item{test-OR1\\} \label{test-OR1}
     
     Type: Non-functional, Dynamic, Automated\\
     
@@ -382,7 +424,7 @@ How test will be performed:
     
     How test will be performed: Use uptime monitoring tools to track server availability over the 30-day period.
 
-    \item{OR2\\}
+    \item{test-OR2\\} \label{test-OR2}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -395,12 +437,10 @@ How test will be performed:
     How test will be performed: Review system logs and usage reports at the end of the period to ensure compliance with operational goals.
 \end{enumerate}
 
-\subsubsection{Maintainability Requirement(NFR5)}
-
-\paragraph{Maintainability Requirement}
+\subsubsection{Maintainability Requirement(NFR5)} \label{section:4.2.5}
 
 \begin{enumerate}
-    \item{MR1\\}
+    \item{test-MR1\\} \label{test-MR1}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -412,7 +452,7 @@ How test will be performed:
     
     How test will be performed: Conduct a manual inspection of update logs and perform basic functionality checks after each update.
 
-    \item{MR2\\}
+    \item{test-MR2\\} \label{test-MR2}
     
     Type: Non-functional, Dynamic, Manual\\
 
@@ -425,12 +465,10 @@ How test will be performed:
     How test will be performed: Conduct regression testing to verify that updates did not affect system performance.
 \end{enumerate}
 
-\subsubsection{Security Requirement(NFR6)}
-
-\paragraph{Security Requirement}
+\subsubsection{Security Requirement(NFR6)} \label{section:4.2.6}
 
 \begin{enumerate}
-    \item{SR1\\}
+    \item{test-SR1\\} \label{test-SR1}
     
     Type: Non-functional, Dynamic, Automated\\
     
@@ -442,7 +480,7 @@ How test will be performed:
     
     How test will be performed: Conduct automated vulnerability scans and manual security audit to confirm full compliance with PIPEDA and encryption standards.
 
-    \item{SR2\\}
+    \item{test-SR2\\} \label{test-SR2}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -455,12 +493,10 @@ How test will be performed:
     How test will be performed: Attempt controlled security breaches to validate the integrity of access control and logging mechanisms.
 \end{enumerate}
 
-\subsubsection{Cultural Requirement (NFR7)}
-
-\paragraph{Language Customization}
+\subsubsection{Cultural Requirement (NFR7)} \label{section:4.2.7}
 
 \begin{enumerate}
-    \item{CR1\\}
+    \item{test-CR1\\} \label{test-CR1}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -472,7 +508,7 @@ How test will be performed:
     
     How test will be performed: Users switch between languages and verify that UI elements and content display correctly in each selected language.
 
-    \item{CR2\\}
+    \item{test-CR2\\} \label{test-CR2}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -485,12 +521,10 @@ How test will be performed:
     How test will be performed: Conduct navigation tests across UI components in different languages to ensure consistent experience.
 \end{enumerate}
 
-\subsubsection{Legal Requirement(NFR8)}
-
-\paragraph{Legal Compliance}
+\subsubsection{Legal Requirement(NFR8)} \label{section:4.2.8}
 
 \begin{enumerate}
-    \item{LR1\\}
+    \item{test-LR1\\} \label{test-LR1}
     
     Type: Non-functional, Dynamic, Manual\\
     
@@ -502,7 +536,7 @@ How test will be performed:
     
     How test will be performed: A certified compliance auditor verifies data handling, encryption protocols, and data access policies.
 
-    \item{LR2\\}
+    \item{test-LR2\\} \label{test-LR2}
     
     Type: Non-functional, Dynamic, Automated\\
     
@@ -515,13 +549,11 @@ How test will be performed:
     How test will be performed: Automated compliance tools track data handling practices over a defined period, and alerts are set up for any regulatory deviations.
 \end{enumerate}
 
-\subsubsection{Scalability (NFR9)}
-
-\paragraph{Scalability}
+\subsubsection{Scalability (NFR9)} \label{section:4.2.9}
 
 \begin{enumerate}
 
-    \item{S1\\}
+    \item{test-S1\\} \label{test-S1}
     
     Type: Non-functional, Dynamic, Automated\\
     
@@ -533,7 +565,7 @@ How test will be performed:
     
     How test will be performed: Use load testing tools liek Apache to simulate concurrent user traffic and monitor system response times, server load, and throughput during the test.
     
-    \item{S2\\}
+    \item{test-S2\\} \label{test-S2}
     
     Type: Non-functional, Dynamic, Automated\\
     
@@ -547,11 +579,14 @@ How test will be performed:
     
 \end{enumerate}
 
-\subsection{Tests for Safety and Security Requirements}
 
-\subsubsection{Access Requirements Tests}
+\subsection{Tests for Safety and Security Requirements} \label{section:4.3}
+
+\subsubsection{Access Requirements Tests} \label{section:4.3.1}
+
 \begin{enumerate}
-    \item{AC1-1\\}
+
+    \item{test-AC1-1\\} \label{test-AC1-1}
     
     Type: Functional, Dynamic, Automated\\
     
@@ -569,7 +604,7 @@ How test will be performed:
     
     How test will be performed: Use automated testing scripts to simulate multiple failed login attempts and verify system responses, log entries, and notification delivery.
 
-    \item{AC1-2\\}
+    \item{test-AC1-2\\}  \label{test-AC1-2}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -585,7 +620,7 @@ How test will be performed:
     
     How test will be performed: Manual testing of various system endpoints and resources without authentication tokens.
 
-    \item{AC2-1\\}
+    \item{test-AC2-1\\}  \label{test-AC2-1}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -603,9 +638,11 @@ How test will be performed:
     How test will be performed: Manual testing using different user account types to attempt administrative actions.
 \end{enumerate}
 
-\subsubsection{Integrity Requirements Tests}
+
+\subsubsection{Integrity Requirements Tests} \label{section:4.3.2}
+
 \begin{enumerate}
-    \item{IR1-1\\}
+    \item{test-IR1-1\\}  \label{test-IR1-1}
     
     Type: Non-functional, Dynamic, Automated\\
     
@@ -617,132 +654,200 @@ How test will be performed:
     
     How test will be performed: Use load testing tools to simulate concurrent authentication attempts while monitoring database integrity.
 
-    \item{IR2-1\\}
-    
-    Type: Functional, Dynamic, Automated\\
-    
-    Initial State: System operational with validation checks enabled.\\
-    
-    Input/Condition: Submit various types of invalid input data through system interfaces.\\
-    
-    Output/Result: 
-    \begin{itemize}
-        \item System detects errors in real-time
-        \item Clear error messages are displayed to users
-        \item Invalid data is prevented from entering the system
-    \end{itemize}
-    
-    How test will be performed: Automated test suite submitting predefined invalid input scenarios.
 
-    \item{IR3-1\\}
+    \item{test-IR2-1}: Generate error Messages \label{test-IR2-1}
     
-    Type: Functional, Static, Automated\\
+    Type: Functional, Dynamic, Manual\\
     
-    Initial State: ML model trained and ready for predictions.\\
+    Initial State: The system is set up, open to the relevant section and ready to take the user input.\\
     
-    Input/Condition: Submit test dataset for predictions.\\
+    Input/Condition: Submit an invalid data input.\\
     
-    Output/Result: 
-    \begin{itemize}
-        \item Each prediction includes a confidence score
-        \item Validation accuracy scores are generated after training
-        \item Scores are properly formatted and within expected ranges
-    \end{itemize}
+    Output/Result: An error message is displayed to the user. No data is added to any database. 
     
-    How test will be performed: Automated testing of model outputs and validation metrics.
+    How test will be performed: The test controller will input an invalid data input and check if the system is able to validate and reject the invalid data. The controller will verify that an error message appears.
 
-    \item{IR4-1\\}
-    
-    Type: Functional, Dynamic, Automated\\
-    
-    Initial State: Database containing test records with known duplicates.\\
-    
-    Input/Condition: Attempt to create new records with varying degrees of similarity to existing records.\\
-    
-    Output/Result: System identifies and flags potential duplicate records based on matching criteria.\\
-    
-    How test will be performed: Automated testing with predefined test cases for duplicate detection.
 
-    \item{IR5-1\\}
+    \item{test-IR3-1\\}: Validation of confidence score (Pranav) \label{test-IR3-1}
     
-    Type: Functional, Static, Automated\\
+    % Type: Functional, Static, Automated\\
     
-    Initial State: Test dataset with mix of relevant and irrelevant parameters.\\
+    % Initial State: ML model trained and ready for predictions.\\
     
-    Input/Condition: Process test dataset through model input pipeline.\\
+    % Input/Condition: Submit test dataset for predictions.\\
     
-    Output/Result: Only relevant parameters are passed to the model for processing.\\
+    % Output/Result: 
+    % \begin{itemize}
+    %     \item Each prediction includes a confidence score
+    %     \item Validation accuracy scores are generated after training
+    %     \item Scores are properly formatted and within expected ranges
+    % \end{itemize}
     
-    How test will be performed: Automated verification of model input parameters against predefined parameter list.
+    % How test will be performed: Automated testing of model outputs and validation metrics.
 
-    \item{IR6-1\\}
+    \item{test-IR4-1}: Duplicate record detection \label{test-IR4-1}
     
-    Type: Functional, Dynamic, Automated\\
+    Type: Functional, Dynamic, Manual\\
     
-    Initial State: System configured with report generation capabilities.\\
+    Initial State: The system is set up, open to the relevant section and ready to take the user input. A document already exists in the relevant database.\\
     
-    Input/Condition: Generate reports with various data classifications.\\
+    Input/Condition: A new input with the same data as an existing document.\\
     
-    Output/Result: Reports are generated with correct classification and validation checks passed.\\
+    Output/Result: An error message. No new document is added to the database.\\
     
-    How test will be performed: Automated testing of report generation with predefined test cases.
+    How test will be performed: The test controller will input a new input with the same data as an existing document and check if the system is able to validate and reject the duplicate record. The controller will verify that an error message appears.
 
-    \item{IR7-1\\}
+    % \item{IR5-1\\}
     
-    Type: Functional, Dynamic, Automated\\
+    % Type: Functional, Static, Automated\\
     
-    Initial State: Audio transcription system enabled with test audio files.\\
+    % Initial State: Test dataset with mix of relevant and irrelevant parameters.\\
     
-    Input/Condition: Process audio files with varying levels of background noise.\\
+    % Input/Condition: Process test dataset through model input pipeline.\\
     
-    Output/Result: Transcribed data accurately reflects spoken content with minimal noise interference.\\
+    % Output/Result: Only relevant parameters are passed to the model for processing.\\
     
-    How test will be performed: Automated testing using pre-recorded audio samples with known content and noise levels.
+    % How test will be performed: Automated verification of model input parameters against predefined parameter list.
+
+    \item{test-IR6-1\\}: Classification of data for report generation. (Gurleen) \label{test-IR6-1}
+    
+    % Type: Functional, Dynamic, Automated\\
+    
+    % Initial State: System configured with report generation capabilities.\\
+    
+    % Input/Condition: Generate reports with various data classifications.\\
+    
+    % Output/Result: Reports are generated with correct classification and validation checks passed.\\
+    
+    % How test will be performed: Automated testing of report generation with predefined test cases.
+
+    % \item{IR7-1\\}
+    
+    % Type: Functional, Dynamic, Automated\\
+    
+    % Initial State: Audio transcription system enabled with test audio files.\\
+    
+    % Input/Condition: Process audio files with varying levels of background noise.\\
+    
+    % Output/Result: Transcribed data accurately reflects spoken content with minimal noise interference.\\
+    
+    % How test will be performed: Automated testing using pre-recorded audio samples with known content and noise levels.
+
 \end{enumerate}
 
 \newpage
 
+
 \begin{landscape}
-\subsection{Traceability Between Test Cases and Requirements}
-\begingroup
-\setlength{\tabcolsep}{4pt}  % Reduce column spacing
-\begin{longtable}{|p{1.1cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.85cm}|p{0.6cm}|p{0.6cm}|}
+\subsection{Traceability Between Test Cases and Requirements} \label{section:4.4}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+   Test ID & FR1 & FR2 & FR3 & FR4 & FR5 & FR6 & FR7 & FR8 & FR9 & FR10 & FR11 & FR12 & FR13 & FR14\\
+  \hline
+  test-FR1,4,8-\ref{test-FR1,4,8-1} & $\times$ & & & $\times$ & & & & $\times$ & & & & & & \\
+  \hline
+  test-FR1,4,8-\ref{test-FR1,4,8-2} & $\times$ & & & $\times$ & & & & $\times$ & & & & & & \\
+  \hline
+  test-FR2,5,9-\ref{test-FR2,5,9-1} & & $\times$ & & & $\times$ & & & & $\times$ & & & & & \\
+  \hline
+  test-FR2,5,9-\ref{test-FR2,5,9-2} & & $\times$ & & & $\times$ & & & & $\times$ & & & & & \\
+  \hline
+  test--\ref{test-} & & & & & & & & & & & & & & \\
+  \hline
+  test--\ref{test-} & & & & & & & & & & & & & & \\
+  \hline
+  test--\ref{test-} & & & & & & & & & & & & & & \\
+  \hline
+\end{tabular}
+\caption{\bf Functional Requirements Tests Traceability} \label{tab:fr-test-traceability}
+\end{table}
+
+
+\begin{table} [H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-\textbf{NFR ID} & \textbf{AD1} & \textbf{AD2} & \textbf{UR1} & \textbf{UR2} & \textbf{PR1} & \textbf{PR2} & \textbf{OR1} & \textbf{OR2} & \textbf{MR1} & \textbf{MR2} & \textbf{SR1} & \textbf{SR2} & \textbf{CR1} & \textbf{CR2} & \textbf{LR1} & \textbf{LR2} & \textbf{S1} & \textbf{S2} \\
+TestID & AD1 & AD2 & UR1 & UR2 & PR1 & PR2 & OR1 & OR2 & MR1 & MR2 & SR1 & SR2 & CR1 & CR2 & LR1 & LR2 & S1 & S2 \\
 \hline
-\endfirsthead
-\multicolumn{19}{c}{Table \ref{tab:nfr-test-traceability} continued} \\
+test-AD\ref{test-AD1} & $\times$ & & & & & & & & & & & & & & & & & \\
 \hline
-\textbf{NFR ID} & \textbf{AD1} & \textbf{AD2} & \textbf{UR1} & \textbf{UR2} & \textbf{PR1} & \textbf{PR2} & \textbf{OR1} & \textbf{OR2} & \textbf{MR1} & \textbf{MR2} & \textbf{SR1} & \textbf{SR2} & \textbf{CR1} & \textbf{CR2} & \textbf{LR1} & \textbf{LR2} & \textbf{S1} & \textbf{S2} \\
+test-AD\ref{test-AD2} & & $\times$ & & & & & & & & & & & & & & & & \\
 \hline
-\endhead
+test-UR\ref{test-UR1} & & & $\times$ & & & & & & & & & & & & & & & \\
 \hline
-\multicolumn{19}{r}{Continued on next page} \\
-\endfoot
+test-UR\ref{test-UR2} & & & & $\times$ & & & & & & & & & & & & & & \\
 \hline
-\caption{Non-Functional Requirements Test Cases Traceability Matrix} \label{tab:nfr-test-traceability}
-\endlastfoot
-NFR1 & $\times$ & $\times$ & & & & & & & & & & & & & & & & \\
+test-PR\ref{test-PR1} & & & & & $\times$ & & & & & & & & & & & & & \\
 \hline
-NFR2 & & & $\times$ & $\times$ & & & & & & & & & & & & & & \\
+test-PR\ref{test-PR2} & & & & & & $\times$ & & & & & & & & & & & & \\
 \hline
-NFR3 & & & & & $\times$ & $\times$ & & & & & & & & & & & & \\
+test-OR\ref{test-OR1} & & & & & & & $\times$ & & & & & & & & & & & \\
 \hline
-NFR4 & & & & & & & $\times$ & $\times$ & & & & & & & & & & \\
+test-OR\ref{test-OR2} & & & & & & & & $\times$ & & & & & & & & & & \\
 \hline
-NFR5 & & & & & & & & & $\times$ & $\times$ & & & & & & & & \\
+test-MR\ref{test-MR1} & & & & & & & & & $\times$ & & & & & & & & & \\
 \hline
-NFR6 & & & & & & & & & & & $\times$ & $\times$ & & & & & & \\
+test-MR\ref{test-MR2} & & & & & & & & & & $\times$ & & & & & & & & \\
 \hline
-NFR7 & & & & & & & & & & & & & $\times$ & $\times$ & & & & \\
+test-SR\ref{test-SR1} & & & & & & & & & & & $\times$ & & & & & & & \\
 \hline
-NFR8 & & & & & & & & & & & & & & & $\times$ & $\times$ & & \\
+test-SR\ref{test-SR2} & & & & & & & & & & & & $\times$ & & & & & & \\
 \hline
-NFR9 & & & & & & & & & & & & & & & & & $\times$ & $\times$ \\
-\end{longtable}
-\endgroup
+test-CR\ref{test-CR1} & & & & & & & & & & & & & $\times$ & & & & & \\
+\hline
+test-CR\ref{test-CR2} & & & & & & & & & & & & & & $\times$ & & & & \\
+\hline
+test-LR\ref{test-LR1} & & & & & & & & & & & & & & & $\times$ & & & \\
+\hline
+test-LR\ref{test-LR2} & & & & & & & & & & & & & & & & $\times$ & & \\
+\hline
+test-S\ref{test-S1} & & & & & & & & & & & & & & & & & $\times$ & \\
+\hline
+test-S\ref{test-S2} & & & & & & & & & & & & & & & & & & $\times$ \\
+\hline
+\end{tabular}
+\caption{Non-Functional Requirements Tests Traceability} \label{tab:nfr-test-traceability}
+\end{table}
+
+
+\begin{table} [H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  Test ID & AC1 & AC2 & IR1 & IR2 & IR3 & IR4 & IR5 & IR6 & IR7 \\
+  \hline
+  test-AC1-\ref{test-AC1-1} & $\times$ & & & & & & & & \\
+  \hline
+  test-AC-\ref{test-AC1-2} & $\times$ & & & & & & & & \\
+  \hline
+  test-AC-\ref{test-AC2-1} & & $\times$ & & & & & & & \\
+  \hline
+  test-IR-\ref{test-IR1-1} & & & $\times$ & & & & & &  \\
+  \hline
+  test-IR-\ref{test-IR2-1}  & & & & $\times$ & & & & & \\
+  \hline
+  test-IR-\ref{test-IR3-1}  & & & & & $\times$ & & & & \\
+  \hline
+  test-IR-\ref{test-IR4-1}  & & & & & & $\times$ & & & \\
+  \hline
+  test--\ref{test-}  & & & & & & & $\times$ & & \\
+  \hline
+  test-IR-\ref{test-IR6-1}  & & & & & & & & $\times$ & \\
+  \hline
+  test--\ref{test-}  & & & & & & & & & $\times$ \\
+  \hline
+\end{tabular}
+\caption{\bf Safety and Security Requirements Traceability} \label{tab:sns-test-traceability}
+\end{table}
+
 \end{landscape}
 \newpage
+
+
+
 
 \subsection{Unit Testing Scope}
 
