@@ -438,7 +438,7 @@ This subsection covers FR12 and FR13 from of the \href{https://github.com/Inreet
 
 \begin{enumerate}
 
-\item{test-FR1,4,8-1} \label{test-FR1,4,8-1}
+\item{test-FR12,13} \label{test-FR12,13}
 
 Control: Automatic
 
@@ -862,12 +862,11 @@ How test will be performed: Tester will send a sample patient profile from one d
     
     Type: Functional, Static, Automated\\
     
-    Initial State: ML model trained and ready for predictions.\\
+    Initial State: The prediction model is ready for to predict medication and diagnosis.\\
     
-    Input/Condition: Submit test dataset for predictions.\\
+    Input/Condition: A test set of various patient medical charts will be inputted.\\
     
-    Output/Result: Each prediction includes a confidence score and the confidence scores of the testing set exceed 85\%.
-
+    Output/Result: The prediction will create a diagnosis prediction based on the chart and a medication prediction based on the diagnosis. Each prediction will include a confidence score and the confidence score of the testing set must exceed 85\%.
     
     How test will be performed: Automated testing of model outputs and confidence scores this assists in understanding how sure the model is in its classification.
 
