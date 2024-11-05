@@ -39,6 +39,7 @@
 02-11-2024 & Gurleen Rahi & Summary, Objectives, Challenge Level and Extras, Relevant Documentation\\
 03-11-2024 & Inreet Kaur & Tests for functional requirements and safety and security requirements, traceability matrix\\
 03-11-2024 & Inreet Kaur & Verification and Validation team,SRS Verification Plan, Design Verification Plan\\
+04-11-2024 & Inreet Kaur & Verification and Validation team,SRS Verification Plan, Design Verification Plan\\
 04-11-2024 & Gurleen Rahi & Tests for functional requirements and safety and security requirements, traceability matrix\\
 04-11-2024 & Gurleen Rahi & Reflection\\
 \bottomrule
@@ -51,14 +52,13 @@
 \tableofcontents
 
 \listoftables
-\wss{Remove this section if it isn't needed}
 
-\listoffigures
-\wss{Remove this section if it isn't needed}
+% \listoffigures
+% \wss{Remove this section if it isn't needed}
 
 \newpage
 
-\section{Symbols, Abbreviations, and Acronyms}
+\section{Symbols, Abbreviations, and Acronyms} \label{section:1}
 
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{l l} 
@@ -80,78 +80,103 @@
 
 \pagenumbering{arabic}
 
-\section{General Information}
+\section{General Information} \label{section:2}
 
-\subsection{Summary}
+\subsection{Summary} \label{section:2.1}
 
 This document provides a comprehensive description of the system tests specific to all requirements for a software application, RapidCare, that aims to streamline the healthcare documentation process aimed to be run as a web application. This document will be used as a verification tool to ensure that system fulfills all the requirements and needs of the user. This document will allow for an in-depth description of system tests for functional, non-functional, safety and security requirements. Additionally, it will outline the verification plan for design and implementation which will make sure that all requirements are fulfilled. Along with this, the document will also include the software validation plan that will validate the requirements by making sure that the client who intends to use this application is satisfied with its features. The system will allow the users to automate the documentation process by transcribing audio to text and generating reports based on the transcribed data. The system will also provide diagnostics and medicine suggestions based on the reports to further optimize the process.    
 
-\subsection{Objectives}
+\subsection{Objectives} \label{section:2.2}
 
 The objective of verification and validation plan is to build confidence in the correctness of the software and decide if the software is correctly following the requirements. Additionally, we want to achieve adequate usability of our software by making sure it satisfies with the user's needs, thus speeding up the documentation process. Another goal of this document is to test the accuracy of the input data to reflect that the software suggests correct diagnosis based on the written text that has been transcribed from the audio conversation. Assuming that the external libraries are already tested by their implementation team, the priority of this document will be to test the requirements of the software to ease the patient care. Due to time constraints and limited resources, we are not going to test the quality of usability. While the usability is important to test, the priority of this document is to test the fundamental requirements to ensure the software is accuarate and reliable. 
 
-\subsection{Challenge Level and Extras}
+\subsection{Challenge Level and Extras} \label{section:2.3}
 
 In terms of the project challenge level, the project will come in the general category. The reasoning for this choice is supported below:
 
 \begin{itemize}
-  \item\textbf{Domain Knowledge}-- The documentation process has a lot of ins and outs which may differ between health organizations. Our supervisors and stakeholders will provide us with a base of the requirements, but further elicitation will be required to ensure that the requirements reflect a problem that truly exists. Additionally, since the whole patient journey is tracked we will have to survey other hospital staff as well to gain a further understanding. 
-  \item\textbf{Implementation Challenges}-- There will be quite a few microservices required for this project where each microservice has high complexity. The performance of the microservices must be high as this use case requires quick response time. Additionally, since we are dealing with patient data security and privacy must be upheld. Lastly, the integration between all of the parts must be secure and undergo rigorous integration testing.
+  \item\textbf{Domain Knowledge} -- The documentation process has a lot of ins and outs which may differ between health organizations. Our supervisors and stakeholders will provide us with a base of the requirements, but further elicitation will be required to ensure that the requirements reflect a problem that truly exists. Additionally, since the whole patient journey is tracked we will have to survey other hospital staff as well to gain a further understanding. 
+  \item\textbf{Implementation Challenges} -- There will be quite a few microservices required for this project where each microservice has high complexity. The performance of the microservices must be high as this use case requires quick response time. Additionally, since we are dealing with patient data security and privacy must be upheld. Lastly, the integration between all of the parts must be secure and undergo rigorous integration testing.
 \end{itemize}
 
 As part of the extras for this project, we will accomplish the following extras:
 
 \begin{itemize}
-  \item\textbf{Usability testing}-- This is designed for the users to assess how easily they can navigate and use the software. This will ensure that the requirements of the software perfectly align with the user's needs.
-  \item\textbf{User documentation}-- This will include instructions that will help the user to get started with the software. It will have an overview of the software along with some help resources for setup instructions and easy navigation for the user.
+  \item \textbf{Usability testing} -- This is designed for the users to assess how easily they can navigate and use the software. This will ensure that the requirements of the software perfectly align with the user's needs.
+  \item \textbf{User documentation} -- This will include instructions that will help the user to get started with the software. It will have an overview of the software along with some help resources for setup instructions and easy navigation for the user.
 \end{itemize}
 
-\subsection{Relevant Documentation}
+\subsection{Relevant Documentation} \label{section:2.4}
 
-The documents that are relevant to this project are \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS} \citep{SRS}, Hazard Analysis, MG and MIS. SRS and Hazard Analysis documents lists the FR, NFR, safety and security requirements which will assist us in developing tests for each of them. Moreover, MG and MIS documents give a structured approach of system's architecture and interface, ensuring that the system is thoroughly tested. This will help us to develop test cases for vital areas of the software.  
+The documents that are relevant to this project are:
+\begin{itemize}
+  \item \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS} \citep{SRS}
+  \item \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/HazardAnalysis/HazardAnalysis.pdf}{Hazard Analysis} \citep{Hazard Analysis}
+  \item MG
+  \item MIS
+\end{itemize}
+SRS and Hazard Analysis documents list the FR, NFR, safety and security requirements which will assist us in developing tests for each of them. Moreover, MG and MIS documents give a structured approach of system's architecture and interface, ensuring that the system is thoroughly tested. This will help us to develop test cases for vital areas of the software.  
 
 
-\section{Plan}
+\section{Plan} \label{section:3}
 
-\wss{Introduce this section.  You can provide a roadmap of the sections to come.}
+% \wss{Introduce this section.  You can provide a roadmap of the sections to come.}
+This section will include details about the verification and validation team. In addition to this, this section will include SRS, design, validation and verification plan, and implementation verification plan. Lastly, it will outline details about automated testing and verification tools and software validation plan.
 
-\subsection{Verification and Validation Team}
+\subsection{Verification and Validation Team} \label{section:3.1}
 
-\wss{Your teammates.  Maybe your supervisor.
-  You should do more than list names.  You should say what each person's role is
-  for the project's verification.  A table is a good way to summarize this information.}
+% \wss{Your teammates.  Maybe your supervisor.
+%   You should do more than list names.  You should say what each person's role is
+%   for the project's verification.  A table is a good way to summarize this information.}
+Here is a basic outline of the verification and validation team and their responsibilities. Please note that team members will switch roles between the tasks to ensure a well-rounded verification of the system. All team members will work collectively toward user documentation for this project.
 
-\subsection{SRS Verification Plan}
+\textbf{Gurleen Rahi}: Will focus on functional testing, specifically for transcription and report generation module. Will also focus on usability survey and design verification throughout the project
+\textbf{Pranav Kalsi}: Will focus on functional testing, specifically functional tests related to machine learning models. Also, will focus on integration testing and code verification throughout the project.
+\textbf{Inreet Kaur}: Will focus on functional testing, specifically for various components in the data layer. Will also focus on safety requirement testing for this project.
+\textbf{Moamen Ahmed}: Will focus on functional testing specifically for authentication and account management components. Will also focus on non-functional testing of the system.
+\textbf{Kristen Burrows} (Supervisor): Will help the team verify and provide feedback to improve the SRS, design, and verification and validation plan verification plan. 
 
-\wss{List any approaches you intend to use for SRS verification.  This may
-  include ad hoc feedback from reviewers, like your classmates (like your
-  primary reviewer), or you may plan for something more rigorous/systematic.}
 
-\wss{If you have a supervisor for the project, you shouldn't just say they will
-read over the SRS.  You should explain your structured approach to the review.
-Will you have a meeting?  What will you present?  What questions will you ask?
-Will you give them instructions for a task-based inspection?  Will you use your
-issue tracker?}
+\subsection{SRS Verification Plan} \label{section:3.2}
 
-\wss{Maybe create an SRS checklist?}
+% \wss{List any approaches you intend to use for SRS verification.  This may
+%   include ad hoc feedback from reviewers, like your classmates (like your
+%   primary reviewer), or you may plan for something more rigorous/systematic.}
+% \wss{If you have a supervisor for the project, you shouldn't just say they will
+% read over the SRS.  You should explain your structured approach to the review.
+% Will you have a meeting?  What will you present?  What questions will you ask?
+% Will you give them instructions for a task-based inspection?  Will you use your
+% issue tracker?}
+% \wss{Maybe create an SRS checklist?}
+Each team member will perform a detailed review of the SRS to verify clarity, feasibility, and consistency across requirements. Identified issues will be added to the appropriate GitHub issue of the specific section. The team members can then make appropriate changes based on the feedback. Each team member will complete functional requirement tests for their assigned components as well as non-functional and safety requirement testing (as assigned). Once completed, at least two other team members will review and verify the tests using the sample input for the tests and verify the desired behavior. We will also ask for feedback from our peers, i.e. have another team review SRS and update it based on the feedback in the GitHub issues. 
+In addition to this, we will then conduct a structured meeting review with our supervisor to gain feedback on the correctness and relevance of the requirements of the SRS document. During this meeting, we will have a walk-through of the key sections of the SRS, outline any challenging or critical requirements, and discuss any issues flagged during internal reviews. 
+Once the system is complete, we will then have the supervisor and other stakeholders verify the system's functionality using specified inputs. They will also complete the usability survey (section 6.\ref{section:6.2}) for the system.
 
-\subsection{Design Verification Plan}
 
-\wss{Plans for design verification}
+\subsection{Design Verification Plan} \label{section:3.3}
 
-\wss{The review will include reviews by your classmates}
+% \wss{Plans for design verification}
+% \wss{The review will include reviews by your classmates}
+% \wss{Create a checklists?}
+Our design verification plan ensures that the system design meets requirements for consistency, maintainability, scalability, and usability. This process will involve systematic reviews, integration testing, and structured feedback sessions with the supervisor and stakeholders.\\
+Each team member will review the design of specific components to verify consistency with project requirements, maintainability, and scalability. Identified issues will be added to the appropriate GitHub issue of the specific section. The team members can then make appropriate changes based on the feedback. The team will also conduct integration testing to check the compatibility of different components of the system and compatibility with the hardware.\\
+Once the system is completed, the team will conduct a review session with the supervisor. In this meeting, we will provide a high-level overview of architecture and key components. We will present a sample user journey and gather feedback on the system's design for improvement. \\
 
-\wss{Create a checklists?}
+Following is a checklist for the design verification plan: 
+\begin{itemize}
+  \item Verify the design meets all requirements identified in SRS and hazard analysis
+  \item Verify each module is modular and maintainable
+  \item Verify the design meets the coding standards
+  \item Verify hardware and software compatibility
+  \item Verify alignment with project objectives and stakeholder needs
+\end{itemize}
 
-\subsection{Verification and Validation Plan Verification Plan}
+\subsection{Verification and Validation Plan Verification Plan} \label{section:3.4}
 
-\wss{The verification and validation plan is an artifact that should also be
-verified. Techniques for this include review and mutation testing.}
-
-\wss{The review will include reviews by your classmates}
-
-\wss{Create a checklists?}
-
+% \wss{The verification and validation plan is an artifact that should also be
+% verified. Techniques for this include review and mutation testing.}
+% \wss{The review will include reviews by your classmates}
+% \wss{Create a checklists?}
 This document must be verified to make sure it is robust and reliable. The plan must have extensive coverage to ensure that all requirements are covered. The two main methods we will be using are the following:
 
 \begin{itemize}
@@ -162,18 +187,16 @@ This document must be verified to make sure it is robust and reliable. The plan 
 
 Through both of these processes we will be able to ensure that the plan covers all input and is clear and consistent such that it can be carried out by any reader.
 
-\subsection{Implementation Verification Plan}
+\subsection{Implementation Verification Plan} \label{section:3.5}
 
-\wss{You should at least point to the tests listed in this document and the unit
-  testing plan.}
-
-\wss{In this section you would also give any details of any plans for static
-  verification of the implementation.  Potential techniques include code
-  walkthroughs, code inspection, static analyzers, etc.}
-
-\wss{The final class presentation in CAS 741 could be used as a code
-walkthrough.  There is also a possibility of using the final presentation (in
-CAS741) for a partial usability survey.}
+% \wss{You should at least point to the tests listed in this document and the unit
+%   testing plan.}
+% \wss{In this section you would also give any details of any plans for static
+%   verification of the implementation.  Potential techniques include code
+%   walkthroughs, code inspection, static analyzers, etc.}
+% \wss{The final class presentation in CAS 741 could be used as a code
+% walkthrough.  There is also a possibility of using the final presentation (in
+% CAS741) for a partial usability survey.}
 
 The implementation verification plan is really a lot of static review this is include code walkthroughs and code inspections in conjunction with static analyzers. The plan will be as follows:
 
@@ -185,44 +208,37 @@ The implementation verification plan is really a lot of static review this is in
 
 This strategy will be implemented in section \ref{section:4}.
 
-\subsection{Automated Testing and Verification Tools}
+\subsection{Automated Testing and Verification Tools} \label{section:3.6}
 
-\wss{What tools are you using for automated testing.  Likely a unit testing
-  framework and maybe a profiling tool, like ValGrind.  Other possible tools
-  include a static analyzer, make, continuous integration tools, test coverage
-  tools, etc.  Explain your plans for summarizing code coverage metrics.
-  Linters are another important class of tools.  For the programming language
-  you select, you should look at the available linters.  There may also be tools
-  that verify that coding standards have been respected, like flake9 for
-  Python.}
-
-\wss{If you have already done this in the development plan, you can point to
-that document.}
-
-\wss{The details of this section will likely evolve as you get closer to the
-  implementation.}
-
+% \wss{What tools are you using for automated testing.  Likely a unit testing
+%   framework and maybe a profiling tool, like ValGrind.  Other possible tools
+%   include a static analyzer, make, continuous integration tools, test coverage
+%   tools, etc.  Explain your plans for summarizing code coverage metrics.
+%   Linters are another important class of tools.  For the programming language
+%   you select, you should look at the available linters.  There may also be tools
+%   that verify that coding standards have been respected, like flake9 for
+%   Python.}
+% \wss{If you have already done this in the development plan, you can point to
+% that document.}
+% \wss{The details of this section will likely evolve as you get closer to the
+%   implementation.}
 An outline of the CI/CD strategy can be found in section 7 of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/DevelopmentPlan/DevelopmentPlan.pdf}{Development Plan}. A list of relevant frameworks will be found in section 10 of the same document.
 
-\subsection{Software Validation Plan}
+\subsection{Software Validation Plan} \label{section:3.7}
 
-\wss{If there is any external data that can be used for validation, you should
-  point to it here.  If there are no plans for validation, you should state that
-  here.}
-
-\wss{You might want to use review sessions with the stakeholder to check that
-the requirements document captures the right requirements.  Maybe task based
-inspection?}
-
-\wss{For those capstone teams with an external supervisor, the Rev 0 demo should 
-be used as an opportunity to validate the requirements.  You should plan on 
-demonstrating your project to your supervisor shortly after the scheduled Rev 0 demo.  
-The feedback from your supervisor will be very useful for improving your project.}
-
-\wss{For teams without an external supervisor, user testing can serve the same purpose 
-as a Rev 0 demo for the supervisor.}
-
-\wss{This section might reference back to the SRS verification section.}
+% \wss{If there is any external data that can be used for validation, you should
+%   point to it here.  If there are no plans for validation, you should state that
+%   here.}
+% \wss{You might want to use review sessions with the stakeholder to check that
+% the requirements document captures the right requirements.  Maybe task based
+% inspection?}
+% \wss{For those capstone teams with an external supervisor, the Rev 0 demo should 
+% be used as an opportunity to validate the requirements.  You should plan on 
+% demonstrating your project to your supervisor shortly after the scheduled Rev 0 demo.  
+% The feedback from your supervisor will be very useful for improving your project.}
+% \wss{For teams without an external supervisor, user testing can serve the same purpose 
+% as a Rev 0 demo for the supervisor.}
+% \wss{This section might reference back to the SRS verification section.}
 
 Validation of the project is critical and our supervisor will be vital for this process. Our supervisor will make sure that our Software solves the user groups needs. Our supervisor is in an excellent position to validate the software as not only are they a domain expert they also fit the potential user group.
 
@@ -241,7 +257,7 @@ This section will include system tests for functional, non-functional, and safet
 % \wss{Include a blurb here to explain why the subsections below
 %   cover the requirements.  References to the SRS would be good here.}
 
-This section contains the tests for the Functional Requirements. The subsections for these tests were created based on the subsections of the Functional Requirements listed in the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS} \citep{SRS}. Traceability for these requirements and tests can be found in the section (\ref{section:4.4}).
+This section contains the tests for the Functional Requirements. The subsections for these tests were created based on the subsections of the Functional Requirements listed in the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS} \citep{SRS}. Traceability for these requirements and tests can be found in the section 4.(\ref{section:4.4}).
 
 
 \subsubsection{Add a document to the database} \label{section:4.1.1}
@@ -824,6 +840,7 @@ How test will be performed: The test controller will input an unclear sentence a
     
     How test will be performed: The test controller will have a new input with the same data as an existing document and check if the system is able to validate and reject the duplicate record. The controller will verify that an error message appears.
 
+
     % \item{IR5-1\\}
     
     % Type: Functional, Static, Automated\\
@@ -836,7 +853,8 @@ How test will be performed: The test controller will input an unclear sentence a
     
     % How test will be performed: Automated verification of model input parameters against predefined parameter list.
 
-    \item{test-IR6-1}: Classification of data for report generation. \label{test-IR6-1}
+
+    \item{test-IR6-1}: Classification of data for report generation \label{test-IR6-1}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -848,7 +866,8 @@ How test will be performed: The test controller will input an unclear sentence a
     
     How test will be performed: The test controller will have a new data input and check if the system is able to validate and classify the data accurately. The controller will verify that there are no diagnosis errors in the generated report.\\
 
-    \item{test-IR7-1}: Filter background noise for accuracy. \label{test-IR7-1}
+
+    \item{test-IR7-1}: Filter background noise for accuracy \label{test-IR7-1}
     
     Type: Functional, Dynamic, Manual\\
     
@@ -1049,18 +1068,16 @@ How test will be performed:
 
 \newpage
 
-\section{Appendix}
+\section{Appendix} \label{section:6}
 
-This is where you can place additional information.
+\subsection{Symbolic Parameters}  \label{section:6.1}
 
-\subsection{Symbolic Parameters}
+N/A
 
-The definition of the test cases will call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
-
-\subsection{Usability Survey Questions?}
+\subsection{Usability Survey Questions?} \label{section:6.2}
 
 \wss{This is a section that would be appropriate for some projects.}
+
 
 \newpage{}
 \section*{Appendix --- Reflection}
