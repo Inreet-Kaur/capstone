@@ -434,20 +434,84 @@ How test will be performed: The test controller will input an unclear sentence a
 
 \subsubsection{Validate output of correct diagonsis and medication} \label{section:4.1.6}
 
-\item{test-} \label{test-}
+This subsection covers FR12 and FR13 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the system is able to create predictions on the diagnosis and medicines with a high accuracy and confidence.
+
+\begin{enumerate}
+
+\item{test-FR1,4,8-1} \label{test-FR1,4,8-1}
+
+Control: Automatic
+
+Initial State: The user has uploaded the blank chart, and the chart has been populated with the patients symptoms.
+
+Input: Correct and complete input data where all the symptoms fields of the chart are filled out.
+
+Output: A suggestion on what the diagnosis should be based on the symptoms, then based on the diagnosis provide possible medicine.
+
+Test Case Derivation: The system will create a validation set of data, where the model will be evaluated. 
+
+How test will be performed: When the model is deployed it will be automatically evaluated such that it will have to have a classification accuracy greater or equal than 85\%.
+
+\end{enumerate}
 
 
 \subsubsection{Validate input data for models} \label{section:4.1.7}
+This subsection covers FR12, FR13, and IR5 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the system is able to validate the input data in the charts such that it may be inputted into the prediction module.
 
-\item{test-} \label{test-}
+\begin{enumerate}
+
+\item{test-FR1,4,8-1} \label{test-FR1,4,8-1}
+
+Control: Automatic
+
+Initial State: The user has uploaded the blank chart a blank chart.
+
+Input: Correct and complete input data where all the symptoms fields of the chart are filled out.
+
+Output: A suggestion on what the diagnosis should be based on the symptoms, then based on the diagnosis provide possible medicine.
+
+Test Case Derivation: The system will test if the chart data is relevant and correct.  
+
+How test will be performed: When the system is deployed the model input will be tested such that it only accepts valid inputs.
+
+\item{test-FR1,4,8-1} \label{test-FR1,4,8-1}
+
+Control: Automatic
+
+Initial State: The user has uploaded the blank chart a blank chart.
+
+Input: Incorrect and incomplete input data where all the symptoms fields of the chart are filled out.
+
+Output: A error message asking to fix the respective fields.
+
+Test Case Derivation: The system will test if the chart data is relevant and correct.  
+
+How test will be performed: When the system is deployed the model input will be tested such that it only accepts valid inputs. It will output a error message if the output is wrong.
+
+\end{enumerate}
 
 
-\subsubsection{Verify completeness and correctness of data} \label{section:4.1.8}
+\subsubsection{Verify completeness and correctness of data}\label{section:4.1.8}
+This subsection covers FR14 from of the \href{https://github.com/Inreet-Kaur/capstone/blob/main/docs/SRS/SRS.pdf}{SRS document} \citep{SRS} by testing that the data sent over is complete.
 
-\item{test-} \label{test-}
-\end{itemize}
+\begin{enumerate}
+
+\item{test-FR1,4,8-1} \label{test-FR1,4,8-1}
+
+Control: Manual
+
+Initial State: The user has a completed patient profile and wishes to send it over. 
+
+Input: Correct and completed patient chart to be sent to another healthcare network.
+
+Output: A successful send where the data is validated at the endpoint, if incomplete data is received an error message should pop up.
+
+Test Case Derivation: The system will test if the patient profile properly got sent over.
+
+How test will be performed: Tester will send a sample patient profile from one dummy network to another, then the test cases will check if the integrity of the profile is in tact.
 
 
+\end{enumerate}
 
 \subsection{Tests for Nonfunctional Requirements} \label{section:4.2}
 
@@ -794,22 +858,18 @@ How test will be performed: The test controller will input an unclear sentence a
     How test will be performed: The test controller will input an invalid data input and check if the system is able to validate and reject the invalid data. The controller will verify that an error message appears.
 
 
-    \item{test-IR3-1\\}: Validation of confidence score (Pranav) \label{test-IR3-1}
+    \item{test-IR3-1\\}: Validation of confidence score  \label{test-IR3-1}
     
-    % Type: Functional, Static, Automated\\
+    Type: Functional, Static, Automated\\
     
-    % Initial State: ML model trained and ready for predictions.\\
+    Initial State: ML model trained and ready for predictions.\\
     
-    % Input/Condition: Submit test dataset for predictions.\\
+    Input/Condition: Submit test dataset for predictions.\\
     
-    % Output/Result: 
-    % \begin{itemize}
-    %     \item Each prediction includes a confidence score
-    %     \item Validation accuracy scores are generated after training
-    %     \item Scores are properly formatted and within expected ranges
-    % \end{itemize}
+    Output/Result: Each prediction includes a confidence score and the confidence scores of the testing set exceed 85\%.
+
     
-    % How test will be performed: Automated testing of model outputs and validation metrics.
+    How test will be performed: Automated testing of model outputs and confidence scores this assists in understanding how sure the model is in its classification.
 
     \item{test-IR4-1}: Duplicate record detection \label{test-IR4-1}
     
