@@ -792,7 +792,7 @@ How test will be performed: Tester will send a sample patient profile from one d
 
 \subsection{Tests for Safety and Security Requirements} \label{section:4.3}
 
-\subsubsection{Access Requirements Tests} \label{section:4.3.1}
+\subsubsection{AC1}
 
 \begin{enumerate}
 
@@ -829,8 +829,11 @@ How test will be performed: Tester will send a sample patient profile from one d
     \end{itemize}
     
     How this test will be performed: A test group of users and the supervisor will be given the system, and a set of protected resources to access. They will be asked to attempt accessing these resources without authentication. After they do this, they will be given a security test survey. In the security test survey, the supervisor will verify that access was properly blocked and logged.
+\end{enumerate}
 
+\subsubsection{AC2}
 
+\begin{enumerate}
     \item{test-AC2-1}  \label{test-AC2-1}
     
     Type: Functional, Dynamic, Manual
@@ -850,10 +853,10 @@ How test will be performed: Tester will send a sample patient profile from one d
 
 \end{enumerate}
 
-
-\subsubsection{Integrity Requirements Tests} \label{section:4.3.2}
+\subsubsection{IR1}
 
 \begin{enumerate}
+
     \item{test-IR1-1}  \label{test-IR1-1}
     
     Type: Non-functional, Dynamic, Automated
@@ -866,7 +869,11 @@ How test will be performed: Tester will send a sample patient profile from one d
     
     How this test will be performed: A test group of users and the supervisor will be given the system, and a set of test credentials for concurrent authentication testing. They will be asked to perform multiple simultaneous authentication attempts. After they do this, they will be given a system integrity survey. In the system integrity survey, the supervisor will verify that all credentials remained intact and system stability was maintained.
 
+  \end{enumerate}
 
+\subsubsection{IR2}
+  
+  \begin{enumerate}
 
     \item{test-IR2-1} \label{test-IR2-1} %Generate error messages
     
@@ -879,6 +886,12 @@ How test will be performed: Tester will send a sample patient profile from one d
     Output/Result: An error message is displayed to the user. No data is added to any database. 
     
     How test will be performed: The test controller will input an invalid data input and check if the system is able to validate and reject the invalid data. The controller will verify that an error message appears.
+
+  \end{enumerate}
+
+\subsubsection{IR3}
+    
+  \begin{enumerate}
 
 
     \item{test-IR3-1}  \label{test-IR3-1} %Validation of confidence score
@@ -893,6 +906,12 @@ How test will be performed: Tester will send a sample patient profile from one d
     
     How test will be performed: Automated testing of model outputs and confidence scores this assists in understanding how sure the model is in its classification.
 
+  \end{enumerate}
+
+  \subsubsection{IR4}
+    
+  \begin{enumerate}
+
     \item{test-IR4-1} \label{test-IR4-1} %: Duplicate record detection
     
     Type: Functional, Dynamic, Manual
@@ -905,6 +924,12 @@ How test will be performed: Tester will send a sample patient profile from one d
     
     How test will be performed: The test controller will have a new input with the same data as an existing document and check if the system is able to validate and reject the duplicate record. The controller will verify that an error message appears.
 
+  \end{enumerate}
+
+  \subsubsection{IR6}
+    
+  \begin{enumerate}
+
     \item{test-IR6-1} \label{test-IR6-1} % Classification of data for report generation
     
     Type: Functional, Dynamic, Manual
@@ -916,6 +941,12 @@ How test will be performed: Tester will send a sample patient profile from one d
     Output/Result: The data is correctly classified in the generated report with no diagnosis errors.
     
     How test will be performed: The test controller will have a new data input and check if the system is able to validate and classify the data accurately. The controller will verify that there are no diagnosis errors in the generated report.
+
+  \end{enumerate}
+
+\subsubsection{IR7}
+    
+\begin{enumerate}
 
 
     \item{test-IR7-1} \label{test-IR7-1} % Filter background noise for accuracy 
@@ -1032,17 +1063,17 @@ How test will be performed: Tester will send a sample patient profile from one d
   \hline
   test-AC1-\ref{test-AC1-1} & $\times$ & & & & & & & & \\
   \hline
-  test-AC-\ref{test-AC1-2} & $\times$ & & & & & & & & \\
+  test-AC1-\ref{test-AC1-2} & $\times$ & & & & & & & & \\
   \hline
-  test-AC-\ref{test-AC2-1} & & $\times$ & & & & & & & \\
+  test-AC2-\ref{test-AC2-1} & & $\times$ & & & & & & & \\
   \hline
-  test-IR-\ref{test-IR1-1} & & & $\times$ & & & & & &  \\
+  test-IR1-\ref{test-IR1-1} & & & $\times$ & & & & & &  \\
   \hline
-  test-IR-\ref{test-IR2-1}  & & & & $\times$ & & & & & \\
+  test-IR2-\ref{test-IR2-1}  & & & & $\times$ & & & & & \\
   \hline
-  test-IR-\ref{test-IR3-1}  & & & & & $\times$ & & & & \\
+  test-IR3-\ref{test-IR3-1}  & & & & & $\times$ & & & & \\
   \hline
-  test-IR-\ref{test-IR4-1}  & & & & & & $\times$ & & & \\
+  test-IR4-\ref{test-IR4-1}  & & & & & & $\times$ & & & \\
   \hline
   test-FR12,13,IR5-\ref{test-FR12,13,IR5-1} & & & & & & & $\times$ & & \\
   \hline
