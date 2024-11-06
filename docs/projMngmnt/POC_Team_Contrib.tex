@@ -25,16 +25,16 @@ and the POC demo.
 \section{Demo Plans}
 
 % \wss{What will you be demonstrating}
+Our project is a system which intends to speed up the documentation process for health care systems through audio transcription and automated report generation.\\
+In the proof of concept demonstration we intend to demonstrate the core functionality of the system which is to take voice input and convert that into text and then classify it populate the a sample patient medical chart. This medical chart will contain fields like name, symptoms, next steps etc.\\
+These two are the key features that are crucial to achieve the main goals of the project. 
 
-The main risk of the project is related to the reduction of documentation overhead. This means that the biggest risk is really if this project can make a significant reduction to overhead time and truly reduce patient wait times. Again, through elicitation and our domain experts, we will create an effective set of requirements to reduce the risk of the project and build something that is needed.\\
-
-Looking at implementation details there are a few risks that come up, if these risks can be addressed or have a clearer roadmap that will make us more confident in the project. 
+In terms of the components that will be demonstrated, they go as follows:
 
 \begin{itemize}
-  \item \textbf{Speech Input} -- A hospital or a clinic can be a loud place, in the event audio input is taken, we need to ensure that it is clean and clear. This would mean essentially blocking outside noise.
-  \item \textbf{Pre-Trained Models} -- To manipulate and use both inputs above we need to create a model to be accurate and provide accuracy when filling in charts. 
-  \item \textbf{Data Privacy} -- This application will hold a lot of patient data so creating a store that is secure and making sure standard data security practice is applied is a must.
-  \item \textbf{User Acceptance} -- This will require further elicitation outside supervisors. We need to gather data on what critical needs of healthcare professionals such that critical features are present. 
+  \item \textbf{Frontend}: This will allow the user to record their voice, then based on the voice input it will populate a sample medical chart.
+  \item \textbf{Voice to Text Module}: This will convert the voice input to text.
+  \item \textbf{Classification Module}: This will classify which part of the text goes in which section of the medical chart.
 \end{itemize}
 
 \section{Team Meeting Attendance}
@@ -192,9 +192,20 @@ Moamen will be responsible for making issues for features and test suite.\\
 
 \section{CICD}
 
-\wss{Say how CICD will be used in your project}
+% \wss{Say how CICD will be used in your project}
 
-\wss{If your team has additional metrics of productivity, please feel free to
-add them to this report.}
+% \wss{If your team has additional metrics of productivity, please feel free to
+% add them to this report.}
+
+CI/CD will be critical for project development. We will be using \textbf{Jenkins} which is an open-source CI/CD development tool that will act as an automated DevOps tool.
+
+Jenkins will allow us to achieve Continuous Integration and Continuous Delivery through the following:
+\begin{itemize}
+  \item \textbf{Continuous Integration} -- On the continuous integration time Jenkins offers automated build and testing. This will save a lot of overhead on testing and test feedback as Jenkins will be responsible for it not only will it build and test the code it will also offer instant feedback to the developer.
+  \item \textbf{Continuous Deployment} -- Jenkins offers automated deployment functionalities meaning that once the build passes all tests it can be deployed into a production or pre-production environment. This will ensure the deployment is consistent, reliable, and efficient. This also will make sure that all features pass a minimum functionality standard ensuring that they are ready for production. Jenkins offers integrations with git as well so deployments will be version-controlled meaning they may be reverted as needed.
+\end{itemize}
+
+By implementing a CI/CD tool (Jenkins) we can ensure that code isn't riddled with errors and automate a lot of tasks which will increase productivity. Having Jenkins also will reduce the risk of human error in the project and will automate many areas of DevOps.
+
 
 \end{document}
