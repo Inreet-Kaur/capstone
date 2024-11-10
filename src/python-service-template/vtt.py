@@ -2,8 +2,13 @@ from flask import Flask, jsonify, requests
 from pydub import AudioSegment
 import SpeechRecognition as sr
 import io
+import language_tool_python
 
 app = Flask(__name__)
+
+speech_recog = sr.Recognizer() # initialize speech recognition
+grammar_check = language_tool_python.LanguageTool("en-US") # for grammar check and inserting correct punctuation
+
 
 @app.route("/voice_to_text",methods=["POST"])
 
@@ -23,20 +28,12 @@ def voice_to_text():
         audio_for_text = sr.AudioData(raw_audio_data, frame_rate, sample_width)
 
         try:
-            text_from_audio = recognizer.recognize_google(audio_for_text)
+            text_from_audio = speech_recog.recognize_google(audio_for_text)
+            Accurate_text = grammar_check.correct(text_from_audio) # correct grammar
+
         except sr.UnknownValueError:
-            text_from_audio = "Audio is not clear."
+            Accurate_text = "Audio is not clear."
 
-        return jsonify({"resp":text_from_audio})
+        return jsonify({"resp": Accurate_text}) # final output
+    
     return jsonify({"error":"Input not received."})
-    
-
-        
-
-
-    
-
-
-
-
-
