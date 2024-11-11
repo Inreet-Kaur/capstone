@@ -1,0 +1,31 @@
+EMERGENCY DEPARTMENT TRIAGE RECORD
+
+1. PATIENT INFORMATION
+- Name:
+- DOB:
+- Date/Time of Arrival:
+- Mode of Arrival: (walked in, ambulance, etc.)
+
+2. CHIEF COMPLAINT & VITALS
+- Primary Complaint:
+- Pain Score (0-10):
+
+3. CURRENT ILLNESS/INJURY
+- Onset/Timing:
+- Location:
+- Duration:
+- Severity:
+- What makes it worse:
+- What makes it better:
+- Related Symptoms:
+
+4. RELEVANT MEDICAL HISTORY
+- Ongoing Medical Conditions:
+- Current Medications:
+- Allergies:
+- Recent Hospital Visits:
+
+5. INITIAL INTERVENTIONS
+- Actions Taken:
+- Initial Medications Given:
+- Tests Already Done:
