@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 speech_recog = sr.Recognizer() # initialize speech recognition
 grammar_check = language_tool_python.LanguageTool("en-US") # for grammar check and inserting correct punctuation
+# AudioSegment.ffmpeg = "C:\Users\gurle\Downloads\ffmpeg-2024-11-06-git-4047b887fc-full_build\ffmpeg-2024-11-06-git-4047b887fc-full_build\bin\ffmpeg.exe"
 
 
 @app.route("/voice_to_text",methods=["POST"])
@@ -38,3 +39,6 @@ def voice_to_text():
         return jsonify({"resp": Accurate_text}) # final output
     
     return jsonify({"error":"Input not received."})
+    
+if __name__ == "__main__":
+    app.run(debug=True)
