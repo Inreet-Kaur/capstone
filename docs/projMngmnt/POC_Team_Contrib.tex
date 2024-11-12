@@ -26,15 +26,24 @@ and the POC demo.
 
 % \wss{What will you be demonstrating}
 Our project is a system which intends to speed up the documentation process for health care systems through audio transcription and automated report generation.\\
-In the proof of concept demonstration we intend to demonstrate the core functionality of the system which is to take voice input and convert that into text and then classify it populate the a sample patient medical chart. This medical chart will contain fields like name, symptoms, next steps etc.\\
-These two are the key features that are crucial to achieve the main goals of the project. 
 
-In terms of the components that will be demonstrated, they go as follows:
+The following list of risks were identified as a part of our development Plan:
+\begin{itemize}
+  \item \textbf{Speech Input} -- A hospital or a clinic can be a loud place, in the event audio input is taken we need to ensure that it is clean and clear. This would mean essentially blocking outside noise. 
+  \item \textbf{Pre-Trained Models} -- To manipulate and use both inputs above we need to create a model to be accurate and provide accuracy when filling in charts. 
+  \item \textbf{Data Privacy} -- This application will hold a lot of patient data so creating a store that is secure and making sure standard data security practice is applied is a must.
+  \item \textbf{User Acceptance} -- This will require further elicitation with our supervisor. This would help us to gather data on what critical needs of healthcare professionals such that critical features are present. 
+\end{itemize}
 
+
+In the proof of concept demonstration we intend to demonstrate how we would address all the risks identified above. We would demonstrate the core functionality of the system which is to take speech input and convert that into text and then classify it populate the a sample patient medical chart using pre trianed models. The frontend and backend will be connected securely through an API module to ensure secure transfer of data. To mitigate the user acceptance risk, we demonstrated our POC demo to our supervisor who is a healthcare professional, to gain insights about the critical user needs. We were able to identify that the charts should be filled in with an optimal amount of accuracy. The classified data should be displayed into the charts in real-time which we intend to demonstrate in our demo. \\
+
+Below is the list of component that will be demonstrated in the POC demo:
 \begin{itemize}
   \item \textbf{Frontend}: This will allow the user to record their voice, then based on the voice input it will populate a sample medical chart.
   \item \textbf{Voice to Text Module}: This will convert the voice input to text.
   \item \textbf{Classification Module}: This will classify which part of the text goes in which section of the medical chart.
+  \item \textbf{API Module}: This will act as a broker to securely transfer data between the frontend and backend of the system.
 \end{itemize}
 
 \section{Team Meeting Attendance}
