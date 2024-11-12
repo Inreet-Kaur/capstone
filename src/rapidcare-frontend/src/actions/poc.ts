@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { fetchClassifiedDataService, fetchTranscriptionService, sendAudioService } from '../services/pocService';
+import { fetchClassifiedDataService, fetchTranscriptionService, sendAudioService, getClassifiedNotes } from '../services/pocService';
 import { AppState } from '../reducers/AppState';
 import { IClassifiedData } from '../models/poc';
 
@@ -8,9 +8,32 @@ export const SET_CLASSIFIED_DATA = 'SET_CLASSIFIED_DATA';
 // export const START_RECORDING = 'START_RECORDING';
 // export const STOP_RECORDING = 'STOP_RECORDING';
 
+export const getClassifiedAudio = (audioChunk : Blob) => async (dispatch: Dispatch, getState: () => AppState) => {
+    try{
+        console.log('Getting classified Audio!');
+        const result = await getClassifiedNotes(audioChunk);
+
+        const data: IClassifiedData = result.classifiedData;
+        const transcribedText = result.transcribedText;
+
+        dispatch({
+            type: SET_CLASSIFIED_DATA,
+            payload: data,
+        });
+
+        dispatch({
+            type: SET_CLASSIFIED_DATA,
+            payload: data,
+        });
+    }catch(error){
+        console.log("OMG SOME ERROR BEN STOKES")
+    }
+}
+
 export const sendAudio = (audioChunk: Blob) => async (dispatch: Dispatch, getState: () => AppState) => {
     const { testMode } = getState().poc;
     try {
+        console.log('Hello from inreet');
         await sendAudioService(audioChunk, Boolean(testMode));
     } catch (error) {
         console.error('Error sending audio:', error);

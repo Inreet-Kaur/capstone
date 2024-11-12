@@ -1,10 +1,47 @@
 import { IClassifiedData } from "../models/poc";
 
 // replaced with actual urls
-const API_URL = 'AUDIO_API_URL'; 
+const API_URL = 'localhost:8080/'; 
 const TRANSCRIPTION_API_URL = 'TRANSCRIPTION_API_URL';
 const CLASSIFICATION_API_URL = 'CLASSIFICATION_API_URL';
 
+const fillClassifiedData = (rawData : Map<string, string>) => {
+    const data: IClassifiedData = { 
+        ...Object.fromEntries(['name', 'age', 'gender', 'insurance', 'reasonForVisit', 'symptoms', 'notes'].map(k => [k, rawData.get(k)])), 
+        ...Object.fromEntries(['medicalHistory', 'allergies', 'diagnoses', 'prescriptions'].map(k => [k, rawData.get(k)?.split(',') || []])),
+        labResults: [{ testName: 'Blood Glucose', result: '180 mg/dL', date: '2024-11-08' }, { testName: 'Cholesterol', result: '210 mg/dL', date: '2024-11-08' }]
+    };
+
+    return data;
+}
+
+export const getClassifiedNotes = async (audioChunk: Blob): Promise<{ 
+    classifiedData: IClassifiedData; 
+    transcribedText: string; 
+}> => {
+    console.log("Hitting");
+    const sampleToken = "placeholder";
+    const formData = new FormData();
+    formData.append('file', audioChunk, 'recording.wav');
+    
+    try {
+        const response = await fetch(`http://${process.env.REACT_APP_API}/${process.env.REACT_APP_API_CLFT}`, {
+            method: 'POST',
+            headers: {
+                'x-access-token': sampleToken
+            },
+            body: formData
+        });
+        
+        const data = await response.json();
+        const classifiedData: IClassifiedData = fillClassifiedData(data.classified);
+        return { classifiedData, transcribedText: data.transcribedText };
+    } catch (error) {
+        console.error('Error processing audio:', error);
+        throw error;
+    }
+    
+}
 
 
 export const sendAudioService = async (audioChunk: Blob, testMode: boolean): Promise<void> => {
@@ -15,7 +52,7 @@ export const sendAudioService = async (audioChunk: Blob, testMode: boolean): Pro
     const formData = new FormData();
     formData.append('audio', audioChunk, 'recording.wav');
 
-    const response = await fetch(`${API_URL}/upload-audio`, {
+    const response = await fetch(`${API_URL}/api/classifyText`, {
         method: 'POST',
         body: formData,
     });

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { sendAudio, fetchTranscribedText, fetchClassifiedData } from '../actions/poc';
+import { getClassifiedAudio, sendAudio, fetchTranscribedText, fetchClassifiedData } from '../actions/poc';
 import Poc from '../views/poc';
 import { AppState } from '../reducers/AppState';
 import { useState, useEffect } from 'react';
@@ -15,6 +15,7 @@ interface DispatchProps {
   sendAudio: (audioData: Blob) => void;
   fetchTranscribedText: () => void;
   fetchClassifiedData: () => void;
+  getClassifiedAudio: (audioData: Blob) => void;  // Add this line
 }
 
 interface PocConnectorProps extends StateProps, DispatchProps { }
@@ -28,11 +29,12 @@ const mapDispatchToProps: DispatchProps = {
   sendAudio,
   fetchTranscribedText,
   fetchClassifiedData,
+  getClassifiedAudio,
 };
 
 const Connector = (props: PocConnectorProps) => {
-  const { sendAudio, fetchTranscribedText, fetchClassifiedData } = props;
-  const [isRecording, setIsRecording] = useState(false);
+  const { sendAudio, fetchTranscribedText, fetchClassifiedData, getClassifiedAudio } = props;
+    const [isRecording, setIsRecording] = useState(false);
   const [isPolling, setIsPolling] = useState(false);
   const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(null);
   const audioChunks: BlobPart[] = [];
@@ -57,15 +59,17 @@ const Connector = (props: PocConnectorProps) => {
       setMediaRecorder(recorder);
 
       recorder.ondataavailable = (event: BlobEvent) => {
+        getClassifiedAudio(event.data);
+        console.log('Available', event.data);
         audioChunks.push(event.data);
-        sendAudio(event.data);
+        // sendAudio(event.data);
       };
 
       recorder.onstop = () => {
         stream.getTracks().forEach(track => track.stop());
       };
 
-      recorder.start(1000);
+      recorder.start(20000);
       setIsRecording(true);
       setTimeout(() => setIsPolling(true), 1000);
     } catch (error) {
