@@ -1,0 +1,7 @@
+python -m venv venv
+
+add your dependencies
+
+Make sure env is in git ignore before push
+
+create a requirements.txt w/ https://pip.pypa.io/en/stable/cli/pip_freeze/
